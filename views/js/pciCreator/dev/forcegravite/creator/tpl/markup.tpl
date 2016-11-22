@@ -895,7 +895,7 @@
            y="708.07648"
            x="982.14282"
            id="tspan5423"
-           sodipodi:role="line">60 N</tspan></text>
+           sodipodi:role="line">64 N</tspan></text>
     </g>
     <g
        id="grav-mars"
@@ -933,7 +933,7 @@
            y="735.2193"
            x="962.14288"
            id="tspan5439"
-           sodipodi:role="line">145 N</tspan></text>
+           sodipodi:role="line">144 N</tspan></text>
     </g>
     <g
        id="grav-terre"
@@ -946,7 +946,7 @@
          style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g4729-2"
-         transform="translate(59.50273,100.04258)">
+         transform="translate(59.50273,98)">
         <path
            style="fill:none;fill-rule:evenodd;stroke:#00e9ff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            d="m 816.78572,739.71995 c 124.17138,0 124.17138,0 124.17138,0"
@@ -971,7 +971,7 @@
            y="833.07648"
            x="950.71429"
            id="tspan5457"
-           sodipodi:role="line">400 N</tspan></text>
+           sodipodi:role="line">392 N</tspan></text>
     </g>
   </g>
 </svg>

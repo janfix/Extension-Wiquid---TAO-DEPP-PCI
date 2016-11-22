@@ -4,7 +4,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
     	$("#premierplan").prepend($('<img>', {src: assetManager.resolve('train/runtime/img/bg.png')}).attr("id","bg").attr("class","bg")); 
     	$("#convoi").append($('<img>', {src: assetManager.resolve('train/runtime/img/train.png')}).attr("id","train").attr("class","train"));
-		$("#convoi").append($('<img>', {src: assetManager.resolve('train/runtime/img/roue.png')}).attr("id","roue").attr("class","roue"));
+		  $("#convoi").append($('<img>', {src: assetManager.resolve('train/runtime/img/roue.png')}).attr("id","roue").attr("class","roue"));
+      $("#convoi").append($('<img>', {src: assetManager.resolve('train/runtime/img/coccifix.png')}).attr("id","coccifix").attr("class","coccifix"));
 
 
 		$("#traj").append($('<img>', {src: assetManager.resolve('train/runtime/img/traj.png')}).attr("id","ptvvache"));    	

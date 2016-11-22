@@ -12,6 +12,12 @@
 
 }
 
+.trainvache #coccifix{
+    position: absolute;
+    margin-top: 187px;
+    left: 185px;
+}
+
 .trainvache #bg{
 
     height:445px;
