@@ -3,6 +3,8 @@
 /* Wiquid 
 svg{width: 790px; height: 500px; background-color: #555; border: 5px solid #AAA;}*/
 
+#answcircuit{display:none;}
+
 .circuit #btinsttext{   
     font-size: 15px;
     cursor: pointer;

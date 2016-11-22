@@ -1,5 +1,7 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+#trainansw{display: none;}
+
 .trainvache #container{
     border : 1px grey solid;
     width : 790px;

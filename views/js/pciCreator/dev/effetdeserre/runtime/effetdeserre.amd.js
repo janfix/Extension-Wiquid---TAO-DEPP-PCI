@@ -43,11 +43,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'effetdeserre/r
          */
         setResponse : function(response){// Fait passer la réponse à la fonction. La var response est définie dans question.js
 
-            var $container = $(this.dom),
-                value = response && response.base ? parseInt(response.base.integer) : -1;
-
-            $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
-        },
+            var $container = $(this.dom), value;
+                     },
         /**
          * Get the response in the json format described in
          * http://www.imsglobal.org/assessment/pciv1p0cf/imsPCIv1p0cf.html#_Toc353965343
@@ -58,9 +55,10 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'effetdeserre/r
         getResponse : function(){
 
             var $container = $(this.dom),
-                value = parseInt($container.find('input:checked').val()) || 0;
+            value = $("#efdsasw").text();
+            value = value.slice(0,-1); // Enlève la dernière virgule.
 
-            return {base : {integer : value}};
+            return {base : {string : value}};
         },
         /**
          * Remove the current response set in the interaction

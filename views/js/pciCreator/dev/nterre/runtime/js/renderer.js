@@ -4,6 +4,11 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
     function renderChoices(id, $container, config){
 
+        var answdist = "dist-non";
+        var answmass = "mass-non";
+        var answray = "ray-non";
+
+
             $("#cmddist").append("<input type='range' name='dist' id='dist' max='550' min='50' step='50' />");
             $("#cmdmas").append("<input type='range' name='mas'  id='mas'  max='31' min='1' step='5'/>");
             $("#cmdray").append("<input type='range' name='ray' id='ray'  max='300' min='100'/>");
@@ -11,7 +16,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             $("#dist").val(200);
             $("#ray").val(250);
 
-            $("#dist").change(function(event) {
+    $("#dist").change(function(event) {
+        if(answdist == "dist-non"){$("#nterransw").append(" dist-ok,"); answdist ="dist-ok"; }
         $("#distance").html("");
         $("#gravitas").html("Valeur de la force de gravitation : ");
         var lockplan = eval($("#dist").val())+24+250;
@@ -26,6 +32,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
      });
 
      $("#ray").change(function(event) {
+        if(answray == "ray-non"){$("#nterransw").append(" ray-ok,"); answray ="ray-ok"; }
         $("#taille").html("");
         var tailkm = 25*$("#ray").val()*($("#ray").val()/100);
         tailkm = Math.round(tailkm);
@@ -37,13 +44,14 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
      });
 
      $("#mas").change(function(event) {
+        if(answmass == "mass-non"){$("#nterransw").append(" mass-ok,"); answmass ="mass-ok"; }
         var valmass;
             $("#masse").html("");
             $("#gravitas").html("Valeur de la force de gravitation : ");
             if($(this).val()==31){valmass=30;}else{valmass = $(this).val();}
             $("#masse").append(valmass + " x 10<sup>23</sup>kg");
             grav();
-          });
+      });
 
 
 function grav(){

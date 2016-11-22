@@ -9,6 +9,8 @@
 	<div id="zonefeu"></div>
 
 	<div id="zonechocolat"></div>
+
+	<div id="cuisineasw"></div>
 	
 
 </div>

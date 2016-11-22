@@ -36,8 +36,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'maraissalant/r
          */
         setResponse: function(response) { // Fait passer la réponse à la fonction. La var response est définie dans question.js
 
-            var $container = $(this.dom),
-                value = response && response.base ? parseInt(response.base.integer) : -1;
+            var $container = $(this.dom), value;
 
             $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
         },
@@ -51,7 +50,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'maraissalant/r
         getResponse: function() {
 
             var $container = $(this.dom),
-                value = parseInt($container.find('input:checked').val()) || 0;
+                value = $("#msanswer").text();
 
             return { base: { integer: value } };
         },

@@ -238,5 +238,7 @@
  <span id="consigne">Avec la souris, déplacer le curseur afin d'augmenter l'effet de serre.<br /></span>
    
   </div>
+
+  <div id="efdsasw"></div>
   
 </div>

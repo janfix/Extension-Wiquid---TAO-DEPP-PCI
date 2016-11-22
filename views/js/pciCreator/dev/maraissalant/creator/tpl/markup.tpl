@@ -2454,4 +2454,5 @@ Nga5QoQAAAAASUVORK5CYII=
 </div>
 
 <div id="bouclier" class="bouclier"></div>
+<div id="msanswer"></div>
 </div>

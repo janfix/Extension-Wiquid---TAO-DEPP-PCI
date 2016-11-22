@@ -29,10 +29,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
                // alert("tu es dans EDITOR !");
             } });
 
-
+            var answccbleue = "not-used";
+            var answvache = "not-used";
             // Interaction du Contenu de la PCI 
 
              $("#ccbleu").click(function(event) {
+              if(answccbleue == "not-used"){$("#trainansw").append(" animcocci-ok,"); answccbleue="anim-ok"; console.log("inside cond jp");}
                 $(".cocci").hide();
                 $("#situercocci").hide();
                 $("#vache").hide();
@@ -43,6 +45,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
               });
 
               $("#vache").click(function(event) {
+              if(answvache == "not-used"){$("#trainansw").append(" animvache-ok,"); answvache="anim-ok";}
                 $(".cocci").hide();
                 $("#situercocci").hide();
                  $("#ccbleu").hide();

@@ -59,5 +59,6 @@
 		</div>
 
 </div>
-    
+  
+ <div id="trainansw"></div>  
 </div>

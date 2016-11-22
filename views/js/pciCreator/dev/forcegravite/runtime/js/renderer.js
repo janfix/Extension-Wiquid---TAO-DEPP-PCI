@@ -9,6 +9,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             var decalleur = 0;
             var poidsDroite = 0;
             var astro = "terre";
+            var answbal  = "not-use";
+            var answdyna = "not-use";
+
           
             var getpathmeteor2 = $('<img>', {src: assetManager.resolve('forcegravite/runtime/img/meteor.png')});
             
@@ -167,6 +170,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
                             var cible = String(target.id);
                             if (cible == "balGauche") {
+                                if(answbal=="not-use"){$("#answforce").append(" balance-ok,"); answbal= "bal-ok"; }
                                 // Repositionner la div de la dynamo et vice et versa ne pas oublier le cas du socle
                                 $("#dynamo").css("top", "0px");
                                 $("#poids40kg").show();
@@ -179,6 +183,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
                             }
                             if (cible == "dynamo") {
+                                if(answdyna=="not-use"){$("#answforce").append(" dynamo-ok,"); answdyna= "dyna-ok"; }
                                // $("#balGauche").css("top", "275px").css("left", "268px"); //Repositionne la div
                                 $("#poids40kg").hide();
                                 $("#txtmass").hide();

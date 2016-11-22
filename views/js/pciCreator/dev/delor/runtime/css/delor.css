@@ -1,5 +1,7 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+#deloransw{display: none;}
+
 .delor{
     max-width: 950px;
     height:550px;

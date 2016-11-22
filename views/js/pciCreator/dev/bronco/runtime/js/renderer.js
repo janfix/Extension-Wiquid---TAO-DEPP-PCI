@@ -6,10 +6,15 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
         $("#polludiv").append("<input type='range' id='pollu' max='20' min='1'>");
 
         $("#pollu").val(1);
-      
-        $("#pollu").change(function(event) {
+      var answ = "";
+         $(document).on("input", "#pollu", function(){ 
             var vpol = 40- eval( $("#pollu").val()); 
             $("#air").attr("r", vpol);
+            
+            answ = answ + $("#pollu").val();
+            console.log(answ);
+            if(answ.length < 80){$("#broncoanswer").append("'"+$("#pollu").val()+"',"); }
+            
          });
     }
 

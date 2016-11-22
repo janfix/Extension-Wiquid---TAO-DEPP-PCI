@@ -1,5 +1,8 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+
+#answforce{display:none;}
+
 .qti-customInteraction .forcegravite{ height:530px; }
 
 .forcegravite #svg2{position:relative;}

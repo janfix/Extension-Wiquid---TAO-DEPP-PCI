@@ -43,8 +43,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'nterre/runtime
          */
         setResponse: function(response) { // Fait passer la réponse à la fonction. La var response est définie dans question.js
 
-            var $container = $(this.dom),
-                value = response && response.base ? parseInt(response.base.integer) : -1;
+            var $container = $(this.dom), value ;
 
             $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
         },
@@ -58,9 +57,10 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'nterre/runtime
         getResponse: function() {
 
             var $container = $(this.dom),
-                value = parseInt($container.find('input:checked').val()) || 0;
+                value = $("#nterransw").text();
+                value = value.slice(0,-1); // Enlève la dernière virgule.
 
-            return { base: { integer: value } };
+            return { base: { string: value } };
         },
         /**
          * Remove the current response set in the interaction

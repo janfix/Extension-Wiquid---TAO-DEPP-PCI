@@ -4,6 +4,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
     function renderChoices(id, $container, config){
 
+    var answ;
+
        $("#consigne").append(" - moins  <input type='range' id='ranger'> plus +");
             $("#ranger").attr("min","0");
             $("#ranger").attr("max","0.8");
@@ -12,8 +14,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
      
      // $("#ranger").change(function(event) {
         $(document).on("input", "#ranger", function(){ 
-
-        console.log("ici bouge le ranger"); 
+           answ = answ + $("#ranger").val(); 
+            if(answ.length < 80){$("#efdsasw").append("'"+$("#ranger").val()+"',"); }    
 
         var seuil = parseFloat($(this).val());
         

@@ -36,10 +36,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          */
         setResponse: function(response) { // Fait passer la réponse à la fonction. La var response est définie dans question.js
 
-            var $container = $(this.dom),
-                value = response && response.base ? parseInt(response.base.integer) : -1;
-
-            $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
+            var $container = $(this.dom), value;
+             // trouve le input dont la valeur est value et le met sur true !
         },
         /**
          * Get the response in the json format described in
@@ -51,9 +49,10 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
         getResponse: function() {
 
             var $container = $(this.dom),
-                value = parseInt($container.find('input:checked').val()) || 0;
+                value = $("#deloransw").text();
+                 value = value.slice(0,-1);
 
-            return { base: { integer: value } };
+            return { base: { string: value } };
         },
         /**
          * Remove the current response set in the interaction

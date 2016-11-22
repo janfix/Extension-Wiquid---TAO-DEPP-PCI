@@ -686,7 +686,8 @@ qlWBqlrVqlYFqmpV67pZ//8AZ8PnpWdZY1AAAAAASUVORK5CYII=
 <span id="moins" class="leg">- <br /> Moins de pollution</span>
 <span id="plus" class="leg">+ <br />Plus de pollution</span>
 
+
 </div>
 
-
+<div id="broncoanswer"></div>
 </div>

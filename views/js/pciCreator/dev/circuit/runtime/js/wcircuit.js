@@ -87,6 +87,7 @@ function component(){
   };
 
   this.dragStop=function(){
+    $("#answcircuit").append(" "+ this.obj.name + ",");
     if(this.obj.dx==0&&this.obj.dy==0&&this.obj.active){
       this.obj.rotate();
     }

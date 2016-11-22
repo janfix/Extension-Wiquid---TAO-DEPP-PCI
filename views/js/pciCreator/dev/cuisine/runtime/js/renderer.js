@@ -4,6 +4,11 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
     function renderChoices(id, $container, config, assetManager){
 
+        var answboiler;
+        var answtartre;
+        var answfeu;
+        var answchoco;
+
             $("#containercuisine").append("<button id='bt-tartre' class='bt'>Observation n°4</button><button id='bt-boiler' class='bt'>Observation n°1</button><button id='bt-feu' class='bt'>Observation n°3</button><button id='bt-choco' class='bt'>Observation n°2</button>"); 
             
             // Insertion image de zoneTartre           
@@ -29,6 +34,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
 
             $("#bt-boiler").click(function(event) {
+                answboiler= "boiler";
+                $("#cuisineasw").append(answboiler +",");
                 $(".bt").hide();
                 $(".bt").delay("7100").fadeIn();
                 $("#boiler1").hide();
@@ -45,6 +52,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
 
         $("#bt-feu").click(function(event) {
+            answfeu = "feu";
+            $("#cuisineasw").append(answfeu +",");
             $("#feugaz").hide();
             $("#gazfeutxt").hide();
             $(".bt").hide();
@@ -58,6 +67,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     }); 
 
          $("#bt-choco").click(function(event) {
+            answchoco = "chocolat";
+            $("#cuisineasw").append(answchoco +",");            
             $(".bt").hide();
             $(".bt").delay("9100").fadeIn();
             $("#zonechocolat").css("display","inline");
@@ -77,6 +88,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     }); 
 
           $("#bt-tartre").click(function(event) {
+            answtartre = "tartre";
+            $("#cuisineasw").append(answtartre+",");
             $(".bt").hide();
             $(".bt").delay("8100").fadeIn();
             $("#zonetartre").css("display","inline");

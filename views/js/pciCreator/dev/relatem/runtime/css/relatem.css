@@ -1,5 +1,7 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+#ansrdm{display:none;}
+
 .qti-customInteraction .relatem{
     width:100%;
     padding:10px 20px 16px;

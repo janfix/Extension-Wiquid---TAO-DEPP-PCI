@@ -12,6 +12,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             var diffniv = 0;
             var neutralisor = 0; //La statue sort du bain indice pris par le drag départ. 0 faux
             var special = 0; //Se met sur 1 si on
+            var answvanne = "not-use";
+            var answbal = "not-use";
+            var answbecher = "not-use";
 
             //Insertion de Orus
            $("#zonesocle").append($('<img>', {src: assetManager.resolve('delor/runtime/img/orus.png')}).attr('id','catgod').attr('class','draggable'));
@@ -49,6 +52,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             });
 
             $("#vanne").mouseup(function(event) {
+                if(answvanne=="not-use"){$("#deloransw").append(" vanne-ok,"); answvanne="vanne-ok"; }
                 obBecher.remplir();
                 //console.log("statueloc depuis vanne : " + statueloc);
                 // La statue est dans le becher vide
@@ -428,6 +432,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
                                 
                             }
                             if (cible == "zonepese") {
+                                 if(answbal=="not-use"){$("#deloransw").append(" balance-ok,"); answbal="bal-ok"; }
                                 $("#catgod").css("left", "47px").css("top", "64px");
                                 obBecher.statue = false;
                                 if (statueloc == 2) {
@@ -444,6 +449,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
                             }
                             if (cible == "zoneplonge") {
+                                 if(answbecher=="not-use"){$("#deloransw").append(" becher-ok,"); answbecher="becher-ok"; }
                                 var poidssta2 =  $("#tspan5974").text();
                                 if (statueloc == 1 && poidssta2=="0 g" && onoff==1 ){console.log("cas 0 vers -190");
                                     $("#tspan5974").html("-190 g");

@@ -3,6 +3,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 // Le renderer sert pour le rendu QTI visible dans Preview. 
 
     function renderDisplay(id, $container, config){
+        var msansw = "non";
 
              $("div").each(function(index,obj){
             if(obj.id=="item-editor-scroll-inner"){
@@ -27,6 +28,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
 
             $("#btdemarrer").click(function(event) {
+                if(msansw =="non"){$("#msanswer").append("anim-ok");msansw="oui"; }
                 $(this).hide();
                 $("#btzero").show();
                 $("#btzero rect").css("fill", "lightgrey");

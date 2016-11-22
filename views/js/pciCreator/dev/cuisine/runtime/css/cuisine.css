@@ -1,4 +1,9 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+#cuisineasw{
+    display:none;
+}
+
 #containercuisine{
     height : 416px;
     background-image: url("img/cuisine.png");

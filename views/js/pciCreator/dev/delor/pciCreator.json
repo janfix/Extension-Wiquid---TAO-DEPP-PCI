@@ -10,7 +10,7 @@
        "physique, masse, volume"
     ],
     "response": {
-            "baseType": "integer",
+            "baseType": "string",
             "cardinality": "single"
     },
     "runtime" : {

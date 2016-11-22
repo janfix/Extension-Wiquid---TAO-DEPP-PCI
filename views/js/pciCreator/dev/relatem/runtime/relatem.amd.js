@@ -32,7 +32,9 @@ define(['qtiCustomInteractionContext',
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
 
-            //**********Code**************    
+            //**********Code**************   
+            var anim1 = "notuse";
+            var anim2 = "notuse";
                 // Rotation des roues
                 var angle = 0;
                   setInterval(function(){
@@ -46,8 +48,9 @@ define(['qtiCustomInteractionContext',
                  // $("#roue2").rotate(angle);
                   },10);
                       
-                console.log('CParti!');
+                //console.log('CParti!');
                 $("#activVF").click(function(event) {
+                    if(anim1=="notuse"){$("#ansrdm").append(" Anim1-OK,"); anim1="anim1ok";}
                     $("#vueglobale").hide();
                     $("#vuegars").hide();
                     $("#vuefille").show();
@@ -62,6 +65,7 @@ define(['qtiCustomInteractionContext',
 
 
                 $("#activG").click(function(event) {
+                    if(anim2=="notuse"){$("#ansrdm").append(" Anim2-OK,"); anim2="anim1ok";}
                     $("#vueglobale").hide();
                     $("#vuegars").show();
                     $("#vuefille").hide();
@@ -97,10 +101,9 @@ define(['qtiCustomInteractionContext',
          */
         setResponse : function(response){// Fait passer la réponse à la fonction. La var response est définie dans question.js
 
-            var $container = $(this.dom),
-                value = response && response.base ? parseInt(response.base.integer) : -1;
+            var $container = $(this.dom), value ;
 
-            $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
+           // $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
         },
         /**
          * Get the response in the json format described in
@@ -112,9 +115,11 @@ define(['qtiCustomInteractionContext',
         getResponse : function(){
 
             var $container = $(this.dom),
-                value = parseInt($container.find('input:checked').val()) || 0;
+                value = $("#ansrdm").text();
+                value = value.slice(0,-1); // Enlève la dernière virgule.
 
-            return {base : {integer : value}};
+
+            return {base : {string : value}};
         },
         /**
          * Remove the current response set in the interaction

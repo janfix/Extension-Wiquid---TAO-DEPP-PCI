@@ -10,7 +10,7 @@
         "Physique"
     ],
     "response": {
-            "baseType": "integer",
+            "baseType": "string",
             "cardinality": "single"
     },
     "runtime" : {

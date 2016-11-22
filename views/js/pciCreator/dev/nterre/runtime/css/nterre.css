@@ -1,4 +1,7 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+#nterransw{ display:none; }
+
 .nterre body{font-family: sans-serif;}
 
 .nterre #nterrebg{height:400px;}
