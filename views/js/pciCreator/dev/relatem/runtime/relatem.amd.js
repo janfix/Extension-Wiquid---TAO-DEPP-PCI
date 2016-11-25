@@ -15,7 +15,7 @@ define(['qtiCustomInteractionContext',
          * @param {Node} dom
          * @param {Object} config - json
          */
-        initialize : function(id, dom, config){
+        initialize : function(id, dom, config, assetManager){
 
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
@@ -25,66 +25,14 @@ define(['qtiCustomInteractionContext',
             this.dom = dom; // Reçoit la valeur dom passer en initialisation
             this.config = config || {};
 
-            renderer.render(this.id, this.dom, this.config);
+            renderer.render(this.id, this.dom, this.config, assetManager);
 
           
 
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
 
-            //**********Code**************   
-            var anim1 = "notuse";
-            var anim2 = "notuse";
-                // Rotation des roues
-                var angle = 0;
-                  setInterval(function(){
-                    angle+=3;
-                // $("#roue").rotate(angle);
-                  },10);
-
-                var angle = 0;
-                  setInterval(function(){
-                    angle+=3;
-                 // $("#roue2").rotate(angle);
-                  },10);
-                      
-                //console.log('CParti!');
-                $("#activVF").click(function(event) {
-                    if(anim1=="notuse"){$("#ansrdm").append(" Anim1-OK,"); anim1="anim1ok";}
-                    $("#vueglobale").hide();
-                    $("#vuegars").hide();
-                    $("#vuefille").show();
-                    $("#vfimg").removeClass('.vfimg');
-                // Permet de rejouer l'animation au click
-                var el     = $("#vfimg"),  
-                     newone = el.clone(true);          
-                 el.before(newone);
-                 $("." + el.attr("class") + ":last").remove();
-
-                });
-
-
-                $("#activG").click(function(event) {
-                    if(anim2=="notuse"){$("#ansrdm").append(" Anim2-OK,"); anim2="anim1ok";}
-                    $("#vueglobale").hide();
-                    $("#vuegars").show();
-                    $("#vuefille").hide();
-
-
-                // Permet de rejouer l'animation au click
-                var el = $("#motanim"),  
-                     newone = el.clone(true);          
-                 el.before(newone);
-                 $("." + el.attr("class") + ":last").remove();
-                    
-                });
-
-                $("#activGlobal").click(function(event) {
-                    $("#vueglobale").show();
-                    $("#vuegars").hide();
-                    $("#vuefille").hide();
-
-                });
+            
 
             /*//listening to dynamic configuration change
             this.on('levelchange', function(level){

@@ -45,6 +45,13 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
+        $("div .effetdeserre").each(function(index, el) {
+                if(this){
+                alert ("Une instance de cette PCI existe déjà, Impossible d'en mettre 2. Effacer les deux instances et recommencer.");
+                }         
+            });
+
+            
             //do some stuff
         },
         /**

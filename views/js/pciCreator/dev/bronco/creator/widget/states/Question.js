@@ -9,7 +9,7 @@ define([
     'jquery'
 ], function(stateFactory, Question, formElement, simpleEditor, containerEditor, formTpl, _, $){
 
-    var LikertInteractionStateQuestion = stateFactory.extend(Question, function(){ // Extension de l'objet stateFactory
+       var LikertInteractionStateQuestion = stateFactory.extend(Question, function(){ // Extension de l'objet stateFactory
 
 
         var $container = this.widget.$container,//Met à jour le container par ses propres modifications
@@ -50,7 +50,7 @@ define([
             interaction = _widget.element,
             response = interaction.getResponseDeclaration(),
             level = parseInt(interaction.prop('level')) || 5,
-            levels = [5, 7, 9],response
+            levels = [5, 7, 9],
             levelData = {};
 
         //build select option data for the template

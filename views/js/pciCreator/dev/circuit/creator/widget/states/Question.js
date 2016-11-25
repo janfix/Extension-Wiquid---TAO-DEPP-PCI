@@ -50,7 +50,7 @@ define([
             interaction = _widget.element,
             response = interaction.getResponseDeclaration(),
             level = parseInt(interaction.prop('level')) || 5,
-            levels = [5, 7, 9],response
+            levels = [5, 7, 9],
             levelData = {};
 
         //build select option data for the template

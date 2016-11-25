@@ -52,7 +52,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
                 value = value.slice(0,-1);
 
 
-            return { base: { integer: value } };
+            return { base: { string: value } };
         },
         /**
          * Remove the current response set in the interaction

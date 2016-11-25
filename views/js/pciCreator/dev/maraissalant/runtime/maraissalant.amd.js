@@ -52,7 +52,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'maraissalant/r
             var $container = $(this.dom),
                 value = $("#msanswer").text();
 
-            return { base: { integer: value } };
+            return { base: { string: value } };
         },
         /**
          * Remove the current response set in the interaction

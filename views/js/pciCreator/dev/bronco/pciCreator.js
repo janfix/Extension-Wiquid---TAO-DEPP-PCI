@@ -4,6 +4,8 @@ define([
     'tpl!bronco/creator/tpl/markup'
 ], function(_, Widget, markupTpl){
 
+
+
     var _typeIdentifier = 'bronco';
 
     var broncoCreator = {
@@ -44,6 +46,11 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
+            $("div .bronco").each(function(index, el) {
+                if(this){
+                alert ("Une instance de cette PCI existe déjà, Impossible d'en mettre 2. Effacer les deux instances et recommencer.");
+                }         
+            });
             //do some stuff
         },
         /**

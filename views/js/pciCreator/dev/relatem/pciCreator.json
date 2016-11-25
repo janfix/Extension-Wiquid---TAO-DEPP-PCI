@@ -21,6 +21,16 @@
         ],
         "stylesheets" : [
             "./runtime/css/relatem.css"
+        ],
+         "mediaFiles" : [
+            "./runtime/img/cactus.png",
+            "./runtime/img/vuefille.png",
+            "./runtime/img/moto.svg",
+            "./runtime/css/img/bgvueg.png",
+            "./runtime/css/img/btfille.png",
+            "./runtime/css/img/btgars.png",
+            "./runtime/css/img/btglob.png",
+            "./runtime/css/img/globale.png"
         ]
     },
     "creator" : {

@@ -2,6 +2,8 @@
 
 #ansrdm{display:none;}
 
+
+
 .qti-customInteraction .relatem{
     width:100%;
     padding:10px 20px 16px;
@@ -38,6 +40,41 @@
     width : 960px;
 }
 
+.relatem #activVF:hover{
+    background-color: orange;
+    cursor: pointer;
+    opacity: 0.8;}
+
+.relatem #activVF{
+    height: 95px;
+    background-image: url(img/btfille.png);
+    background-repeat: no-repeat;
+    width: 123px;
+}
+
+.relatem #activG:hover{
+    background-color: orange;
+    cursor: pointer;
+    opacity: 0.8;}
+
+.relatem #activG{
+    background-image: url("img/btgars.png");
+    height: 95px;
+    background-repeat: no-repeat;
+    width: 123px;
+}
+.relatem #activGlobal:hover{
+    background-color: orange;
+    cursor: pointer;
+    opacity: 0.8;}
+
+.relatem #activGlobal{
+    background-image: url("img/btglob.png");
+    height: 95px;
+    background-repeat: no-repeat;
+    width: 150px;
+}
+
 .relatem #cactus{ height :366px;
  position:absolute; 
  left:10px; 
@@ -71,12 +108,17 @@ width : 150px;
 }
 
 .relatem #vuegars{
+background-image:  url("img/bgvueg.png");
+background-repeat: no-repeat;   
 width : 650px!important;
 display: none;
 overflow: hidden;
 }
 
 .relatem #vueglobale{
+width : 650px!important;
+height : 366px;
+background-image: url("img/globale.png");   
 position:absolute;
 }
 
@@ -112,10 +154,7 @@ opacity: 0.4;
 }
 
 .relatem td{border : 2px grey solid;}
-.relatem td:hover{
-    background-color: orange;
-    cursor: pointer;
-    opacity: 0.8;}
+
 
 .relatem.legende{
     font-family: arial;
@@ -211,6 +250,7 @@ opacity: 0.4;
 
 
 .relatem #contanim{
+    background-repeat: no-repeat;
     width : 700px;
     top:-26px;
     position : absolute;
