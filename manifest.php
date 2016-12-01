@@ -18,47 +18,47 @@
  *
  *
  */
-use oat\pciSamples\scripts\install\RegisterPci;
+use oat\pciWiquid\scripts\install\RegisterPci;
 
 return array(
-    'name' => 'pciSamples',
-	'label' => 'QTI PCI samples',
+    'name' => 'pciWiquid',
+	'label' => 'QTI PCI SVT - Wiquid',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.1.1',
-	'author' => 'Open Assessment Technologies',
+    'version' => '0.1.0',
+	'author' => 'Jean-Philippe Riviere',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.0.0',
 	    'taoQtiItem' => '>=5.2.0'
     ),
-	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
+	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciWiquidManager',
     'acl' => array(
-        array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager', array('ext'=>'pciSamples')),
+        array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#pciWiquidManager', array('ext'=>'pciWiquid')),
     ),
     'install' => array(
         'php'	=> array(
 			RegisterPci::class
 		)
     ),
-    'update' => 'oat\\pciSamples\\scripts\\update\\Updater',
+    'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
     'uninstall' => array(
     ),
     'autoload' => array (
         'psr-4' => array(
-            'oat\\pciSamples\\' => dirname(__FILE__).DIRECTORY_SEPARATOR
+            'oat\\pciWiquid\\' => dirname(__FILE__).DIRECTORY_SEPARATOR
         )
     ),
     'routes' => array(
-        '/pciSamples' => 'oat\\pciSamples\\controller'
+        '/pciWiquid' => 'oat\\pciWiquid\\controller'
     ),
 	'constants' => array(
 	    # views directory
 	    "DIR_VIEWS" => dirname(__FILE__).DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR,
 
 		#BASE URL (usually the domain root)
-		'BASE_URL' => ROOT_URL.'pciSamples/',
+		'BASE_URL' => ROOT_URL.'pciWiquid/',
 
 	    #BASE WWW required by JS
-	    'BASE_WWW' => ROOT_URL.'pciSamples/views/'
+	    'BASE_WWW' => ROOT_URL.'pciWiquid/views/'
 	)
 );

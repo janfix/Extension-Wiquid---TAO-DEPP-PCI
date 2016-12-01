@@ -19,47 +19,17 @@
  *
  */
 
-namespace oat\pciSamples\scripts\update;
+namespace oat\pciWiquid\scripts\update;
 
-use oat\pciSamples\scripts\install\RegisterPci;
 use oat\taoQtiItem\model\HookRegistry;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
-
-	/**
-     *
-     * @param string $currentVersion
-     * @return string $versionUpdatedTo
+    /**
+     * @param $initialVersion
      */
-    public function update($initialVersion) {
-
-
-		if ($this->isBetween('0', '0.2.1')) {
-			$this->setVersion('0.2.1');
-		}
-
-		if($this->isVersion('0.2.1')){
-			$registerPci = new RegisterPci();
-			$registerPci([]);
-
-			HookRegistry::getRegistry()->remove('pciSamplesCreator');
-
-			$this->setVersion('1.0.0');
-		}
-
-		$this->skip('1.0.0', '1.0.1');
-
-		if($this->isVersion('1.0.1')){
-			call_user_func(new RegisterPci(), []);
-			$this->setVersion('1.0.2');
-		}
-
-        if($this->isVersion('1.0.2')){
-            call_user_func(new RegisterPci(), []);
-            $this->setVersion('1.1.0');
-        }
-
-        $this->skip('1.1.0', '1.1.1');
-	}
+    public function update($initialVersion)
+    {
+        $this->setVersion('0.1.0');
+    }
 }

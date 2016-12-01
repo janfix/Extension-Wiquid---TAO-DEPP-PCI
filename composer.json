@@ -1,23 +1,25 @@
 {
 
-    "name": "oat-sa/extension-pcisample",
+    "name": "janfix/Extension-Wiquid---TAO-DEPP-PCI",
     "description" : "",
     "type" : "tao-extension",
     "authors" : [
         {
-        "name": "Open Assessment Technologies"
+        "name": "Jean-Philippe Riviere"
         }
     ],
     "keywords" : [
         "tao",
-        "computer-based-assessment"
+        "computer-based-assessment",
+        "science",
+        "item"
     ],
-    "homepage" : "http://www.taotesting.com",
+    "homepage" : "https://github.com/janfix",
     "license" : [
         "GPL-2.0"
     ],
     "extra" : {
-        "tao-extension-name" : "pciSamples"
+        "tao-extension-name" : "pciWiquid"
     },
     "minimum-stability" : "dev",
     "require": {
@@ -25,7 +27,7 @@
     },
     "autoload" : {
         "psr-4" : {
-            "oat\\pciSamples\\" : ""
+            "oat\\pciWiquid\\" : ""
         }
     } 
 }

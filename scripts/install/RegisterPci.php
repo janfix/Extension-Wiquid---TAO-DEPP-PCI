@@ -18,7 +18,7 @@
  *
  * */
 
-namespace oat\pciSamples\scripts\install;
+namespace oat\pciWiquid\scripts\install;
 
 use common_ext_action_InstallAction;
 use oat\oatbox\service\ServiceManager;
@@ -32,10 +32,9 @@ class RegisterPci extends common_ext_action_InstallAction
         $service = new PortableElementService();
         $service->setServiceLocator(ServiceManager::getServiceManager());
 
-        $viewDir = \common_ext_ExtensionsManager::singleton()->getExtensionById('pciSamples')->getConstant('DIR_VIEWS');
+        $viewDir = \common_ext_ExtensionsManager::singleton()->getExtensionById('pciWiquid')->getConstant('DIR_VIEWS');
 
         try {
-            $sourceTextReader = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'textReaderInteraction']);
             $sourceCuisine = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'cuisine']);
             $sourceEffetDeSerre =  $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'effetdeserre']);
             $sourceBronco =  $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'bronco']);
@@ -46,7 +45,6 @@ class RegisterPci extends common_ext_action_InstallAction
             $sourceNterre = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'nterre']);
             $sourceRelatem = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'relatem']);
             $sourceTrain = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'train']);
-            $service->registerFromDirectorySource($sourceTextReader);
             $service->registerFromDirectorySource($sourceCuisine);
             $service->registerFromDirectorySource($sourceEffetDeSerre);
             $service->registerFromDirectorySource($sourceBronco);

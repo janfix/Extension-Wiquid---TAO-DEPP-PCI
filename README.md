@@ -1,1 +1,1 @@
-# extension-pcisample
+# extension for SVT PCIs
