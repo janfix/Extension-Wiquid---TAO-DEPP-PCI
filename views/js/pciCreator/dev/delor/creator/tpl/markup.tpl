@@ -461,7 +461,7 @@
 
 
 
-<div id="consigne">Saisir la statuette à l'aide de votre souris <br /> pour la déposer sur l'instrument de votre choix.</div>
+<div id="consigne">Saisir la statuette à l'aide de votre souris pour la déposer sur l'instrument de votre choix.</div>
 <div id="robi"></div>
 <div id="lecvol"></div>
 <div id="zonepese" class="dropper"></div>

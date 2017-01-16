@@ -22,7 +22,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             //<img src="delor/runtime/img/orus.png" id="catgod" class="draggable" width="80px" />
 
             // Création de la vanne 
-            $("#robi").append("<span>Modifier le volume d'eau</span>  <br /><span id='moins'>- Moins</span><span id='plus' >Plus +</span><br /><input type='range' id='vanne' step='5' min='0' ma='140'>");
+            $("#robi").append("<div class='modifeau'>Modifier le volume d'eau</div><br /><input type='range' id='vanne' step='5' min='0' ma='140'><div id='moins'>- Moins</div><div id='plus' >Plus +</div>");
 
             //Bouton tare
             $("#g5982").click(function(event) {

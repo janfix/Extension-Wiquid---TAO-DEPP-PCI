@@ -2,7 +2,7 @@
     <div class="prompt">{{{prompt}}}</div>
 
     <div id="container">
-<div id="consigne">Cliquez sur l'astre de votre choix.</div>	
+<div id="consigne">Cliquer sur l'astre de votre choix.</div>	
 
 	<div id="labo">
 

@@ -235,7 +235,7 @@
 <div id="effetdeserrediv"><span id='effetdeserre'>Effet de serre</span> </div>
  
 <div id="commande">
- <span id="consigne">Avec la souris, déplacer le curseur afin d'augmenter l'effet de serre.<br /></span>
+ <span id="consigne">Avec la souris, déplacer le curseur afin d'augmenter la quantité de gaz à effet de serre. <br /></span>
    
   </div>
 
