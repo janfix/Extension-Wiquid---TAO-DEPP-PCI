@@ -243,7 +243,7 @@ function Point(obj,x,y){
 // Wire
 
 wire=function(n){
-  this.name="Cable "+n;
+  this.name="Fil électr. "+n;
 }
 wire.prototype=new component();
 
@@ -592,7 +592,7 @@ console.log(symbolStyle);
 // diode
 
 diode=function(n){
-  this.name="Diode "+n;
+  this.name="D.E.L. "+n;
 }
 diode.prototype=new component();
 

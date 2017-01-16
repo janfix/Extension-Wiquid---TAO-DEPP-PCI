@@ -27,12 +27,12 @@
 		<div id="ccbleu" class="btlat">
 			<!-- <img src="train/runtime/img/macrococci.png" alt="" id="macrococci" /> -->
 			<br/>
-			Marquer le mouvement <br />du point de vue de la Coccinelle Bleue
+			Dans le référentiel du train
 		</div>
 		<div id="vache" class="btlat">
 			<!-- <img src="train/runtime/img/vachelook.png" alt="" id="vachelook" /> -->
 			<br/>
-			Marquer le mouvement <br /> du point de vue de la vache
+			Dans le référentiel terrestre 
 		</div>
 		<div id="rmzero" class="btlat">
 			<!-- <img src="train/runtime/img/zero.png" width="140px" /> -->

@@ -1,5 +1,7 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+.exposant{ top: -1.5rem!important; }
+
 #nterransw{ display:none; }
 
 .nterre body{font-family: sans-serif;}
@@ -103,6 +105,7 @@ opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.61999989;stroke
 }
 
 .nterre #gravitas{
+    font-size: 20px;
     margin-left: 300px;
     margin-top:-85px;
     position: absolute;
