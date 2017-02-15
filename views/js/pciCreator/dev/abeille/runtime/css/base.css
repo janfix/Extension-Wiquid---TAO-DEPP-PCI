@@ -1,0 +1,16 @@
+.qti-customInteraction .abeille{
+/*     width:100%;
+padding:10px 20px 16px;
+margin-bottom:20px; */
+
+}
+.qti-customInteraction .abeille .grador{
+ background-image: url("img/bg.png");
+        background-repeat: no-repeat;
+    background-size: 160px 27px;
+    padding: 0px;
+    width: 170px;
+    height: 30px;
+    background-position-y: 1px;
+}
+

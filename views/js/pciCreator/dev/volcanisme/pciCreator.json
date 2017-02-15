@@ -1,0 +1,40 @@
+{
+    "typeIdentifier": "volcanisme",
+    "label": "volcanisme",
+    "short": "Volcanisme",
+    "description": "volcanisme",
+    "version": "0.1.0",
+    "author": "Wiquid JeanPhilippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "Physique","SVT","volcanisme"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime" : {
+        "hook" : "./runtime/volcanisme.amd.js",
+        "libraries" : [
+            "IMSGlobal/jquery_2_1_1",
+            "./runtime/js/renderer.js",
+            "./runtime/js/raphael.min.js" 
+        ],
+        "stylesheets" : [
+            "./runtime/css/base.css",
+            "./runtime/css/volcanisme.css"
+        ]
+    },
+    "creator" : {
+        "icon": "./creator/img/icon.svg",
+        "hook": "./pciCreator.js",
+        "libraries" : [
+            "./creator/tpl/markup.tpl",
+            "./creator/tpl/propertiesForm.tpl",
+            "./creator/widget/Widget.js",
+            "./creator/widget/states/Question.js",
+            "./creator/widget/states/states.js"
+        ]
+    }
+}

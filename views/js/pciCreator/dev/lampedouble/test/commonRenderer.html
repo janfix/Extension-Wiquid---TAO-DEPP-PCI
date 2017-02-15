@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+        <title>PCI Likert Interaction Common Renderer Test</title>
+        <link rel="stylesheet" type="text/css" href="/tao/views/js/lib/qunit/qunit.css">
+        <script type="text/javascript" src="/tao/views/js/lib/require.js"></script>
+        <script type="text/javascript" src="/tao/views/js/lib/qunit/qunit.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/tao/views/css/tao-main-style.css" />
+        <link rel="stylesheet" type="text/css" href="/taoQtiItem/views/css/qti-runner.css" />
+        <link rel="stylesheet" type="text/css" href="/taoQtiItem/views/css/themes/default.css" />
+
+        <script  type="text/javascript">
+            QUnit.config.autostart = false;
+            require(['/tao/ClientConfig/config'], function (){
+                require(['taoQtiItem/qtiCommonRenderer/test/runner', 'qtiItemPci/pciRegistry', 'qtiItemPci/pciProvider', 'qtiItemPci/test/pciRegistry/testProvider'], function (runner, pciRegistry, pciProvider, testProvider){
+                    QUnit.start();
+                    
+//                    pciRegistry.addProvider(pciProvider);
+                    pciRegistry.addProvider(testProvider);
+                    
+                    runner.run({
+                        relBaseUrl : 'qtiItemPci/pciCreator/dev/likertScaleInteraction/test/samples/likert_triple/',
+                        runtimeLocations : {
+                            likertScaleInteraction : 'qtiItemPci/pciCreator/dev/likertScaleInteraction/'
+                        },
+                        assertions : {
+                            interactionCount : 3,
+                            responses : []
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+    </body>
+</html>
