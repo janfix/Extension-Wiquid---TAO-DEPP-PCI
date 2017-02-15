@@ -45,6 +45,11 @@ class RegisterPci extends common_ext_action_InstallAction
             $sourceNterre = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'nterre']);
             $sourceRelatem = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'relatem']);
             $sourceTrain = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'train']);
+            $sourceAbeille = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'abeille']);            
+            $sourceBerthold = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'Berthold']);
+            $sourceLentilles = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'lentilles']);
+            $sourceVolcanisme = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'volcanisme']);
+            $sourceLampedouble = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'lampedouble']);
             $service->registerFromDirectorySource($sourceCuisine);
             $service->registerFromDirectorySource($sourceEffetDeSerre);
             $service->registerFromDirectorySource($sourceBronco);
@@ -55,6 +60,11 @@ class RegisterPci extends common_ext_action_InstallAction
             $service->registerFromDirectorySource($sourceNterre);
             $service->registerFromDirectorySource($sourceRelatem);
             $service->registerFromDirectorySource($sourceTrain);
+            $service->registerFromDirectorySource($sourceAbeille);
+            $service->registerFromDirectorySource($sourceBerthold);
+            $service->registerFromDirectorySource($sourceLentilles);
+            $service->registerFromDirectorySource($sourceVolcanisme);
+            $service->registerFromDirectorySource($sourceLampedouble);
 
 
 
