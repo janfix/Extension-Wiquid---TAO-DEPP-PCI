@@ -30,6 +30,6 @@ class Updater extends \common_ext_ExtensionUpdater
      */
     public function update($initialVersion)
     {
-        $this->setVersion('0.1.0');
+        $this->setVersion('1.0.0');
     }
 }
