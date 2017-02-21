@@ -25,6 +25,11 @@ use oat\oatbox\service\ServiceManager;
 use oat\taoQtiItem\model\portableElement\exception\PortableElementVersionIncompatibilityException;
 use oat\taoQtiItem\model\portableElement\PortableElementService;
 
+/**
+ * Class RegisterPci
+ * @package oat\pciWiquid\scripts\install
+ * @deprecated
+ */
 class RegisterPci extends common_ext_action_InstallAction
 {
     public function __invoke($params)
