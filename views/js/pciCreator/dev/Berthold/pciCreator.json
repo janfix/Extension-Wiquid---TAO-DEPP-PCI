@@ -1,0 +1,49 @@
+{
+    "typeIdentifier": "Berthold",
+    "label": "Berthold",
+    "short": "Berthold",
+    "description": "SVT Berthold",
+    "version": "1.1.0",
+    "author": "JeanPhilippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "5eme",
+        "Physique","SVT","poulet, SVT"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime" : {
+        "hook" : "./runtime/Berthold.amd.js",
+        "libraries" : [
+            "IMSGlobal/jquery_2_1_1",
+            "./runtime/js/renderer.js"
+        ],
+        "stylesheets" : [
+            "./runtime/css/base.css",
+            "./runtime/css/Berthold.css"
+        ],
+        "mediaFiles" : [
+            "./runtime/assets/img1.svg",
+            "./runtime/assets/coq4mois.svg",
+            "./runtime/assets/polosolo.svg",
+            "./runtime/assets/chapontxt.svg",
+            "./runtime/assets/ablation.svg",
+            "./runtime/assets/polosoloL2.svg",
+            "./runtime/assets/greffe.svg",
+            "./runtime/assets/poulet3.svg"
+        ]
+    },
+    "creator" : {
+        "icon": "./creator/img/icon.svg",
+        "hook": "./pciCreator.js",
+        "libraries" : [
+            "./creator/tpl/markup.tpl",
+            "./creator/tpl/propertiesForm.tpl",
+            "./creator/widget/Widget.js",
+            "./creator/widget/states/Question.js",
+            "./creator/widget/states/states.js"
+        ]
+    }
+}
