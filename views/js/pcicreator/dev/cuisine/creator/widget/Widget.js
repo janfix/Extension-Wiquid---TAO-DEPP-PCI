@@ -1,0 +1,16 @@
+define([
+    'taoQtiItem/qtiCreator/widgets/interactions/customInteraction/Widget',
+    'cuisine/creator/widget/states/states'
+], function(Widget, states){
+
+    var CuisineInteractionWidget = Widget.clone();
+
+    CuisineInteractionWidget.initCreator = function(){
+        
+        this.registerStates(states);
+        
+        Widget.initCreator.call(this);
+    };
+    
+    return CuisineInteractionWidget;
+});
