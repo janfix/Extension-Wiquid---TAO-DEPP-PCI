@@ -1,0 +1,49 @@
+{
+    "typeIdentifier": "cuisine",
+    "label": "cuisine",
+    "short": "Cuisine",
+    "description": "Physique Wiquid",
+    "version": "0.1.0",
+    "author": "Jean-Philippe Riviere",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "Physique","Chimie"
+    ],
+    "response": {
+            "baseType": "string",
+            "cardinality": "single"
+    },
+    "runtime" : {
+        "hook" : "./runtime/cuisine.amd.js",
+        "libraries" : [
+            "IMSGlobal/jquery_2_1_1",
+            "./runtime/js/renderer.js"
+        ],
+        "stylesheets" : [
+            "./runtime/css/cuisine.css"
+        ],
+        "mediaFiles" : [
+            "./runtime/img/boiler1.png", 
+            "./runtime/img/boiler2.png",
+            "./runtime/img/choco1.png",
+            "./runtime/img/choco2.png",
+            "./runtime/img/choco3.png",
+            "./runtime/css/img/cuisine.png",
+            "./runtime/img/feugaz.png",
+            "./runtime/img/tartre2.png",
+            "./runtime/img/tartre.png",
+            "./runtime/img/vinaigre.png"
+        ]
+    },
+    "creator" : {
+        "icon": "./creator/img/icon.svg",
+        "hook": "./pciCreator.js",
+        "libraries" : [
+            "./creator/tpl/markup.tpl",
+            "./creator/tpl/propertiesForm.tpl",
+            "./creator/widget/Widget.js",
+            "./creator/widget/states/Question.js",
+            "./creator/widget/states/states.js"
+            ]
+    }
+}
