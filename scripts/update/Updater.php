@@ -21,7 +21,7 @@
 
 namespace oat\pciWiquid\scripts\update;
 
-use oat\taoQtiItem\model\HookRegistry;
+use oat\pciWiquid\scripts\install\RegisterPciTrain;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -31,5 +31,9 @@ class Updater extends \common_ext_ExtensionUpdater
     public function update($initialVersion)
     {
         $this->setVersion('1.0.0');
+
+        if ($this->isVersion('1.0.0')) {
+            call_user_func(new RegisterPciTrain(), ['0.1.0']);
+            $this->setVersion('1.1.0');
     }
 }
