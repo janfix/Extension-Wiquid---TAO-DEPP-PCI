@@ -1,0 +1,3358 @@
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .maraissalant #msanswer {
+    display: none;
+}
+
+.qti-customInteraction .maraissalant .container {
+    margin: 10px;
+}
+
+.qti-customInteraction .maraissalant {
+    height: 400px;
+}
+
+.qti-customInteraction .maraissalant .bton {
+    border: 3px #d3cc00 solid;
+    border-radius: 20%;
+    font-size: 18px;
+    line-height: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 410px;
+    margin-top: -380px!important;
+    height: 70px;
+    width: 130px;
+}
+
+.qti-customInteraction .maraissalant #btdemarrer:hover {
+    opacity: 0.8;
+    color: grey;
+}
+
+.qti-customInteraction .maraissalant #btdemarrer {
+    background-color: orange;
+    padding: 13px;
+    cursor: pointer;
+}
+
+.qti-customInteraction .maraissalant #btzero {
+    color: gainsboro;
+    padding: 13px;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.qti-customInteraction .maraissalant #btzero:hover {
+    opacity: 0.8;
+}
+
+.qti-customInteraction .maraissalant .bouclier {
+    position: relative;
+    width: 100%;
+    height: 110px;
+    display: none;
+}
+
+.qti-customInteraction .maraissalant svg {}
+
+.qti-customInteraction .maraissalant .clock {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: relative;
+}
+
+.qti-customInteraction .maraissalant #clockbox {
+    position: relative;
+    margin-left: 372px;
+    margin-top: 20px;
+    width: 200px;
+}
+
+.qti-customInteraction .maraissalant .short-hand,
+.long-hand {
+    width: 2px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transform-origin: 0 1px;
+    -moz-transform-origin: 0 1px;
+    -o-transform-origin: 0 1px;
+    transform-origin: 0 1px;
+}
+
+.qti-customInteraction .maraissalant .nut {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 44px;
+    left: 42px;
+    background: #fff
+}
+
+.qti-customInteraction .maraissalant .short-hand {
+    height: 35px;
+}
+
+.qti-customInteraction .maraissalant .short-hand-start {
+    height: 35px;
+    -webkit-animation: rotation 12s 1.6 linear;
+    -moz-animation: rotation 12s 1.6 linear;
+    -o-animation: rotation 12s 1.6 linear;
+    animation: rotation 12s 1.6 linear;
+    animation-fill-mode: forwards;
+}
+
+.qti-customInteraction .maraissalant .long-hand {
+    height: 45px;
+}
+
+.qti-customInteraction .maraissalant .long-hand-start {
+    height: 45px;
+    -webkit-animation: rotation 1.5s 12.8 linear;
+    -moz-animation: rotation 1.5s 12.8 linear;
+    -o-animation: rotation 1.5s 12.8 linear;
+    animation: rotation 1.5s 12.8 linear;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rotation {
+    0% {
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-moz-keyframes rotation {
+    0% {
+        -moz-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-o-keyframes rotation {
+    0% {
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        -webkit-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+.qti-customInteraction .maraissalant .granos {
+    position: absolute;
+}
+
+.qti-customInteraction .maraissalant #tspan4279 {
+    font-weight: bold;
+    font-size: 33px;
+    text-align: start;
+    text-anchor: start;
+}
+
+.qti-customInteraction .maraissalant #tspan4283 {
+    font-size: 20px;
+    text-align: start;
+    text-anchor: start;
+}
+
+.qti-customInteraction .maraissalant #tspan4301 {
+    font-weight: bold;
+    font-size: 33px;
+    text-align: start;
+    text-anchor: start;
+}
+
+.qti-customInteraction .maraissalant #tspan4303 {
+    font-size: 20px;
+    text-align: start;
+    text-anchor: start;
+}
+
+.qti-customInteraction .maraissalant #stop5796 {
+    stop-color: #f2bf13;
+    stop-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #stop5798 {
+    stop-color: #c62b43;
+    stop-opacity: 0
+}
+
+.qti-customInteraction .maraissalant #stop5790 {
+    stop-color: #f2d613;
+    stop-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #stop5792 {
+    stop-color: #c62b43;
+    stop-opacity: 0
+}
+
+.qti-customInteraction .maraissalant #stop5710 {
+    stop-color: #f21b13;
+    stop-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #linearGradient5648 {
+    stop-color: #c62b43;
+    stop-opacity: 0
+}
+
+.qti-customInteraction .maraissalant #stop5650 {
+    stop-color: #999697;
+    stop-opacity: 1;
+}
+
+.qti-customInteraction .maraissalant #stop5652 {
+    stop-color: #999697;
+    stop-opacity: 0;
+}
+
+.qti-customInteraction .maraissalant #stop5323 {
+    stop-color: #00d7ff;
+    stop-opacity: 1;
+}
+
+.qti-customInteraction .maraissalant #stop5325 {
+    stop-color: #00d7ff;
+    stop-opacity: 0;
+}
+
+.qti-customInteraction .maraissalant #stop5315 {
+    stop-color: #01b3fe;
+    stop-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #stop5317 {
+    stop-color: #999697;
+    stop-opacity: 0;
+}
+
+.qti-customInteraction .maraissalant #image4147 {
+    display: none
+}
+
+.qti-customInteraction .maraissalant #layer1 {
+    image-rendering: optimizeQuality
+}
+
+
+/* #display:inline;opacity:1;fill:#ccffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.4721408{
+display:inline;opacity:1} */
+
+.qti-customInteraction .maraissalant #liquid4 {
+    display: inline;
+    opacity: 1;
+    fill: #ccffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 2;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.4721408
+}
+
+.qti-customInteraction .maraissalant #liquid3 {
+    display: inline;
+    opacity: 1;
+    fill: #ccffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 2;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.4721408
+}
+
+.qti-customInteraction .maraissalant #liquid2 {
+    display: inline;
+    opacity: 1;
+    fill: #ccffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 2;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.4721408
+}
+
+.qti-customInteraction .maraissalant #liquid1 {
+    opacity: 1;
+    fill: #ccffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 2;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.4721408
+}
+
+.qti-customInteraction .maraissalant #path4152-0 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4152-0-3 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 1.89114571;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4152-0-96 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4152-0-0 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #text4277 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 7.5px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #tspan4281 {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    font-size: 20px;
+    font-family: sans-serif;
+    -inkscape-font-specification: 'sans-serif Bold'
+}
+
+.qti-customInteraction .maraissalant #tspan4291 {
+    font-size: 20px;
+    text-align: start;
+    text-anchor: start
+}
+
+.qti-customInteraction .maraissalant #tspan4285 {
+    font-size: 20px;
+    text-align: start;
+    text-anchor: start
+}
+
+.qti-customInteraction .maraissalant #tspan4287 {
+    font-size: 20px;
+    text-align: start;
+    text-anchor: start
+}
+
+.qti-customInteraction .maraissalant #tspan4289 {
+    font-size: 20px;
+    text-align: start;
+    text-anchor: start
+}
+
+.qti-customInteraction .maraissalant #text4299 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 7.5px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #tspan4315 {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    font-size: 20px;
+    font-family: sans-serif;
+    -inkscape-font-specification: 'sans-serif Bold'
+}
+
+.qti-customInteraction .maraissalant #tspan4305 {
+    font-size: 20px
+}
+
+.qti-customInteraction .maraissalant #tspan4307 {
+    font-size: 20px
+}
+
+.qti-customInteraction .maraissalant #sel1 {
+    font-size: 20px
+}
+
+.qti-customInteraction .maraissalant #path4362-9 {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-66 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-39 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-60 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-94 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-8-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-66-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-4-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-39-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-7-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-3-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-2-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469208;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+
+/* #display:inline;opacity:1{display:inline;opacity:1;fill:#000000;fill-opacity:0.40469208;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1}
+ */
+
+.qti-customInteraction .maraissalant #sel2 {
+    display: inline;
+    opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-8 {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-60-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-7-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-8-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-8-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-9-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-9-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-7-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-3-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-66 {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-12 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-8-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-66-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-4-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-31 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-39-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-7-01 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-3-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-2-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-60-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-8-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-2-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-6-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-8-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-7-13 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-94-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-8-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-8-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-8-0-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-2-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-9-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-66-3-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-4-2-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-9-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-39-8-44 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-7-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-7-1-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-3-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-4-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-3-7-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-2-99 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-2-9-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-66-6 {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-3-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-8-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-12-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-6-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-5-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-1-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-2-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-5-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-8-6-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-5-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-8-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-66-7-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-4-7-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-31-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-39-5-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-0-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-7-01-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-9-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-3-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-3-0-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-1-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-2-7-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-60-7-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-8-1-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-2-0-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-6-2-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-8-8-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-7-13-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-94-9-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-8-9-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-8-0-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-8-0-1-6 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-2-0-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-9-1-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-66-3-1-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-4-2-9-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-9-9-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-39-8-44-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-7-2-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-7-1-8-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-3-5-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-4-7-0 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-3-7-8-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-2-99-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-9-2-9-6-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #rect6109 {
+    opacity: 1;
+    fill: #ef9e13;
+    fill-opacity: 1;
+    stroke: #f2bf13;
+    stroke-width: 5.87421608;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #rect6109-3 {
+    display: inline;
+    opacity: 1;
+    fill: #ef9e13;
+    fill-opacity: 1;
+    stroke: #f2bf13;
+    stroke-width: 5.874;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #remettrezero {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    text-align: center;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    text-anchor: middle;
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #sel4 {
+    display: inline;
+    opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-8-3 {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-9-9 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-7-3 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-2-7-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-4-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-5-7-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-60-9-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-2-7-1-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-6-9-8-4-4 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-4-8-2-2 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-97-0-3-9-8-1 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-9-9-6-7 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-9-5-7-1-5 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4362-6-27-3-3-8 {
+    display: inline;
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 0.40469211;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4150-6 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4150-6-2 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4150-6-3 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 1.89114571;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4150-6-5 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path4226 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #000000;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5264-2-8-7 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5654);
+    fill-opacity: 1;
+    stroke: #999697;
+    stroke-width: 4.43401098;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5264-2-8-7-3 {
+    display: inline;
+    opacity: 1;
+    fill: #999697;
+    fill-opacity: 1;
+    stroke: #999697;
+    stroke-width: 4.43400002;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #g6067 {
+    display: inline;
+    opacity: 1;
+    fill: #686866;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.43400002;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-07 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-2);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-4);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-4 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-02);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-4);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-2-9 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-8-22);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-8-8);
+    stroke-width: 5.51678896;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-8-5 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-6-2);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-75-8);
+    stroke-width: 5.18606234;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-59-0 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-0-6);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-2-2);
+    stroke-width: 5.55070639;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-59-3-1 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-0-9-4);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-2-8-5);
+    stroke-width: 5.79469156;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-2-8 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-8-8);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-8-39);
+    stroke-width: 5.51678896;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-8-5-6 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-6-2-3);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-75-8-8);
+    stroke-width: 5.18606234;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5264-2 {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-9);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-1);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-6 {
+    fill: url(#radialGradient5319);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-08);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5714);
+    stroke-width: 3.29910851;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-0 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-2 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-9);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-1);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-11 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-8);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-8);
+    stroke-width: 5.51678896;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-5 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-91);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-6);
+    stroke-width: 5.15437269;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-6-4 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-4);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-5);
+    stroke-width: 5.51678896;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-8 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-08-1);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5714-1);
+    stroke-width: 3.0771699;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-59 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-6);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-75);
+    stroke-width: 5.18606234;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-2-3 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-0);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-2);
+    stroke-width: 5.55070639;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-6-4-2 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-8-2);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-8-3);
+    stroke-width: 5.18606234;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-8-2 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-08-1-3);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5714-1-9);
+    stroke-width: 4.4186058;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-59-3 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-6-9);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-75-2);
+    stroke-width: 5.41401911;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-6-4-2-3 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-0-9);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5327-7-2-8);
+    stroke-width: 5.79469156;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #path5311-1-2-3-3 {
+    display: inline;
+    opacity: 1;
+    fill: url(#radialGradient5319-5-08-1-3-7);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: url(#radialGradient5714-1-9-9);
+    stroke-width: 4.65299606;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina1 {
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina2 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina3 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina4 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina6 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina7 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graina5 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb1 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb3 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb4 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb6 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb7 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb5 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainb2 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc2 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc5 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc3 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc1 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc6 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc7 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #grainc4 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind1 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind4 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind7 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind5 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind2 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind3 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant #graind6 {
+    display: inline;
+    opacity: 1;
+    fill: #7a9898;
+    fill-opacity: 1;
+    stroke: #7a9898;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .maraissalant {
+    width: 100%;
+    padding: 10px 20px 16px;
+}
