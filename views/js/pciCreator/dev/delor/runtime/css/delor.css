@@ -1,0 +1,899 @@
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .delor #deloransw {
+    display: none;
+}
+
+.qti-customInteraction .delor {
+    max-width: 950px;
+    height: 550px;
+}
+
+.qti-customInteraction .delor #svghome {
+    position: absolute;
+}
+
+.qti-customInteraction .delor svg {
+    max-width: 950px;
+    background: #1e5799;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #165b75 42%, #7db9e8 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%, #165b75 42%, #7db9e8 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%, #165b75 42%, #7db9e8 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=0);
+    /* IE6-9 */
+}
+
+.qti-customInteraction .delor #rect5659-1 {
+    opacity: 0.95400002;
+    fill: #00ffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1.04709113;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+}
+
+.qti-customInteraction .delor #rect5659-1-1 {
+    display: none;
+}
+
+.qti-customInteraction .delor #deborde {
+    display: none;
+}
+
+.qti-customInteraction .delor #catgod {
+    width: 80px;
+    cursor: pointer;
+}
+
+.qti-customInteraction .delor #tspan5974 {
+    font-family: 'courrier';
+}
+
+.qti-customInteraction .delor #zonepese {
+    position: relative;
+    padding-left: 85px;
+    margin-top: 151px;
+    margin-left: 370px;
+    width: 250px;
+    height: 215px;
+}
+
+.qti-customInteraction .delor #zoneplonge {
+    margin-left: 95px;
+    position: relative;
+    padding-left: 12px;
+    width: 100px;
+    height: 350px;
+    padding-top: 157px;
+    margin-top: -280px;
+}
+
+.qti-customInteraction .delor #zonesocle {
+    position: relative;
+    padding-top: 26px;
+    opacity: 1;
+    padding-left: 52px;
+    margin-top: -262px;
+    margin-left: 753px;
+    width: 180px;
+    height: 245px;
+}
+
+.qti-customInteraction .delor #image5962 {
+    cursor: pointer;
+}
+
+.qti-customInteraction .delor #g5982 {
+    cursor: pointer;
+}
+
+.qti-customInteraction .delor #vanne {
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: 150px;
+    margin-left: -82px;
+    width: 320px;
+    cursor: pointer;
+}
+
+.modifeau {
+    margin-left: 16px;
+    text-align: center;
+    width: 100px;
+    margin-left: 13px;
+}
+
+.qti-customInteraction .delor #lecvol {
+    font-family: 'arial';
+    color: white;
+    font-size: 1em;
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    top: 140px;
+    left: 250px;
+}
+
+.qti-customInteraction .delor #robi {
+    padding: 5px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    margin-top: 35px;
+    margin-left: -22px;
+}
+
+.qti-customInteraction .delor #moins {
+    margin-left: -85px;
+    margin-top: 135px;
+}
+
+.qti-customInteraction .delor #plus {
+    margin-top: -344px;
+    margin-left: -73px;
+}
+
+
+/* Microsoft Edge Browser 12+ (All) - @supports method */
+
+@supports (-ms-ime-align:auto) {
+    .qti-customInteraction .delor #plus {
+        margin-top: -360px;
+        margin-left: -73px;
+    }
+}
+
+.qti-customInteraction .delor #consigne {
+    width: 300px;
+    font-size: 14px;
+    position: relative;
+    left: 420px;
+    color: orange;
+    text-align: center;
+    top: 55px;
+}
+
+.qti-customInteraction .delor #path5657 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none
+}
+
+.qti-customInteraction .delor #rect4167 {
+    opacity: 1;
+    fill: #808080;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 1.31233132;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path4225 {
+    opacity: 1;
+    fill: #333333;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 0.10490175;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5970 {
+    opacity: 1;
+    fill: #28261c;
+    fill-opacity: 0.39607843;
+    stroke: #9c3838;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect4152 {
+    opacity: 1;
+    fill: #c68989;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.88507509;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path4217 {
+    opacity: 1;
+    fill: #ff0000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.97254902
+}
+
+.qti-customInteraction .delor #tspan4223 {
+    font-size: 12px;
+}
+
+.qti-customInteraction .delor #stop5880 {
+    stop-color: #a41313;
+    stop-opacity: 1;
+}
+
+.qti-customInteraction .delor #metadata7 {
+    stop-color: #a41313;
+    stop-opacity: 0;
+}
+
+.qti-customInteraction .delor #deborde {
+    opacity: 1;
+    fill: #c68989;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.88507509;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path6002 {
+    opacity: 0.68900003;
+    fill: #05fdfd;
+    fill-opacity: 0.98431373;
+    stroke: none;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path6019-1 {
+    fill: #05fdfd;
+    fill-opacity: 0.98431373;
+    fill-rule: evenodd;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path6019 {
+    fill: #05fdfd;
+    fill-opacity: 0.98431373;
+    fill-rule: evenodd;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect6036 {
+    opacity: 1;
+    fill: #6afdfc;
+    fill-opacity: 0.98431373;
+    stroke: #01fcfb;
+    stroke-width: 0.68339467;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.97254902
+}
+
+.qti-customInteraction .delor #rect5659-1-1 {
+    opacity: 0.42100004;
+    fill: #04fefe;
+    fill-opacity: 0.98431373;
+    stroke: none;
+    stroke-width: 0.46861804;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5831 {
+    opacity: 0;
+}
+
+.qti-customInteraction .delor .qti-customInteraction .delor #path5661 {
+    opacity: 0.95400002;
+    fill: #00ffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1.04709113;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5659 {
+    opacity: 0.40500004;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: #f4eed7;
+    stroke-width: 1.07263482;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5785 {
+    opacity: 1;
+    fill: #22280b;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 0.79407972;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5787 {
+    opacity: 1;
+    fill: #22280b;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 0.79407972;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5787-8 {
+    opacity: 1;
+    fill: #22280b;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #text5917 {
+    opacity: 1;
+    fill: #22280b;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 0.7064392;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #tspan5919 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 7.5px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect4167-5 {
+    opacity: 1;
+    fill: #808080;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 1.31233132;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path4165 {
+    fill: #f9f9f9;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 1.31233132;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect4199 {
+    opacity: 1;
+    fill: #b3b3b3;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 1.31233132;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect4201 {
+    opacity: 1;
+    fill: #f9f9f9;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 1.30797565;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-9 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #image-rendering {
+    opacity: 1;
+    fill: #ff0000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.97254902
+}
+
+.qti-customInteraction .delor #image5962 {
+    image-rendering: optimizeQuality
+}
+
+.qti-customInteraction .delor #text5972 {
+    opacity: 1;
+    fill: #28261c;
+    fill-opacity: 0.39607843;
+    stroke: #9c3838;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #tspan5974 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23.70619583px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect5976 {
+    opacity: 1;
+    fill: #808080;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #text5978 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14.60262775px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-1 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-1 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-6 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-0 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-1-7 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-1-5 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-3 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-4 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-1-0 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-1-52 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-6-3 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-0-8 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-1-7-5 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #grad-99-1-5-7 {
+    fill: none;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 0.99999994;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #text4221 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 112.99999952%;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect4229 {
+    opacity: 1;
+    fill: #ac9d93;
+    fill-opacity: 1;
+    stroke: #030303;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #rect4227 {
+    opacity: 1;
+    fill: #ac9d93;
+    fill-opacity: 1;
+    stroke: #030303;
+    stroke-width: 0.80469382;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor #path4231 {
+    opacity: 1;
+    fill: #2b0000;
+    fill-opacity: 1;
+    stroke: #030303;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .delor {
+    width: 100%;
+    padding: 10px 20px 16px;
+}
+
+.qti-customInteraction .delor .prompt {
+    position: relative;
+}
+
+.qti-customInteraction .delor input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.qti-customInteraction .delor input[type=range]:focus {
+    outline: none;
+}
+
+.qti-customInteraction .delor input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #2497E3;
+    border-radius: 1px;
+    border: 0px solid #000000;
+}
+
+.qti-customInteraction .delor input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497E3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #A1D0FF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+}
+
+.qti-customInteraction .delor input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #2497E3;
+}
+
+.qti-customInteraction .delor input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #2497E3;
+    border-radius: 1px;
+    border: 0px solid #000000;
+}
+
+.qti-customInteraction .delor input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497E3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #A1D0FF;
+    cursor: pointer;
+}
+
+.qti-customInteraction .delor input[type=range]::-ms-track {
+    width: 100%;
+    height: 15px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.qti-customInteraction .delor input[type=range]::-ms-fill-lower {
+    background: #2497E3;
+    border: 0px solid #000000;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+.qti-customInteraction .delor input[type=range]::-ms-fill-upper {
+    background: #2497E3;
+    border: 0px solid #000000;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+.qti-customInteraction .delor input[type=range]::-ms-thumb {
+    margin: -5px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497E3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #A1D0FF;
+    cursor: pointer;
+}
+
+.qti-customInteraction .delor input[type=range]:focus::-ms-fill-lower {
+    background: #2497E3;
+}
+
+.qti-customInteraction .delor input[type=range]:focus::-ms-fill-upper {
+    background: #2497E3;
+}
