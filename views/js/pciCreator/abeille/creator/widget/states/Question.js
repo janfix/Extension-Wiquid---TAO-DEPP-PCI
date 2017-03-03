@@ -9,6 +9,8 @@ define([
     'jquery'
 ], function(stateFactory, Question, formElement, simpleEditor, containerEditor, formTpl, _, $){
 
+"use strict";
+
     var abeilleStateQuestion = stateFactory.extend(Question, function(){
         $(".cmdpanel").hide();
 
@@ -42,23 +44,11 @@ define([
         var _widget = this.widget,
             $form = _widget.$form,
             interaction = _widget.element,
-            response = interaction.getResponseDeclaration(),
-            level = parseInt(interaction.prop('level')) || 5,
-            levels = [5, 7, 9],
-            levelData = {};
-
-        //build select option data for the template
-        _.each(levels, function(lvl){
-            levelData[lvl] = {
-                label : lvl,
-                selected : (lvl === level)
-            };
-        });
+            response = interaction.getResponseDeclaration();
 
         //render the form using the form template
         $form.html(formTpl({
             serial : response.serial,
-            levels : levelData,
             identifier : interaction.attr('responseIdentifier')
         }));
 
@@ -67,14 +57,6 @@ define([
 
         //init data change callbacks
         formElement.setChangeCallbacks($form, interaction, {
-            level : function(interaction, value){
-
-                //update the pci property value:
-                interaction.prop('level', value);
-                
-                //trigger change event:
-                interaction.triggerPci('levelchange', [parseInt(value)]);
-            },
             identifier : function(i, value){
                 response.id(value);
                 interaction.attr('responseIdentifier', value);

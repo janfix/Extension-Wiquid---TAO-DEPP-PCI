@@ -1,6 +1,9 @@
 define(['IMSGlobal/jquery_2_1_1',
-        'abeille/runtime/js/raphael.min', 
-        'OAT/util/html'], function($, Raphael,html){
+        'abeille/runtime/js/raphael.min',
+        'lodash', 
+        'OAT/util/html'], function($, Raphael, _, html){
+
+"use strict"; 
 
     function renderChoices(id, $container, config, assetManager){
 
@@ -12,25 +15,28 @@ define(['IMSGlobal/jquery_2_1_1',
         var objabeille = {src: assetManager.resolve('abeille/runtime/assets/abeille100.png')};
         var objfrelonvolant = {src: assetManager.resolve('abeille/runtime/assets/frelonvolant.png')};
 
-        var $abeille = $(".abeille");
+        var $abeille = $container;
         var pesticlick = 0;
         var frelonclick = 0;
         
-        $abeille.append("<div id='Rarea' class='Rarea'></div>");
+        $abeille.append("<div class='Rarea'></div>");
         $abeille.append("<div id='cmdpanel' class='cmdpanel'><div class='consigne'>Modifier les paramètres pour déclencher l'animation</div></div>");
         
-        $(".cmdpanel").append(
+        $container.find(".cmdpanel").append(
             "<div class='pesti line'><div class='titrepesti'>Quantité de pesticide</div></div><div class='frelon line'><div class='titrefrelon'>Frelon asiatique</div></div>");    
-        $(".frelon").append(            
+        $container.find(".frelon").append(            
             "<img class = 'icofrelon' src="+ icofrelon.src +"><div class='grador'><input type='range' class='nuisible frelonslider' value='0' min='0' max='2' step='1' autocomplete='off'/></div>"
             );
-        $(".pesti").append(            
+        $container.find(".pesti").append(            
             "<img class = 'icodanger' src="+ icodanger.src +"><div class='grador'><input type='range' class='nuisible pesticide' value='0' min='0' max='2' step='1'  autocomplete='off'/></div>"
             );
-            var paper = Raphael("Rarea", 800, 440);
+
+            var idcanvas = _.uniqueId('idCanvas_');// lodash generate unique id
+            $container.find('.Rarea').attr('id',idcanvas);
+            var paper = Raphael(idcanvas, 800, 440);
             var bg_asset = {src: assetManager.resolve('abeille/runtime/assets/bg2.png')};
             var bg = paper.image(bg_asset.src,0, 0, 800, 440);
-            $('svg').css('border', '1px grey solid');
+            $container.find('svg').css('border', '1px grey solid');
 
 var abeille = [];
 var beeset = paper.set();
@@ -127,7 +133,7 @@ beeset.forEach(function(e){
 beefly(8); // Init bees first value
 
 
-$(".pesticide").mousedown(function(event) {
+$container.find(".pesticide").mousedown(function(event) {
     beepresente = beeset.length;
 });
 
@@ -145,13 +151,13 @@ frelonvolant.scale(1);
 frelonvolant.animate({'x':1000, 'y':300, 'width': 300, 'height':150},6000, function(){this.remove();});}
 
 
-$(".pesticide").mouseup(function(event) {
+$container.find(".pesticide").mouseup(function(event) {
 
     pesticlick += 1;
-    $(".pesticlick").html(pesticlick);
+    $container.find(".pesticlick").html(pesticlick);
     
     var otherslider = $('.frelonslider').val();
-    if(this.value ==0 && otherslider ==0 ){
+    if(this.value == 0 && otherslider == 0 ){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
@@ -179,7 +185,7 @@ $(".pesticide").mouseup(function(event) {
 
     }
 
-    if(this.value==1 && otherslider ==0){
+    if(this.value == 1 && otherslider == 0){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -206,7 +212,7 @@ $(".pesticide").mouseup(function(event) {
         population(60000);
     }
 
-    if(this.value==0 && otherslider ==1){
+    if(this.value == 0 && otherslider == 1){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -233,7 +239,7 @@ $(".pesticide").mouseup(function(event) {
         population(60000);
     }
 
-    if(this.value==1 && otherslider ==2){
+    if(this.value == 1 && otherslider == 2){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -263,7 +269,7 @@ $(".pesticide").mouseup(function(event) {
         population(20000);
     }
 
-    if(this.value==2 && otherslider ==1){
+    if(this.value == 2 && otherslider == 1){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -292,7 +298,7 @@ $(".pesticide").mouseup(function(event) {
         population(20000);
     }       
 
-    if(this.value==2 && otherslider ==0){
+    if(this.value == 2 && otherslider == 0){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -320,7 +326,7 @@ $(".pesticide").mouseup(function(event) {
         population(40000);
     }
 
-    if(this.value==0 && otherslider ==2){
+    if(this.value == 0 && otherslider == 2){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -348,7 +354,7 @@ $(".pesticide").mouseup(function(event) {
         population(40000);
     }
 
-    if(this.value==1 && otherslider ==1){
+    if(this.value == 1 && otherslider == 1){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -375,7 +381,7 @@ $(".pesticide").mouseup(function(event) {
         population(40000);
     }
 
-    if(this.value==2 && otherslider ==2){
+    if(this.value == 2 && otherslider == 2){
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
             redset[group1[i]].animate({ "opacity": "0" }, 2000);// Disappearance of 25%
@@ -398,25 +404,22 @@ $(".pesticide").mouseup(function(event) {
         beeremover(beeset.length);
         popu.remove();
         population(0);
-
     }
-
-
 });
 
-$(".frelonslider").mousedown(function(event) {
+$container.find(".frelonslider").mousedown(function(event) {
     
         beepresente = beeset.length;
 
 });
 
-$(".frelonslider").mouseup(function(event) {
+$container.find(".frelonslider").mouseup(function(event) {
 
     frelonclick += 1;
-    $(".frelonclick").html(frelonclick);
+    $container.find(".frelonclick").html(frelonclick);
 
-    var otherslider = $('.pesticide').val();
-    if(this.value ==0 && otherslider ==0 ){
+    var otherslider = $container.find('.pesticide').val();
+    if(this.value == 0 && otherslider == 0 ){
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
             redset[group1[i]].animate({ "opacity": "1" }, 2000);// Appearance of 25%
@@ -442,7 +445,7 @@ $(".frelonslider").mouseup(function(event) {
 
     }
 
-    if(this.value==1 && otherslider ==0){ 
+    if(this.value == 1 && otherslider == 0){ 
 
         frelonflight();
         
@@ -471,7 +474,7 @@ $(".frelonslider").mouseup(function(event) {
 
     }
 
-    if(this.value==0 && otherslider ==1){
+    if(this.value == 0 && otherslider == 1){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -497,7 +500,7 @@ $(".frelonslider").mouseup(function(event) {
         population(60000);
     }
 
-    if(this.value==1 && otherslider ==2){
+    if(this.value == 1 && otherslider == 2){
 
         frelonflight();
         
@@ -528,7 +531,7 @@ $(".frelonslider").mouseup(function(event) {
         population(20000);
     }
 
-    if(this.value==2 && otherslider ==1){
+    if(this.value == 2 && otherslider == 1){
 
         frelonflight();
         
@@ -559,7 +562,7 @@ $(".frelonslider").mouseup(function(event) {
         population(20000);
     }       
 
-    if(this.value==2 && otherslider ==0){
+    if(this.value == 2 && otherslider == 0){
 
         frelonflight();
         
@@ -589,7 +592,7 @@ $(".frelonslider").mouseup(function(event) {
         population(40000);
     }
 
-    if(this.value==0 && otherslider ==2){
+    if(this.value == 0 && otherslider == 2){
         
         for (var i = 0; i < group1.length; i++) {
             blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
@@ -617,7 +620,7 @@ $(".frelonslider").mouseup(function(event) {
         population(40000);
     }
 
-    if(this.value==1 && otherslider ==1){
+    if(this.value == 1 && otherslider == 1){
 
         frelonflight();
         
@@ -647,7 +650,7 @@ $(".frelonslider").mouseup(function(event) {
         population(40000);
     }
 
-    if(this.value==2 && otherslider ==2){
+    if(this.value == 2 && otherslider == 2){
 
         frelonflight();
 
@@ -674,13 +677,7 @@ $(".frelonslider").mouseup(function(event) {
     population(0);
 
     }
-
-
-});
-            
-
-
-        
+});      
     }
 
 
@@ -690,10 +687,9 @@ $(".frelonslider").mouseup(function(event) {
             var $container = $(container);
 
             renderChoices(id, $container, config, assetManager);
-            
+
             //render rich text content in prompt
             html.render($container.find('.prompt'));
-
            
         },
         renderChoices : function(id, container, config, assetManager){

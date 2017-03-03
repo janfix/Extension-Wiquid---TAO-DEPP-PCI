@@ -14,13 +14,12 @@ define(['qtiCustomInteractionContext',
          * @param {Node} dom
          * @param {Object} config - json
          */
-        initialize : function(id, dom, config, assetManager){
+        initialize : function initialize(id, dom, config, assetManager){
 
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
 
             var _this = this;
-//            var assetManager = qtiCustomInteractionContext.getAssetResolver(this.getTypeIdentifier());//that would introduce dependency between the asset manager and global pci runtime context
             this.id = id;
             this.dom = dom;
             this.config = config || {};
@@ -40,6 +39,7 @@ define(['qtiCustomInteractionContext',
          */
         setResponse : function(response){
 
+            var $container = $(this.dom),value;
         },
         /**
          * Get the response in the json format described in
@@ -50,7 +50,7 @@ define(['qtiCustomInteractionContext',
          */
         getResponse : function(){
 
-            var value = "pesticide clics : "+ $(".pesticlick").text() + " - frelon clics : "+ $(".frelonclick").text();
+            var $container = $(this.dom), value = "pesticide clics : "+ $container.find(".pesticlick").text() + " - frelon clics : "+ $container.find(".frelonclick").text();
 
             return {base : {string : value}};
         },

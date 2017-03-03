@@ -3,6 +3,8 @@ define([
     'abeille/creator/widget/states/states'
 ], function(Widget, states){
 
+	"use strict";
+
     var abeilleInteractionWidget = Widget.clone();
 
     abeilleInteractionWidget.initCreator = function(){

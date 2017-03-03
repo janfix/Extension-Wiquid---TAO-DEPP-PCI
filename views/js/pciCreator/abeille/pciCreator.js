@@ -31,9 +31,7 @@ define([
          * @returns {Object}
          */
         getDefaultProperties : function(pci){
-            return {
-                
-            };
+            
         },
         /**
          * (optional) Callback to execute on the 
@@ -42,7 +40,13 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
-            //do some stuff
+            $("div .abeille").each(function(index, el) {
+                if(this){
+                   $(".widget-box").remove();
+                   $(".grid-row").remove();
+                   alert("Cette animation ne peut être dupliquée dans le même item"); 
+                }         
+            });
         },
         /**
          * (required) Gives the qti pci xml template 
