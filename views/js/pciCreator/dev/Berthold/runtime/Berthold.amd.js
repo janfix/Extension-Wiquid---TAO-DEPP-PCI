@@ -11,7 +11,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * @param {Node} dom
          * @param {Object} config - json
          */
-        initialize : function(id, dom, config, assetManager){
+        initialize : function initialize(id, dom, config, assetManager){
 
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
@@ -38,10 +38,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          */
         setResponse : function(response){
 
-           /* var $container = $(this.dom),
-                value = response && response.base ? parseInt(response.base.integer) : -1;
-
-            $container.find('input[value="' + value + '"]').prop('checked', true);*/
+            var $container = $(this.dom);
+              
         },
         /**
          * Get the response in the json format described in
@@ -52,7 +50,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          */
         getResponse : function(){
 
-            var value ="clics animation 1 : " + $(".clickanim1").text() + " - clics animation 2 : " + $(".clickanim2").text() + " - clics animation 3 : " + $(".clickanim3").text();
+            var $container = $(this.dom),
+            value ="clics animation 1 : " + $container.find('.clickanim1').text() + " - clics animation 2 : " + $container.find('.clickanim2').text() + " - clics animation 3 : " + $container.find('.clickanim3').text();
 
             return {base : {string : value}};
         },

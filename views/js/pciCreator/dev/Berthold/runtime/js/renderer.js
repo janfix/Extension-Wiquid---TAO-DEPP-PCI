@@ -1,11 +1,13 @@
 define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
+"use strict"; 
+
     function renderChoices(id, $container, config, assetManager) {
 
-        var $imagetitre = $(".imagetitre");
-        var $place1 = $(".place1");
-        var $place2 = $(".place2");
-        var $place3 = $(".place3");
+        var $imagetitre = $container.find(".imagetitre");
+        var $place1 = $container.find(".place1");
+        var $place2 = $container.find(".place2");
+        var $place3 = $container.find(".place3");
 
         $imagetitre.append($('<img>', { src: assetManager.resolve('Berthold/runtime/assets/img1.svg') }));
 
@@ -27,39 +29,37 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         $place3.append($('<img>', { src: assetManager.resolve('Berthold/runtime/assets/poulet3.svg') }).attr("class", "anima8 polo"));
         $place3.append('<div class="nav3"><button class="precedent3" disabled>Précédent</button><button class="suivant3">Suivant</button></div>');
 
-        var $suivant1 = $(".suivant1");
-        var $precedent1 = $(".precedent1");
-        var $suivant2 = $(".suivant2");
-        var $precedent2 = $(".precedent2");
-        var $suivant3 = $(".suivant3");
-        var $precedent3 = $(".precedent3");
-        var $anima1 = $('.anima1');
-        var $anima3 = $('.anima3');
-        var $anima4 = $('.anima4');
-        var $anima5 = $('.anima5');
-        var $anima6 = $('.anima6');
-        var $anima8 = $('.anima8');
-        var $anima9 = $('.anima9');
-        var $anima11 = $('.anima11');
+        var $suivant1 = $container.find(".suivant1"),
+        $precedent1 = $container.find(".precedent1"),
+        $suivant2 = $container.find(".suivant2"),
+        $precedent2 = $container.find(".precedent2"),
+        $suivant3 = $container.find(".suivant3"),
+        $precedent3 = $container.find(".precedent3"),
+        $anima1 = $container.find('.anima1'),
+        $anima3 = $container.find('.anima3'),
+        $anima4 = $container.find('.anima4'),
+        $anima5 = $container.find('.anima5'),
+        $anima6 = $container.find('.anima6'),
+        $anima8 = $container.find('.anima8'),
+        $anima9 = $container.find('.anima9'),
+        $anima11 = $container.find('.anima11');
 
 
-        var count1 = 0;
-        var count2 = 0;
-        var count3 = 0;
+        var count1 = 0, count2 = 0, count3 = 0;
 
         function counter1() {
             count1 += 1;
-            $(".clickanim1").html(count1);
+            $container.find(".clickanim1").html(count1);
         }
 
         function counter2() {
             count2 += 1;
-            $(".clickanim2").html(count2);
+            $container.find(".clickanim2").html(count2);
         }
 
         function counter3() {
             count3 += 1;
-            $(".clickanim3").html(count3);
+            $container.find(".clickanim3").html(count3);
         }
 
         $suivant1.click(function(event) {

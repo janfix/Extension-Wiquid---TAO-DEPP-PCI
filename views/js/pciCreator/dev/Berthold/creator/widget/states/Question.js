@@ -9,6 +9,8 @@ define([
     'jquery'
 ], function(stateFactory, Question, formElement, simpleEditor, containerEditor, formTpl, _, $){
 
+"use strict";
+
     var BertholdInteractionStateQuestion = stateFactory.extend(Question, function(){
 
         var $container = this.widget.$container,

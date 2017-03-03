@@ -3,6 +3,8 @@ define([
     'Berthold/creator/widget/states/states'
 ], function(Widget, states){
 
+"use strict";
+
     var BertholdWidget = Widget.clone();
 
     BertholdWidget.initCreator = function(){
