@@ -3,6 +3,8 @@ define([
     'cuisine/creator/widget/states/states'
 ], function(Widget, states){
 
+"use strict";
+
     var CuisineInteractionWidget = Widget.clone();
 
     CuisineInteractionWidget.initCreator = function(){

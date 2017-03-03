@@ -1,4 +1,4 @@
-<div class="cuisine" id="containercuisine" >
+<div class="cuisine">
     <div class="prompt">{{{prompt}}}</div>
 
 

@@ -1,5 +1,4 @@
-/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
-
+/* Styling Cuisine */
 .qti-customInteraction .cuisine .cuisineasw{
     display:none;
 }
@@ -15,20 +14,22 @@
     height : 200px;
     display:none;
     margin-left:286px;
-    }
+}
 
 .qti-customInteraction .cuisine .zoneBoiler img{
-    display:none;
-    position:relative;
     max-width : 500px;
 }
 
+.qti-customInteraction .cuisine .boiler2{     
+   position: absolute;
+   margin-left : -500px;
+   opacity : 0;
+   -webkit-transition: opacity 1s;
+   transition-delay: 2s;
+}
 
-
-.qti-customInteraction .boiler2{    
-    margin-top: -281px;
-    display: inline;
-    margin-left: 287px;
+.qti-customInteraction .cuisine .boiler1{     
+   opacity : 1;
 }
 
 .qti-customInteraction .cuisine .boilertxt{
@@ -39,7 +40,6 @@
     font-size: 24px;
 }
 
-
 .qti-customInteraction .cuisine .zonefeu{ 
     width : 200px;
     height : 200px;
@@ -47,7 +47,7 @@
     margin-left:400px;
     margin-top:168px;
     position:absolute; 
-    }
+}
 
 .qti-customInteraction .cuisine .zonefeu img{
     border : 1px white solid;
@@ -56,7 +56,6 @@
     display:none;
     position:relative;
     max-width : 400px;
-
 }
 
 .qti-customInteraction .cuisine .gazfeutxt{
@@ -93,7 +92,7 @@
 .qti-customInteraction .cuisine .zonechocolat{ 
     display:none;
     margin-left: 500px;
-    }
+}
 
 .qti-customInteraction .cuisine .zonechocolat img{
     border : 1px white solid;
@@ -122,21 +121,21 @@
     width : 350px;
     height : 317px;
     display:none;
-    }
+}
 
 .qti-customInteraction .cuisine .zonetartre img{
    margin-top: 50px;
    border : 1px white solid;
    display:none;
    max-width : 350px;
-
 }
+
 .qti-customInteraction .cuisine .tartre{
     margin-left:200px!important;
     display: inline!important; 
-        }
-.qti-customInteraction .cuisine .tartre2{margin-left:-173px!important;}
+}
 
+.qti-customInteraction .cuisine .tartre2{margin-left:-173px!important;}
 
 .qti-customInteraction .cuisine .tartretxt{
    text-align: center;
@@ -148,18 +147,14 @@
    font-size: 24px;
 }
 
-.qti-customInteraction .cuisine .vinaigre{
-    
+.qti-customInteraction .cuisine .vinaigre{    
     border : none!important;
     width : 180px!important;
     margin-top : 0px!important;
     margin-left :-357px!important;
 }
 
-
 .qti-customInteraction .cuisine .bt{
     font-size: 12px!important;
     background-color: orange!important;
-  }
-
-
+}

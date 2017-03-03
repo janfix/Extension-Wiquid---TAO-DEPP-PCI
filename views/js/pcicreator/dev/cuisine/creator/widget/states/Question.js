@@ -9,8 +9,9 @@ define([
     'jquery'
 ], function(stateFactory, Question, formElement, simpleEditor, containerEditor, formTpl, _, $){
 
-    var CuisineInteractionStateQuestion = stateFactory.extend(Question, function(){ 
+"use strict";
 
+    var CuisineInteractionStateQuestion = stateFactory.extend(Question, function(){ 
 
         var $container = this.widget.$container,
             $prompt = $container.find('.prompt'), 
@@ -25,7 +26,6 @@ define([
             markupSelector : '.prompt',
             related : interaction
         });
-
 
     }, function(){
 
@@ -44,12 +44,11 @@ define([
             response = interaction.getResponseDeclaration();
 
         //render the form using the form template
-       /* $form.html(formTpl({
+        $form.html(formTpl({
             serial : response.serial,
-            levels : levelData,
             identifier : interaction.attr('responseIdentifier')
         }));
-*/
+
         //init form javascript
         formElement.initWidget($form);
 

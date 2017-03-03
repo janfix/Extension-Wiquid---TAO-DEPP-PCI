@@ -3,7 +3,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
     var cuisine = {
         id : -1,
         getTypeIdentifier : function(){
-            return 'cuisine';// Récupère l'identifiant du TYPE d'ITEM
+            return 'cuisine';
         },
         /**
          * Render the PCI : 
@@ -11,15 +11,13 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * @param {Node} dom
          * @param {Object} config - json
          */
-        initialize : function(id, dom, config, assetManager){
+        initialize : function initialize(id, dom, config, assetManager){
 
-            //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
 
             var _this = this;
-//          var assetManager = qtiCustomInteractionContext.getAssetResolver(this.getTypeIdentifier());//that would introduce dependency between the asset manager and global pci runtime context            
             this.id = id;
-            this.dom = dom; // Reçoit la valeur dom passer en initialisation
+            this.dom = dom; 
             this.config = config || {};
 
             renderer.render(this.id, this.dom, this.config, assetManager);
@@ -35,12 +33,9 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function(response){// Fait passer la réponse à la fonction. La var response est définie dans question.js
+        setResponse : function(response){
 
             var $container = $(this.dom),value;
-               // value = response && response.base ? parseInt(response.base.integer) : -1;
-
-          //  $container.find('input[value="' + value + '"]').prop('checked', true); // trouve le input dont la valeur est value et le met sur true !
         },
         /**
          * Get the response in the json format described in
@@ -52,7 +47,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
         getResponse : function(){
 
             var $container = $(this.dom),
-                value = $(".cuisineasw").text();
+                value = $container.find('.cuisineasw').text();
                 value = value.slice(0,-1); // delete last coma.
 
             return {base : {string : value}};
