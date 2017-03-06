@@ -1,0 +1,171 @@
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .circuit #answcircuit {
+    display: none;
+}
+
+.qti-customInteraction .circuit #btinsttext {
+    font-size: 15px;
+    cursor: pointer;
+    font-size: 15px opacity: 1;
+    margin-left: 570px;
+    border: grey 1px solid;
+    padding: 5px;
+    text-align: center;
+    background-color: yellowgreen;
+}
+
+.qti-customInteraction .circuit #btinsttext:hover {
+    opacity: 0.7;
+}
+
+.qti-customInteraction .circuit #btinst {
+    width: 790px;
+    margin-top: -44px;
+    font-weight: bold;
+    padding: 10px;
+    left: 672px;
+    color: darkslategray;
+}
+
+.qti-customInteraction .circuit #fermer {
+    cursor: pointer;
+    color: yellowgreen;
+    text-align: right;
+}
+
+.qti-customInteraction .circuit #fermer:hover {
+    opacity: 0.7;
+}
+
+.qti-customInteraction .circuit #wrapinstruct {
+    padding-top: 80px;
+    margin-top: -496px;
+    position: relative;
+    width: 790px;
+}
+
+.qti-customInteraction .circuit #instruct {
+    font-size: 15px;
+    width: 700px;
+    background-color: #555;
+    color: white;
+    margin-left: 40px;
+    border: 1px white solid;
+    padding: 20px;
+}
+
+.qti-customInteraction .circuit #calque2 {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: none;
+}
+
+.qti-customInteraction .circuit .simspace {
+    width: 790px;
+    height: 500px;
+    background-color: #555;
+    border: 5px solid #AAA;
+}
+
+.qti-customInteraction .circuit .bold {
+    font-weight: bold;
+}
+
+
+/* special styles */
+
+.qti-customInteraction .circuit .highlightcolor {
+    background-color: #DDFFDD;
+}
+
+.qti-customInteraction .circuit .clear {
+    clear: both;
+}
+
+.qti-customInteraction .circuit .warn {
+    padding: 1em;
+    border: 1px solid #F00;
+    background-color: #FDD;
+    font-weight: bold;
+}
+
+.qti-customInteraction .circuit pre.code {
+    padding: 1em;
+    border: 1px solid #DDD;
+    border-left-width: 1em;
+    overflow: hidden;
+}
+
+.qti-customInteraction .circuit pre:hover {
+    overflow: visible;
+    border-right: none;
+}
+
+.qti-customInteraction .circuit .tutorial h2 {
+    clear: both;
+}
+
+.qti-customInteraction .circuit .tutorial h3 {
+    clear: both;
+    border-bottom: 5px solid #DDD;
+}
+
+.qti-customInteraction .circuit #circuit ol.compact li,
+#circuit ul.compact {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* main layout structure and styling: header, circuit, and footer */
+
+.qti-customInteraction .circuit {
+    height: 600px;
+    width: 90%;
+    max-width: 650px;
+    min-width: 250px;
+    /*  margin: 0 auto 0 auto; */
+    line-height: 1.4em;
+    margin-bottom: 1.25em;
+}
+
+.qti-customInteraction .circuit #circuit div.sidecaption {
+    clear: right;
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+.qti-customInteraction .circuit #circuit div.widecaption {
+    clear: both;
+    margin: 1em auto;
+}
+
+.qti-customInteraction .circuit #circuit div.mini_sidecaption {
+    float: left;
+    border-right: 1em #DDD solid;
+    margin: 0 1em 1em 0;
+}
+
+.qti-customInteraction .circuit #circuit div.sidecaption p,
+#circuit div.widecaption p,
+#circuit div.mini_sidecaption p {
+    text-align: left;
+    font-size: 0.75em;
+    margin: 0.5em 0 1em 0;
+}
+
+.qti-customInteraction .circuit #circuit div.widecaption p {
+    text-align: center;
+}
+
+.qti-customInteraction .circuit #circuit ul,
+ol {
+    padding-left: 1em;
+    margin-left: 1em;
+}
+
+.qti-customInteraction .circuit #circuit ol li,
+#circuit ul li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
