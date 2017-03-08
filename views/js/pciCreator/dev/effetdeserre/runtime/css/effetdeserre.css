@@ -1,0 +1,522 @@
+/*
+Copyright DEPP - Ministère de l'éducation nationale 
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+#efdsasw {
+    display: none;
+}
+
+.qti-customInteraction .effetdeserre #smallfleche {
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 3;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche1 {
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.46283412;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche2-2-2-1 {
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.11298513;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche2-2-2 {
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.11298513;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche2-2-0 {
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 5.34196901;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche2-2-2-1-1 {
+    display: inline;
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.25925946;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche2-2-0-2 {
+    display: inline;
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 5.34196901;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #path24839 {
+    display: inline;
+    fill: #ea002b;
+    fill-opacity: 0.76754384;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 4.61999989;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #fleche2-2 {
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.17195487;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #display{ 
+    fill: #c83737;
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 5.34196901;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #path24817 {
+    display: inline;
+    fill: #ea002b;
+    fill-opacity: 0.76754384;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 4.6420002;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre #path24253 {
+    fill: #ff6600;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.35159135;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+}
+
+.qti-customInteraction .effetdeserre #path24251 {
+    fill: #ffcc00;
+    fill-rule: evenodd;
+    stroke: #ffffff;
+    stroke-width: 2.35159135;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 1
+}
+
+.qti-customInteraction .effetdeserre .atmos {
+    margin-left: -20px;
+    margin-top: 139px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 954px;
+    height: 126px;
+}
+
+.qti-customInteraction #svg23701 {
+    width: 815px;
+    opacity: 0.9;
+    margin-left: -18px;
+    margin-top: -356px;
+}
+
+.qti-customInteraction .effetdeserre #bigfleche {
+    display: none;
+}
+
+.qti-customInteraction .effetdeserre #m2fleche {
+    display: none;
+}
+
+.qti-customInteraction .effetdeserre #mfleche {
+    display: none;
+}
+
+.qti-customInteraction .effetdeserre #smallfleche {}
+
+.qti-customInteraction .effetdeserre #fleche1 {}
+
+.qti-customInteraction .effetdeserre #svg4152 {
+    position: relative;
+    width: 555px;
+}
+
+.qti-customInteraction .effetdeserre h1 {
+    font-size: 15px;
+    color: grey;
+}
+
+.qti-customInteraction .effetdeserre #flechejaune {
+    position: relative;
+    margin-top: -240px;
+    width: 800px;
+}
+
+.qti-customInteraction #efdscontainer {
+    background-image: url("img/bgeds.svg");
+    background-repeat: no-repeat;
+}
+
+.qti-customInteraction .effetdeserre #repique {
+    margin-left: -361px;
+    height: 558px;
+}
+
+.qti-customInteraction .effetdeserre #commande {
+    margin-top: 305px;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.qti-customInteraction .effetdeserre #commande button {
+    margin: 10px;
+    width: 150px;
+    height: 60px;
+}
+
+@-webkit-keyframes anif {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes anif {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.qti-customInteraction .effetdeserre .aniflex2 {
+    opacity: 0;
+    overflow: hidden;
+}
+
+.qti-customInteraction .effetdeserre .aniflex {
+    overflow: hidden;
+    animation: anif 5s ease;
+}
+
+.qti-customInteraction .effetdeserre #fleche2-0 {
+    animation: anif 5s ease;
+}
+
+.qti-customInteraction .effetdeserre #rebondos {
+    width: 420px;
+    opacity: 1;
+}
+
+.qti-customInteraction .effetdeserre .etiq2 {
+    opacity: 0;
+    background-color: rgba(0, 0, 255, 0.2);
+    padding: 8px;
+    border: 1px white solid;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.qti-customInteraction .effetdeserre .etiq {
+    background-color: rgba(0, 0, 255, 0.2);
+    padding: 8px;
+    border: 1px white solid;
+    color: white;
+    text-align: center;
+    position: relative;
+    animation: anif 8s ease;
+}
+
+.qti-customInteraction .effetdeserre #etiquette9 {
+    height: 60px;
+    width: 250px;
+    margin-left: 600px;
+    margin-top: 227px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette8 {
+    height: 59px;
+    width: 250px;
+    margin-left: 670px;
+    margin-top: -5px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette7 {
+    height: 58px;
+    width: 180px;
+    margin-left: 485px;
+    margin-top: -470px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette6 {
+    height: 72px;
+    width: 130px;
+    margin-left: 295px;
+    margin-top: -30px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette5 {
+    height: 50px;
+    width: 130px;
+    margin-left: 150px;
+    margin-top: 128px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette4 {
+    height: 54px;
+    width: 130px;
+    margin-left: 18px;
+    margin-top: 95px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette3 {
+    height: 53px;
+    width: 150px;
+    margin-left: 300px;
+    margin-top: -68px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette2 {
+    height: 32px;
+    width: 50px;
+    margin-left: 122px;
+    margin-top: 49px;
+}
+
+.qti-customInteraction .effetdeserre #etiquette1 {
+    height: 53px;
+    width: 150px;
+    margin-left: 3px;
+    margin-top: -480px;
+}
+
+.qti-customInteraction .effetdeserre input[type=range] {
+    -webkit-appearance: none;
+    width: 30%;
+    margin: 9px 0;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]:focus {
+    outline: none;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 22px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+    background: #ffaa61;
+    border-radius: 2.7px;
+    border: 0px solid rgba(1, 1, 1, 0);
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0px 0px 1px rgba(13, 13, 13, 0.2);
+    border: 0px solid #000000;
+    height: 40px;
+    width: 27px;
+    border-radius: 1px;
+    background: #ffbb00;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -9px;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]:focus::-webkit-slider-runnable-track {
+    background: orange;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 22px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+    background: #ffaa61;
+    border-radius: 2.7px;
+    border: 0px solid rgba(1, 1, 1, 0);
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0px 0px 1px rgba(13, 13, 13, 0.2);
+    border: 0px solid #000000;
+    height: 40px;
+    width: 27px;
+    border-radius: 1px;
+    background: #ffbb00;
+    cursor: pointer;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-ms-track {
+    width: 100%;
+    height: 22px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-ms-fill-lower {
+    background: #ff9c47;
+    border: 0px solid rgba(1, 1, 1, 0);
+    border-radius: 5.4px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-ms-fill-upper {
+    background: #ffaa61;
+    border: 0px solid rgba(1, 1, 1, 0);
+    border-radius: 5.4px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+
+.qti-customInteraction .effetdeserre input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0px 0px 1px rgba(13, 13, 13, 0.2);
+    border: 0px solid #000000;
+    height: 40px;
+    width: 27px;
+    border-radius: 1px;
+    background: #ffbb00;
+    cursor: pointer;
+    height: 22px;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]:focus::-ms-fill-lower {
+    background: #ffaa61;
+}
+
+.qti-customInteraction .effetdeserre input[type=range]:focus::-ms-fill-upper {
+    background: #ffb87b;
+}
+
+.qti-customInteraction .effetdeserre .prompt {
+    display: none;
+}
+
+.qti-customInteraction .effetdeserre .consigne {
+    font-weight: bold;
+}
+
+.qti-customInteraction .effetdeserre #effetdeserrediv {
+    width: 250px;
+    margin-top: -196px;
+    margin-left: 750px;
+}
+
+.qti-customInteraction .effetdeserre #rbdiv {
+    width: 680px;
+    margin-left: 289px;
+    margin-top: -665px;
+}
+
+.qti-customInteraction #effetdeserre {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    font-size: 22px!important;
+}
+
+.qti-customInteraction .effetdeserre {
+    max-width: 945px;
+    padding: 10px 20px 5px;
+    height: 680px;
+}
+
+.qti-customInteraction .effetdeserre ul.likert {
+    list-style-type: none;
+    margin: 0 5px;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+}
+
+.qti-customInteraction .effetdeserre ul.likert li {
+    float: left;
+    text-align: left;
+    list-style-type: none;
+}
+
+.qti-customInteraction .effetdeserre .prompt {
+    position: relative;
+}

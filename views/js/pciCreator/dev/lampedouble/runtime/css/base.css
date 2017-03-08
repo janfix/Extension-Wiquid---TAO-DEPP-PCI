@@ -1,0 +1,22 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
+.qti-customInteraction .lampedouble{
+    width:100%;
+    padding:10px 20px 16px;
+    margin-bottom:20px;
+
+}
+
+.qti-customInteraction .fermer{
+	display:none;
+}
+.qti-customInteraction .inter{
+	text-align: center;
+	width : 90px;
+	padding: 10px;
+	border : 1px grey solid;
+	margin-top: -180px;
+	margin-left: 150px;
+}

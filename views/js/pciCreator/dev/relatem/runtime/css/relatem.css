@@ -1,0 +1,282 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .relatem .ansrdm {
+    display: none;
+}
+
+.qti-customInteraction .relatem {
+    width: 100%;
+    padding: 10px 20px 16px;
+}
+
+.qti-customInteraction .relatem #container {
+    overflow: hidden;
+    width: 960px;
+}
+
+.qti-customInteraction .relatem #activVF:hover {
+    background-color: orange;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.qti-customInteraction .relatem #activVF {
+    height: 95px;
+    background-image: url(img/btfille.png);
+    background-repeat: no-repeat;
+    width: 123px;
+}
+
+.qti-customInteraction .relatem #activG:hover {
+    background-color: orange;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.qti-customInteraction .relatem #activG {
+    background-image: url("img/btgars.png");
+    height: 95px;
+    background-repeat: no-repeat;
+    width: 123px;
+}
+
+.qti-customInteraction .relatem #activGlobal:hover {
+    background-color: orange;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.qti-customInteraction .relatem #activGlobal {
+    background-image: url("img/btglob.png");
+    height: 95px;
+    background-repeat: no-repeat;
+    width: 150px;
+}
+
+.qti-customInteraction .relatem #cactus {
+    height: 366px;
+    position: absolute;
+    left: 10px;
+}
+
+.qti-customInteraction .relatem #bggars {
+    position: absolute;
+    height: 366px;
+}
+
+.qti-customInteraction .relatem #commande {
+    position: absolute;
+    margin-top: 400px;
+    text-align: center;
+    width: 700px;
+}
+
+.qti-customInteraction .relatem #commande img {
+    height: 85px;
+}
+
+.qti-customInteraction .relatem #imgline {
+    height: 30px;
+    width: 150px;
+}
+
+.qti-customInteraction .relatem #commande table {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qti-customInteraction .relatem #vuegars {
+    background-image: url("img/bgvueg.png");
+    background-repeat: no-repeat;
+    width: 650px!important;
+    display: none;
+    overflow: hidden;
+}
+
+.qti-customInteraction .relatem #vueglobale {
+    width: 650px!important;
+    height: 366px;
+    background-image: url("img/globale.png");
+    position: absolute;
+}
+
+.qti-customInteraction .relatem #vueglobale img {
+    width: 700px;
+}
+
+.qti-customInteraction .relatem .vfimg {
+    position: absolute;
+    height: 366px!important;
+    max-width: 1512px!important;
+    margin-left: -1250px;
+    -webkit-animation: goguy 3s linear;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation: goguy 3s linear;
+    -moz-animation-fill-mode: forwards;
+    animation: goguy 3s linear;
+    animation-fill-mode: forwards;
+}
+
+.qti-customInteraction .relatem #vuefille {
+    position: absolute;
+    display: none;
+    width: 700px;
+    height: 530px;
+    overflow: hidden;
+}
+
+.qti-customInteraction .relatem .vue {
+    border: none!important;
+    position: absolute;
+    opacity: 0;
+}
+
+.qti-customInteraction .relatem .vue:hover {
+    opacity: 0.4;
+}
+
+.qti-customInteraction .relatem td {
+    border: 2px grey solid;
+}
+
+.qti-customInteraction .relatem.legende {
+    font-family: arial;
+    font-size: 0.8em;
+}
+
+.qti-customInteraction .relatem rect {
+    /* fill:red!important; */
+    animation-name: colored;
+    animation-duration: 3s;
+    animation-iteration-count: 6;
+    -webkit-animation-name: colored;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: 6;
+    -moz-animation-name: colored;
+    -moz-animation-duration: 3s;
+    -moz- animation-iteration-count: 6;
+}
+
+
+/* Translation de la moto */
+
+@-webkit-keyframes gomoto {
+    from {
+        transform: translate(-500px);
+        -webkit-transform: translate(-500px);
+        -moz-transform: translate(-500px);
+    }
+    to {
+        transform: translate(920px);
+        -webkit-transform: translate(920px);
+        -moz-transform: translate(920px);
+    }
+}
+
+@-webkit-keyframes goguy {
+    from {
+        transform: translate(420px);
+        -webkit-transform: translate(420px);
+        -moz-transform: translate(420px);
+    }
+    to {
+        transform: translate(1250px);
+        -webkit-transform: translate(1250px);
+        -moz-transform: translate(1250px);
+    }
+}
+
+
+/* Rotation des roues */
+
+@-webkit-keyframes rotating {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+    }
+}
+
+.qti-customInteraction .relatem #roue {
+    animation: rotating 0.5s linear infinite;
+    -webkit-animation: rotating 0.5s linear infinite;
+    -moz-animation: rotating 0.5s linear infinite;
+    transform-origin: 50%;
+}
+
+.qti-customInteraction .relatem #roue2 {
+    animation: rotating 0.5s linear infinite;
+    -webkit-animation: rotating 0.5s linear infinite;
+    -moz-animation: rotating 0.5s linear infinite;
+    transform-origin: 50%;
+}
+
+.qti-customInteraction .relatem #moto {
+    top: 15px;
+    width: 400px;
+    height: 400px;
+}
+
+.qti-customInteraction .relatem #roue {
+    top: 256px;
+    left: 263px!important;
+    width: 110px;
+    height: 110px;
+}
+
+.qti-customInteraction .relatem #roue2 {
+    width: 110px;
+    height: 110px;
+}
+
+.qti-customInteraction .relatem #contanim {
+    background-repeat: no-repeat;
+    width: 700px;
+    top: -26px;
+    position: absolute;
+    -moz-animation: gomoto 3s linear;
+    -moz-animation-fill-mode: forwards;
+    -webkit-animation: gomoto 3s linear;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.qti-customInteraction .relatem #roue {
+    position: absolute;
+    top: 274px;
+    left: 327px;
+    z-index: 0;
+}
+
+.qti-customInteraction .relatem #roue2 {
+    position: absolute;
+    top: 274px;
+    left: 35px;
+    z-index: 0;
+}
+
+.qti-customInteraction .relatem #moto {
+    position: absolute;
+    z-index: 2;
+}
+
+.qti-customInteraction .relatem #vuegars {
+    position: absolute;
+    height: 540px;
+    width: 960px;
+    overflow: hidden;
+}
+
+.qti-customInteraction .relatem {
+    width: 960px;
+    height: 520px;
+}
