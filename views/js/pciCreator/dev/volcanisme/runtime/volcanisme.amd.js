@@ -51,7 +51,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
             var $container = $(this.dom),
             value = "exp.p.fluide : "+ $container.find(".clickpfluide").text() +" -exp.p.compacte : " + $container.find(".clickpcompact").text() + " -anim cachet : " + $container.find(".clickcachet").text()  + " -Retour Init : " + $container.find(".clickreinit").text();
 
-            return {base : {integer : value}};
+            return {base : {string : value}};
         },
         /**
          * Remove the current response set in the interaction
