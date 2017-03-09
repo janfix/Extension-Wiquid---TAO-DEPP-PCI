@@ -1,6 +1,7 @@
 /*
 Copyright DEPP © 2017 - Ministère de l'éducation nationale 
 */
+<<<<<<< HEAD:views/js/pcicreator/dev/abeille/runtime/abeille.amd.js
 
 define(['qtiCustomInteractionContext', 
         'IMSGlobal/jquery_2_1_1',
@@ -10,6 +11,14 @@ define(['qtiCustomInteractionContext',
     "use strict";         
 
     var abeille = {
+=======
+
+define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runtime/js/renderer', 'OAT/util/event'], function(qtiCustomInteractionContext, $, renderer, event){
+
+    "use strict"; 
+
+    var lentilles = {
+>>>>>>> localdev:views/js/pciCreator/dev/lentilles/runtime/lentilles.amd.js
         id : -1,
         getTypeIdentifier : function(){
             return 'abeille';
@@ -56,7 +65,13 @@ define(['qtiCustomInteractionContext',
          */
         getResponse : function(){
 
+<<<<<<< HEAD:views/js/pcicreator/dev/abeille/runtime/abeille.amd.js
             var $container = $(this.dom), value = "pesticide clics : "+ $container.find(".pesticlick").text() + " - frelon clics : "+ $container.find(".frelonclick").text();
+=======
+
+            var $container = $(this.dom),
+                value =  "worksheet : " + $container.find('.reptablor').text() + ' graphic : ' + $container.find('.repgraphor').text()+ " navigation : " + $container.find('.navicount').text();
+>>>>>>> localdev:views/js/pciCreator/dev/lentilles/runtime/lentilles.amd.js
 
             return {base : {string : value}};
         },

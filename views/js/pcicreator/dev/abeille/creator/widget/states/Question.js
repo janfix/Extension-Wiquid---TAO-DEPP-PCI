@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD:views/js/pcicreator/dev/abeille/creator/widget/states/Question.js
 Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+=======
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+>>>>>>> localdev:views/js/pciCreator/dev/Berthold/creator/widget/states/Question.js
 */
 
 define([
@@ -15,8 +19,12 @@ define([
 
     "use strict";
 
+<<<<<<< HEAD:views/js/pcicreator/dev/abeille/creator/widget/states/Question.js
     var abeilleStateQuestion = stateFactory.extend(Question, function(){
         
+=======
+    var BertholdInteractionStateQuestion = stateFactory.extend(Question, function(){
+>>>>>>> localdev:views/js/pciCreator/dev/Berthold/creator/widget/states/Question.js
 
         var $container = this.widget.$container,
             $prompt = $container.find('.prompt'),
@@ -45,6 +53,7 @@ define([
         containerEditor.destroy($prompt);
     });
 
+<<<<<<< HEAD:views/js/pcicreator/dev/abeille/creator/widget/states/Question.js
     abeilleStateQuestion.prototype.initForm = function(){
 
         var _widget = this.widget,
@@ -68,6 +77,12 @@ define([
                 interaction.attr('responseIdentifier', value);
             }
         });
+=======
+    BertholdInteractionStateQuestion.prototype.initForm = function(){
+        var $container = this.widget.$container;
+
+        $container.find(".cartes").hide();
+>>>>>>> localdev:views/js/pciCreator/dev/Berthold/creator/widget/states/Question.js
 
     };
 

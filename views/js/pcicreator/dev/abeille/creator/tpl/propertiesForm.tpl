@@ -3,7 +3,10 @@
   <p>Ministère de l'éducation nationale</p>
   <p>France</p>
   <p>Réalisation <a href='http://www.wiquid.fr' target="_blank">Wiquid</a></p>
+<<<<<<< HEAD:views/js/pcicreator/dev/abeille/creator/tpl/propertiesForm.tpl
     
+=======
+>>>>>>> localdev:views/js/pciCreator/dev/circuit/creator/tpl/propertiesForm.tpl
 </div>
 
 <div class="panel">
