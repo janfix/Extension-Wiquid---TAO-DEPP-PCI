@@ -23,7 +23,6 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
             event.addEventMgr(this);
 
             var _this = this;
-//            var assetManager = qtiCustomInteractionContext.getAssetResolver(this.getTypeIdentifier());//that would introduce dependency between the asset manager and global pci runtime context
             this.id = id;
             this.dom = dom;
             this.config = config || {};
