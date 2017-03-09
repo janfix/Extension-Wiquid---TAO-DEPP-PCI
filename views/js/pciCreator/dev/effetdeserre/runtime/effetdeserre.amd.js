@@ -1,4 +1,10 @@
+/*
+Copyright DEPP - Ministère de l'éducation nationale 
+*/
+
 define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'effetdeserre/runtime/js/renderer', 'OAT/util/event'], function(qtiCustomInteractionContext, $, renderer, event){
+
+    "use strict"; 
 
     var effetdeserre = {
         id : -1,

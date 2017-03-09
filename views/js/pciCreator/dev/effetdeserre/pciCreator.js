@@ -1,9 +1,15 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
 define([
     'lodash',
     'taoQtiItem/qtiCreator/editor/customInteractionRegistry',
     'effetdeserre/creator/widget/Widget',
     'tpl!effetdeserre/creator/tpl/markup'
 ], function(_, ciRegistry, Widget, markupTpl){
+
+    "use strict"; 
 
     var _typeIdentifier = 'effetdeserre';
 
@@ -71,7 +77,5 @@ define([
         }
     };
 
-    //since we assume we are in a tao context, there is no use to expose the a global object for lib registration
-    //all libs should be declared here
     return effetdeserreCreator;
 });
