@@ -1,6 +1,10 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
 define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
-"use strict"; 
+    "use strict"; 
 
     function renderChoices(id, $container, config) {
         $container.find(".polludiv").append("<input type='range' id='pollu' class='pollu' max='20' min='1'>");
