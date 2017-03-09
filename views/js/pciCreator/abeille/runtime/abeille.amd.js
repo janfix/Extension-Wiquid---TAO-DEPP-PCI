@@ -1,7 +1,13 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define(['qtiCustomInteractionContext', 
         'IMSGlobal/jquery_2_1_1',
         'abeille/runtime/js/renderer',
          'OAT/util/event'], function(qtiCustomInteractionContext, $,renderer, event){
+
+    "use strict";         
 
     var abeille = {
         id : -1,

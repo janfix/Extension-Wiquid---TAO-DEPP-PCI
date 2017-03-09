@@ -1,9 +1,13 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define(['IMSGlobal/jquery_2_1_1',
         'abeille/runtime/js/raphael.min',
         'lodash', 
         'OAT/util/html'], function($, Raphael, _, html){
 
-"use strict"; 
+    "use strict"; 
 
     function renderChoices(id, $container, config, assetManager){
 
