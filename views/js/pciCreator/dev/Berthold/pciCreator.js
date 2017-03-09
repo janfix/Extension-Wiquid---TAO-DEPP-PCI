@@ -1,8 +1,13 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
 define([
     'lodash',
     'Berthold/creator/widget/Widget',
     'tpl!Berthold/creator/tpl/markup'
 ], function(_, Widget, markupTpl){
+
+    "use strict"; 
 
     var _typeIdentifier = 'Berthold';
 
@@ -68,7 +73,5 @@ define([
         }
     };
 
-    //since we assume we are in a tao context, there is no use to expose the a global object for lib registration
-    //all libs should be declared here
     return BertholdCreator;
 });

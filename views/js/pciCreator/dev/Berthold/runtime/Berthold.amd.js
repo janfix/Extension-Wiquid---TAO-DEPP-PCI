@@ -1,4 +1,10 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runtime/js/renderer', 'OAT/util/event'], function(qtiCustomInteractionContext, $, renderer, event){
+
+    "use strict"; 
 
     var Berthold = {
         id : -1,
@@ -36,7 +42,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function setResponse(response){
+        setResponse : function(response){
 
             var $container = $(this.dom);
               
@@ -48,7 +54,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * @param {Object} interaction
          * @returns {Object}
          */
-        getResponse : function getResponse(){
+        getResponse : function(){
 
             var $container = $(this.dom),
             value ="clics animation 1 : " + $container.find('.clickanim1').text() + " - clics animation 2 : " + $container.find('.clickanim2').text() + " - clics animation 3 : " + $container.find('.clickanim3').text();
@@ -61,10 +67,11 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * 
          * @param {Object} interaction
          */
-        resetResponse : function resetResponse(){
+        resetResponse : function(){
 
             var $container = $(this.dom);
 
+            $container.find('input').prop('checked', false);
         },
         /**
          * Reverse operation performed by render()
@@ -73,7 +80,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * 
          * @param {Object} interaction
          */
-        destroy : function destroy(){
+        destroy : function(){
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -84,7 +91,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState : function setSerializedState(state){
+        setSerializedState : function(state){
 
         },
         /**
@@ -94,7 +101,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'Berthold/runti
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState : function getSerializedState(){
+        getSerializedState : function(){
 
             return {};
         }
