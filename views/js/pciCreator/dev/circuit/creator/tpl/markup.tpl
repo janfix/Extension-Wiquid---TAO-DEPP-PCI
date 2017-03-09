@@ -19,10 +19,11 @@
 		            <li>Les composants en zone de travail peuvent être cliqués pour les faire pivoter</li>
 		            <li>Les extrêmités des cables peuvent être étirés à la souris pour être connectés aux autres composants.  Un indicateur de couleur montre si le cable est connecté.</li>
 		            <li>Les points de soudure permettent de connecter deux cables. Ils permettent une plus grande liberté dans le dessin du circuit.</li>
-		            <li>Si un composant ne vous est plus utile, rangez le en bas de la zone de travail, en veillant à ce qu'il ne soit plus connecté à votre circuit.</li>
+		            <li>Si un composant ne vous est plus utile, déposez le sur la zone rouge 'supprimer', en veillant à ce qu'il ne soit plus connecté aux autres éléments.</li>
 
 		        </ul>
 	        </div>
         </div>
 <div id="answcircuit" class="answcircuit"></div>
+<div class="jsongraphor"></div>
 </div>

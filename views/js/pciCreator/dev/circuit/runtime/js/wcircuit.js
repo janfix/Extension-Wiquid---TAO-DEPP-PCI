@@ -1,6 +1,12 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
 define(['IMSGlobal/jquery_2_1_1', 
     'lodash',
-    'OAT/util/html'], function($, _,html) {
+    'OAT/util/html'], function($, _ , html) {
+
+    //"use strict"; 
 
     function displaycircuit(id, $container, config) {
 
@@ -30,6 +36,9 @@ define(['IMSGlobal/jquery_2_1_1',
             this.myPoints = null;
             this.isRotated = false;
             this.labelRotateMove = { x: 10, y: 10 };
+            this.centerBox =null; // x coordinates of rotation center
+            this.centerBoy = null; // y coordinates of rotation center
+
 
             this.draw = function(x, y) {
                 this.myPoints = [];
@@ -45,6 +54,12 @@ define(['IMSGlobal/jquery_2_1_1',
                 this.grabBox.toFront();
                 this.translate(x, y);
             };
+
+            // Call destroy function
+            this.destroy = function() {
+                this.drawing.remove();
+            };
+            //***********************            
 
             this.hoverIn = function() {
                 this.parent.obj.drawing.attr(symbolStyle.linesOver);
@@ -75,23 +90,59 @@ define(['IMSGlobal/jquery_2_1_1',
                 if (this.oy + dy + this.obj.height > paperSize.h) { dy = paperSize.h - this.obj.height - this.oy; } // bottom bound
 
                 this.obj.translate(dx - this.prev_dx, dy - this.prev_dy);
-                //this.obj.dragWires(dx,dy);
                 this.obj.dx = dx; // to check if
                 this.obj.dy = dy;
                 this.prev_dx = dx;
                 this.prev_dy = dy;
 
-                this.obj.rotcx = this.attr("x") + 30; // grabbox is what we want, so this is appropriate
-                this.obj.rotcy = this.attr("y") + 30;
-
+                this.obj.centerBox=this.attr("x")+25; // Rotation center
+                this.obj.centerBoy=this.attr("y")+25;
                 this.obj.updatePoints();
             };
 
+            // Get the answer list in an array
+            function getText(target) {
+                var wordArr = [];
+                $(target).add(target).each(function(k,v) {
+                    var words  = $('*',v.cloneNode(true)).remove().end().text().split(',');
+                    wordArr = wordArr.concat(words.filter(function(n){return n.trim();}));
+                });
+                return wordArr;
+            }
+
             this.dragStop = function() {
-                $container.find("#answcircuit").append(" " + this.obj.name + ",");
+                
+                
+                var locdrag = this.getBBox();
+                var recallagey = Math.round(locdrag.y/50)*50;
+                var recallagex = Math.round(locdrag.x/50)*50;
+    
+                recallagex = recallagex -locdrag.x ;
+                recallagey = recallagey -locdrag.y ;
+                this.obj.translate(recallagex,recallagey);
+
                 if (this.obj.dx === 0 && this.obj.dy === 0 && this.obj.active) {
                     this.obj.rotate();
                 }
+
+                // Destroy componants
+                if (this.getBBox().x > 660 && this.getBBox().y > 360 && this.obj.active) {
+                    if (this.obj.wires[0] === true) {
+                        this.obj.grabBox.toFront();
+                        var message_delete = paper.text(410, 450, "Attention déconnecter le composant avant de l'effacer !");
+                        message_delete.attr({ "font-size": 24, "font-family": "Arial, Helvetica, sans-serif", "fill": "white" });
+                        message_delete.animate({ 'fill-opacity': 0 }, 4000);                
+                    } // To destroy a componant it has to be deconnected.
+                    else {
+                        this.obj.destroy();
+                        this.obj.label.remove();
+                        $container.find("#answcircuit").append(" Supp-" + this.obj.name + ","); // answer
+
+                    var answarray = getText('#answcircuit');
+                    }
+                }
+                else{$container.find("#answcircuit").append(" " + this.obj.name + ",");} // answer
+
 
                 if (this.obj.removedFromToolbar !== null) {
                     if (this.obj.removedFromToolbar(this.obj, this.attr("x"), this.attr("y"))) {
@@ -102,34 +153,48 @@ define(['IMSGlobal/jquery_2_1_1',
                     }
                 }
                 if (this.obj) { // check because wires kill their "this"s
+                    
+                    this.obj.centerBox=this.attr("x")+25; 
+                    this.obj.centerBoy=this.attr("y")+25;
+
                     this.obj.updatePoints(); // for wire end snapping
                 }
             };
 
             this.rotate = function() {
+                // Coorinates of rotation center
+                var centerpathbox = this.drawing[0].getBBox().x +(this.drawing[0].getBBox().width/2);
+                var centerpathboy = this.drawing[0].getBBox().y +(this.drawing[0].getBBox().height/2);    
+
                 // rotcy and rotcy were here.... (now see dragMove)
                 if (this.isRotated) {
-                    this.drawing.rotate(0, this.rotcx, this.rotcy);
+                    this.drawing.rotate(0, this.centerBox, this.centerBoy);
+                    this.drawing.toFront();
                     this.isRotated = false;
                     this.label.translate(0 - this.labelRotateMove.x, 0 - this.labelRotateMove.y);
                     if (this.drawing[1].attrs.text) {
-                        this.drawing[1].translate(-5, -5);
+                        /*this.drawing[1].translate(-5, -5);*/
                     }
                     // start Position
                 } else {
-                    this.drawing.rotate(90, this.rotcx, this.rotcy);
+                    this.drawing.rotate(90, centerpathbox, centerpathboy);
                     // M Special rotation and repositionning
 
                     if (this.drawing[1].attrs.text) {
-                        this.drawing[1].rotate(0, this.rotcx, this.rotcy);
-                        this.drawing[1].translate(5, 5);
+
+                        // Find the center : for pivot rotation. 
+                        var centerbox = this.drawing[1].getBBox().x +(this.drawing[1].getBBox().width/2);
+                        var centerboy = this.drawing[1].getBBox().y +(this.drawing[1].getBBox().height/2);
+                        this.centerBox = centerbox;
+                        this.centerBoy = centerboy;
+
+                        this.drawing[1].animate({rotation:"360 " + centerbox +" "+ centerboy},1000,'bounce');
                     }
 
-                    //this.rotatePoints(90,rotcx,rotcy);     // now being done in dragStop by updatePoints()...
                     this.isRotated = true;
                     this.label.translate(this.labelRotateMove.x, this.labelRotateMove.y);
                 }
-                //this.redrawWires();
+
             };
 
             this.translate = function(x, y) {
@@ -154,10 +219,9 @@ define(['IMSGlobal/jquery_2_1_1',
 
             this.updatePoints = function() {
                 for (i = 0; i < this.myPoints.length; i++) {
-                    this.myPoints[i].update(this.isRotated, { x: this.rotcx, y: this.rotcy });
+                    this.myPoints[i].update(this.isRotated, {x:this.centerBox, y:this.centerBoy});
                 }
             };
-
             // NOTE: at creation, just notifyUnsnapped() was going to be used by the dot component
             this.notifySnapped = function(wireEnd) {};
             this.notifyUnsnapped = function(wireEnd) {};
@@ -193,8 +257,8 @@ define(['IMSGlobal/jquery_2_1_1',
             this.rotate = function(origin) {
                 costheta = Math.cos(90 * Math.PI / 180); // always a 90 degree rotation
                 sintheta = Math.sin(90 * Math.PI / 180);
-                x = this.x - origin.x;
-                y = this.y - origin.y;
+                x=this.x-origin.x-this.obj.offsetRotation[0]; // Verticale fix  position of connectors 
+                y=this.y-origin.y-this.obj.offsetRotation[1]; // Horizontale fix position of connectors
                 this.x = (x * costheta) - (y * sintheta) + origin.x;
                 this.y = (x * sintheta) + (y * costheta) + origin.y;
             };
@@ -281,6 +345,13 @@ define(['IMSGlobal/jquery_2_1_1',
             this.line.attr(symbolStyle.wire.line);
             this.grabBox.remove();
             this.label.remove();
+
+            // Direct to destroy zone 
+            if(this.a.getBBox().x>660&&this.a.getBBox().y>360){
+            this.a.remove();
+            this.b.remove();
+            this.line.remove();
+            }
         };
 
         // drag wire end functions
@@ -310,6 +381,11 @@ define(['IMSGlobal/jquery_2_1_1',
                     this.attr(symbolStyle.wire.endSnappedOver);
                     x = px;
                     y = py;
+            // fixed conflict with wire has a null move
+                 if(dx === 0 && dy === 0 ){ 
+                    this.osnappedPoint.removeWireEnd(this);
+                    this.osnappedObj.wires.pop(); 
+                    } 
                 }
             }
             // bounds checking if not snapped
@@ -330,14 +406,30 @@ define(['IMSGlobal/jquery_2_1_1',
                 this.attr(symbolStyle.wire.endSnapped);
                 this.snappedObj.notifySnapped(this);
             }
+             // this is for when i inevitably break the object removal again...
+            var snap=this.snappedObj;
+            if(snap){snap.wires.push(true);}
+            if(snap) snap=snap.name;
+            var osnap=this.osnappedObj;
+            if(osnap) osnap=osnap.name;
             if (this.snappedObj !== this.osnappedObj && this.osnappedObj) {
+                this.osnappedObj.wires.pop();
                 this.osnappedPoint.removeWireEnd(this);
                 this.osnappedObj.notifyUnsnapped(this);
+            }
+
+            // Destroy componant
+            if(this.attr("cx") > 700 && this.attr("cy") > 400 ){
+                this.remove();
             }
         };
 
         wire.prototype.drawLine = function() {
-            this.line.attr({ path: "M" + this.a.attr("cx") + "," + this.a.attr("cy") + "L" + this.b.attr("cx") + "," + this.b.attr("cy") });
+            if(this.a.removed === true){
+                this.line.remove();
+            }
+            else{this.line.attr({path:"M"+this.a.attr("cx")+","+this.a.attr("cy")+"L"+this.b.attr("cx")+","+this.b.attr("cy")});}
+        
         };
 
 
@@ -352,6 +444,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         resistor = function(n) {
             this.name = "Resistance" + n;
+            this.offsetRotation = [6.55,4.3];
         };
         resistor.prototype = new component();
 
@@ -371,6 +464,8 @@ define(['IMSGlobal/jquery_2_1_1',
 
         coton = function(n) {
             this.name = "Coton" + n;
+            this.offsetRotation = [6.55,4.3];
+
         };
         coton.prototype = new component();
 
@@ -389,6 +484,8 @@ define(['IMSGlobal/jquery_2_1_1',
         // aluminium 
         aluminium = function(n) {
             this.name = "Aluminium" + n;
+            this.offsetRotation = [6.55,4.3];
+
         };
         aluminium.prototype = new component();
 
@@ -458,6 +555,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         battery = function(n) {
             this.name = "Pile " + n;
+            this.offsetRotation = [8,3.7];
         };
         battery.prototype = new component();
 
@@ -482,6 +580,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         lampe = function(n) {
             this.name = "Lampe " + n;
+            this.offsetRotation = [5,5.8];
         };
         lampe.prototype = new component();
 
@@ -502,6 +601,7 @@ define(['IMSGlobal/jquery_2_1_1',
         moteur = function(n) {
             this.name = "Moteur " + n;
             this.jpname = "moteur";
+            this.offsetRotation = [5,6];
         };
         moteur.prototype = new component();
 
@@ -524,6 +624,7 @@ define(['IMSGlobal/jquery_2_1_1',
         generateur = function(n) {
             this.name = "Generateur " + n;
             this.jpname = "generateur";
+            this.offsetRotation = [5,6];
         };
         generateur.prototype = new component();
 
@@ -547,6 +648,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         diode = function(n) {
             this.name = "D.E.L. " + n;
+            this.offsetRotation = [6.4,4.7];
         };
         diode.prototype = new component();
 
@@ -566,6 +668,7 @@ define(['IMSGlobal/jquery_2_1_1',
         // interrupOuvert
         interrupOuvert = function(n) {
             this.name = "Int.Ouvert. " + n;
+            this.offsetRotation = [11,-2];
         };
         interrupOuvert.prototype = new component();
 
@@ -585,6 +688,7 @@ define(['IMSGlobal/jquery_2_1_1',
         // interrupFerme
         interrupFerme = function(n) {
             this.name = "Int.Fermé " + n;
+            this.offsetRotation = [6.55,4.3];
         };
         interrupFerme.prototype = new component();
 
@@ -600,6 +704,8 @@ define(['IMSGlobal/jquery_2_1_1',
             this.label = paper.text(30, 50, this.name).attr(symbolStyle.label);
             this.labelRotateMove.x = 40;
         };
+
+        // Toolbar
 
         function showtoolbar(width) {
             var margin = 5;
@@ -693,15 +799,58 @@ define(['IMSGlobal/jquery_2_1_1',
 
         paper = Raphael(idcanvas, paperSize.w, paperSize.h);
 
+        var axis = function (r, grid, offset) {
+        var g = grid || true;
+        var o = offset || 2;
+
+        var w=r.width;
+        var h=r.height;
+
+        r.path("M"+w+","+o+"L0,"+o+"L"+o+","+h).attr("stroke", "gray");
+        r.path("M"+w+","+o+"L"+(w-5)+",5").attr("stroke", "gray");
+        r.path("M"+o+","+h+"L5,"+(h-5)).attr("stroke", "gray");
+
+        var len = grid ? h : r.height;
+        for (var i=1; i<=w/10; i=i+0.5) {
+            r.path("M"+i*10+",0L"+i*10+","+len).attr("stroke", "gray").attr("stroke-opacity",0.3);
+        }
+
+        var len = grid ? w : r.width;
+        for (var i = 1; i<=h/10; i=i+0.5) {
+            r.path("M0,"+i*10+"L"+len+","+i*10).attr("stroke", "gray").attr("stroke-opacity",0.3);
+          }
+        };
+
+axis(paper);
+
         // show the toolbar and store its height for bounding
         paperSize.topbounds = showtoolbar(paperSize.w);
 
-
+        // Destroy componants
+        var poub = paper.circle(800,500,100);
+        poub.attr("fill",'red').attr("fill-opacity","0.3");
+        poub.attr("stroke",'red').attr("stroke-opacity","0.8");
+        var txtpoub = paper.text(745, 460, "Supprimer");
+        txtpoub.attr({fill:"#FFF","font-family":"\"arial\", cursive, sans-serif", "font-size":"14px"});
+        txtpoub.toBack();
+        poub.hover( function(){
+            poub.attr("fill",'red').attr("fill-opacity","0.6");
+            poub.attr("stroke",'red').attr("stroke-opacity","1");
+           }, function(){
+            poub.attr("fill",'red').attr("fill-opacity","0.3");
+            poub.attr("stroke",'red').attr("stroke-opacity","0.8");
+      }
+  );
 
         // Circuit Logic
         // ===========================================================================
 
+
     } // close displaycircuit
+
+
+      
+
 
     return {
         render: function(id, container, config) {
@@ -712,3 +861,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
     };
 }); // close define.
+
+
+
+

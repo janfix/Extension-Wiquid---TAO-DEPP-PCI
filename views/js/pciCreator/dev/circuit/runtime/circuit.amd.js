@@ -1,3 +1,7 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
 define(['qtiCustomInteractionContext', 
         'IMSGlobal/jquery_2_1_1',
         'circuit/runtime/js/raphael-min',
@@ -5,6 +9,8 @@ define(['qtiCustomInteractionContext',
         'circuit/runtime/js/wcircuit',
         'OAT/util/event'], function(qtiCustomInteractionContext, $, raphael ,renderer, wcircuit, event){
 
+    "use strict"; 
+    
     var circuit = {
         id : -1,
         getTypeIdentifier : function(){
@@ -53,9 +59,8 @@ define(['qtiCustomInteractionContext',
          * @returns {Object}
          */
         getResponse : function(){
-
             var $container = $(this.dom),
-                value = $container.find('.answcircuit').text();
+                value =  document.getElementById('idCanvas_1').innerHTML  + 'historique des mouvements : ' + $container.find('.answcircuit').text();
                 value = value.slice(0,-1);
 
             return {base : {string : value}};
