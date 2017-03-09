@@ -1,3 +1,7 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define(['IMSGlobal/jquery_2_1_1',
     'lentilles/runtime/js/raphael.min',
     'lentilles/runtime/js/rtext_edit',

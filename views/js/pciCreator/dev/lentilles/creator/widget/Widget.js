@@ -1,3 +1,7 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
 define([
     'taoQtiItem/qtiCreator/widgets/interactions/customInteraction/Widget',
     'lentilles/creator/widget/states/states'
