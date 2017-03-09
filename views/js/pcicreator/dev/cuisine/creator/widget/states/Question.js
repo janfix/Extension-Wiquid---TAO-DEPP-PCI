@@ -1,3 +1,7 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define([
     'taoQtiItem/qtiCreator/widgets/states/factory',
     'taoQtiItem/qtiCreator/widgets/interactions/states/Question',
@@ -9,7 +13,7 @@ define([
     'jquery'
 ], function(stateFactory, Question, formElement, simpleEditor, containerEditor, formTpl, _, $){
 
-"use strict";
+    "use strict";
 
     var CuisineInteractionStateQuestion = stateFactory.extend(Question, function(){ 
 

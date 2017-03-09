@@ -1,8 +1,14 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define([
     'lodash',
     'cuisine/creator/widget/Widget',
     'tpl!cuisine/creator/tpl/markup'
 ], function(_, Widget, markupTpl){
+
+    "use strict"; 
 
     var _typeIdentifier = 'cuisine';
 
@@ -68,7 +74,5 @@ define([
         }
     };
 
-    //since we assume we are in a tao context, there is no use to expose the a global object for lib registration
-    //all libs should be declared here
     return cuisineCreator;
 });

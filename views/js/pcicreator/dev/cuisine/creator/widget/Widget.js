@@ -1,9 +1,13 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
 define([
     'taoQtiItem/qtiCreator/widgets/interactions/customInteraction/Widget',
     'cuisine/creator/widget/states/states'
 ], function(Widget, states){
 
-"use strict";
+	"use strict";
 
     var CuisineInteractionWidget = Widget.clone();
 
