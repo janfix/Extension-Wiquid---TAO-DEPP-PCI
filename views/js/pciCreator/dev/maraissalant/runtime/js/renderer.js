@@ -1,6 +1,10 @@
+/*
+Copyright DEPP - Ministère de l'éducation nationale 
+*/
+
 define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
-"use strict"; 
+    "use strict"; 
 
     function renderDisplay(id, $container, config){
         var msansw = "non";

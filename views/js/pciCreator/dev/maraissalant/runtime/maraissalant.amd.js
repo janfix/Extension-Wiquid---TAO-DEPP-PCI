@@ -1,4 +1,10 @@
+/*
+Copyright DEPP - Ministère de l'éducation nationale 
+*/
+
 define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'maraissalant/runtime/js/renderer', 'OAT/util/event'], function(qtiCustomInteractionContext, $, renderer, event) {
+
+    "use strict"; 
 
     var maraissalant = {
         id: -1,
