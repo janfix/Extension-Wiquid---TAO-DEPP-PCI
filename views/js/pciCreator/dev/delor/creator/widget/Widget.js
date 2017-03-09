@@ -1,3 +1,7 @@
+/*
+Copyright DEPP - Ministère de l'éducation nationale 
+*/
+
 define([
     'taoQtiItem/qtiCreator/widgets/interactions/customInteraction/Widget',
     'delor/creator/widget/states/states'
