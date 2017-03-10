@@ -26,7 +26,7 @@
             "./runtime/css/abeille.css"
         ],
         "mediaFiles" : [
-             "./runtime/assets/abeille100.png",
+            "./runtime/assets/abeille100.png",
             "./runtime/assets/bg2.png",
             "./runtime/assets/danger.png",
             "./runtime/assets/fleurbleue.png",
@@ -34,7 +34,7 @@
             "./runtime/assets/fleurrouge.png",
             "./runtime/assets/frelon2.png",
             "./runtime/assets/frelonvolant.png",
-             "./runtime/css/img/bg.png"
+            "./runtime/css/img/bg.png"
         ]
     },
     "creator" : {
