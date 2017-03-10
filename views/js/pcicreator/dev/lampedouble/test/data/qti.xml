@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:html5="html5" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i148846972580481114" title="Item 1" label="Abeille" xml:lang="en-US" adaptive="false" timeDependent="false" toolName="TAO" toolVersion="3.2.0-sprint44">
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:html5="html5" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i1489133350711341" title="lampe double" label="lampe double" xml:lang="en-US" adaptive="false" timeDependent="false" toolName="TAO" toolVersion="3.2.0-sprint44">
   <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string"/>
   <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
   <stylesheet href="style/custom/tao-user-styles.css" type="text/css" media="all" title=""/>
@@ -7,7 +7,7 @@
     <div class="grid-row">
       <div class="col-12">
         <customInteraction responseIdentifier="RESPONSE">
-          <pci:portableCustomInteraction customInteractionTypeIdentifier="abeille" hook="" version="">
+          <pci:portableCustomInteraction customInteractionTypeIdentifier="lampedouble" hook="" version="">
             <pci:responseSchema href="http://imsglobal.org/schema/json/v1.0/response.json"/>
             <pci:resources location="http://imsglobal.org/pci/1.0.15/sharedLibraries.xml">
               <pci:libraries>
@@ -19,10 +19,12 @@
             </pci:resources>
             <pci:properties xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction"/>
             <pci:markup>
-              <html5:div class="abeille">
+              <html5:div class="lampedouble">
                 <html5:div class="prompt"/>
-                <html5:div class="pesticlick hiddendiv"/>
-                <html5:div class="frelonclick hiddendiv"/>
+                <html5:div class="lampe"/>
+                <html5:div class="clickswitch hiddendiv"/>
+                <html5:div class="clickRlamp hiddendiv"/>
+                <html5:div class="clickLlamp hiddendiv"/>
               </html5:div>
             </pci:markup>
           </pci:portableCustomInteraction>

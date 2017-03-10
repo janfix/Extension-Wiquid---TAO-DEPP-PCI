@@ -22,7 +22,7 @@ define([
     'taoQtiItem/runner/qtiItemRunner',
     'taoQtiItem/portableElementRegistry/ciRegistry',
     'taoQtiItem/portableElementRegistry/provider/localManifestProvider',
-    'json!pciWiquid/pciCreator/dev/abeille/test/data/qti.json'
+    'json!pciWiquid/pciCreator/dev/lampedouble/test/data/qti.json'
 ], function ($, _, qtiItemRunner, ciRegistry, pciTestProvider, itemData){
     'use strict';
 
@@ -33,12 +33,12 @@ define([
 
     //manually register the pci from its manifest
     pciTestProvider.addManifestPath(
-        'abeille',
-        'pciWiquid/pciCreator/dev/abeille/pciCreator.json');
+        'lampedouble',
+        'pciWiquid/pciCreator/dev/lampedouble/pciCreator.json');
     ciRegistry.resetProviders();
     ciRegistry.registerProvider(pciTestProvider.getModuleName());
 
-    QUnit.module('Abeille');
+    QUnit.module('lampedouble');
 
     QUnit.asyncTest('display and play', function (assert){
 
@@ -50,7 +50,7 @@ define([
         runner = qtiItemRunner('qti', itemData)
             .on('render', function (){
                     QUnit.start();
-                    assert.equal($container.find('.abeille').length,1,'The container contains abeille' );
+                    assert.equal($container.find('.lampedouble').length,1,'The container contains lampedouble' );
                     
             })
             .on('error', function (error){
