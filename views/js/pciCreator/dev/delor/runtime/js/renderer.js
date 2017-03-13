@@ -311,6 +311,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
         function draganddroper() {
 
+
             var dndHandler = {
 
                 draggedElement: null,
@@ -323,7 +324,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                     element.addEventListener('dragstart', function(e) {
                         dndHandler.draggedElement = e.target;
-                        e.dataTransfer.setData('text/plain', ''); // needed for Firefox
+                        e.dataTransfer.setData('text/plain', null); // needed for Firefox
 
                     }, false);
 
@@ -346,6 +347,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                     var dndHandler = this;
 
                     dropper.addEventListener('drop', function(e) {
+
+                    	 if(e.preventDefault) { e.preventDefault(); }
+   						 if(e.stopPropagation) { e.stopPropagation(); }
 
                         var target = e.target,
                             draggedElement = dndHandler.draggedElement,
