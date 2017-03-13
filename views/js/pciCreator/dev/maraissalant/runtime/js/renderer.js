@@ -9,9 +9,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     function renderDisplay(id, $container, config){
         var msansw = "non";
 
-             $("div").each(function(index,obj){
+             $container.find("div").each(function(index,obj){
             if(obj.id=="item-editor-scroll-inner"){
-                $(".bton").css("top","10px").css("left","427px");
+                $container.find(".bton").css("top","10px").css("left","427px");
                 }
            });
 
