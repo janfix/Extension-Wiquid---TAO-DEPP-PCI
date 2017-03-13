@@ -2,9 +2,9 @@
     <div class="prompt">{{{prompt}}}</div>
 
     <div id="container">
-<div id="consigne">Cliquer sur l'astre de votre choix.</div>	
+<div id="consigne" class="consigne">Cliquer sur l'astre de votre choix.</div>	
 
-	<div id="labo">
+	<div id="labo" class="labo">
 
 <svg
    xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
@@ -201,6 +201,7 @@
     <rect
        style="opacity:1;fill:#3465a0;fill-opacity:1;stroke:#000;stroke-width:1.98530543;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="bgsvg"
+       class="bgsvg"
        width="1004.1676"
        height="507.11127"
        x="-1.0787759"
@@ -424,11 +425,13 @@
          y="880.67761">500</tspan></text>
     <g
        id="ong_terre"
+       class="ong_terre"
        transform="matrix(1,0,0,1.0067516,0,-3.7278179)">
       <path
          sodipodi:nodetypes="cscccsc"
          inkscape:connector-curvature="0"
          id="path4268"
+         class="path4268"
          d="m 116.59631,552.40364 c 26.1323,5.06913 41.43973,19.88047 52.85715,39.2857 13.58437,23.08824 4.26404,92.43873 4.26404,92.43873 l -173.85990906,0.24928 0,-131.96445 c 0,0 79.78811406,-0.62034 116.73871906,-0.009 z"
          style="fill:#3465a0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <g
@@ -457,7 +460,9 @@
       </g>
     </g>
     <g
-       id="ong_lune">
+       id="ong_lune"
+       class="ong_lune" 
+       >
       <path
          d="M 378.57741,652.87959 A 100.51018,108.84394 0 0 1 272.7244,754.19977 100.51018,108.84394 0 0 1 177.88112,640.81105 100.51018,108.84394 0 0 1 281.42657,536.73209 100.51018,108.84394 0 0 1 378.78914,647.58854"
          sodipodi:open="true"
@@ -469,6 +474,7 @@
          sodipodi:cx="278.29706"
          sodipodi:type="arc"
          id="path4292"
+         class="path4292"
          style="opacity:1;fill:#7b7b7b;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="bt_lune">
@@ -496,11 +502,14 @@
       </g>
     </g>
     <g
-       id="ong_mars">
+       id="ong_mars"
+       class="ong_mars"
+       >
       <path
          sodipodi:nodetypes="cscccsc"
          inkscape:connector-curvature="0"
          id="path4268-7"
+         class="path4268-7"
          d="m 437.92917,552.93844 c -25.61485,5.06913 -40.61918,19.88047 -51.81053,39.2857 -13.31538,23.08824 -4.1796,92.43873 -4.1796,92.43873 l 170.41732,0.24928 0,-131.96445 c 0,0 -78.20824,-0.62034 -114.42719,-0.009 z"/>
       <g
          id="bt_mars">
@@ -528,7 +537,9 @@
       </g>
     </g>
     <g
-       id="poids40kg">
+       id="poids40kg"
+       class="poids40kg" 
+       >
       <rect
          y="865.98901"
          x="511.13718"
@@ -823,6 +834,7 @@
          y="1047.7194" /></text>
     <g
        id="zero-grav"
+       class="zero-grav"
        transform="translate(-48,2.1428571)">
       <path
          sodipodi:nodetypes="ccccccccccccccccc"
@@ -861,6 +873,7 @@
     </g>
     <g
        id="grav-lune"
+       class="grav-lune"
        transform="translate(-88,0)">
       <path
          sodipodi:nodetypes="ccccccccccccccccc"
@@ -899,6 +912,7 @@
     </g>
     <g
        id="grav-mars"
+       class="grav-mars"
        transform="translate(-72,0)">
       <path
          sodipodi:nodetypes="ccccccccccccccccc"
@@ -937,6 +951,7 @@
     </g>
     <g
        id="grav-terre"
+       class="grav-terre"
        transform="translate(-62.857143,0)">
       <path
          sodipodi:nodetypes="ccccccccccccccccc"
@@ -977,29 +992,25 @@
 </svg>
 
 <div id="planetes" >
-    <span id="etq_terre" class="etq">Bienvenue sur la Terre</span>
-    <span id="etq_lune"  class="etq">Bienvenue sur la Lune</span>
-    <span id="etq_mars"  class="etq">Bienvenue sur Mars</span>
+    <span id="etq_terre" class="etq etq_terre">Bienvenue sur la Terre</span>
+    <span id="etq_lune"  class="etq etq_lune">Bienvenue sur la Lune</span>
+    <span id="etq_mars"  class="etq etq_mars">Bienvenue sur Mars</span>
     <span id="explic">Cliquer et déplacer la météorite <br />pour utiliser les appareils de mesure.</span> 
 </div>
 
 
 <div id="socle" class="dropper">
-	<div id="meteor" class="draggable" ></div>
+	<div id="meteor" class="draggable meteor" ></div>
 </div>
 
-<div id="balGauche" class="dropper" >	
+<div id="balGauche" class="dropper balGauche" >	
 
-<!-- <div id="socle"  ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<div id="balGauche"  ondrop="drop(event)" ondragover="allowDrop(event)"> -->
-<span id='txtmass'>Masse mesurée : 40 kg</span>
+
+<span id='txtmass' class='txtmass'>Masse mesurée : 40 kg</span>
 
 </div>
 
 <div id="dynamo" class="dropper"></div>	
-<!-- <div id="dynamo"  ondrop="drop(event)" ondragover="allowDrop(event)"></div> -->	
-<!-- <img src="forcegravite/runtime/img/meteor.png" id="meteor"/> -->
-<!-- <img src="forcegravite/runtime/img/meteor.png" id="meteor"  draggable="true"/> -->
 
 
 
