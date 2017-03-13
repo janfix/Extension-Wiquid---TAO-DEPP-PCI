@@ -348,8 +348,8 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                     dropper.addEventListener('drop', function(e) {
 
-                    	 if(e.preventDefault) { e.preventDefault(); } // firefox
-                         if(e.stopPropagation) { e.stopPropagation(); } // firefox
+                    	 if(e.preventDefault) { e.preventDefault(); }
+   						 if(e.stopPropagation) { e.stopPropagation(); }
 
                         var target = e.target,
                             draggedElement = dndHandler.draggedElement,

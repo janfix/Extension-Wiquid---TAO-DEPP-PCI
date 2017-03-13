@@ -40,7 +40,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse: function(response) { 
+        setResponse: function setResponse(response) { 
 
             var $container = $(this.dom), value;
              
@@ -52,7 +52,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          * @param {Object} interaction
          * @returns {Object}
          */
-        getResponse: function() {
+        getResponse: function getResponse() {
 
             var $container = $(this.dom),
                 value = $container.find('.deloransw').text();
