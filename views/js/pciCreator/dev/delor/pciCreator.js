@@ -47,6 +47,9 @@ define([
          */
         afterCreate : function(pci){
             $("div .delor").each(function(index, el) {
+
+                //TODO - fix me when more than one instance of such PCIs is implemented
+
                 if(this){
                    $(".widget-box").remove();
                    $(".grid-row").remove();

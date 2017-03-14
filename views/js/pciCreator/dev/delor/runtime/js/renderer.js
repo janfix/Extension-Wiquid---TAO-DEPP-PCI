@@ -4,7 +4,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
-    "use strict";  
+    "use strict";
 
     function renderChoices(id, $container, config, assetManager) {
 
@@ -21,7 +21,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         var answbecher = "not-use";
 
         //Insert Orus
-        $container.find(".zonesocle").append($('<img>', { src: assetManager.resolve('delor/runtime/img/orus.png') }).attr('id', 'catgod').attr('class', 'draggable catgod'));
+        $container.find(".zonesocle").append($('<img>', { src: assetManager.resolve('delor/runtime/img/orus.png') }).attr('class', 'draggable catgod'));
 
         // Create the water valve 
         $container.find(".robi").append("<div class='modifeau'>Modifier le volume d'eau</div><br /><input type='range' id='vanne' class='vanne' step='5' min='0' ma='140'><div id='moins'>- Moins</div><div id='plus' class='plus' >Plus +</div>");
@@ -47,14 +47,16 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
             if (newVal > oldVal) {
                 $container.find(".rect5659-1-1").css("height", "455px");
                 $container.find(".rect5659-1-1").show();
-            } else if (newVal < oldVal) {}
+            }
             oldVal = newVal;
         });
 
         $vanne.mouseup(function(event) {
-            if (answvanne == "not-use") { $(".deloransw").append(" vanne-ok,");
-                answvanne = "vanne-ok"; }
-            obBecher.remplir();
+            if (answvanne == "not-use") {
+                $container.find(".deloransw").append(" vanne-ok,");
+                answvanne = "vanne-ok";
+            }
+            obBecher.fillup();
             // the statue est in the empty beaker
             if (statueloc === 2 && niveau === 0) {
                 niveau = $vanne.val();
@@ -134,7 +136,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
             messageVolume: "",
             remplissage: false, // fill false =  totally empty, if the statue is in the beaker before water: true
 
-            remplir: function() {
+            fillup: function() {
                 // two cases : fill from empty or not.
                 if (this.statue === true) { // from empty
                     this.remplissage = true; // the statue is already in the beaker
@@ -311,12 +313,14 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
         function draganddroper() {
 
+            console.log("TEST TEST TEST");
+
 
             var dndHandler = {
 
                 draggedElement: null,
 
-                applyDragEvents: function(element) {
+                applyDragEvents: function applyDragEvents(element) {
 
                     element.draggable = true;
 
@@ -330,13 +334,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                 },
 
-                applyDropEvents: function(dropper) {
+                applyDropEvents: function applyDropEvents(dropper) {
 
+                    var dndHandler = this;
 
                     dropper.addEventListener('dragover', function(e) {
                         e.preventDefault();
-
-
                         this.className = 'dropper drop_hover';
                     }, false);
 
@@ -344,12 +347,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         this.className = 'dropper';
                     });
 
-                    var dndHandler = this;
+
 
                     dropper.addEventListener('drop', function(e) {
-
-                    	 if(e.preventDefault) { e.preventDefault(); }
-   						 if(e.stopPropagation) { e.stopPropagation(); }
 
                         var target = e.target,
                             draggedElement = dndHandler.draggedElement,
@@ -357,10 +357,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                         var cible = String(target.id);
 
+                        if (e.preventDefault) { e.preventDefault(); }
+                        if (e.stopPropagation) { e.stopPropagation(); }
 
                         if (cible == "zonesocle") {
                             obBecher.statue = false;
-                            var poidssta = $(".tspan5974").text();
+                            var poidssta = $container.find(".tspan5974").text();
                             if (statueloc == 1 && poidssta == "0 g" && onoff == 1) {
                                 $container.find(".tspan5974").html("-190 g");
                                 tare = -190;
@@ -376,21 +378,25 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                         }
                         if (cible == "zonepese") {
-                            if (answbal == "not-use") { $(".deloransw").append(" balance-ok,");
-                                answbal = "bal-ok"; }
+                            if (answbal == "not-use") {
+                                $(".deloransw").append(" balance-ok,");
+                                answbal = "bal-ok";
+                            }
                             $container.find(".catgod").css("left", "47px").css("top", "64px");
                             obBecher.statue = false;
                             if (statueloc == 2) {
                                 obBecher.sortirStatue();
                             }
                             statueloc = 1;
-                            if (onoff == 1 && tare == 0) { $(".tspan5974").html("190 g"); } else if (onoff == 0) {
+                            if (onoff == 1 && tare == 0) { $container.find(".tspan5974").html("190 g"); } else if (onoff == 0) {
                                 $container.find(".tspan5974").html("0 g");
-                            } else if (onoff == 1 && tare < 0) { $(".tspan5974").html("0 g"); } else { tare = 0; }
+                            } else if (onoff == 1 && tare < 0) { $container.find(".tspan5974").html("0 g"); } else { tare = 0; }
                         }
                         if (cible == "zoneplonge") {
-                            if (answbecher == "not-use") { $(".deloransw").append(" becher-ok,");
-                                answbecher = "becher-ok"; }
+                            if (answbecher == "not-use") {
+                                $(".deloransw").append(" becher-ok,");
+                                answbecher = "becher-ok";
+                            }
                             var poidssta2 = $(".tspan5974").text();
                             if (statueloc == 1 && poidssta2 == "0 g" && onoff == 1) {
 
