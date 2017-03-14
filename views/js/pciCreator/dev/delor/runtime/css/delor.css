@@ -60,7 +60,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     font-family: 'courrier';
 }
 
-.qti-customInteraction .delor #zonepese {
+.qti-customInteraction .delor .zonepese {
     position: relative;
     padding-left: 85px;
     margin-top: 151px;
@@ -69,7 +69,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     height: 215px;
 }
 
-.qti-customInteraction .delor #zoneplonge {
+.qti-customInteraction .delor .zoneplonge {
     margin-left: 95px;
     position: relative;
     padding-left: 12px;
@@ -79,7 +79,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     margin-top: -280px;
 }
 
-.qti-customInteraction .delor #zonesocle {
+.qti-customInteraction .delor .zonesocle {
     position: relative;
     padding-top: 26px;
     opacity: 1;
@@ -114,7 +114,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     margin-left: 13px;
 }
 
-.qti-customInteraction .delor #lecvol {
+.qti-customInteraction .delor .lecvol {
     font-family: 'arial';
     color: white;
     font-size: 1em;
@@ -125,7 +125,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     left: 250px;
 }
 
-.qti-customInteraction .delor #robi {
+.qti-customInteraction .delor .robi {
     padding: 5px;
     text-align: center;
     color: white;
@@ -154,7 +154,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-.qti-customInteraction .delor #consigne {
+.qti-customInteraction .delor .consigne {
     width: 300px;
     font-size: 14px;
     position: relative;
