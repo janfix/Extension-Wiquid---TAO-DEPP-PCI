@@ -46,10 +46,8 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
+           //TODO - fix me when more than one instance of such PCIs is implemented 
             $("div .delor").each(function(index, el) {
-
-                //TODO - fix me when more than one instance of such PCIs is implemented
-
                 if(this){
                    $(".widget-box").remove();
                    $(".grid-row").remove();
