@@ -4,7 +4,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
-.qti-customInteraction .delor #deloransw {
+.qti-customInteraction .delor .deloransw {
     display: none;
 }
 
@@ -13,7 +13,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     height: 550px;
 }
 
-.qti-customInteraction .delor #svghome {
+.qti-customInteraction .delor .svghome {
     position: absolute;
 }
 
@@ -51,7 +51,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     display: none;
 }
 
-.qti-customInteraction .delor #catgod {
+.qti-customInteraction .delor .catgod {
     width: 80px;
     cursor: pointer;
 }

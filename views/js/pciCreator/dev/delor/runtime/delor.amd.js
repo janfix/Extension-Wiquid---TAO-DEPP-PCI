@@ -66,7 +66,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          * 
          * @param {Object} interaction
          */
-        resetResponse: function() {
+        resetResponse: function resetResponse() {
 
             var $container = $(this.dom);
 
@@ -79,7 +79,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          * 
          * @param {Object} interaction
          */
-        destroy: function() {
+        destroy: function destroy() {
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -90,7 +90,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState: function(state) {
+        setSerializedState: function setSerializedState(state) {
 
         },
         /**
@@ -100,7 +100,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState: function() {
+        getSerializedState: function getSerializedState() {
 
             return {};
         }

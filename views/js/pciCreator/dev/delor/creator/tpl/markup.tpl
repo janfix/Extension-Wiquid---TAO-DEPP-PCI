@@ -1,7 +1,7 @@
 <div class="delor">
     <div class="prompt">{{{prompt}}}</div>
 
-    <div id="svghome">
+    <div class="svghome">
     <svg
    xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
