@@ -339,13 +339,13 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                     dropper.addEventListener('dragover', function(e) {
                         e.preventDefault();
-                        //this.className = 'dropper drop_hover';
+                        
                         $(this).addClass('drop_hover');
                     }, false);
 
                     dropper.addEventListener('dragleave', function() {
                         $(this).removeClass('drop_hover');
-                        //this.className = 'dropper';
+                        
                     });
 
                     var dndHandler = this;
@@ -414,7 +414,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         }
 
                         $(target).removeClass('drop_hover');
-                        //target.className = 'dropper';
+                        
 
                         clonedElement = target.appendChild(clonedElement);
                         dndHandler.applyDragEvents(clonedElement);

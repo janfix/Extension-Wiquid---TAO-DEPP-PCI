@@ -48,13 +48,13 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
         function appendmedia(desti, timage) {
             for (var i = 0; i < timage.length; i++) {
-                desti.append($('<img>', { src: assetManager.resolve(mediapath + timage[i] + '.png') }).attr("id", timage[i]).attr("class", timage[i]));
+                desti.append($('<img>', { src: assetManager.resolve(mediapath + timage[i] + '.png') }).attr("class", timage[i]));
             }
         }
 
         function prependmedia(desti, timage) {
             for (var i = 0; i < timage.length; i++) {
-                desti.prepend($('<img>', { src: assetManager.resolve(mediapath + timage[i] + '.png') }).attr("id", timage[i]).attr("class", timage[i]));
+                desti.prepend($('<img>', { src: assetManager.resolve(mediapath + timage[i] + '.png') }).attr("class", timage[i]));
             }
         }
 
@@ -101,6 +101,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
             $premierplan.addClass('premplan');
             $convoi.removeClass('convoigo');
             $convoi.show();
+            $ptvcc.stop();
             $convoi.css("opacity", 1);
             $(this).hide();
             $vache.show();
@@ -124,7 +125,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
             $roue.addClass('rouego');
             $cache.show();
             $roue.delay(10000).queue(function(next) {
-                $container.find('#vache').hide();
+                $container.find('.vache').hide();
                 $ccbleu.hide();
                 $rmzero.show();
                 $roue.removeClass('rouego');
@@ -170,10 +171,11 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
             $bg.css("opacity", 0).css("border", "none");
             $premierplan.removeClass('premplan');
             $premierplan.css("background-image", "none");
+            $ptvcc.stop();
             $ptvcc.animate({
                     opacity: 1
                 },
-                2000,
+                1000,
                 function() { 
                     $convoi.css("opacity", 0.2);
                     $roue.css("opacity", 0.2);

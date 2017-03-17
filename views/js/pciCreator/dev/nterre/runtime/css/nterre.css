@@ -8,7 +8,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     top: -1.5rem!important;
 }
 
-.qti-customInteraction .nterre #nterransw {
+.qti-customInteraction .nterre .nterransw {
     display: none;
 }
 
@@ -16,19 +16,11 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     font-family: sans-serif;
 }
 
-.qti-customInteraction .nterre #nterrebg {
-    height: 400px;
+.qti-customInteraction .nterre .nterrebg {
+    height: 0px;
 }
 
-.qti-customInteraction .nterre #filter5823 {
-    color-interpolation-filters: sRGB
-}
-
-.qti-customInteraction .nterre #filter5823-8 {
-    color-interpolation-filters: sRGB
-}
-
-.qti-customInteraction .nterre #fond {
+.qti-customInteraction .nterre .fond {
     opacity: 1;
     fill: #000000;
     fill-opacity: 1;
@@ -40,7 +32,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path4151-6 {
+.qti-customInteraction .nterre .path4151-6 {
     opacity: 1;
     fill: #e6ab84;
     fill-opacity: 1;
@@ -53,20 +45,8 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     filter: url(#filter5823)
 }
 
-.qti-customInteraction .nterre #image5929 {
-    opacity: 0.747;
-    fill: url(#pattern5893);
-    fill-opacity: 1;
-    stroke: none;
-    stroke-width: 4.61999989;
-    stroke-linejoin: round;
-    stroke-miterlimit: 4;
-    stroke-dasharray: none;
-    stroke-opacity: 0.39215686;
-    filter: url(#filter5823-8)
-}
 
-.qti-customInteraction .nterre #path5936 {
+.qti-customInteraction .nterre .path5936 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -78,7 +58,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5938 {
+.qti-customInteraction .nterre .path5938 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -90,7 +70,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5940 {
+.qti-customInteraction .nterre .path5940 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -102,7 +82,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5942 {
+.qti-customInteraction .nterre .path5942 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -114,7 +94,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5944 {
+.qti-customInteraction .nterre .path5944 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -126,7 +106,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5946 {
+.qti-customInteraction .nterre .path5946 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -138,7 +118,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5948 {
+.qti-customInteraction .nterre .path5948 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -150,7 +130,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5950 {
+.qti-customInteraction .nterre .path5950 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -162,7 +142,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5952 {
+.qti-customInteraction .nterre .path5952 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -174,7 +154,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5960 {
+.qti-customInteraction .nterre .path5960 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -186,7 +166,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5962 {
+.qti-customInteraction .nterre .path5962 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -198,7 +178,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5960-8 {
+.qti-customInteraction .nterre .path5960-8 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -210,7 +190,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5979 {
+.qti-customInteraction .nterre .path5979 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -222,7 +202,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #path5979-9 {
+.qti-customInteraction .nterre .path5979-9 {
     opacity: 1;
     fill: #ffffff;
     fill-opacity: 1;
@@ -234,28 +214,28 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     stroke-opacity: 0.39215686
 }
 
-.qti-customInteraction .nterre #cmdajuster {
+.qti-customInteraction .nterre .cmdajuster {
     background-color: grey;
     position: relative;
-    margin-top: -32px;
+    margin-top: 428px;
     width: 900px;
     padding-left: 85px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.qti-customInteraction .nterre #planetbox {
-    margin-top: 60px;
+.qti-customInteraction .nterre .planetbox {
+    margin-top: -45px;
 }
 
-.qti-customInteraction .nterre #plantext {
+.qti-customInteraction .nterre .plantext {
     color: white;
     position: absolute;
     margin-top: -310px;
-    margin-left: 724px;
+    margin-left: 727px;
 }
 
-.qti-customInteraction .nterre #planetbox svg {
+.qti-customInteraction .nterre .planetbox svg {
     position: absolute;
     margin-top: -300px;
     margin-left: 700px;
@@ -266,18 +246,18 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     width: 250px;
 }
 
-.qti-customInteraction .nterre #gravitas {
+.qti-customInteraction .nterre .gravitas {
     font-size: 20px;
     margin-left: 200px;
-    margin-top: -85px;
+    margin-top: 375px;
     position: absolute;
     color: white;
 }
 
-.qti-customInteraction .nterre #etoile {
+.qti-customInteraction .nterre .etoile {
     color: white;
     position: absolute;
-    margin-top: -310px;
+    margin-top: 255px;
     margin-left: 120px;
 }
 
@@ -321,37 +301,37 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-.qti-customInteraction .nterre #sun {
+.qti-customInteraction .nterre .sun {
     -moz-animation: beat 3s ease infinite;
     animation: beat 3s ease infinite;
 }
 
-.qti-customInteraction .nterre #path5936 {
+.qti-customInteraction .nterre .path5936 {
     -moz-animation: starbeato 10s ease infinite;
     animation: starbeato 10s ease infinite;
 }
 
-.qti-customInteraction .nterre #path5938 {
+.qti-customInteraction .nterre .path5938 {
     -moz-animation: starbeat 15s ease infinite;
     animation: starbeat 15s ease infinite;
 }
 
-.qti-customInteraction .nterre #path5942 {
+.qti-customInteraction .nterre .path5942 {
     -moz-animation: starbeato 20s ease infinite;
     animation: starbeato 20s ease infinite;
 }
 
-.qti-customInteraction .nterre #path5946 {
+.qti-customInteraction .nterre .path5946 {
     -moz-animation: starbeat 8s ease infinite;
     animation: starbeat 8s ease infinite;
 }
 
-.qti-customInteraction .nterre #path5960-8 {
+.qti-customInteraction .nterre .path5960-8 {
     -moz-animation: starbeato 20s ease infinite;
     animation: starbeato 20s ease infinite;
 }
 
-.qti-customInteraction .nterre #path5960 {
+.qti-customInteraction .nterre .path5960 {
     -moz-animation: starbeat 20s ease infinite;
     animation: starbeat 20s ease infinite;
 }

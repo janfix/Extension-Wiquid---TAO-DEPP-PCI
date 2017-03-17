@@ -4,11 +4,11 @@ Copyright DEPP - Ministère de l'éducation nationale
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
-#efdsasw {
+.efdsasw {
     display: none;
 }
 
-.qti-customInteraction .effetdeserre #smallfleche {
+.qti-customInteraction .effetdeserre .smallfleche {
     fill: #c83737;
     fill-opacity: 1;
     fill-rule: evenodd;
@@ -21,7 +21,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche1 {
+.qti-customInteraction .effetdeserre .fleche1 {
     fill: #c83737;
     fill-opacity: 1;
     fill-rule: evenodd;
@@ -34,7 +34,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche2-2-2-1 {
+.qti-customInteraction .effetdeserre .fleche2-2-2-1 {
     fill: #c83737;
     fill-opacity: 1;
     fill-rule: evenodd;
@@ -47,7 +47,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche2-2-2 {
+.qti-customInteraction .effetdeserre .fleche2-2-2 {
     fill: #c83737;
     fill-opacity: 1;
     fill-rule: evenodd;
@@ -60,7 +60,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche2-2-0 {
+.qti-customInteraction .effetdeserre .fleche2-2-0 {
     fill: #c83737;
     fill-opacity: 1;
     fill-rule: evenodd;
@@ -73,7 +73,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche2-2-2-1-1 {
+.qti-customInteraction .effetdeserre .fleche2-2-2-1-1 {
     display: inline;
     fill: #c83737;
     fill-opacity: 1;
@@ -87,7 +87,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche2-2-0-2 {
+.qti-customInteraction .effetdeserre .fleche2-2-0-2 {
     display: inline;
     fill: #c83737;
     fill-opacity: 1;
@@ -101,7 +101,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #path24839 {
+.qti-customInteraction .effetdeserre .path24839 {
     display: inline;
     fill: #ea002b;
     fill-opacity: 0.76754384;
@@ -115,7 +115,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #fleche2-2 {
+.qti-customInteraction .effetdeserre .fleche2-2 {
     fill: #c83737;
     fill-opacity: 1;
     fill-rule: evenodd;
@@ -128,20 +128,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #display{ 
-    fill: #c83737;
-    fill-opacity: 1;
-    fill-rule: evenodd;
-    stroke: #ffffff;
-    stroke-width: 5.34196901;
-    stroke-linecap: butt;
-    stroke-linejoin: miter;
-    stroke-miterlimit: 4;
-    stroke-dasharray: none;
-    stroke-opacity: 1
-}
-
-.qti-customInteraction .effetdeserre #path24817 {
+.qti-customInteraction .effetdeserre .path24817 {
     display: inline;
     fill: #ea002b;
     fill-opacity: 0.76754384;
@@ -155,7 +142,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1
 }
 
-.qti-customInteraction .effetdeserre #path24253 {
+.qti-customInteraction .effetdeserre .path24253 {
     fill: #ff6600;
     fill-rule: evenodd;
     stroke: #ffffff;
@@ -167,7 +154,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     stroke-opacity: 1;
 }
 
-.qti-customInteraction .effetdeserre #path24251 {
+.qti-customInteraction .effetdeserre .path24251 {
     fill: #ffcc00;
     fill-rule: evenodd;
     stroke: #ffffff;
@@ -186,32 +173,28 @@ Copyright DEPP - Ministère de l'éducation nationale
     background-color: rgba(255, 255, 255, 0.1);
     width: 954px;
     height: 126px;
-}
+} 
 
-.qti-customInteraction #svg23701 {
+.qti-customInteraction .svg23701 {
     width: 815px;
     opacity: 0.9;
     margin-left: -18px;
     margin-top: -356px;
 }
 
-.qti-customInteraction .effetdeserre #bigfleche {
+.qti-customInteraction .effetdeserre .bigfleche {
     display: none;
 }
 
-.qti-customInteraction .effetdeserre #m2fleche {
+.qti-customInteraction .effetdeserre .m2fleche {
     display: none;
 }
 
-.qti-customInteraction .effetdeserre #mfleche {
+.qti-customInteraction .effetdeserre .mfleche {
     display: none;
 }
 
-.qti-customInteraction .effetdeserre #smallfleche {}
-
-.qti-customInteraction .effetdeserre #fleche1 {}
-
-.qti-customInteraction .effetdeserre #svg4152 {
+.qti-customInteraction .effetdeserre .svg4152 {
     position: relative;
     width: 555px;
 }
@@ -221,23 +204,12 @@ Copyright DEPP - Ministère de l'éducation nationale
     color: grey;
 }
 
-.qti-customInteraction .effetdeserre #flechejaune {
-    position: relative;
-    margin-top: -240px;
-    width: 800px;
-}
-
-.qti-customInteraction #efdscontainer {
+.qti-customInteraction .effetdeserre {
     background-image: url("img/bgeds.svg");
     background-repeat: no-repeat;
 }
 
-.qti-customInteraction .effetdeserre #repique {
-    margin-left: -361px;
-    height: 558px;
-}
-
-.qti-customInteraction .effetdeserre #commande {
+.qti-customInteraction .effetdeserre .commande {
     margin-top: 305px;
     position: relative;
     width: 100%;
@@ -245,7 +217,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     text-align: center;
 }
 
-.qti-customInteraction .effetdeserre #commande button {
+.qti-customInteraction .effetdeserre .commande button {
     margin: 10px;
     width: 150px;
     height: 60px;
@@ -279,15 +251,6 @@ Copyright DEPP - Ministère de l'éducation nationale
     animation: anif 5s ease;
 }
 
-.qti-customInteraction .effetdeserre #fleche2-0 {
-    animation: anif 5s ease;
-}
-
-.qti-customInteraction .effetdeserre #rebondos {
-    width: 420px;
-    opacity: 1;
-}
-
 .qti-customInteraction .effetdeserre .etiq2 {
     opacity: 0;
     background-color: rgba(0, 0, 255, 0.2);
@@ -308,63 +271,63 @@ Copyright DEPP - Ministère de l'éducation nationale
     animation: anif 8s ease;
 }
 
-.qti-customInteraction .effetdeserre #etiquette9 {
+.qti-customInteraction .effetdeserre .etiquette9 {
     height: 60px;
     width: 250px;
     margin-left: 600px;
     margin-top: 227px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette8 {
+.qti-customInteraction .effetdeserre .etiquette8 {
     height: 59px;
     width: 250px;
     margin-left: 670px;
     margin-top: -5px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette7 {
+.qti-customInteraction .effetdeserre .etiquette7 {
     height: 58px;
     width: 180px;
     margin-left: 485px;
     margin-top: -470px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette6 {
+.qti-customInteraction .effetdeserre .etiquette6 {
     height: 72px;
     width: 130px;
     margin-left: 295px;
     margin-top: -30px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette5 {
+.qti-customInteraction .effetdeserre .etiquette5 {
     height: 50px;
     width: 130px;
     margin-left: 150px;
     margin-top: 128px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette4 {
+.qti-customInteraction .effetdeserre .etiquette4 {
     height: 54px;
     width: 130px;
     margin-left: 18px;
     margin-top: 95px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette3 {
+.qti-customInteraction .effetdeserre .etiquette3 {
     height: 53px;
     width: 150px;
     margin-left: 300px;
     margin-top: -68px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette2 {
+.qti-customInteraction .effetdeserre .etiquette2 {
     height: 32px;
     width: 50px;
     margin-left: 122px;
     margin-top: 49px;
 }
 
-.qti-customInteraction .effetdeserre #etiquette1 {
+.qti-customInteraction .effetdeserre .etiquette1 {
     height: 53px;
     width: 150px;
     margin-left: 3px;
@@ -477,19 +440,19 @@ Copyright DEPP - Ministère de l'éducation nationale
     font-weight: bold;
 }
 
-.qti-customInteraction .effetdeserre #effetdeserrediv {
+.qti-customInteraction .effetdeserre .effetdeserrediv {
     width: 250px;
     margin-top: -196px;
     margin-left: 750px;
 }
 
-.qti-customInteraction .effetdeserre #rbdiv {
+.qti-customInteraction .effetdeserre .rbdiv {
     width: 680px;
     margin-left: 289px;
     margin-top: -665px;
 }
 
-.qti-customInteraction #effetdeserre {
+.qti-customInteraction .texteffdeserre {
     font-weight: bold;
     text-transform: uppercase;
     color: white;

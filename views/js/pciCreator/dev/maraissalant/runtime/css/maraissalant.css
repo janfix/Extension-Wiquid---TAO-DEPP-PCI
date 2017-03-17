@@ -4,7 +4,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
-.qti-customInteraction .maraissalant #msanswer {
+.qti-customInteraction .maraissalant .msanswer {
     display: none;
 }
 
@@ -14,6 +14,21 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 .qti-customInteraction .maraissalant {
     height: 400px;
+}
+
+.qti-customInteraction .maraissalant .mstexto{ 
+    text-align: justify;
+    width : 300px;
+    margin-top : 55px;
+    position:absolute;
+ }
+
+.qti-customInteraction .maraissalant .mstexto1{
+    margin-left: 77px;
+}
+
+.qti-customInteraction .maraissalant .mstexto2{
+    margin-left: 557px;
 }
 
 .qti-customInteraction .maraissalant .bton {
@@ -29,25 +44,25 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     width: 130px;
 }
 
-.qti-customInteraction .maraissalant #btdemarrer:hover {
+.qti-customInteraction .maraissalant .btdemarrer:hover {
     opacity: 0.8;
     color: grey;
 }
 
-.qti-customInteraction .maraissalant #btdemarrer {
+.qti-customInteraction .maraissalant .btdemarrer {
     background-color: orange;
     padding: 13px;
     cursor: pointer;
 }
 
-.qti-customInteraction .maraissalant #btzero {
+.qti-customInteraction .maraissalant .btzero {
     color: gainsboro;
     padding: 13px;
     background-color: lightgrey;
     cursor: pointer;
 }
 
-.qti-customInteraction .maraissalant #btzero:hover {
+.qti-customInteraction .maraissalant .btzero:hover {
     opacity: 0.8;
 }
 
@@ -69,7 +84,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     position: relative;
 }
 
-.qti-customInteraction .maraissalant #clockbox {
+.qti-customInteraction .maraissalant .clockbox {
     position: relative;
     margin-left: 372px;
     margin-top: 20px;
