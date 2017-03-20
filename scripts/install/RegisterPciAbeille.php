@@ -8,6 +8,6 @@ class RegisterPciAbeille extends RegisterPortableElement
 {
     protected function getSourceDirectory(){
         $viewDir = \common_ext_ExtensionsManager::singleton()->getExtensionById('pciWiquid')->getConstant('DIR_VIEWS');
-        return $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'abeille']);  
+        return $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev' ,'abeille']);  
     }
 }
