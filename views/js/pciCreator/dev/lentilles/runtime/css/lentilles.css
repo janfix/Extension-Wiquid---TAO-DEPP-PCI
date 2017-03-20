@@ -48,7 +48,7 @@ td {
 }
 
 .qti-customInteraction .lentilles .entete_nb {
-    width: 50px;
+    /* width: 50px; */
     text-align: center;
     border: 1px solid black;
     background-color: lightgrey;

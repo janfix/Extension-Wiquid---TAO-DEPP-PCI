@@ -128,7 +128,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
         });
 
-        // POO ->  Interaction beaker and avec statue
+        // POO ->  Interaction beaker and statue
         var obBecher = {
             niveau: 0,
             statue: false,
@@ -223,14 +223,17 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                     }
                     if (this.seuil3 === true) {
-                        // levels 
+                        // levels
                         if (this.niveau > 94) {
-
                             ajusterNiveau(97 * 4);
                             // display overflow
                             $container.find(".deborde").show();
-                        } else {
-                            this.niveau = 97;
+                        } 
+                        else if(this.niveau < 94 && this.niveau > 87){
+                              ajusterNiveau(this.niveau * 4.1);
+                        } 
+                        else {
+                            this.niveau = 96;
                             ajusterNiveau(this.niveau * 4);
                         }
                         $container.find(".lecvol").html("Lecture du volume impossible");
@@ -265,9 +268,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                     } else if (this.seuil3 === true) {
                         eauDebit = $vanne.val();
                         this.niveau = eauDebit - 10;
-                        $container.find(".lecvol").html("Lecture du volume impossible");
-                        this.remplissage = false;
-                        $container.find(".deborde").hide();
+                        if(this.niveau >85){
+                            $container.find(".lecvol").html("Lecture du volume impossible");
+                            $container.find(".deborde").hide();}
+                        else{ 
+                            $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
+                            $container.find(".deborde").hide(); }
                     } else {
                         eauDebit = $vanne.val();
                         this.niveau = eauDebit - 10;
@@ -291,8 +297,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
                     } else if (this.seuil3 === true) {
                         this.niveau = this.niveau - 10;
-                        $container.find(".lecvol").html("Lecture du volume impossible");
-                        $container.find(".deborde").hide();
+                        if(this.niveau >85){
+                            $container.find(".lecvol").html("Lecture du volume impossible");
+                            $container.find(".deborde").hide();}
+                        else{ 
+                            $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
+                            $container.find(".deborde").hide(); }
                     } else {
                         this.niveau = this.niveau - 10;
                         $container.find(".deborde").hide();

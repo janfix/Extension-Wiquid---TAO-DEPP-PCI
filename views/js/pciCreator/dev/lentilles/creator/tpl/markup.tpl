@@ -13,7 +13,7 @@
 	<div class="zonefdc">
 	<p class="etape">Etape 1 : construire un tableau.</p> <p class='consignetableau'>Cliquer sur une cellule pour la modifier.</p>
 	</div>
-		<table id="tablefdc"></table>
+		<table class="tablefdc"></table>
 </div>
 
 <div class="graphor"></div>
