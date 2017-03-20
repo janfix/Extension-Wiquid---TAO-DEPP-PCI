@@ -22,11 +22,7 @@ define([
     'taoQtiItem/runner/qtiItemRunner',
     'taoQtiItem/portableElementRegistry/ciRegistry',
     'taoQtiItem/portableElementRegistry/provider/localManifestProvider',
-<<<<<<< HEAD
     'json!pciWiquid/pciCreator/dev/Berthold/test/data/qti.json'
-=======
-    'json!pciWiquid/pciCreator/dev/abeille/test/data/qti.json'
->>>>>>> 0f81fb6da02f8d98c6a5acc5508ab6bf4f4691ad
 ], function ($, _, qtiItemRunner, ciRegistry, pciTestProvider, itemData){
     'use strict';
 
@@ -37,21 +33,12 @@ define([
 
     //manually register the pci from its manifest
     pciTestProvider.addManifestPath(
-<<<<<<< HEAD
         'Berthold',
         'pciWiquid/pciCreator/dev/Berthold/pciCreator.json');
     ciRegistry.resetProviders();
     ciRegistry.registerProvider(pciTestProvider.getModuleName());
 
     QUnit.module('Berthod');
-=======
-        'abeille',
-        'pciWiquid/pciCreator/dev/abeille/pciCreator.json');
-    ciRegistry.resetProviders();
-    ciRegistry.registerProvider(pciTestProvider.getModuleName());
-
-    QUnit.module('Abeille');
->>>>>>> 0f81fb6da02f8d98c6a5acc5508ab6bf4f4691ad
 
     QUnit.asyncTest('display and play', function (assert){
 
@@ -63,11 +50,7 @@ define([
         runner = qtiItemRunner('qti', itemData)
             .on('render', function (){
                     QUnit.start();
-<<<<<<< HEAD
                     assert.equal($container.find('.berthold').length,1,'The container contains Berthold' );
-=======
-                    assert.equal($container.find('.abeille').length,1,'The container contains abeille' );
->>>>>>> 0f81fb6da02f8d98c6a5acc5508ab6bf4f4691ad
                     
             })
             .on('error', function (error){
