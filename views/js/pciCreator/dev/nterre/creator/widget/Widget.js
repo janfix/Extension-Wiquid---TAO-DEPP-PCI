@@ -11,7 +11,7 @@ define([
 
     var NterreInteractionWidget = Widget.clone();
 
-    NterreInteractionWidget.initCreator = function(){
+    NterreInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
