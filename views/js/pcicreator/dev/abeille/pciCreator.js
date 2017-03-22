@@ -46,13 +46,7 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
-            $("div .abeille").each(function(index, el) {
-                if(this){
-                   $(".widget-box").remove();
-                   $(".grid-row").remove();
-                   alert("Cette animation ne peut être dupliquée dans le même item"); 
-                }         
-            });
+
         },
         /**
          * (required) Gives the qti pci xml template 

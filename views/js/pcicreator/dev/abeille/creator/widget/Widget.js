@@ -11,7 +11,7 @@ define([
 
     var abeilleInteractionWidget = Widget.clone();
 
-    abeilleInteractionWidget.initCreator = function(){
+    abeilleInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
