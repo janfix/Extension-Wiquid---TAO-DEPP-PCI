@@ -11,7 +11,7 @@ define([
 
     var BertholdWidget = Widget.clone();
 
-    BertholdWidget.initCreator = function(){
+    BertholdWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

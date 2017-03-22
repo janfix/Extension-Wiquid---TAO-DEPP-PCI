@@ -1,15 +1,13 @@
 /*
 Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+Assets created by Wiquid.
+All assets are under Creative Commons licence -
 */
 
 define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
     "use strict"; 
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 0f81fb6da02f8d98c6a5acc5508ab6bf4f4691ad
     function renderChoices(id, $container, config, assetManager) {
 
         var $imagetitre = $container.find(".imagetitre");

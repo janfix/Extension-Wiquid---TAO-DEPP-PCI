@@ -22,7 +22,7 @@ define([
             interaction = this.widget.element;
 
         containerEditor.create($prompt, {
-            change : function(text){
+            change : function change(text){
                 interaction.data('prompt', text);
                 interaction.updateMarkup();
             },
@@ -42,7 +42,7 @@ define([
         containerEditor.destroy($prompt);
     });
 
-    BertholdInteractionStateQuestion.prototype.initForm = function(){
+    BertholdInteractionStateQuestion.prototype.initForm = function initForm(){
         var $container = this.widget.$container;
 
         $container.find(".cartes").hide();
