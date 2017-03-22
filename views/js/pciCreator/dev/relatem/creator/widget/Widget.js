@@ -11,7 +11,7 @@ define([
 
     var RelatemInteractionWidget = Widget.clone();
 
-    RelatemInteractionWidget.initCreator = function(){
+    RelatemInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
