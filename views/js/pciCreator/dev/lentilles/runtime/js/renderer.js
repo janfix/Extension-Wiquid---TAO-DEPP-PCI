@@ -1,5 +1,7 @@
 /*
 Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+Assets created by Wiquid except : lentils picture : source DEPP.
+Wiquid's assets are under Creative Commons licence -
 */
 
 define(['IMSGlobal/jquery_2_1_1',
@@ -13,7 +15,7 @@ define(['IMSGlobal/jquery_2_1_1',
     "use strict"; 
 
     function renderChoices(id, $container, config, assetManager) {
-        var $lentils = $(".lentils");
+        var $lentils = $container.find(".lentils");
 
         $lentils.append($('<img>', { src: assetManager.resolve('lentilles/runtime/assets/lentils.png') }).css({ top: 6, marginLeft: 12 }));
 
@@ -27,31 +29,31 @@ define(['IMSGlobal/jquery_2_1_1',
             var jsontablor = {};
             var entcol = ["VIDE", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-            $('#tablefdc').append("<tr id='fdc'><td id='coin'></td></tr>");
+            $container.find('.tablefdc').append("<tr class='fdc'><td class='coin'></td></tr>");
 
             for (var i = 1; i < nbcolonne; i++) {
                 // create lines and columns
-                $('#fdc').append("<td class='entete_lettre'>" + entcol[i] + "</td>");
+                $container.find('.fdc').append("<td class='entete_lettre'>" + entcol[i] + "</td>");
             }
 
             for (var i = 1; i < nbligne; i++) {
                 // Create columns titles
-                $('#tablefdc').append("<tr id='entligne" + i + "' class='entete_nb'><td>" + i + "</td></tr>");
+                $container.find('.tablefdc').append("<tr class='entligne" + i + " entete_nb'><td>" + i + "</td></tr>");
 
                 for (var j = 1; j < nbcolonne; j++) {
                     // Create cells
-                    $('#entligne' + i).append("<td id='" + entcol[j] + i + "' class='cellbase'> </td>");
+                    $container.find('.entligne' + i).append("<td class='" + entcol[j] + i + " cellbase'> </td>");
                 }
             }
 
             // Navigation on the worksheet
-            var $cellbase =  $('.cellbase');
+            var $cellbase =  $container.find('.cellbase');
             $cellbase.mouseover(function() {
-                $(this).css('background-color', 'gainsboro');
+                $container.find(this).css('background-color', 'gainsboro');
             });
 
             $cellbase.mouseleave(function() {
-                $(this).css('background-color', 'white');
+                $container.find(this).css('background-color', 'white');
             });
 
 
@@ -59,74 +61,70 @@ define(['IMSGlobal/jquery_2_1_1',
             var cellactiv = "";
             var onlyOne = 0;
 
-            function cellvalidator(cellar) {
-
-                $('#' + cellar).keypress(function(e) {
-                    if (e.which == 13) {
-                        var contenu = $('.modactiv').val();
-                        $('#' + cellar).html(contenu);
-                        if (contenu) { jsontablor[cellar] = contenu; }
-                        var jsontostring = JSON.stringify(jsontablor);
-                        $(".reptablor").html(jsontostring);
-                        onlyOne = 0;
-                        return false;
-                    }
-                });
-            }
-
             function mouseleft(cellar) {
-                $(cellar).mouseleave(function(event) {
-                    var contenu = $('.modactiv').val();
-                    $(cellar).html(contenu);
-                    if (contenu) { jsontablor[cellar.id] = contenu; }
+                $container.find(cellar).mouseleave(function(event) {
+                    var contenu = $container.find('.modactiv').val();
+                    $container.find(cellar).html(contenu);
+                    var classarray =  $(cellar).attr("class").split(' ');
+                    if (contenu !== ' ') { jsontablor[classarray[0]] = contenu; }
                     var jsontostring = JSON.stringify(jsontablor);
-                    $(".reptablor").html(jsontostring);
+                    $container.find(".reptablor").html(jsontostring);
                     onlyOne = 0;
                 });
                 return false;
             }
 
-
-
-            $('.cellbase').click(function() {
-                cellactiv = this.id;
+            $container.find('.cellbase').click(function() {
+                var classarray =  $container.find('.cellbase').attr("class").split(' ');
+                cellactiv =classarray[0] ;
                 if (onlyOne === 0) {
                     onlyOne = 1;
-                    cellvalidator(cellactiv);
-                    var contenucell = $(this).text();
-                    if (contenucell == ' ') {
-                        $(this).append("<input type='text' class='modactiv'/>");
+                    //cellvalidator(cellactiv);
+                    var contenucell = $container.find(this).text();
+                    if (contenucell === ' ') {
+                        $container.find(this).append("<input type='text' class='modactiv' />");
                         focusonme();
                         mouseleft(this);
-                        if (contenucell) { jsontablor[cellactiv] = contenucell; }
+                        $container.find(".modactiv").on('keyup', function (e) {
+                            if (e.keyCode == 13) { 
+                                this.blur();
+                            }
+                        });
+                        if (contenucell !== ' ') { jsontablor[cellactiv] = contenucell; }
                         var jsontostring = JSON.stringify(jsontablor);
-                        $(".reptablor").html(jsontostring);
+                        $container.find(".reptablor").html(jsontostring);
                     } else {
-                        $(this).html("<input type='text' class='modactiv' value=" + contenucell + ">");
+                        $container.find(this).html("<input type='text' class='modactiv' value=" + contenucell + ">");
+                        focusonme();
                         mouseleft(this);
-                        if (contenucell) { jsontablor[cellactiv] = contenucell; }
+                        $container.find(".modactiv").on('keyup', function (e) {
+                            if (e.keyCode == 13) { 
+                                this.blur();
+                            }
+                        });
+                        if (contenucell !== ' ') { jsontablor[cellactiv] = contenucell; }
                         var jsontostring = JSON.stringify(jsontablor);
-                        $(".reptablor").html(jsontostring);
+                        $container.find(".reptablor").html(jsontostring);
                     }
                     return false;
                 }
 
-                function focusonme() { $(".modactiv").focus(); }
+                function focusonme() { $container.find(".modactiv").focus(); }
 
-                // Navigation souris sur tableau
-                $(this).css('background-color', 'white');
-                $("#cellactive").html(this.id + "--> <input type='text' id='modifcell'>");
+                // Navigation mouse on worksheet
+                $container.find(this).css('background-color', 'white');
+                $container.find(".cellactive").html($(this).attr("class") + "--> <input type='text' class='modifcell'>");
 
             });
         }
 
-        $('.tablor').append('<button class="btgraphor">Etape 2 : construire un graphique</button>');
+        $container.find('.tablor').append('<button class="btgraphor">Etape 2 : construire un graphique</button>');
 
 
         // Graphic area  ***********************************************************************************
 
         var idlentils = _.uniqueId('idlentils_');// lodash generate unique id
-        $(".graphor").attr('id', idlentils); // Attribution of the unique Id to the Id attribute
+        $container.find(".graphor").attr('id', idlentils); // Attribution of the unique Id to the Id attribute
 
         var paper = Raphael(idlentils, 1000, 600);
 
@@ -390,22 +388,22 @@ define(['IMSGlobal/jquery_2_1_1',
 
         function navict() {
             navicount = navicount + 1;
-            $(".navicount").html(navicount);
+            $container.find(".navicount").html(navicount);
         }
 
 
-        $('.btgraphor').click(function(event) {
-            $('.tablor').hide();
-            $('.graphor').css('opacity', 1);
+        $container.find('.btgraphor').click(function(event) {
+            $container.find('.tablor').hide();
+            $container.find('.graphor').css('opacity', 1);
             navict();
         });
 
-        $('.graphor').prepend('<button class="retourEtape1">Revenir à l\'étape 1 : construire un tableau</button>');
+        $container.find('.graphor').prepend('<button class="retourEtape1">Revenir à l\'étape 1 : construire un tableau</button>');
 
-        $('.retourEtape1').click(function(event) {
-            $('.btgraphor').show();
-            $('.tablor').show();
-            $('.graphor').css('opacity', 0);
+        $container.find('.retourEtape1').click(function(event) {
+            $container.find('.btgraphor').show();
+            $container.find('.tablor').show();
+            $container.find('.graphor').css('opacity', 0);
             navict();
         });
 

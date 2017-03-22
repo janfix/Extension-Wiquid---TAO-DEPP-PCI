@@ -46,13 +46,15 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
-             $("div .lentilles").each(function(index, el) {
+            // REM : Activate if multiple instance are not possible.
+
+             /*$("div .lentilles").each(function(index, el) {
                 if(this){
                    $(".widget-box").remove();
                    $(".grid-row").remove();
                    alert("Cette animation ne peut être dupliquée dans le même item"); 
                 }         
-            });
+            });*/
             //do some stuff
         },
         /**

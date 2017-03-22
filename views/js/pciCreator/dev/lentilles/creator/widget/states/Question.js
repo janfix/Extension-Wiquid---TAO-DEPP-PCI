@@ -27,7 +27,7 @@ define([
         $container.find(".btgraphor").hide();
 
         containerEditor.create($prompt, {
-            change : function(text){
+            change : function change(text){
                 interaction.data('prompt', text);
                 interaction.updateMarkup();
             },
@@ -45,7 +45,7 @@ define([
         containerEditor.destroy($prompt);
     });
 
-    lentillesInteractionStateQuestion.prototype.initForm = function(){
+    lentillesInteractionStateQuestion.prototype.initForm = function initForm(){
 
         var _widget = this.widget,
             $form = _widget.$form,
@@ -63,7 +63,7 @@ define([
 
         //init data change callbacks
         formElement.setChangeCallbacks($form, interaction, {
-            identifier : function(i, value){
+            identifier : function identifier(i, value){
                 response.id(value);
                 interaction.attr('responseIdentifier', value);
             }

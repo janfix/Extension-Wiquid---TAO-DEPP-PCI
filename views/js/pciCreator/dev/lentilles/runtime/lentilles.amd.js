@@ -8,7 +8,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
 
     var lentilles = {
         id : -1,
-        getTypeIdentifier : function(){
+        getTypeIdentifier : function getTypeIdentifier(){
             return 'lentilles';
         },
         /**
@@ -41,7 +41,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function(response){
+        setResponse : function setResponse(response){
 
             var $container = $(this.dom),value;
         },
@@ -52,11 +52,25 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          * @param {Object} interaction
          * @returns {Object}
          */
-        getResponse : function(){
+        getResponse : function getResponse(){
 
 
-            var $container = $(this.dom),
-                value =  "worksheet : " + $container.find('.reptablor').text() + ' graphic : ' + $container.find('.repgraphor').text()+ " navigation : " + $container.find('.navicount').text();
+            var $container = $(this.dom), collum = ["A","B","C","D","E","F","G","H","I","J","K"],value, tablor='',
+                graphor =  ' graphic : ' + $container.find('.repgraphor').text()+ " navigation : " + $container.find('.navicount').text();
+    
+                for (var i = 0; i < collum.length; i++) {
+               
+                    for (var j = 1; j < 12; j++) {
+                            var celladdress = collum[i]+j;
+                            var cellcontent = $("."+celladdress).text();
+                            if(cellcontent !== ' '){ tablor = tablor + celladdress + ':' + cellcontent + ',';}
+                           
+                        }    
+                }
+
+                value = "Tableur = " + tablor + graphor;
+                
+                // Todo : multiple instance of the PCI - Grab results with a foreach
 
             return {base : {string : value}};
         },
@@ -66,7 +80,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          * 
          * @param {Object} interaction
          */
-        resetResponse : function(){
+        resetResponse : function resetResponse(){
 
             var $container = $(this.dom);
 
@@ -79,7 +93,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          * 
          * @param {Object} interaction
          */
-        destroy : function(){
+        destroy : function destroy(){
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -90,7 +104,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState : function(state){
+        setSerializedState : function setSerializedState(state){
 
         },
         /**
@@ -100,7 +114,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState : function(){
+        getSerializedState : function getSerializedState(){
 
             return {};
         }

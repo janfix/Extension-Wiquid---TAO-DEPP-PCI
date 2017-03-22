@@ -11,7 +11,7 @@ define([
 
     var lentillesInteractionWidget = Widget.clone();
 
-    lentillesInteractionWidget.initCreator = function(){
+    lentillesInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
