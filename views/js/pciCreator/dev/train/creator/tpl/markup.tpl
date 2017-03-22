@@ -1,53 +1,53 @@
 <div class="trainvache">
 <div class="prompt">{{{prompt}}}</div>
 
-    <div id="container" class="container">
-	<div id="premierplan" class="premplan premierplan">
+    <div class="container">
+	<div class="premplan premierplan">
 		
 
-		<div id="convoi" class="convoi">
+		<div class="convoi">
 
 		</div>
-		<div id="traj" class="traj">
+		<div class="traj">
 
 		</div>
 	</div>
 </div>
 
-<div id="cmdlat" class="cmdlat">
-		<div id="situercocci" class="btlat situercocci">
+<div class="cmdlat">
+		<div class="btlat situercocci">
 			<br />
 			Situer les coccinelles !
 		</div>
-		<div id="ccbleu" class="btlat ccbleu">
+		<div class="btlat ccbleu">
 			<br/>
 			Dans le référentiel du train
 		</div>
-		<div id="vache" class="btlat vache">
+		<div class="btlat vache">
 			<br/>
 			Dans le référentiel terrestre 
 		</div>
-		<div id="rmzero" class="btlat rmzero">
+		<div class="btlat rmzero">
 			<br />
 			Remise à zéro
 		</div>
-		<div id="cctraj" class="btlat cctraj">
+		<div class="btlat cctraj">
 			<br/>
 			Montrer la trajectoire
 		</div>
-		<div id="armzero" class="btlat armzero">
+		<div class="btlat armzero">
 			<br/>
 			Remise à zéro
 		</div>
-		<div id="vtraj" class="btlat vtraj">
+		<div class="btlat vtraj">
 			<br />
 			Montrer la trajectoire
 		</div>
-		<div id="cache" class="cache">
+		<div class="cache">
 			
 		</div>
 
 </div>
   
- <div id="trainansw" class="trainansw"></div>  
+ <div  class="trainansw"></div>  
 </div>

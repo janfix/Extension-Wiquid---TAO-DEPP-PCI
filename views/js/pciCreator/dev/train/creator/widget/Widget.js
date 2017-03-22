@@ -11,7 +11,7 @@ define([
 
     var TrainInteractionWidget = Widget.clone();
 
-    TrainInteractionWidget.initCreator = function(){
+    TrainInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
