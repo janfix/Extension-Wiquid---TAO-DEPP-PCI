@@ -18,7 +18,7 @@
  *
  *
  */
-use oat\pciWiquid\scripts\install\RegisterPci;
+use oat\pciWiquid\scripts\install\RegisterPciCuisine;
 
 return array(
     'name' => 'pciWiquid',
@@ -37,7 +37,7 @@ return array(
     ),
     'install' => array(
         'php'	=> array(
-			RegisterPci::class
+			RegisterPciCuisine::class
 		)
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
