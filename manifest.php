@@ -18,7 +18,7 @@
  *
  *
  */
-use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
+use oat\pciWiquid\scripts\install\RegisterPcilampedouble;
 
 return array(
     'name' => 'pciWiquid',
@@ -37,7 +37,7 @@ return array(
     ),
     'install' => array(
         'php'	=> array(
-                        RegisterPciLampedouble::class
+                        RegisterPcilampedouble::class
             )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
