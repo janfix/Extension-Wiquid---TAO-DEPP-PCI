@@ -11,7 +11,7 @@ define([
 
     var effetdeserreInteractionWidget = Widget.clone();
 
-    effetdeserreInteractionWidget.initCreator = function(){
+    effetdeserreInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

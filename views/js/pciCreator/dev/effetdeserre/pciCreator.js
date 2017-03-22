@@ -49,9 +49,8 @@ define([
         afterCreate : function(pci){
         $("div .effetdeserre").each(function(index, el) {
                 if(this){
-                   $(".widget-box").remove();
-                   $(".grid-row").remove();
-                   alert("Cette animation ne peut être dupliquée dans le même item"); 
+                  // Todo fix multiple instance of pci in the same item 
+                   //alert("Cette animation ne peut être dupliquée dans le même item");  
                 }         
             });
 
