@@ -11,7 +11,7 @@ define([
 
     var BroncoInteractionWidget = Widget.clone();
 
-    BroncoInteractionWidget.initCreator = function(){
+    BroncoInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
