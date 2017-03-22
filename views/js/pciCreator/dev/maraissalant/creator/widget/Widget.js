@@ -11,7 +11,7 @@ define([
 
     var MaraissalantInteractionWidget = Widget.clone();
 
-    MaraissalantInteractionWidget.initCreator = function(){
+    MaraissalantInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
