@@ -11,7 +11,7 @@ define([
 
     var ForcegraviteInteractionWidget = Widget.clone();
 
-    ForcegraviteInteractionWidget.initCreator = function(){
+    ForcegraviteInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

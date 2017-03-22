@@ -8,7 +8,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
 
     var forcegravite = {
         id: -1,
-        getTypeIdentifier: function() {
+        getTypeIdentifier: function getTypeIdentifier() {
             return 'forcegravite'; 
         },
         /**
@@ -22,7 +22,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
 
-            var _this = this;
+           
             this.id = id;
             this.dom = dom; 
             this.config = config || {};
@@ -42,7 +42,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
          */
         setResponse: function setResponse(response) { 
 
-            var $container = $(this.dom),value;
+           
         },
         /**
          * Get the response in the json format described in
@@ -66,7 +66,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
          * 
          * @param {Object} interaction
          */
-        resetResponse: function() {
+        resetResponse: function resetResponse() {
 
             var $container = $(this.dom);
 
@@ -79,7 +79,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
          * 
          * @param {Object} interaction
          */
-        destroy: function() {
+        destroy: function destroy() {
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -90,7 +90,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState: function(state) {
+        setSerializedState: function setSerializedState(state) {
 
         },
         /**
@@ -100,7 +100,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'forcegravite/r
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState: function() {
+        getSerializedState: function getSerializedState() {
 
             return {};
         }
