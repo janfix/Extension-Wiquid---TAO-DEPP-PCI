@@ -11,7 +11,7 @@ define([
 
     var VolcanismeInteractionWidget = Widget.clone();
 
-    VolcanismeInteractionWidget.initCreator = function(){
+    VolcanismeInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

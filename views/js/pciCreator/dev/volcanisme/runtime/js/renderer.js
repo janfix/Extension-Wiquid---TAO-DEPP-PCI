@@ -1,5 +1,7 @@
 /*
 Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+Assets created by Wiquid.
+All assets are under Creative Commons licence -
 */
 
 define(['IMSGlobal/jquery_2_1_1',
