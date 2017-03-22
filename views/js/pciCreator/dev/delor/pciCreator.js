@@ -49,9 +49,8 @@ define([
            //TODO - fix me when more than one instance of such PCIs is implemented 
             $("div .delor").each(function(index, el) {
                 if(this){
-                   $(".widget-box").remove();
-                   $(".grid-row").remove();
-                   alert("Cette animation ne peut être dupliquée dans le même item"); 
+                   // Todo fix multiple instance of pci in the same item 
+                   //alert("Cette animation ne peut être dupliquée dans le même item");  
                 }         
             });
             //do some stuff

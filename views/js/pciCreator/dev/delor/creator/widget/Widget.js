@@ -11,7 +11,7 @@ define([
 
     var delorInteractionWidget = Widget.clone();
 
-    delorInteractionWidget.initCreator = function(){
+    delorInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

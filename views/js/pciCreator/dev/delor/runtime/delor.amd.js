@@ -8,7 +8,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'delor/runtime/
 
     var delor = {
         id: -1,
-        getTypeIdentifier: function() {
+        getTypeIdentifier: function getTypeIdentifier() {
             return 'delor'; 
         },
         /**
