@@ -11,7 +11,7 @@ define([
 
     var CircuitInteractionWidget = Widget.clone();
 
-    CircuitInteractionWidget.initCreator = function(){
+    CircuitInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

@@ -1,16 +1,12 @@
-<div class="circuit" id="content">
+<div class="circuit">
     <div class="prompt">{{{prompt}}}</div>
     <h2>Construisez votre circuit</h2>
-    	<div id="btinst"><div id="btinsttext">Afficher les instructions</div></div> 
+    	<div class="btinst"><div class="btinsttext">Afficher les instructions</div></div> 
         <div class="simspace">
-
-            <svg id="calque2" xmlns="http://www.w3.org/2000/svg" version="1.1" width="640" height="500" >
-                
-            </svg>
         </div>
-        <div id="wrapinstruct">
-	        <div id="instruct"> 
-	        	<div id="fermer">x Fermer</div>
+        <div class="wrapinstruct">
+	        <div class="instruct"> 
+	        	<div class="fermer">x Fermer</div>
 		        <h3>Instructions</h3>
 		        <ul>
 		            <li>Saisir les composants avec la souris et les amener sur l'espace de travail.</li>
@@ -24,6 +20,6 @@
 		        </ul>
 	        </div>
         </div>
-<div id="answcircuit" class="answcircuit"></div>
+<div class="answcircuit"></div>
 <div class="jsongraphor"></div>
 </div>

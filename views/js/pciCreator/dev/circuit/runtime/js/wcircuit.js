@@ -6,17 +6,17 @@ define(['IMSGlobal/jquery_2_1_1',
     'lodash',
     'OAT/util/html'], function($, _ , html) {
 
-    //"use strict"; 
+    //"use strict";  Todo : fix use strict
 
     function displaycircuit(id, $container, config) {
 
         //Instructions 
-        $container.find("#fermer").click(function(event) {
-            $container.find("#wrapinstruct").hide();
+        $container.find(".fermer").click(function(event) {
+            $container.find(".wrapinstruct").hide();
         });
 
-        $container.find("#btinst").click(function(event) {
-            $container.find("#wrapinstruct").show();
+        $container.find(".btinst").click(function(event) {
+            $container.find(".wrapinstruct").show();
         });
 
         // Component
@@ -136,12 +136,12 @@ define(['IMSGlobal/jquery_2_1_1',
                     else {
                         this.obj.destroy();
                         this.obj.label.remove();
-                        $container.find("#answcircuit").append(" Supp-" + this.obj.name + ","); // answer
+                        $container.find(".answcircuit").append(" Supp-" + this.obj.name + ","); // answer
 
-                    var answarray = getText('#answcircuit');
+                    var answarray = getText('.answcircuit');
                     }
                 }
-                else{$container.find("#answcircuit").append(" " + this.obj.name + ",");} // answer
+                else{$container.find(".answcircuit").append(" " + this.obj.name + ",");} // answer
 
 
                 if (this.obj.removedFromToolbar !== null) {

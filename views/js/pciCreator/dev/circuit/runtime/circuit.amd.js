@@ -1,5 +1,7 @@
 /*
-Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+Assets created by Wiquid.
+All assets are under Creative Commons licence - 
 */
 
 define(['qtiCustomInteractionContext', 
@@ -13,7 +15,7 @@ define(['qtiCustomInteractionContext',
     
     var circuit = {
         id : -1,
-        getTypeIdentifier : function(){
+        getTypeIdentifier : function getTypeIdentifier(){
             return 'circuit';
         },
         /**
@@ -47,7 +49,7 @@ define(['qtiCustomInteractionContext',
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function(response){
+        setResponse : function setResponse(response){
 
             var $container = $(this.dom), value;
         },
@@ -58,7 +60,7 @@ define(['qtiCustomInteractionContext',
          * @param {Object} interaction
          * @returns {Object}
          */
-        getResponse : function(){
+        getResponse : function getResponse(){
             var $container = $(this.dom),
                 value =  document.getElementById('idCanvas_1').innerHTML  + 'historique des mouvements : ' + $container.find('.answcircuit').text();
                 value = value.slice(0,-1);
@@ -71,7 +73,7 @@ define(['qtiCustomInteractionContext',
          * 
          * @param {Object} interaction
          */
-        resetResponse : function(){
+        resetResponse : function resetResponse(){
 
             var $container = $(this.dom);
 
@@ -84,7 +86,7 @@ define(['qtiCustomInteractionContext',
          * 
          * @param {Object} interaction
          */
-        destroy : function(){
+        destroy : function destroy(){
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -95,7 +97,7 @@ define(['qtiCustomInteractionContext',
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState : function(state){
+        setSerializedState : function setSerializedState(state){
 
         },
         /**
@@ -105,7 +107,7 @@ define(['qtiCustomInteractionContext',
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState : function(){
+        getSerializedState : function getSerializedState(){
 
             return {};
         }
