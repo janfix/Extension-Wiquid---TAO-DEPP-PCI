@@ -8,7 +8,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
 
     var lampedouble = {
         id : -1,
-        getTypeIdentifier : function(){
+        getTypeIdentifier : function getTypeIdentifier(){
             return 'lampedouble';
         },
         /**
@@ -41,7 +41,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function(response){
+        setResponse : function setResponse(response){
 
             var $container = $(this.dom),value;
             
@@ -53,7 +53,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
          * @param {Object} interaction
          * @returns {Object}
          */
-        getResponse : function(){
+        getResponse : function getResponse(){
 
              var $container = $(this.dom),
               value = 'interrupteur : ' + $container.find('.clickswitch').text() + ' -lampe Gauche : ' + $container.find('.clickLlamp').text() + ' -lampe Droite : ' + $container.find('.clickRlamp').text() ;
@@ -66,7 +66,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
          * 
          * @param {Object} interaction
          */
-        resetResponse : function(){
+        resetResponse : function resetResponse(){
 
             var $container = $(this.dom);
 
@@ -79,7 +79,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
          * 
          * @param {Object} interaction
          */
-        destroy : function(){
+        destroy : function destroy(){
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -90,7 +90,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState : function(state){
+        setSerializedState : function setSerializedState(state){
 
         },
         /**
@@ -100,7 +100,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lampedouble/ru
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState : function(){
+        getSerializedState : function getSerializedState(){
 
             return {};
         }

@@ -11,7 +11,7 @@ define([
 
     var LampeDoubleInteractionWidget = Widget.clone();
 
-    LampeDoubleInteractionWidget.initCreator = function(){
+    LampeDoubleInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         
