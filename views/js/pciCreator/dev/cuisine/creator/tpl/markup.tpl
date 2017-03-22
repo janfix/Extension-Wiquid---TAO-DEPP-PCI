@@ -1,7 +1,6 @@
 <div class="cuisine">
     <div class="prompt">{{{prompt}}}</div>
 
-
 	<div class="zonetartre"></div>	
 
 	<div class="zoneBoiler"></div>

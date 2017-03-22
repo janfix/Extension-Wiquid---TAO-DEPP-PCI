@@ -11,7 +11,7 @@ define([
 
     var CuisineInteractionWidget = Widget.clone();
 
-    CuisineInteractionWidget.initCreator = function(){
+    CuisineInteractionWidget.initCreator = function initCreator(){
         
         this.registerStates(states);
         

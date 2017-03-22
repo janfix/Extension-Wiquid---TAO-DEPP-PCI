@@ -8,7 +8,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
 
     var cuisine = {
         id : -1,
-        getTypeIdentifier : function(){
+        getTypeIdentifier : function getTypeIdentifier(){
             return 'cuisine';
         },
         /**
@@ -39,7 +39,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function(response){
+        setResponse : function setResponse(response){
 
             var $container = $(this.dom),value;
         },
@@ -50,7 +50,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * @param {Object} interaction
          * @returns {Object}
          */
-        getResponse : function(){
+        getResponse : function getResponse(){
 
             var $container = $(this.dom),
                 value = $container.find('.cuisineasw').text();
@@ -64,7 +64,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * 
          * @param {Object} interaction
          */
-        resetResponse : function(){
+        resetResponse : function resetResponse(){
 
             var $container = $(this.dom);
 
@@ -77,7 +77,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * 
          * @param {Object} interaction
          */
-        destroy : function(){
+        destroy : function destroy(){
 
             var $container = $(this.dom);
             $container.off().empty();
@@ -88,7 +88,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * @param {Object} interaction
          * @param {Object} serializedState - json format
          */
-        setSerializedState : function(state){
+        setSerializedState : function setSerializedState(state){
 
         },
         /**
@@ -98,7 +98,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'cuisine/runtim
          * @param {Object} interaction
          * @returns {Object} json format
          */
-        getSerializedState : function(){
+        getSerializedState : function getSerializedState(){
 
             return {};
         }
