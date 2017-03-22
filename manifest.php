@@ -18,7 +18,7 @@
  *
  *
  */
-use oat\pciWiquid\scripts\install\RegisterPci;
+use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 
 return array(
     'name' => 'pciWiquid',
@@ -36,7 +36,9 @@ return array(
         array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#pciWiquidManager', array('ext'=>'pciWiquid')),
     ),
     'install' => array(
-        'php'	=> array()
+        'php'	=> array(
+                        RegisterPciLampedouble::class
+            )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
     'uninstall' => array(
