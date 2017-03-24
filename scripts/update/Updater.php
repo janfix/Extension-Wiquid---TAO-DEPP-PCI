@@ -21,6 +21,7 @@
 
 namespace oat\pciWiquid\scripts\update;
 
+use oat\pciWiquid\scripts\install\RegisterPciDelor;
 use oat\pciWiquid\scripts\install\RegisterPciForcegravite;
 
 class Updater extends \common_ext_ExtensionUpdater
@@ -33,8 +34,13 @@ class Updater extends \common_ext_ExtensionUpdater
         $this->setVersion('1.0.0');
 
         if ($this->isVersion('1.0.0')) {
-            call_user_func(new RegisterPciForcegravite(), ['0.1.0']);
+            call_user_func(new RegisterPciDelor(), ['0.1.0']);
             $this->setVersion('1.1.0');
+        }
+
+        if ($this->isVersion('1.1.0')) {
+            call_user_func(new RegisterPciForcegravite(), ['0.1.0']);
+            $this->setVersion('1.2.0');
         }
     }
 }
