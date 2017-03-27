@@ -20,13 +20,14 @@
  */
 use oat\pciWiquid\scripts\install\RegisterPciDelor;
 use oat\pciWiquid\scripts\install\RegisterPciForcegravite;
+use oat\pciWiquid\scripts\install\RegisterPciCuisine;
 
 return array(
     'name' => 'pciWiquid',
 	'label' => 'QTI PCI SVT - Wiquid',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.2.0',
+    'version' => '1.3.0',
 	'author' => 'Jean-Philippe Riviere',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.0.0',
@@ -39,7 +40,8 @@ return array(
     'install' => array(
         'php'	=> array(
             RegisterPciDelor::class,
-            RegisterPciForcegravite::class
+            RegisterPciForcegravite::class,
+            RegisterPciCuisine::class
         )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
