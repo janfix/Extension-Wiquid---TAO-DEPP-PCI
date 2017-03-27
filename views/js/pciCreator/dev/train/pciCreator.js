@@ -46,7 +46,6 @@ define([
          * @returns {Object}
          */
         afterCreate : function(pci){
-    
             //do some stuff
         },
         /**

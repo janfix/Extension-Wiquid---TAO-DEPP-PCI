@@ -76,7 +76,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
 
         $ccbleu.click(function(event) {
-            if (answccbleue == "non") { $(".trainansw").append(" cocci-ok,");
+            if (answccbleue == "non") { $container.find(".trainansw").append(" cocci-ok,");
                 answccbleue = "anim-ok"; }
             $cocci.hide();
             $situercocci.hide();
@@ -88,7 +88,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         });
 
         $vache.click(function(event) {
-            if (answvache == "non") { $(".trainansw").append(" vache-ok,");
+            if (answvache == "non") { $container.find(".trainansw").append(" vache-ok,");
                 answvache = "anim-ok"; }
             $cocci.hide();
             $situercocci.hide();
