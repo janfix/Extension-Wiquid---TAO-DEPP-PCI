@@ -27,7 +27,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Rotation des roues */
 
-@-webkit-keyframes rotating {
+@-webkit-keyframes train-rotating {
     from {
         -webkit-transform: rotate(0deg);
     }
@@ -36,7 +36,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@-moz-keyframes rotating {
+@-moz-keyframes train-rotating {
     from {
         -moz-transform: rotate(0deg);
     }
@@ -52,8 +52,8 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .trainvache .rouego {
-    -webkit-animation: rotating 3s linear infinite;
-    -moz-animation: rotating 3s linear infinite;
+    -webkit-animation: train-rotating 3s linear infinite;
+    -moz-animation: train-rotating 3s linear infinite;
     transform-origin: 50%;
 }
 
@@ -69,7 +69,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Translation du train */
 
-@keyframes gotrain {
+@keyframes train-gotrain {
     from {
         transform: translate(0px);
     }
@@ -79,14 +79,14 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .trainvache .convoigo {
-    animation: gotrain 15s linear;
+    animation: train-gotrain 15s linear;
     -webkit-animation-fill-mode: forwards;
 }
 
 
 /* Translation de la vache */
 
-@keyframes govache {
+@keyframes train-govache {
     from {
         transform: translate(0px);
     }
@@ -96,7 +96,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .trainvache .vachego {
-    animation: govache 15s linear;
+    animation: train-govache 15s linear;
     -webkit-animation-fill-mode: forwards;
 }
 
