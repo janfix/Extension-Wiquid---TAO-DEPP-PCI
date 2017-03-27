@@ -27,7 +27,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Rotation des roues */
 
-@-webkit-keyframes .qti-customInteraction .trainvache rotating {
+@-webkit-keyframes rotating {
     from {
         -webkit-transform: rotate(0deg);
     }
@@ -36,7 +36,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@-moz-keyframes .qti-customInteraction .trainvache rotating {
+@-moz-keyframes rotating {
     from {
         -moz-transform: rotate(0deg);
     }
@@ -69,7 +69,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Translation du train */
 
-@keyframes .qti-customInteraction .trainvache gotrain {
+@keyframes gotrain {
     from {
         transform: translate(0px);
     }
@@ -86,7 +86,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Translation de la vache */
 
-@keyframes .qti-customInteraction .trainvache govache {
+@keyframes govache {
     from {
         transform: translate(0px);
     }
