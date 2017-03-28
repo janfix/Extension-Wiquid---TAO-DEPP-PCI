@@ -27,6 +27,7 @@ use oat\pciWiquid\scripts\install\RegisterPciCuisine;
 use oat\pciWiquid\scripts\install\RegisterPciTrain;
 use oat\pciWiquid\scripts\install\RegisterPciNterre;
 use oat\pciWiquid\scripts\install\RegisterPciMaraissalant;
+use oat\taoQtiItem\model\portableElement\storage\PortableElementRegistry;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -35,7 +36,14 @@ class Updater extends \common_ext_ExtensionUpdater
      */
     public function update($initialVersion)
     {
-        $this->setVersion('1.0.0');
+        $this->setVersion('0.1.0');
+
+        if ($this->isVersion('0.1.0')) {
+            call_user_func(new RegisterPciDelor(), ['1.1.0']);
+            $pciReigstry = PortableElementRegistry::getRegistry();
+            $pciReigstry->removeAllVersions('relatem');
+            $this->setVersion('1.0.0');
+        }
 
         if ($this->isVersion('1.0.0')) {
             call_user_func(new RegisterPciDelor(), ['1.1.0']);
