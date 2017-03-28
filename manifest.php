@@ -18,14 +18,14 @@
  *
  *
  */
-use oat\pciWiquid\scripts\install\RegisterPci;
+use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 
 return array(
     'name' => 'pciWiquid',
 	'label' => 'QTI PCI SVT - Wiquid',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '0.1.0',
+    'version' => '1.1.0',
 	'author' => 'Jean-Philippe Riviere',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.0.0',
@@ -37,8 +37,8 @@ return array(
     ),
     'install' => array(
         'php'	=> array(
-			RegisterPci::class
-		)
+                        RegisterPciBerthold::class
+            )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
     'uninstall' => array(
