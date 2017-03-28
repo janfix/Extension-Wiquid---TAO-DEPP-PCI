@@ -14,12 +14,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
         svgstring = fillsvg(); 
         $container.find(".msalantsvg").append(svgstring);
 
-             $container.find("div").each(function(index,obj){
-            if(obj.id=="item-editor-scroll-inner"){
-                $container.find(".bton").css("top","10px").css("left","427px");
-                }
-           });
-
             var $feu =  $container.find(".feu");
             var $btzero = $container.find(".btzero");
             var $sel1 = $container.find(".sel1");
