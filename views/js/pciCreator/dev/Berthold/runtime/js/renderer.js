@@ -1,6 +1,6 @@
 /*
 Copyright DEPP © 2017 - Ministère de l'éducation nationale 
-Assets created by Wiquid.
+Assets created by Wiquid and DEPP.
 All assets are under Creative Commons licence -
 */
 
