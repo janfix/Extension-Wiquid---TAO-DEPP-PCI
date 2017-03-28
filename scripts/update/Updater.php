@@ -26,6 +26,7 @@ use oat\pciWiquid\scripts\install\RegisterPciForcegravite;
 use oat\pciWiquid\scripts\install\RegisterPciCuisine;
 use oat\pciWiquid\scripts\install\RegisterPciTrain;
 use oat\pciWiquid\scripts\install\RegisterPciNterre;
+use oat\pciWiquid\scripts\install\RegisterPciMaraissalant;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -59,6 +60,11 @@ class Updater extends \common_ext_ExtensionUpdater
         if ($this->isVersion('1.4.0')) {
             call_user_func(new RegisterPciNterre(), ['1.1.0']);
             $this->setVersion('1.5.0');
+        }
+
+        if ($this->isVersion('1.5.0')) {
+            call_user_func(new RegisterPciMaraissalant(), ['1.1.0']);
+            $this->setVersion('1.6.0');
         }
     }
 }
