@@ -144,7 +144,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             });
 
             function evapora1(liquid, base, vitos, sel, niveau) {
-                $({ height: $('.joker').attr('height',0) })
+                $({ height: $container.find('.joker').attr('height',0) })
                     .animate({ height: base }, {
                         duration: vitos,
                         step: function step(now, fx) {

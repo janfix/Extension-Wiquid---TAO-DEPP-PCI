@@ -125,10 +125,10 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 .qti-customInteraction .maraissalant .short-hand-start {
     height: 35px;
-    -webkit-animation: rotation 12s 1.6 linear;
-    -moz-animation: rotation 12s 1.6 linear;
-    -o-animation: rotation 12s 1.6 linear;
-    animation: rotation 12s 1.6 linear;
+    -webkit-animation: msalantrotation 12s 1.6 linear;
+    -moz-animation: msalantrotation 12s 1.6 linear;
+    -o-animation: msalantrotation 12s 1.6 linear;
+    animation: msalantrotation 12s 1.6 linear;
     animation-fill-mode: forwards;
 }
 
@@ -138,14 +138,14 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 .qti-customInteraction .maraissalant .long-hand-start {
     height: 45px;
-    -webkit-animation: rotation 1.5s 12.8 linear;
-    -moz-animation: rotation 1.5s 12.8 linear;
-    -o-animation: rotation 1.5s 12.8 linear;
-    animation: rotation 1.5s 12.8 linear;
+    -webkit-animation: msalantrotation 1.5s 12.8 linear;
+    -moz-animation: msalantrotation 1.5s 12.8 linear;
+    -o-animation: msalantrotation 1.5s 12.8 linear;
+    animation: msalantrotation 1.5s 12.8 linear;
     animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes rotation {
+@-webkit-keyframes msalantrotation {
     0% {
         -webkit-transform: rotate(-180deg);
         transform: rotate(-180deg);
@@ -156,7 +156,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@-moz-keyframes rotation {
+@-moz-keyframes msalantrotation {
     0% {
         -moz-transform: rotate(-180deg);
         transform: rotate(-180deg);
@@ -167,7 +167,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@-o-keyframes rotation {
+@-o-keyframes msalantrotation {
     0% {
         -o-transform: rotate(-180deg);
         transform: rotate(-180deg);
@@ -178,7 +178,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@keyframes rotation {
+@keyframes msalantrotation {
     0% {
         -webkit-transform: rotate(-180deg);
         -moz-transform: rotate(-180deg);
