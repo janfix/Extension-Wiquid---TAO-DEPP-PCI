@@ -27,6 +27,7 @@ use oat\pciWiquid\scripts\install\RegisterPciCuisine;
 use oat\pciWiquid\scripts\install\RegisterPciTrain;
 use oat\pciWiquid\scripts\install\RegisterPciNterre;
 use oat\pciWiquid\scripts\install\RegisterPciMaraissalant;
+use oat\pciWiquid\scripts\install\RegisterPciAbeille;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -65,6 +66,11 @@ class Updater extends \common_ext_ExtensionUpdater
         if ($this->isVersion('1.5.0')) {
             call_user_func(new RegisterPciMaraissalant(), ['1.1.0']);
             $this->setVersion('1.6.0');
+        }
+
+        if ($this->isVersion('1.6.0')) {
+            call_user_func(new RegisterPciAbeille(), ['1.1.0']);
+            $this->setVersion('1.7.0');
         }
     }
 }
