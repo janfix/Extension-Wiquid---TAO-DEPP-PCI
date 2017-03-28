@@ -1,5 +1,6 @@
 /*
 Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+All images created By Wiquid. under CC0 licence.
 */
 
 define(['qtiCustomInteractionContext', 
@@ -25,7 +26,6 @@ define(['qtiCustomInteractionContext',
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
 
-            var _this = this;
             this.id = id;
             this.dom = dom;
             this.config = config || {};
