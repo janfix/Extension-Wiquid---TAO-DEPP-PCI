@@ -52,7 +52,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         });
 
         $ray.change(function(event) {
-            if (answray == "ray-non") { $(".nterransw").append(" ray-ok,");
+            if (answray == "ray-non") { $container.find(".nterransw").append(" ray-ok,");
                 answray = "ray-ok"; }
             $taille.html("");
             var tailkm = 25 * $ray.val() * ($ray.val() / 100);
@@ -65,7 +65,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         });
 
         $mas.change(function(event) {
-            if (answmass == "mass-non") { $(".nterransw").append(" mass-ok,");
+            if (answmass == "mass-non") { $container.find(".nterransw").append(" mass-ok,");
                 answmass = "mass-ok"; }
             var valmass;
             $masse.html("");

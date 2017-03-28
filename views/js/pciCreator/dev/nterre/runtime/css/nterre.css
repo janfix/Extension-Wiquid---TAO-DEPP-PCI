@@ -264,7 +264,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /*.nterre  Planet Rotation  */
 
-@keyframes beat {
+@keyframes nterre-beat {
     0% {
         transform: scale(0.97, 1);
     }
@@ -276,7 +276,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@keyframes starbeat {
+@keyframes nterre-starbeat {
     0% {
         opacity: 0.4;
     }
@@ -288,7 +288,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@keyframes starbeato {
+@keyframes nterre-starbeato {
     0% {
         opacity: 1;
         .nterre
@@ -302,38 +302,38 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .nterre .sun {
-    -moz-animation: beat 3s ease infinite;
-    animation: beat 3s ease infinite;
+    -moz-animation: nterre-beat 3s ease infinite;
+    animation: nterre-beat 3s ease infinite;
 }
 
 .qti-customInteraction .nterre .path5936 {
-    -moz-animation: starbeato 10s ease infinite;
-    animation: starbeato 10s ease infinite;
+    -moz-animation: nterre-starbeato 10s ease infinite;
+    animation: nterre-starbeato 10s ease infinite;
 }
 
 .qti-customInteraction .nterre .path5938 {
-    -moz-animation: starbeat 15s ease infinite;
-    animation: starbeat 15s ease infinite;
+    -moz-animation: nterre-starbeat 15s ease infinite;
+    animation: nterre-starbeat 15s ease infinite;
 }
 
 .qti-customInteraction .nterre .path5942 {
-    -moz-animation: starbeato 20s ease infinite;
-    animation: starbeato 20s ease infinite;
+    -moz-animation: nterre-starbeato 20s ease infinite;
+    animation: nterre-starbeato 20s ease infinite;
 }
 
 .qti-customInteraction .nterre .path5946 {
-    -moz-animation: starbeat 8s ease infinite;
-    animation: starbeat 8s ease infinite;
+    -moz-animation: nterre-starbeat 8s ease infinite;
+    animation: nterre-starbeat 8s ease infinite;
 }
 
 .qti-customInteraction .nterre .path5960-8 {
-    -moz-animation: starbeato 20s ease infinite;
-    animation: starbeato 20s ease infinite;
+    -moz-animation: nterre-starbeato 20s ease infinite;
+    animation: nterre-starbeato 20s ease infinite;
 }
 
 .qti-customInteraction .nterre .path5960 {
-    -moz-animation: starbeat 20s ease infinite;
-    animation: starbeat 20s ease infinite;
+    -moz-animation: nterre-starbeat 20s ease infinite;
+    animation: nterre-starbeat 20s ease infinite;
 }
 
 .qti-customInteraction .nterre {
@@ -342,22 +342,22 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     padding: 10px 20px 16px;
 }
 
-* {
+.qti-customInteraction .nterre * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
+} 
 
-body {
+.qti-customInteraction .nterre body {
     background: #2b2e31;
 }
 
-.slider {
+.qti-customInteraction .nterre .slider {
     width: 200px;
     margin: 100px auto;
 }
 
-input[type="range"] {
+.qti-customInteraction .nterre input[type="range"] {
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     width: 80%;
@@ -373,31 +373,31 @@ input[type="range"] {
     /* no focus outline */
 }
 
-input[type="range"]::-moz-range-track {
+.qti-customInteraction .nterre input[type="range"]::-moz-range-track {
     border: inherit;
     background: transparent;
 }
 
-input[type="range"]::-ms-track {
+.qti-customInteraction .nterre input[type="range"]::-ms-track {
     border: inherit;
     color: transparent;
     /* don't drawn vertical reference line */
     background: transparent;
 }
 
-input[type="range"]::-ms-fill-lower,
-input[type="range"]::-ms-fill-upper {
+.qti-customInteraction .nterre input[type="range"]::-ms-fill-lower,
+.qti-customInteraction .nterre input[type="range"]::-ms-fill-upper {
     background: transparent;
 }
 
-input[type="range"]::-ms-tooltip {
+.qti-customInteraction .nterre input[type="range"]::-ms-tooltip {
     display: none;
 }
 
 
 /* thumb */
 
-input[type="range"]::-webkit-slider-thumb {
+.qti-customInteraction .nterre input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 30px;
     height: 22px;
@@ -412,7 +412,7 @@ input[type="range"]::-webkit-slider-thumb {
     /* W3C */
 }
 
-input[type="range"]::-moz-range-thumb {
+.qti-customInteraction .nterre input[type="range"]::-moz-range-thumb {
     width: 30px;
     height: 22px;
     border: none;
@@ -421,7 +421,7 @@ input[type="range"]::-moz-range-thumb {
     /* W3C */
 }
 
-input[type="range"]::-ms-thumb {
+.qti-customInteraction .nterre input[type="range"]::-ms-thumb {
     width: 40px;
     height: 18px;
     border-radius: 12px;
