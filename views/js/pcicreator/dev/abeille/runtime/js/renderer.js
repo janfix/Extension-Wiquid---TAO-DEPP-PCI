@@ -158,249 +158,147 @@ define(['IMSGlobal/jquery_2_1_1',
             frelonvolant.animate({ 'x': 1000, 'y': 300, 'width': 300, 'height': 150 }, 6000, function() { this.remove(); });
         }
 
+        function showGroup(group){ 
+                for ( var i = 0; i < group.length; i++) {
+                    blueset[group[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
+                    redset[group[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
+                }
+            }
+
+        function hideGroup(group){
+                for ( var i = 0; i < group.length; i++) {
+                    blueset[group[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
+                    redset[group[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
+                }
+
+            }
+
 
         $container.find(".pesticide").mouseup(function(event) {
-
+            var otherslider = $container.find('.frelonslider').val();
+            var actionbee;
+            
             pesticlick += 1;
             $container.find(".pesticlick").html(pesticlick);
+           
+            if (parseInt(this.value) === 0 && parseInt(otherslider) === 0) {
 
-            var otherslider = $('.frelonslider').val();
-            if (eval(this.value) === 0 && eval(otherslider) === 0) {
-
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group1[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                showGroup(group1);
+                showGroup(group2);
+                showGroup(group3);
+                showGroup(group4);
 
                 // population = 8
-                var actionbee = 8 - beepresente;
+                actionbee = 8 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); }
                 popu.remove();
                 population(80000);
-
-
             }
 
-            if (eval(this.value) === 1 && eval(otherslider) === 0) {
+            if (parseInt(this.value) === 1 && parseInt(otherslider) === 0) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                showGroup(group2);
+                showGroup(group3);
+                showGroup(group4);
 
                 // population = 6
-                var actionbee = 6 - beepresente;
+                actionbee = 6 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(60000);
             }
 
-            if (eval(this.value) === 0 && eval(otherslider) === 1) {
-
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-
+            if (parseInt(this.value) === 0 && parseInt(otherslider) === 1) {
+                
+                hideGroup(group1);
+                showGroup(group2);
+                showGroup(group3);
+                showGroup(group4);
+                
                 // population = 6
-                var actionbee = 6 - beepresente;
+                actionbee = 6 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(60000);
             }
 
-            if (eval(this.value) === 1 && eval(otherslider) === 2) {
+            if (parseInt(this.value) === 1 && parseInt(otherslider) === 2) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 2
-                var actionbee = 2 - beepresente;
+                actionbee = 2 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(20000);
             }
 
-            if (eval(this.value) === 2 && eval(otherslider) === 1) {
+            if (parseInt(this.value) === 2 && parseInt(otherslider) === 1) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 2
-                var actionbee = 2 - beepresente;
+                actionbee = 2 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(20000);
             }
 
-            if (eval(this.value) === 2 && eval(otherslider) === 0) {
+            if (parseInt(this.value) === 2 && parseInt(otherslider) === 0) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
 
                 // population = 4
-                var actionbee = 4 - beepresente;
+                actionbee = 4 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(40000);
             }
 
-            if (eval(this.value) === 0 && eval(otherslider) === 2) {
+            if (parseInt(this.value) === 0 && parseInt(otherslider) === 2) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 4
-                var actionbee = 4 - beepresente;
+                actionbee = 4 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(40000);
             }
 
-            if (eval(this.value) === 1 && eval(otherslider) === 1) {
+            if (parseInt(this.value) === 1 && parseInt(otherslider) === 1) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
                 // population = 4
-                var actionbee = 4 - beepresente;
+                actionbee = 4 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(40000);
             }
 
-            if (eval(this.value) === 2 && eval(otherslider) === 2) {
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group4[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
+            if (parseInt(this.value) === 2 && parseInt(otherslider) === 2) {
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                hideGroup(group4);
 
                 beeremover(beeset.length);
                 popu.remove();
@@ -415,256 +313,142 @@ define(['IMSGlobal/jquery_2_1_1',
         });
 
         $container.find(".frelonslider").mouseup(function(event) {
-
+            var otherslider = $container.find('.pesticide').val();
+            var i, actionbee;
             frelonclick += 1;
             $container.find(".frelonclick").html(frelonclick);
 
-            var otherslider = $container.find('.pesticide').val();
-            if (eval(this.value) === 0 && eval(otherslider) === 0) {
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group1[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+           
+            if (parseInt(this.value) === 0 && parseInt(otherslider) === 0) {
+                showGroup(group1);
+                showGroup(group2);
+                showGroup(group3);
+                showGroup(group4);
                 // population = 8
-                var actionbee = 8 - beepresente;
+                actionbee = 8 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(80000);
 
             }
 
-            if (eval(this.value) === 1 && eval(otherslider) === 0) {
+            if (parseInt(this.value) === 1 && parseInt(otherslider) === 0) {
 
                 frelonflight();
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                showGroup(group2);
+                showGroup(group3);
+                showGroup(group4);
                 // population = 6
-                var actionbee = 6 - beepresente;
+                actionbee = 6 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(60000);
 
             }
 
-            if (eval(this.value) === 0 && eval(otherslider) === 1) {
+            if (parseInt(this.value) === 0 && parseInt(otherslider) === 1) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group2[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group3[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                showGroup(group2);
+                showGroup(group3);
+                showGroup(group4);
+
                 // population = 6
-                var actionbee = 6 - beepresente;
+                actionbee = 6 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(60000);
             }
 
-            if (eval(this.value) === 1 && eval(otherslider) === 2) {
+            if (parseInt(this.value) === 1 && parseInt(otherslider) === 2) {
 
                 frelonflight();
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 2
-                var actionbee = 2 - beepresente;
+                actionbee = 2 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(20000);
             }
 
-            if (eval(this.value) === 2 && eval(otherslider) === 1) {
+            if (parseInt(this.value) === 2 && parseInt(otherslider) === 1) {
 
                 frelonflight();
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 2
-                var actionbee = 2 - beepresente;
+                actionbee = 2 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(20000);
             }
 
-            if (eval(this.value) === 2 && eval(otherslider) === 0) {
+            if (parseInt(this.value) === 2 && parseInt(otherslider) === 0) {
 
                 frelonflight();
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 4
-                var actionbee = 4 - beepresente;
+                actionbee = 4 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(40000);
             }
 
-            if (eval(this.value) === 0 && eval(otherslider) === 2) {
+            if (parseInt(this.value) === 0 && parseInt(otherslider) === 2) {
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 4
-                var actionbee = 4 - beepresente;
+                actionbee = 4 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(40000);
             }
 
-            if (eval(this.value) === 1 && eval(otherslider) === 1) {
+            if (parseInt(this.value) === 1 && parseInt(otherslider) === 1) {
 
                 frelonflight();
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                    redset[group4[i]].animate({ "opacity": "1" }, 2000); // Appearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                showGroup(group4);
 
                 // population = 4
-                var actionbee = 4 - beepresente;
+                actionbee = 4 - beepresente;
                 if (actionbee > 0) { beefly(actionbee); } else { beeremover(Math.abs(actionbee)); }
                 popu.remove();
                 population(40000);
             }
 
-            if (eval(this.value) === 2 && eval(otherslider) === 2) {
+            if (parseInt(this.value) === 2 && parseInt(otherslider) === 2) {
 
                 frelonflight();
 
-                for (var i = 0; i < group1.length; i++) {
-                    blueset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group1[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
+                hideGroup(group1);
+                hideGroup(group2);
+                hideGroup(group3);
+                hideGroup(group4);
 
-                for (var i = 0; i < group2.length; i++) {
-                    blueset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group2[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-
-                for (var i = 0; i < group3.length; i++) {
-                    blueset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group3[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
-                for (var i = 0; i < group4.length; i++) {
-                    blueset[group4[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                    redset[group4[i]].animate({ "opacity": "0" }, 2000); // Disappearance of 25%
-                }
                 beeremover(beeset.length);
                 popu.remove();
                 population(0);
