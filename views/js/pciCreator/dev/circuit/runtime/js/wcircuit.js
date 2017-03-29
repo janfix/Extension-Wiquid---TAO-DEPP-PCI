@@ -273,9 +273,7 @@ define(['IMSGlobal/jquery_2_1_1',
             // called by wires to remove themselves
             this.removeWireEnd = function w_removeWireEnd(w) {
                 for (var i = 0; i < this.wireEnds.length; i++) {
-                    // Todo : if the connector is immediately reconnected, it sticks to the component
-                    console.log("REMOVER");
-                    console.log(this);
+                    
                     if (this.wireEnds[i] === w) {
                         this.wireEnds.splice(i, 1);
                         break;
@@ -369,7 +367,6 @@ define(['IMSGlobal/jquery_2_1_1',
                 if(this.snapped){
                     this.osnappedPoint.removeWireEnd(this);
                     this.osnappedObj.wires.pop(); 
-                    console.log(this.snapped);
                     }
             
 
