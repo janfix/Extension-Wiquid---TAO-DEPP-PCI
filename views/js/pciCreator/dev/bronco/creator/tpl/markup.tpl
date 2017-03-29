@@ -10,8 +10,8 @@
     
 
   <div class="polludiv">
-    <span  class="leg moins">- <br /> Moins de pollution</span>
-    <span  class="leg plus">+ <br />Plus de pollution</span>
+    <span  class="leg moins">- Moins de pollution</span>
+    <span  class="leg plus">+ Plus de pollution</span>
     <div class="consigne">Avec la souris, déplacer le curseur afin de faire varier le niveau de pollution de l'air.</div>
   </div>
 
