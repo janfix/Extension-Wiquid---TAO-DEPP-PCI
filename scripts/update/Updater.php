@@ -21,7 +21,17 @@
 
 namespace oat\pciWiquid\scripts\update;
 
-use oat\taoQtiItem\model\HookRegistry;
+use oat\pciWiquid\scripts\install\RegisterPciDelor;
+use oat\pciWiquid\scripts\install\RegisterPciForcegravite;
+use oat\pciWiquid\scripts\install\RegisterPciCuisine;
+use oat\pciWiquid\scripts\install\RegisterPciTrain;
+use oat\pciWiquid\scripts\install\RegisterPciNterre;
+use oat\pciWiquid\scripts\install\RegisterPciMaraissalant;
+use oat\pciWiquid\scripts\install\RegisterPciAbeille;
+use oat\pciWiquid\scripts\install\RegisterPciBronco;
+use oat\pciWiquid\scripts\install\RegisterPciRelatem;
+use oat\pciWiquid\scripts\install\RegisterPciEffetdeserre;
+use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -30,6 +40,61 @@ class Updater extends \common_ext_ExtensionUpdater
      */
     public function update($initialVersion)
     {
-        $this->setVersion('0.1.0');
+        $this->setVersion('1.0.0');
+
+        if ($this->isVersion('1.0.0')) {
+            call_user_func(new RegisterPciDelor(), ['1.1.0']);
+            $this->setVersion('1.1.0');
+        }
+
+        if ($this->isVersion('1.1.0')) {
+            call_user_func(new RegisterPciForcegravite(), ['1.1.0']);
+            $this->setVersion('1.2.0');
+        }
+
+        if ($this->isVersion('1.2.0')) {
+            call_user_func(new RegisterPciCuisine(), ['1.1.0']);
+            $this->setVersion('1.3.0');
+        }
+
+        if ($this->isVersion('1.3.0')) {
+            call_user_func(new RegisterPciTrain(), ['1.1.0']);
+            $this->setVersion('1.4.0');
+        }
+
+        if ($this->isVersion('1.4.0')) {
+            call_user_func(new RegisterPciNterre(), ['1.1.0']);
+            $this->setVersion('1.5.0');
+        }
+
+        if ($this->isVersion('1.5.0')) {
+            call_user_func(new RegisterPciMaraissalant(), ['1.1.0']);
+            $this->setVersion('1.6.0');
+        }
+
+        if ($this->isVersion('1.6.0')) {
+            call_user_func(new RegisterPciAbeille(), ['1.1.0']);
+            $this->setVersion('1.7.0');
+        }
+
+        if ($this->isVersion('1.7.0')) {
+            call_user_func(new RegisterPciBronco(), ['1.1.0']);
+            $this->setVersion('1.8.0');
+        }
+
+        if ($this->isVersion('1.8.0')) {
+            call_user_func(new RegisterPciRelatem(), ['1.1.0']);
+            $this->setVersion('1.9.0');
+        }
+
+        if ($this->isVersion('1.9.0')) {
+            call_user_func(new RegisterPciEffetdeserre(), ['1.1.0']);
+            $this->setVersion('1.10.0');
+        }
+
+        if ($this->isVersion('1.10.0')) {
+            call_user_func(new RegisterPciLampedouble(), ['1.1.0']);
+            $this->setVersion('1.11.0');
+        }
     }
 }

@@ -1,0 +1,431 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .nterre .exposant {
+    top: -1.5rem!important;
+}
+
+.qti-customInteraction .nterre .nterransw {
+    display: none;
+}
+
+.qti-customInteraction .nterre body {
+    font-family: sans-serif;
+}
+
+.qti-customInteraction .nterre .nterrebg {
+    height: 0px;
+}
+
+.qti-customInteraction .nterre .fond {
+    opacity: 1;
+    fill: #000000;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path4151-6 {
+    opacity: 1;
+    fill: #e6ab84;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686;
+    filter: url(#filter5823)
+}
+
+
+.qti-customInteraction .nterre .path5936 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5938 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5940 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5942 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5944 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5946 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5948 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5950 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5952 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5960 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5962 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5960-8 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5979 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .path5979-9 {
+    opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: none;
+    stroke-width: 4.61999989;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    stroke-opacity: 0.39215686
+}
+
+.qti-customInteraction .nterre .cmdajuster {
+    background-color: grey;
+    position: relative;
+    margin-top: 428px;
+    width: 900px;
+    padding-left: 85px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.qti-customInteraction .nterre .planetbox {
+    margin-top: -45px;
+}
+
+.qti-customInteraction .nterre .plantext {
+    color: white;
+    position: absolute;
+    margin-top: -310px;
+    margin-left: 727px;
+}
+
+.qti-customInteraction .nterre .planetbox svg {
+    position: absolute;
+    margin-top: -300px;
+    margin-left: 700px;
+}
+
+.qti-customInteraction .nterre .param {
+    text-align: center;
+    width: 250px;
+}
+
+.qti-customInteraction .nterre .gravitas {
+    font-size: 20px;
+    margin-left: 200px;
+    margin-top: 375px;
+    position: absolute;
+    color: white;
+}
+
+.qti-customInteraction .nterre .etoile {
+    color: white;
+    position: absolute;
+    margin-top: 255px;
+    margin-left: 120px;
+}
+
+
+/*.nterre  Planet Rotation  */
+
+@keyframes nterre-beat {
+    0% {
+        transform: scale(0.97, 1);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(0.97, 1);
+    }
+}
+
+@keyframes nterre-starbeat {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes nterre-starbeato {
+    0% {
+        opacity: 1;
+        .nterre
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.qti-customInteraction .nterre .sun {
+    -moz-animation: nterre-beat 3s ease infinite;
+    animation: nterre-beat 3s ease infinite;
+}
+
+.qti-customInteraction .nterre .path5936 {
+    -moz-animation: nterre-starbeato 10s ease infinite;
+    animation: nterre-starbeato 10s ease infinite;
+}
+
+.qti-customInteraction .nterre .path5938 {
+    -moz-animation: nterre-starbeat 15s ease infinite;
+    animation: nterre-starbeat 15s ease infinite;
+}
+
+.qti-customInteraction .nterre .path5942 {
+    -moz-animation: nterre-starbeato 20s ease infinite;
+    animation: nterre-starbeato 20s ease infinite;
+}
+
+.qti-customInteraction .nterre .path5946 {
+    -moz-animation: nterre-starbeat 8s ease infinite;
+    animation: nterre-starbeat 8s ease infinite;
+}
+
+.qti-customInteraction .nterre .path5960-8 {
+    -moz-animation: nterre-starbeato 20s ease infinite;
+    animation: nterre-starbeato 20s ease infinite;
+}
+
+.qti-customInteraction .nterre .path5960 {
+    -moz-animation: nterre-starbeat 20s ease infinite;
+    animation: nterre-starbeat 20s ease infinite;
+}
+
+.qti-customInteraction .nterre {
+    height: 570px;
+    width: 100%;
+    padding: 10px 20px 16px;
+}
+
+.qti-customInteraction .nterre * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+} 
+
+.qti-customInteraction .nterre body {
+    background: #2b2e31;
+}
+
+.qti-customInteraction .nterre .slider {
+    width: 200px;
+    margin: 100px auto;
+}
+
+.qti-customInteraction .nterre input[type="range"] {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    width: 80%;
+    height: 20px;
+    margin: 0;
+    border: none;
+    padding: 1px 2px;
+    border-radius: 14px;
+    background: #232528;
+    box-shadow: inset 0 1px 0 0 #0d0e0f, inset 0 -1px 0 0 #3a3d42;
+    -webkit-box-shadow: inset 0 1px 0 0 #0d0e0f, inset 0 -1px 0 0 #3a3d42;
+    outline: none;
+    /* no focus outline */
+}
+
+.qti-customInteraction .nterre input[type="range"]::-moz-range-track {
+    border: inherit;
+    background: transparent;
+}
+
+.qti-customInteraction .nterre input[type="range"]::-ms-track {
+    border: inherit;
+    color: transparent;
+    /* don't drawn vertical reference line */
+    background: transparent;
+}
+
+.qti-customInteraction .nterre input[type="range"]::-ms-fill-lower,
+.qti-customInteraction .nterre input[type="range"]::-ms-fill-upper {
+    background: transparent;
+}
+
+.qti-customInteraction .nterre input[type="range"]::-ms-tooltip {
+    display: none;
+}
+
+
+/* thumb */
+
+.qti-customInteraction .nterre input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 22px;
+    border: none;
+    border-radius: 12px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #529de1), color-stop(100%, #245e8f));
+    /* android <= 2.2 */
+    background-image: -webkit-linear-gradient(top, #529de1 0, #245e8f 100%);
+    /* older mobile safari and android > 2.2 */
+    ;
+    background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%);
+    /* W3C */
+}
+
+.qti-customInteraction .nterre input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 22px;
+    border: none;
+    border-radius: 12px;
+    background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%);
+    /* W3C */
+}
+
+.qti-customInteraction .nterre input[type="range"]::-ms-thumb {
+    width: 40px;
+    height: 18px;
+    border-radius: 12px;
+    border: 0;
+    background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%);
+    /* W3C */
+}
