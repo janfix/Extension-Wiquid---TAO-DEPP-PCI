@@ -45,7 +45,7 @@ define(['IMSGlobal/jquery_2_1_1',
                 this.wires = [];
                 this.drawing = paper.set();
                 this.grabBox = paper.rect(0, 0, this.width, this.height);
-                this.grabBox.attr({ "fill": "#F00", "opacity": "0" });
+                this.grabBox.attr({ "fill": "#F00", "opacity": "0" , "cursor":"pointer"});
                 this.grabBox.drag(this.dragMove, this.dragStart, this.dragStop);
                 $(this.grabBox.node).hover(this.hoverIn, this.hoverOut);
                 this.grabBox.node.parent = this.grabBox;
@@ -123,7 +123,9 @@ define(['IMSGlobal/jquery_2_1_1',
                 this.obj.translate(recallagex, recallagey);
 
                 if (this.obj.dx === 0 && this.obj.dy === 0 && this.obj.active) {
-                    this.obj.rotate();
+                    var testrotation = (this.obj.name).indexOf("Soudure");
+                    if(testrotation){this.obj.rotate();}
+
                 }
 
                 // Destroy componants
@@ -170,7 +172,7 @@ define(['IMSGlobal/jquery_2_1_1',
                 // rotcy and rotcy were here.... (now see dragMove)
                 if (this.isRotated) {
                     this.drawing.rotate(0, this.centerBox, this.centerBoy);
-                    this.drawing.toFront();
+                    
                     this.isRotated = false;
                     this.label.translate(0 - this.labelRotateMove.x, 0 - this.labelRotateMove.y);
                     
@@ -187,6 +189,7 @@ define(['IMSGlobal/jquery_2_1_1',
                         this.centerBoy = centerboy;
 
                         this.drawing[1].animate({ rotation: "360 " + centerbox + " " + centerboy }, 1000, 'bounce');
+
                     }
 
                     this.isRotated = true;
@@ -270,6 +273,9 @@ define(['IMSGlobal/jquery_2_1_1',
             // called by wires to remove themselves
             this.removeWireEnd = function w_removeWireEnd(w) {
                 for (var i = 0; i < this.wireEnds.length; i++) {
+                    // Todo : if the connector is immediately reconnected, it sticks to the component
+                    console.log("REMOVER");
+                    console.log(this);
                     if (this.wireEnds[i] === w) {
                         this.wireEnds.splice(i, 1);
                         break;
@@ -360,6 +366,13 @@ define(['IMSGlobal/jquery_2_1_1',
             this.osnappedObj = this.snappedObj;
             this.osnappedPoint = this.snappedPoint;
             this.toFront();
+                if(this.snapped){
+                    this.osnappedPoint.removeWireEnd(this);
+                    this.osnappedObj.wires.pop(); 
+                    console.log(this.snapped);
+                    }
+            
+
         };
 
         wire.prototype.wireDragMove = function w_wireDragMove(dx, dy) {
@@ -384,6 +397,7 @@ define(['IMSGlobal/jquery_2_1_1',
                     if (dx === 0 && dy === 0) {
                         this.osnappedPoint.removeWireEnd(this);
                         this.osnappedObj.wires.pop();
+
                     }
                 }
             }
@@ -526,8 +540,6 @@ define(['IMSGlobal/jquery_2_1_1',
             this.label.remove();
         };
 
-
-
         dot.prototype.normalStyle = function w_normalStyle() {
             if (this.isConnected()) {
                 this.drawing.attr(symbolStyle.dot.connected);
@@ -535,7 +547,6 @@ define(['IMSGlobal/jquery_2_1_1',
                 this.drawing.attr(symbolStyle.dot.normal);
             }
         };
-
 
         // override stub function
         dot.prototype.notifyUnsnapped = function w_notifyUnsnapped() {
@@ -550,6 +561,8 @@ define(['IMSGlobal/jquery_2_1_1',
             }
             return false;
         };
+
+
         // Battery
 
         battery = function w_battery(n) {
@@ -562,9 +575,6 @@ define(['IMSGlobal/jquery_2_1_1',
 
             this.drawing.push(
                 paper.path("m 33.175576,16.601219 0,14 m 2,-13.996588 0,14 m 4.064011,-21.6760759 8.699083,0 m -33.249252,-5.310957 0,10.4398249 m -5.2703778,-5.2199059 10.5407708,0 m 12.311795,14.6157609 28.149817,0 M 26.889725,5.4637385 26.799576,40.820901 M 2.088171,23 l 25.739104,0").attr(symbolStyle.lines),
-
-
-
 
                 this.makePoint(2, 23),
                 this.makePoint(59, 23.5)
