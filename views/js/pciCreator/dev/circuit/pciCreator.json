@@ -18,8 +18,7 @@
         "libraries" : [
             "IMSGlobal/jquery_2_1_1",
             "./runtime/js/raphael-min.js",
-            "./runtime/js/wcircuit.js",
-            "./runtime/js/renderer.js"
+            "./runtime/js/wcircuit.js"
         ],
         "stylesheets" : [
             "./runtime/css/circuit.css"

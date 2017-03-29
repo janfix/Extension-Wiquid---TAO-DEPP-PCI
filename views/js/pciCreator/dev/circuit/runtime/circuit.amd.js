@@ -7,9 +7,8 @@ All assets are under Creative Commons licence -
 define(['qtiCustomInteractionContext', 
         'IMSGlobal/jquery_2_1_1',
         'circuit/runtime/js/raphael-min',
-        'circuit/runtime/js/renderer',
         'circuit/runtime/js/wcircuit',
-        'OAT/util/event'], function(qtiCustomInteractionContext, $, raphael ,renderer, wcircuit, event){
+        'OAT/util/event'], function(qtiCustomInteractionContext, $, raphael , wcircuit, event){
 
     "use strict"; 
     
@@ -29,12 +28,11 @@ define(['qtiCustomInteractionContext',
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
 
-            var _this = this;
             this.id = id;
             this.dom = dom; 
             this.config = config || {};
 
-            renderer.render(this.id, this.dom, this.config);
+            
             wcircuit.render(this.id, this.dom, this.config);
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
@@ -62,7 +60,7 @@ define(['qtiCustomInteractionContext',
          */
         getResponse : function getResponse(){
             var $container = $(this.dom),
-                value =  document.getElementById('idCanvas_1').innerHTML  + 'historique des mouvements : ' + $container.find('.answcircuit').text();
+                value =  $('.simspace').html()  + 'historique des mouvements : ' + $container.find('.answcircuit').text();
                 value = value.slice(0,-1);
 
             return {base : {string : value}};

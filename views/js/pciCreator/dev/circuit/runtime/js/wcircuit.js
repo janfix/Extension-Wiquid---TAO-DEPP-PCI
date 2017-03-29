@@ -2,14 +2,14 @@
 Copyright DEPP © 2017 - Ministère de l'éducation nationale  
 */
 
-define(['IMSGlobal/jquery_2_1_1', 
+define(['IMSGlobal/jquery_2_1_1',
     'lodash',
-    'OAT/util/html'], function($, _ , html) {
+    'OAT/util/html'
+], function($, _, html) {
 
-    //"use strict";  Todo : fix use strict
+    //"use strict";  //Todo : fix use strict -> it can be used function by function to avoid this=undefined.
 
     function displaycircuit(id, $container, config) {
-
         //Instructions 
         $container.find(".fermer").click(function(event) {
             $container.find(".wrapinstruct").hide();
@@ -36,11 +36,11 @@ define(['IMSGlobal/jquery_2_1_1',
             this.myPoints = null;
             this.isRotated = false;
             this.labelRotateMove = { x: 10, y: 10 };
-            this.centerBox =null; // x coordinates of rotation center
+            this.centerBox = null; // x coordinates of rotation center
             this.centerBoy = null; // y coordinates of rotation center
 
 
-            this.draw = function(x, y) {
+            this.draw = function w_draw(x, y) {
                 this.myPoints = [];
                 this.wires = [];
                 this.drawing = paper.set();
@@ -56,20 +56,20 @@ define(['IMSGlobal/jquery_2_1_1',
             };
 
             // Call destroy function
-            this.destroy = function() {
+            this.destroy = function w_destroy() {
                 this.drawing.remove();
             };
             //***********************            
 
-            this.hoverIn = function() {
+            this.hoverIn = function w_hoverIn() {
                 this.parent.obj.drawing.attr(symbolStyle.linesOver);
             };
 
-            this.hoverOut = function() {
+            this.hoverOut = function w_hoverOut() {
                 this.parent.obj.drawing.attr(symbolStyle.lines);
             };
 
-            this.dragStart = function() {
+            this.dragStart = function w_dragStart() {
                 this.ox = this.attr("x");
                 this.oy = this.attr("y");
                 this.obj.dx = 0; // to check if we've moved at all.  if not, rotate on mouse release!
@@ -79,7 +79,7 @@ define(['IMSGlobal/jquery_2_1_1',
                 //this.obj.dragWiresStart();
             };
 
-            this.dragMove = function(dx, dy) {
+            this.dragMove = function w_dragMove(dx, dy) {
                 var topBound = 0;
                 if (this.obj.active) {
                     topBound = toolbarheight;
@@ -95,31 +95,32 @@ define(['IMSGlobal/jquery_2_1_1',
                 this.prev_dx = dx;
                 this.prev_dy = dy;
 
-                this.obj.centerBox=this.attr("x")+25; // Rotation center
-                this.obj.centerBoy=this.attr("y")+25;
+                this.obj.centerBox = this.attr("x") + 25; // Rotation center
+                this.obj.centerBoy = this.attr("y") + 25;
                 this.obj.updatePoints();
             };
 
-            // Get the answer list in an array
+            // Get the answer list in an array to deal with components deletion
             function getText(target) {
                 var wordArr = [];
-                $(target).add(target).each(function(k,v) {
-                    var words  = $('*',v.cloneNode(true)).remove().end().text().split(',');
-                    wordArr = wordArr.concat(words.filter(function(n){return n.trim();}));
+                $container.find(target).each(function(k, v) {
+                    var words = $('*', v.cloneNode(true)).remove().end().text().split(',');
+                    wordArr = wordArr.concat(words.filter(function(n) {
+                        return n.trim(); }));
                 });
                 return wordArr;
             }
 
-            this.dragStop = function() {
-                
-                
+            this.dragStop = function w_dragStop() {
                 var locdrag = this.getBBox();
-                var recallagey = Math.round(locdrag.y/50)*50;
-                var recallagex = Math.round(locdrag.x/50)*50;
-    
-                recallagex = recallagex -locdrag.x ;
-                recallagey = recallagey -locdrag.y ;
-                this.obj.translate(recallagex,recallagey);
+                var recallagey = Math.round(locdrag.y / 50) * 50;
+                var recallagex = Math.round(locdrag.x / 50) * 50;
+                var message_delete;
+                var answarray;
+
+                recallagex = recallagex - locdrag.x;
+                recallagey = recallagey - locdrag.y;
+                this.obj.translate(recallagex, recallagey);
 
                 if (this.obj.dx === 0 && this.obj.dy === 0 && this.obj.active) {
                     this.obj.rotate();
@@ -129,19 +130,18 @@ define(['IMSGlobal/jquery_2_1_1',
                 if (this.getBBox().x > 660 && this.getBBox().y > 360 && this.obj.active) {
                     if (this.obj.wires[0] === true) {
                         this.obj.grabBox.toFront();
-                        var message_delete = paper.text(410, 450, "Attention déconnecter le composant avant de l'effacer !");
+                        message_delete = paper.text(410, 450, "Attention déconnecter le composant avant de l'effacer !");
                         message_delete.attr({ "font-size": 24, "font-family": "Arial, Helvetica, sans-serif", "fill": "white" });
-                        message_delete.animate({ 'fill-opacity': 0 }, 4000);                
+                        message_delete.animate({ 'fill-opacity': 0 }, 4000);
                     } // To destroy a componant it has to be deconnected.
                     else {
                         this.obj.destroy();
                         this.obj.label.remove();
                         $container.find(".answcircuit").append(" Supp-" + this.obj.name + ","); // answer
 
-                    var answarray = getText('.answcircuit');
+                        answarray = getText('.answcircuit');
                     }
-                }
-                else{$container.find(".answcircuit").append(" " + this.obj.name + ",");} // answer
+                } else { $container.find(".answcircuit").append(" " + this.obj.name + ","); } // answer
 
 
                 if (this.obj.removedFromToolbar !== null) {
@@ -153,42 +153,40 @@ define(['IMSGlobal/jquery_2_1_1',
                     }
                 }
                 if (this.obj) { // check because wires kill their "this"s
-                    
-                    this.obj.centerBox=this.attr("x")+25; 
-                    this.obj.centerBoy=this.attr("y")+25;
+
+                    this.obj.centerBox = this.attr("x") + 25;
+                    this.obj.centerBoy = this.attr("y") + 25;
 
                     this.obj.updatePoints(); // for wire end snapping
                 }
             };
 
-            this.rotate = function() {
+            this.rotate = function w_rotate() {
                 // Coorinates of rotation center
-                var centerpathbox = this.drawing[0].getBBox().x +(this.drawing[0].getBBox().width/2);
-                var centerpathboy = this.drawing[0].getBBox().y +(this.drawing[0].getBBox().height/2);    
-
+                var centerpathbox = this.drawing[0].getBBox().x + (this.drawing[0].getBBox().width / 2);
+                var centerpathboy = this.drawing[0].getBBox().y + (this.drawing[0].getBBox().height / 2);
+                var centerbox;
+                var centerboy;
                 // rotcy and rotcy were here.... (now see dragMove)
                 if (this.isRotated) {
                     this.drawing.rotate(0, this.centerBox, this.centerBoy);
                     this.drawing.toFront();
                     this.isRotated = false;
                     this.label.translate(0 - this.labelRotateMove.x, 0 - this.labelRotateMove.y);
-                    if (this.drawing[1].attrs.text) {
-                        /*this.drawing[1].translate(-5, -5);*/
-                    }
+                    
                     // start Position
                 } else {
                     this.drawing.rotate(90, centerpathbox, centerpathboy);
                     // M Special rotation and repositionning
 
                     if (this.drawing[1].attrs.text) {
-
                         // Find the center : for pivot rotation. 
-                        var centerbox = this.drawing[1].getBBox().x +(this.drawing[1].getBBox().width/2);
-                        var centerboy = this.drawing[1].getBBox().y +(this.drawing[1].getBBox().height/2);
+                        centerbox = this.drawing[1].getBBox().x + (this.drawing[1].getBBox().width / 2);
+                        centerboy = this.drawing[1].getBBox().y + (this.drawing[1].getBBox().height / 2);
                         this.centerBox = centerbox;
                         this.centerBoy = centerboy;
 
-                        this.drawing[1].animate({rotation:"360 " + centerbox +" "+ centerboy},1000,'bounce');
+                        this.drawing[1].animate({ rotation: "360 " + centerbox + " " + centerboy }, 1000, 'bounce');
                     }
 
                     this.isRotated = true;
@@ -197,34 +195,34 @@ define(['IMSGlobal/jquery_2_1_1',
 
             };
 
-            this.translate = function(x, y) {
+            this.translate = function w_translate(x, y) {
                 this.grabBox.translate(x, y);
                 this.drawing.translate(x, y);
                 if (this.label) this.label.translate(x, y);
             };
 
 
-            this.moveto = function(x, y) {
+            this.moveto = function w_moveto(x, y) {
                 x = x - this.grabBox.attr("x");
                 y = y - this.grabBox.attr("y");
                 this.translate(x, y);
             };
 
-            this.makePoint = function(x, y) {
+            this.makePoint = function w_makePoint(x, y) {
                 var point = new Point(this, x, y);
                 this.myPoints.push(point); // store locally
                 points.push(point); // store globally
                 return point.p;
             };
 
-            this.updatePoints = function() {
+            this.updatePoints = function w_updatePoints() {
                 for (i = 0; i < this.myPoints.length; i++) {
-                    this.myPoints[i].update(this.isRotated, {x:this.centerBox, y:this.centerBoy});
+                    this.myPoints[i].update(this.isRotated, { x: this.centerBox, y: this.centerBoy });
                 }
             };
             // NOTE: at creation, just notifyUnsnapped() was going to be used by the dot component
-            this.notifySnapped = function(wireEnd) {};
-            this.notifyUnsnapped = function(wireEnd) {};
+            this.notifySnapped = function w_notifySnapped(wireEnd) {};
+            this.notifyUnsnapped = function w_notifyUnsnapped(wireEnd) {};
         }
 
 
@@ -237,7 +235,8 @@ define(['IMSGlobal/jquery_2_1_1',
             this.wireEnds = [];
 
             // must be called after doing a translation of any sort to update x,y
-            this.update = function(rotated, origin) {
+            this.update = function w_update(rotated, origin) {
+                var i;
                 this.x = this.p.attr("cx");
                 this.y = this.p.attr("cy");
 
@@ -246,7 +245,7 @@ define(['IMSGlobal/jquery_2_1_1',
                     this.rotate(origin);
                 }
                 // update the wires
-                for (var i = 0; i < this.wireEnds.length; i++) {
+                for (i = 0; i < this.wireEnds.length; i++) {
                     this.wireEnds[i].goto(this.x, this.y);
                 }
             };
@@ -254,22 +253,22 @@ define(['IMSGlobal/jquery_2_1_1',
             // Called when object is rotated or after a translation (drag) while rotated.
             // Sadly, Raphael just does a rotation translation and there is no way to
             // get the translated coordinates.  So we must calculate them manually.
-            this.rotate = function(origin) {
+            this.rotate = function w_rotate(origin) {
                 costheta = Math.cos(90 * Math.PI / 180); // always a 90 degree rotation
                 sintheta = Math.sin(90 * Math.PI / 180);
-                x=this.x-origin.x-this.obj.offsetRotation[0]; // Verticale fix  position of connectors 
-                y=this.y-origin.y-this.obj.offsetRotation[1]; // Horizontale fix position of connectors
+                x = this.x - origin.x - this.obj.offsetRotation[0]; // Verticale fix  position of connectors 
+                y = this.y - origin.y - this.obj.offsetRotation[1]; // Horizontale fix position of connectors
                 this.x = (x * costheta) - (y * sintheta) + origin.x;
                 this.y = (x * sintheta) + (y * costheta) + origin.y;
             };
 
             // called by wires to add themselves
-            this.addWireEnd = function(w) {
+            this.addWireEnd = function w_addWireEnd(w) {
                 this.wireEnds.push(w);
             };
 
             // called by wires to remove themselves
-            this.removeWireEnd = function(w) {
+            this.removeWireEnd = function w_removeWireEnd(w) {
                 for (var i = 0; i < this.wireEnds.length; i++) {
                     if (this.wireEnds[i] === w) {
                         this.wireEnds.splice(i, 1);
@@ -280,7 +279,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
 
             // right now, just called by the "point" component's isConnected()
-            this.isConnected = function() {
+            this.isConnected = function w_isConnected() {
                 if (this.wireEnds.length > 0) {
                     return true;
                 }
@@ -289,12 +288,12 @@ define(['IMSGlobal/jquery_2_1_1',
         }
 
         // Wire
-        wire = function(n) {
+        wire = function w_wire(n) {
             this.name = "Fil électr. " + n;
         };
         wire.prototype = new component();
 
-        wire.prototype.drawme = function() {
+        wire.prototype.drawme = function w_drawme() {
             this.label = paper.text(30, 10, this.name).attr(symbolStyle.label);
             this.a = paper.circle(10, 30, symbolStyle.wire.endSize);
             this.b = paper.circle(50, 30, symbolStyle.wire.endSize);
@@ -322,7 +321,7 @@ define(['IMSGlobal/jquery_2_1_1',
             this.drawing.push(this.a, this.b, this.line);
         };
 
-        wire.prototype.wireHoverIn = function() {
+        wire.prototype.wireHoverIn = function w_wireHoverIn() {
             if (this.parent.snapped) {
                 this.parent.attr(symbolStyle.wire.endSnappedOver);
             } else {
@@ -330,7 +329,7 @@ define(['IMSGlobal/jquery_2_1_1',
             }
         };
 
-        wire.prototype.wireHoverOut = function() {
+        wire.prototype.wireHoverOut = function w_wireHoverOut() {
             if (this.parent.snapped) {
                 this.parent.attr(symbolStyle.wire.endSnapped);
             } else {
@@ -338,7 +337,7 @@ define(['IMSGlobal/jquery_2_1_1',
             }
         };
 
-        wire.prototype.onFirstPlacement = function() {
+        wire.prototype.onFirstPlacement = function w_onFirstPlacement() {
             //after drag, reset all styles:
             this.a.attr(symbolStyle.wire.end);
             this.b.attr(symbolStyle.wire.end);
@@ -347,15 +346,15 @@ define(['IMSGlobal/jquery_2_1_1',
             this.label.remove();
 
             // Direct to destroy zone 
-            if(this.a.getBBox().x>660&&this.a.getBBox().y>360){
-            this.a.remove();
-            this.b.remove();
-            this.line.remove();
+            if (this.a.getBBox().x > 660 && this.a.getBBox().y > 360) {
+                this.a.remove();
+                this.b.remove();
+                this.line.remove();
             }
         };
 
         // drag wire end functions
-        wire.prototype.wireDragStart = function() {
+        wire.prototype.wireDragStart = function w_wireDragStart() {
             this.ox = this.attr("cx");
             this.oy = this.attr("cy");
             this.osnappedObj = this.snappedObj;
@@ -363,7 +362,7 @@ define(['IMSGlobal/jquery_2_1_1',
             this.toFront();
         };
 
-        wire.prototype.wireDragMove = function(dx, dy) {
+        wire.prototype.wireDragMove = function w_wireDragMove(dx, dy) {
             var s = pointSnapping;
             var x = this.ox + dx;
             var y = this.oy + dy;
@@ -381,11 +380,11 @@ define(['IMSGlobal/jquery_2_1_1',
                     this.attr(symbolStyle.wire.endSnappedOver);
                     x = px;
                     y = py;
-            // fixed conflict with wire has a null move
-                 if(dx === 0 && dy === 0 ){ 
-                    this.osnappedPoint.removeWireEnd(this);
-                    this.osnappedObj.wires.pop(); 
-                    } 
+                    // fixed conflict with wire has a null move
+                    if (dx === 0 && dy === 0) {
+                        this.osnappedPoint.removeWireEnd(this);
+                        this.osnappedObj.wires.pop();
+                    }
                 }
             }
             // bounds checking if not snapped
@@ -400,18 +399,19 @@ define(['IMSGlobal/jquery_2_1_1',
             this.obj.drawLine();
         };
 
-        wire.prototype.wireDragStop = function() {
+        wire.prototype.wireDragStop = function w_wireDragStop() {
+            var snap, osnap;
             if (this.snapped) {
                 this.snappedPoint.addWireEnd(this);
                 this.attr(symbolStyle.wire.endSnapped);
                 this.snappedObj.notifySnapped(this);
             }
-             // this is for when i inevitably break the object removal again...
-            var snap=this.snappedObj;
-            if(snap){snap.wires.push(true);}
-            if(snap) snap=snap.name;
-            var osnap=this.osnappedObj;
-            if(osnap) osnap=osnap.name;
+            // this is for when i inevitably break the object removal again...
+            snap = this.snappedObj;
+            if (snap) { snap.wires.push(true); }
+            if (snap) snap = snap.name;
+            osnap = this.osnappedObj;
+            if (osnap) osnap = osnap.name;
             if (this.snappedObj !== this.osnappedObj && this.osnappedObj) {
                 this.osnappedObj.wires.pop();
                 this.osnappedPoint.removeWireEnd(this);
@@ -419,22 +419,21 @@ define(['IMSGlobal/jquery_2_1_1',
             }
 
             // Destroy componant
-            if(this.attr("cx") > 700 && this.attr("cy") > 400 ){
+            if (this.attr("cx") > 700 && this.attr("cy") > 400) {
                 this.remove();
             }
         };
 
-        wire.prototype.drawLine = function() {
-            if(this.a.removed === true){
+        wire.prototype.drawLine = function w_drawLine() {
+            if (this.a.removed === true) {
                 this.line.remove();
-            }
-            else{this.line.attr({path:"M"+this.a.attr("cx")+","+this.a.attr("cy")+"L"+this.b.attr("cx")+","+this.b.attr("cy")});}
-        
+            } else { this.line.attr({ path: "M" + this.a.attr("cx") + "," + this.a.attr("cy") + "L" + this.b.attr("cx") + "," + this.b.attr("cy") }); }
+
         };
 
 
         // always called as a member of a wire end as "goto()"
-        wire.prototype.wireEndGoto = function(x, y) {
+        wire.prototype.wireEndGoto = function w_wireEndGoto(x, y) {
             this.attr("cx", x);
             this.attr("cy", y);
             this.obj.drawLine();
@@ -442,13 +441,13 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // Resistor
 
-        resistor = function(n) {
+        resistor = function w_resistor(n) {
             this.name = "Resistance" + n;
-            this.offsetRotation = [6.55,4.3];
+            this.offsetRotation = [6.55, 4.3];
         };
         resistor.prototype = new component();
 
-        resistor.prototype.drawme = function() {
+        resistor.prototype.drawme = function w_drawme() {
             this.drawing.push(
                 paper.path("m 14,13.362127 33,0 0,21 -33,0 z m 32.91032,10.561385 12.094704,-0.0625 m -57.0104405,0.108259 12.0322025,0").attr(symbolStyle.lines),
 
@@ -462,14 +461,14 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // coton 
 
-        coton = function(n) {
+        coton = function w_coton(n) {
             this.name = "Coton" + n;
-            this.offsetRotation = [6.55,4.3];
+            this.offsetRotation = [6.55, 4.3];
 
         };
         coton.prototype = new component();
 
-        coton.prototype.drawme = function() {
+        coton.prototype.drawme = function w_drawme() {
             this.drawing.push(
                 paper.path("m 14,13.362127 33,0 0,21 -33,0 z m 32.91032,10.561385 12.094704,-0.0625 m -57.0104405,0.108259 12.0322025,0").attr(symbolStyle.lines),
 
@@ -482,14 +481,14 @@ define(['IMSGlobal/jquery_2_1_1',
         };
 
         // aluminium 
-        aluminium = function(n) {
+        aluminium = function w_aluminium(n) {
             this.name = "Aluminium" + n;
-            this.offsetRotation = [6.55,4.3];
+            this.offsetRotation = [6.55, 4.3];
 
         };
         aluminium.prototype = new component();
 
-        aluminium.prototype.drawme = function() {
+        aluminium.prototype.drawme = function w_drawme(){
             this.drawing.push(
                 paper.path("m 14,13.362127 33,0 0,21 -33,0 z m 32.91032,10.561385 12.094704,-0.0625 m -57.0104405,0.108259 12.0322025,0").attr(symbolStyle.lines),
 
@@ -502,12 +501,12 @@ define(['IMSGlobal/jquery_2_1_1',
         };
         // arbitrary point
 
-        dot = function(n) {
+        dot = function w_dot(n) {
             this.name = "Soudure " + n;
         };
         dot.prototype = new component();
 
-        dot.prototype.drawme = function() {
+        dot.prototype.drawme = function w_drawme() {
             this.drawing.push(
                 this.makePoint(30, 35).attr(symbolStyle.dot.normal), // do first so the dot is in front of it for appearances sake
                 paper.circle(30, 35, 15).attr(symbolStyle.dot.normal)
@@ -515,21 +514,21 @@ define(['IMSGlobal/jquery_2_1_1',
             this.label = paper.text(30, 10, this.name).attr(symbolStyle.label);
         };
 
-        dot.prototype.hoverIn = function() {
+        dot.prototype.hoverIn = function w_hoverIn() {
             this.parent.obj.drawing.attr(symbolStyle.dot.over);
         };
 
-        dot.prototype.hoverOut = function() {
+        dot.prototype.hoverOut = function w_hoverOut() {
             this.parent.obj.normalStyle();
         };
 
-        dot.prototype.onFirstPlacement = function() {
+        dot.prototype.onFirstPlacement = function w_onFirstPlacement() {
             this.label.remove();
         };
 
 
 
-        dot.prototype.normalStyle = function() {
+        dot.prototype.normalStyle = function w_normalStyle() {
             if (this.isConnected()) {
                 this.drawing.attr(symbolStyle.dot.connected);
             } else {
@@ -539,11 +538,11 @@ define(['IMSGlobal/jquery_2_1_1',
 
 
         // override stub function
-        dot.prototype.notifyUnsnapped = function() {
+        dot.prototype.notifyUnsnapped = function w_notifyUnsnapped() {
             this.normalStyle();
         };
 
-        dot.prototype.isConnected = function() {
+        dot.prototype.isConnected = function w_isConnected() {
             for (var i = 0; i < this.myPoints.length; i++) {
                 if (this.myPoints[i].isConnected()) {
                     return true;
@@ -553,13 +552,13 @@ define(['IMSGlobal/jquery_2_1_1',
         };
         // Battery
 
-        battery = function(n) {
+        battery = function w_battery(n) {
             this.name = "Pile " + n;
-            this.offsetRotation = [8,3.7];
+            this.offsetRotation = [8, 3.7];
         };
         battery.prototype = new component();
 
-        battery.prototype.drawme = function() {
+        battery.prototype.drawme = function w_drawme() {
 
             this.drawing.push(
                 paper.path("m 33.175576,16.601219 0,14 m 2,-13.996588 0,14 m 4.064011,-21.6760759 8.699083,0 m -33.249252,-5.310957 0,10.4398249 m -5.2703778,-5.2199059 10.5407708,0 m 12.311795,14.6157609 28.149817,0 M 26.889725,5.4637385 26.799576,40.820901 M 2.088171,23 l 25.739104,0").attr(symbolStyle.lines),
@@ -578,13 +577,13 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // lampe
 
-        lampe = function(n) {
+        lampe = function w_lampe(n) {
             this.name = "Lampe " + n;
-            this.offsetRotation = [5,5.8];
+            this.offsetRotation = [5, 5.8];
         };
         lampe.prototype = new component();
 
-        lampe.prototype.drawme = function() {
+        lampe.prototype.drawme = function w_drawme() {
 
             this.drawing.push(
                 paper.path("m 20,38.3621 c 20,-26 20,-26 20,-26 m -20,0 c 20,25 20,25 20,25 M 46.159664,25.362101 A 16.588236,16.588236 0 0 1 29.571428,41.950336 16.588236,16.588236 0 0 1 12.983192,25.362101 16.588236,16.588236 0 0 1 29.571428,8.7738647 16.588236,16.588236 0 0 1 46.159664,25.362101 Z M 59,23 47,23 M 13,24 2,24").attr(symbolStyle.lines),
@@ -598,14 +597,14 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // moteur
 
-        moteur = function(n) {
+        moteur = function w_moteur(n) {
             this.name = "Moteur " + n;
             this.jpname = "moteur";
-            this.offsetRotation = [5,6];
+            this.offsetRotation = [5, 6];
         };
         moteur.prototype = new component();
 
-        moteur.prototype.drawme = function() {
+        moteur.prototype.drawme = function w_drawme() {
 
             var moteurletter = paper.text(29, 25, "M");
 
@@ -621,14 +620,14 @@ define(['IMSGlobal/jquery_2_1_1',
         };
 
         // Generateur
-        generateur = function(n) {
+        generateur = function w_generateur(n) {
             this.name = "Generateur " + n;
             this.jpname = "generateur";
-            this.offsetRotation = [5,6];
+            this.offsetRotation = [5, 6];
         };
         generateur.prototype = new component();
 
-        generateur.prototype.drawme = function() {
+        generateur.prototype.drawme = function w_drawme() {
 
             var generateurletter = paper.text(29, 25, "G").attr({ 'font-size': 20 });
 
@@ -646,13 +645,13 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // diode
 
-        diode = function(n) {
+        diode = function w_diode(n) {
             this.name = "D.E.L. " + n;
-            this.offsetRotation = [6.4,4.7];
+            this.offsetRotation = [6.4, 4.7];
         };
         diode.prototype = new component();
 
-        diode.prototype.drawme = function() {
+        diode.prototype.drawme = function w_drawme() {
 
             this.drawing.push(
                 paper.path("m 38.03532,23.861012 c 20.969704,0 20.969704,0 20.969704,0 M 1.9945835,23.969271 c 13.3447025,0 13.3447025,0 13.3447025,0 m 1.09312,0.133929 21.467144,-12.097138 0,24.194276 z M 15.410161,13.583009 c 0,21.753247 0,21.753247 0,21.753247").attr(symbolStyle.lines),
@@ -666,13 +665,13 @@ define(['IMSGlobal/jquery_2_1_1',
         };
 
         // interrupOuvert
-        interrupOuvert = function(n) {
+        interrupOuvert = function w_interrupOuvert(n) {
             this.name = "Int.Ouvert. " + n;
-            this.offsetRotation = [11,-2];
+            this.offsetRotation = [11, -2];
         };
         interrupOuvert.prototype = new component();
 
-        interrupOuvert.prototype.drawme = function() {
+        interrupOuvert.prototype.drawme = function w_drawme() {
 
             this.drawing.push(
                 paper.path("m 20.616239,23.529651 12.046609,-12.3125 m 7.344249,12.741402 19.058092,0 m -57.258105,0.01072 18.157201,0").attr(symbolStyle.lines),
@@ -686,13 +685,13 @@ define(['IMSGlobal/jquery_2_1_1',
         };
 
         // interrupFerme
-        interrupFerme = function(n) {
+        interrupFerme = function w_interrupFerme(n) {
             this.name = "Int.Fermé " + n;
-            this.offsetRotation = [6.55,4.3];
+            this.offsetRotation = [6.55, 4.3];
         };
         interrupFerme.prototype = new component();
 
-        interrupFerme.prototype.drawme = function() {
+        interrupFerme.prototype.drawme = function w_drawme() {
 
             this.drawing.push(
                 paper.path("m 1.9945835,23.969271 57.1572025,0").attr(symbolStyle.lines),
@@ -790,57 +789,58 @@ define(['IMSGlobal/jquery_2_1_1',
         // Startup - jQuery will run when page has loaded
         // ===========================================================================
 
+
         // get the size of the #simspace area
         paperSize = { w: parseInt($container.find(".simspace").width()), h: parseInt($container.find(".simspace").height()) };
 
         // create Raphael paper for display!
-        var idcanvas = _.uniqueId('idCanvas_');// lodash generate unique id
-        $container.find('.simspace').attr('id',idcanvas);
+        var idcanvas = _.uniqueId('idCanvas_'); // lodash generate unique id
+        $container.find('.simspace').attr('id', idcanvas);
 
         paper = Raphael(idcanvas, paperSize.w, paperSize.h);
 
-        var axis = function (r, grid, offset) {
-        var g = grid || true;
-        var o = offset || 2;
+        var axis = function w_axis(r, grid, offset) {
+            var g = grid || true;
+            var o = offset || 2;
+            var w = r.width;
+            var h = r.height;
+            var len, i;
 
-        var w=r.width;
-        var h=r.height;
+            r.path("M" + w + "," + o + "L0," + o + "L" + o + "," + h).attr("stroke", "gray");
+            r.path("M" + w + "," + o + "L" + (w - 5) + ",5").attr("stroke", "gray");
+            r.path("M" + o + "," + h + "L5," + (h - 5)).attr("stroke", "gray");
 
-        r.path("M"+w+","+o+"L0,"+o+"L"+o+","+h).attr("stroke", "gray");
-        r.path("M"+w+","+o+"L"+(w-5)+",5").attr("stroke", "gray");
-        r.path("M"+o+","+h+"L5,"+(h-5)).attr("stroke", "gray");
+            len = grid ? h : r.height;
+            for (i = 1; i <= w / 10; i = i + 0.5) {
+                r.path("M" + i * 10 + ",0L" + i * 10 + "," + len).attr("stroke", "gray").attr("stroke-opacity", 0.3);
+            }
 
-        var len = grid ? h : r.height;
-        for (var i=1; i<=w/10; i=i+0.5) {
-            r.path("M"+i*10+",0L"+i*10+","+len).attr("stroke", "gray").attr("stroke-opacity",0.3);
-        }
-
-        var len = grid ? w : r.width;
-        for (var i = 1; i<=h/10; i=i+0.5) {
-            r.path("M0,"+i*10+"L"+len+","+i*10).attr("stroke", "gray").attr("stroke-opacity",0.3);
-          }
+            len = grid ? w : r.width;
+            for (i = 1; i <= h / 10; i = i + 0.5) {
+                r.path("M0," + i * 10 + "L" + len + "," + i * 10).attr("stroke", "gray").attr("stroke-opacity", 0.3);
+            }
         };
 
-axis(paper);
+        axis(paper);
 
         // show the toolbar and store its height for bounding
         paperSize.topbounds = showtoolbar(paperSize.w);
 
         // Destroy componants
-        var poub = paper.circle(800,500,100);
-        poub.attr("fill",'red').attr("fill-opacity","0.3");
-        poub.attr("stroke",'red').attr("stroke-opacity","0.8");
-        var txtpoub = paper.text(745, 460, "Supprimer");
-        txtpoub.attr({fill:"#FFF","font-family":"\"arial\", cursive, sans-serif", "font-size":"14px"});
+        var poub,txtpoub; 
+        poub = paper.circle(800, 500, 100);
+        poub.attr("fill", 'red').attr("fill-opacity", "0.3");
+        poub.attr("stroke", 'red').attr("stroke-opacity", "0.8");
+        txtpoub = paper.text(745, 460, "Supprimer");
+        txtpoub.attr({ fill: "#FFF", "font-family": "\"arial\", cursive, sans-serif", "font-size": "14px" });
         txtpoub.toBack();
-        poub.hover( function(){
-            poub.attr("fill",'red').attr("fill-opacity","0.6");
-            poub.attr("stroke",'red').attr("stroke-opacity","1");
-           }, function(){
-            poub.attr("fill",'red').attr("fill-opacity","0.3");
-            poub.attr("stroke",'red').attr("stroke-opacity","0.8");
-      }
-  );
+        poub.hover(function w_poubhover() {
+            poub.attr("fill", 'red').attr("fill-opacity", "0.6");
+            poub.attr("stroke", 'red').attr("stroke-opacity", "1");
+        }, function w_poub() {
+            poub.attr("fill", 'red').attr("fill-opacity", "0.3");
+            poub.attr("stroke", 'red').attr("stroke-opacity", "0.8");
+        });
 
         // Circuit Logic
         // ===========================================================================
@@ -849,19 +849,15 @@ axis(paper);
     } // close displaycircuit
 
 
-      
+
 
 
     return {
         render: function(id, container, config) {
             var $container = $(container);
-            
+
             displaycircuit(id, $container, config);
         }
 
     };
 }); // close define.
-
-
-
-

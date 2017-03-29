@@ -111,7 +111,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .circuit ol.compact li,
-.circuit ul.compact {
+.qti-customInteraction.circuit ul.compact {
     margin-top: 0;
     margin-bottom: 0;
 }
