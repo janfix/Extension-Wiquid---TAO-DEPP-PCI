@@ -28,13 +28,14 @@ use oat\pciWiquid\scripts\install\RegisterPciAbeille;
 use oat\pciWiquid\scripts\install\RegisterPciBronco;
 use oat\pciWiquid\scripts\install\RegisterPciRelatem;
 use oat\pciWiquid\scripts\install\RegisterPciEffetdeserre;
+use oat\pciWiquid\scripts\install\RegisterPcilampedouble;
 
 return array(
     'name' => 'pciWiquid',
 	'label' => 'QTI PCI SVT - Wiquid',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.10.0',
+    'version' => '1.11.0',
 	'author' => 'Jean-Philippe Riviere',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.0.0',
@@ -55,7 +56,8 @@ return array(
             RegisterPciAbeille::class,
             RegisterPciBronco::class,
             RegisterPciRelatem::class,
-            RegisterPciEffetdeserre::class
+            RegisterPciEffetdeserre::class,
+            RegisterPcilampedouble::class
         )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',

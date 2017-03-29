@@ -31,6 +31,7 @@ use oat\pciWiquid\scripts\install\RegisterPciAbeille;
 use oat\pciWiquid\scripts\install\RegisterPciBronco;
 use oat\pciWiquid\scripts\install\RegisterPciRelatem;
 use oat\pciWiquid\scripts\install\RegisterPciEffetdeserre;
+use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -89,6 +90,11 @@ class Updater extends \common_ext_ExtensionUpdater
         if ($this->isVersion('1.9.0')) {
             call_user_func(new RegisterPciEffetdeserre(), ['1.1.0']);
             $this->setVersion('1.10.0');
+        }
+
+        if ($this->isVersion('1.10.0')) {
+            call_user_func(new RegisterPciLampedouble(), ['1.1.0']);
+            $this->setVersion('1.11.0');
         }
     }
 }
