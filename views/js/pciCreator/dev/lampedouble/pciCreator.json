@@ -22,7 +22,6 @@
             "./runtime/js/raphael.min.js"
         ],
         "stylesheets" : [
-            "./runtime/css/base.css",
             "./runtime/css/lampedouble.css"
         ],
         "mediaFiles" : [
