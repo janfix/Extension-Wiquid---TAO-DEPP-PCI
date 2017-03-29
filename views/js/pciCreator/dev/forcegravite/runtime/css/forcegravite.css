@@ -1,0 +1,165 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .forcegravite .answforce {
+    display: none;
+}
+
+.qti-customInteraction .forcegravite {
+    height: 530px;
+}
+
+.qti-customInteraction .forcegravite .svg2 {
+    position: relative;
+}
+
+.qti-customInteraction .forcegravite .container {
+    background-color: none;
+    width: 900px;
+}
+
+.qti-customInteraction .forcegravite .drop_hover {
+    background-color: red;
+    opacity: 0.2;
+    width: 50px;
+    height: 50px;
+}
+
+.qti-customInteraction .forcegravite .planetes {
+    margin-top: -351px;
+    position: relative;
+    width: 1000px;
+}
+
+.qti-customInteraction .forcegravite .labo {
+    background-color: #3465A0;
+    max-width: 900px;
+    height: 450px;
+}
+
+.qti-customInteraction .forcegravite .consigne {
+    height: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background-color: black;
+    width: 900px;
+}
+
+.qti-customInteraction .forcegravite .etq {
+    font-size: 26px!important;
+    margin-left: 160px;
+    margin-top: 160px;
+    color: white;
+}
+
+.qti-customInteraction .forcegravite .explic {
+    text-align: center;
+    color: white;
+    margin-left: -450px;
+    position: relative;
+    display: block;
+}
+
+.qti-customInteraction .forcegravite .etq_terre {}
+
+.qti-customInteraction .forcegravite .etq_lune {
+    display: none;
+}
+
+.qti-customInteraction .forcegravite .etq_mars {
+    display: none;
+}
+
+.qti-customInteraction .forcegravite .ong_espace {
+    position: absolute;
+}
+
+.qti-customInteraction .forcegravite .ong_terre {
+    cursor: pointer;
+    position: absolute;
+}
+
+.qti-customInteraction .forcegravite .ong_lune {
+    cursor: pointer;
+    position: absolute;
+}
+
+.qti-customInteraction .forcegravite .path4292 {
+    /* fond onglet lune */
+    display: none;
+}
+
+.qti-customInteraction .forcegravite .ong_mars {
+    cursor: pointer;
+    position: absolute;
+}
+
+.qti-customInteraction .forcegravite .meteor {
+    margin-left: 8px;
+    background-image: url("img/meteor.png");
+    background-size: 133px 103px;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 115px;
+}
+
+.qti-customInteraction .forcegravite .kg50 {
+    margin-top: -3px;
+    margin-left: -5px;
+}
+
+
+.qti-customInteraction .forcegravite .balGauche {
+    position: relative;
+    padding-top: 46px;
+    margin-left: 261px;
+    margin-top: -190px;
+    width: 310px;
+    height: 230px;
+}
+
+.qti-customInteraction .forcegravite .txtmass {
+    display: none;
+    margin-left: 91px;
+    color: white;
+}
+
+.qti-customInteraction .forcegravite .socle {
+    padding-left: 20px;
+    margin-left: 27px;
+    margin-top: 86px;
+    position: relative;
+    width: 168px;
+    height: 110px;
+}
+
+
+.qti-customInteraction .forcegravite .poids40kg {
+    display: none;
+}
+
+.qti-customInteraction .forcegravite .dynamo {
+    margin-top: -205px;
+    margin-left: 724px;
+    position: relative;
+    width: 150px;
+    height: 200px;
+}
+
+
+.qti-customInteraction .forcegravite .path4268-7 {
+   display: none;
+    fill: rgb(133, 78, 55);
+    fill-opacity: 1;
+    fill-rule: evenodd;
+    stroke: none;
+    stroke-width: 1px;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+}
