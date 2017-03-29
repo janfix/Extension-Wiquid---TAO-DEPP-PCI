@@ -109,11 +109,11 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     height: 366px!important;
     max-width: 1512px!important;
     margin-left: -1250px;
-    -webkit-animation: goguy 3s linear;
+    -webkit-animation: relatem-goguy 3s linear;
     -webkit-animation-fill-mode: forwards;
-    -moz-animation: goguy 3s linear;
+    -moz-animation: relatem-goguy 3s linear;
     -moz-animation-fill-mode: forwards;
-    animation: goguy 3s linear;
+    animation: relatem-goguy 3s linear;
     animation-fill-mode: forwards;
 }
 
@@ -160,7 +160,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Translation de la moto */
 
-@-webkit-keyframes gomoto {
+@-webkit-keyframes relatem-gotmoto {
     from {
         transform: translate(-500px);
         -webkit-transform: translate(-500px);
@@ -173,7 +173,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     }
 }
 
-@-webkit-keyframes goguy {
+@-webkit-keyframes relatem-goguy {
     from {
         transform: translate(420px);
         -webkit-transform: translate(420px);
@@ -189,7 +189,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /* Rotation des roues */
 
-@-webkit-keyframes rotating {
+@-webkit-keyframes relatem-rotating {
     from {
         transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
@@ -203,16 +203,16 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .relatem .roue {
-    animation: rotating 0.5s linear infinite;
-    -webkit-animation: rotating 0.5s linear infinite;
-    -moz-animation: rotating 0.5s linear infinite;
+    animation: relatem-rotating 0.5s linear infinite;
+    -webkit-animation: relatem-rotating 0.5s linear infinite;
+    -moz-animation: relatem-rotating 0.5s linear infinite;
     transform-origin: 50%;
 }
 
 .qti-customInteraction .relatem .roue2 {
-    animation: rotating 0.5s linear infinite;
-    -webkit-animation: rotating 0.5s linear infinite;
-    -moz-animation: rotating 0.5s linear infinite;
+    animation: relatem-rotating 0.5s linear infinite;
+    -webkit-animation: relatem-rotating 0.5s linear infinite;
+    -moz-animation: relatem-rotating 0.5s linear infinite;
     transform-origin: 50%;
 }
 
@@ -239,9 +239,9 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     width: 700px;
     top: -26px;
     position: absolute;
-    -moz-animation: gomoto 3s linear;
+    -moz-animation: relatem-gotmoto 3s linear;
     -moz-animation-fill-mode: forwards;
-    -webkit-animation: gomoto 3s linear;
+    -webkit-animation: relatem-gotmoto 3s linear;
     -webkit-animation-fill-mode: forwards;
 }
 

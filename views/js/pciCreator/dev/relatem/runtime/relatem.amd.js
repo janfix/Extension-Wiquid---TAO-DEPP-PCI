@@ -1,5 +1,6 @@
 /*
-Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+Assets created by Wiquid - licence CC0 - free to use and modify. 
 */
 
 define(['qtiCustomInteractionContext', 
