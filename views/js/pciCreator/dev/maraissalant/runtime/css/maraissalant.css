@@ -1,0 +1,199 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .maraissalant .msanswer {
+    display: none;
+}
+
+.qti-customInteraction .maraissalant .container {
+    margin: 10px;
+}
+
+.qti-customInteraction .maraissalant {
+    height: 400px;
+}
+
+.qti-customInteraction .maraissalant .mstexto{ 
+    text-align: justify;
+    width : 300px;
+    margin-top : 55px;
+    position:absolute;
+ }
+
+.qti-customInteraction .maraissalant .mstexto1{
+    margin-left: 77px;
+}
+
+.qti-customInteraction .maraissalant .mstexto2{
+    margin-left: 557px;
+}
+
+.qti-customInteraction .maraissalant .bton {
+    border: 3px #d3cc00 solid;
+    border-radius: 20%;
+    font-size: 18px;
+    line-height: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 410px;
+    margin-top: -380px!important;
+    height: 70px;
+    width: 130px;
+}
+
+.qti-customInteraction .maraissalant .btdemarrer:hover {
+    opacity: 0.8;
+    color: grey;
+}
+
+.qti-customInteraction .maraissalant .btdemarrer {
+    background-color: orange;
+    padding: 13px;
+    cursor: pointer;
+}
+
+.qti-customInteraction .maraissalant .btzero {
+    color: gainsboro;
+    padding: 13px;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.qti-customInteraction .maraissalant .btzero:hover {
+    opacity: 0.8;
+}
+
+.qti-customInteraction .maraissalant .bouclier {
+    margin-top: -200px;
+    position: relative;
+    width: 100%;
+    height: 110px;
+    display: none;
+}
+
+.qti-customInteraction .maraissalant svg {}
+
+.qti-customInteraction .maraissalant .clock {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: relative;
+}
+
+.qti-customInteraction .maraissalant .clockbox {
+    position: relative;
+    margin-left: 372px;
+    margin-top: 20px;
+    width: 200px;
+}
+
+.qti-customInteraction .maraissalant .short-hand,
+.long-hand {
+    width: 2px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transform-origin: 0 1px;
+    -moz-transform-origin: 0 1px;
+    -o-transform-origin: 0 1px;
+    transform-origin: 0 1px;
+}
+
+.qti-customInteraction .maraissalant .nut {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 44px;
+    left: 42px;
+    background: #fff
+}
+
+.qti-customInteraction .maraissalant .short-hand {
+    height: 35px;
+}
+
+.qti-customInteraction .maraissalant .short-hand-start {
+    height: 35px;
+    -webkit-animation: msalantrotation 12s 1.6 linear;
+    -moz-animation: msalantrotation 12s 1.6 linear;
+    -o-animation: msalantrotation 12s 1.6 linear;
+    animation: msalantrotation 12s 1.6 linear;
+    animation-fill-mode: forwards;
+}
+
+.qti-customInteraction .maraissalant .long-hand {
+    height: 45px;
+}
+
+.qti-customInteraction .maraissalant .long-hand-start {
+    height: 45px;
+    -webkit-animation: msalantrotation 1.5s 12.8 linear;
+    -moz-animation: msalantrotation 1.5s 12.8 linear;
+    -o-animation: msalantrotation 1.5s 12.8 linear;
+    animation: msalantrotation 1.5s 12.8 linear;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes msalantrotation {
+    0% {
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-moz-keyframes msalantrotation {
+    0% {
+        -moz-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-o-keyframes msalantrotation {
+    0% {
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes msalantrotation {
+    0% {
+        -webkit-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+    100% {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+.qti-customInteraction .maraissalant .granos {
+    position: absolute;
+}
+
