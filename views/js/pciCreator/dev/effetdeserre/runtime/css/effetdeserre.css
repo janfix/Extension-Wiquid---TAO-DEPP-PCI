@@ -4,7 +4,7 @@ Copyright DEPP - Ministère de l'éducation nationale
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
-.efdsasw {
+.qti-customInteraction .effetdeserre .efdsasw {
     display: none;
 }
 
@@ -175,7 +175,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     height: 126px;
 } 
 
-.qti-customInteraction .svg23701 {
+.qti-customInteraction .effetdeserre .svg23701 {
     width: 815px;
     opacity: 0.9;
     margin-left: -18px;
@@ -224,7 +224,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     height: 60px;
 }
 
-@-webkit-keyframes anif {
+@-webkit-keyframes efs-anif{
     from {
         opacity: 0;
     }
@@ -233,7 +233,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     }
 }
 
-@-moz-keyframes anif {
+@-moz-keyframes efs-anif{
     from {
         opacity: 0;
     }
@@ -249,7 +249,7 @@ Copyright DEPP - Ministère de l'éducation nationale
 
 .qti-customInteraction .effetdeserre .aniflex {
     overflow: hidden;
-    animation: anif 5s ease;
+    animation: efs-anif5s ease;
 }
 
 .qti-customInteraction .effetdeserre .etiq2 {
@@ -269,7 +269,7 @@ Copyright DEPP - Ministère de l'éducation nationale
     color: white;
     text-align: center;
     position: relative;
-    animation: anif 8s ease;
+    animation: efs-anif8s ease;
 }
 
 .qti-customInteraction .effetdeserre .etiquette9 {
