@@ -28,7 +28,7 @@ use oat\pciWiquid\scripts\install\RegisterPciAbeille;
 use oat\pciWiquid\scripts\install\RegisterPciBronco;
 use oat\pciWiquid\scripts\install\RegisterPciRelatem;
 use oat\pciWiquid\scripts\install\RegisterPciEffetdeserre;
-use oat\pciWiquid\scripts\install\RegisterPcilampedouble;
+use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 use oat\pciWiquid\scripts\install\RegisterPciCircuit;
 use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 
@@ -59,7 +59,7 @@ return array(
             RegisterPciBronco::class,
             RegisterPciRelatem::class,
             RegisterPciEffetdeserre::class,
-            RegisterPcilampedouble::class,
+            RegisterPciLampedouble::class,
             RegisterPciCircuit::class,
             RegisterPciBerthold::class
         )
