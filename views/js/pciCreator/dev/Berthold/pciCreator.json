@@ -21,7 +21,6 @@
             "./runtime/js/renderer.js"
         ],
         "stylesheets" : [
-            "./runtime/css/base.css",
             "./runtime/css/Berthold.css"
         ],
         "mediaFiles" : [
