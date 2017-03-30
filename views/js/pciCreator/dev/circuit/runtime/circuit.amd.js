@@ -60,7 +60,7 @@ define(['qtiCustomInteractionContext',
          */
         getResponse : function getResponse(){
             var $container = $(this.dom),
-                value =  $('.simspace').html()  + 'historique des mouvements : ' + $container.find('.answcircuit').text();
+                value =  $container.find('.simspace').html()  + 'historique des mouvements : ' + $container.find('.answcircuit').text();
                 value = value.slice(0,-1);
 
             return {base : {string : value}};
