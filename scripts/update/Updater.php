@@ -109,5 +109,7 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPciBerthold (), ['1.1.0']);
             $this->setVersion('1.13.0');
         }
+
+        $this->skip('1.13.0', '1.13.1');
     }
 }
