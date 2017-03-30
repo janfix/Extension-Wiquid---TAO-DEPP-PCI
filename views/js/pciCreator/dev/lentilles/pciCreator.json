@@ -19,12 +19,11 @@
         "libraries" : [
             "IMSGlobal/jquery_2_1_1",
             "./runtime/js/renderer.js",
-            "./runtime/js/raphael.min.js",
+            "./runtime/js/raphael.js",
             "./runtime/js/rtext_edit.js",
             "./runtime/js/raphael.json.js"
         ],
         "stylesheets" : [
-            "./runtime/css/base.css",
             "./runtime/css/lentilles.css"
         ],
         "mediaFiles" : [

@@ -7,15 +7,17 @@
 (function (root, factory) {
 	if (typeof define === "function" && define.amd) {
 		// AMD. Register as an anonymous module.
-		define(["raphael"], function(Raphael) {
+		define(['lentilles/runtime/js/raphael'], function(Raphael) {
 			// Use global variables if the locals are undefined.
 			return factory(Raphael || root.Raphael);
 		});
 	} else {
 		// RequireJS isn't being used. Assume Raphael is loaded in <script> tag
 		factory(Raphael);
+		
 	}
 }(this, function(Raphael) {
+
 	Raphael.fn.toJSON = function(callback) {
 		var
 			data,

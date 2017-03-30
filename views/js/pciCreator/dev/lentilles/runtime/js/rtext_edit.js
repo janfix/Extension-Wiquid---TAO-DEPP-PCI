@@ -6,7 +6,7 @@
 (function (root, factory) {
 	if (typeof define === "function" && define.amd) {
 		// AMD. Register as an anonymous module.
-		define(["raphael"], function(Raphael) {
+		define(["lentilles/runtime/js/raphael"], function(Raphael) {
 			// Use global variables if the locals are undefined.
 			return factory(Raphael || root.Raphael);
 		});
@@ -17,8 +17,6 @@
 }(this, function(Raphael) {
 
 	Raphael.fn.inlineTextEditing = function(subject, options, callback) {
-
-		console.log("TEXT EDIT LOAD TEST");
 
 		// Store instance of the Raphael paper
 		var paper = this;
@@ -166,8 +164,6 @@
 				// Set the new the value
 				if(this.input.value == '' || this.input.value == '\n' || this.input.value == ' \n' ){subject.attr("text", defaultText);}
 				else{subject.attr("text", this.input.value);}
-				/*console.log(subject);
-				console.log(this.input.value);*/
 
 				// Show the text element
 				subject.show();

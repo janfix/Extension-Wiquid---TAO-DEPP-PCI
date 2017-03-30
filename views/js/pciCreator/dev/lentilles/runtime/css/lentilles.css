@@ -4,7 +4,12 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
-@import url("base.css");
+
+.qti-customInteraction .lentilles {
+    margin:10px; max-width: 1000px;
+   
+}
+
 .qti-customInteraction .lentilles .hiddenrep {
     display: none;
 }

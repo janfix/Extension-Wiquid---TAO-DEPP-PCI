@@ -5,7 +5,7 @@ Wiquid's assets are under Creative Commons licence -
 */
 
 define(['IMSGlobal/jquery_2_1_1',
-    'lentilles/runtime/js/raphael.min',
+    'lentilles/runtime/js/raphael',
     'lentilles/runtime/js/rtext_edit',
     'lentilles/runtime/js/raphael.json',
     'lodash',
@@ -79,7 +79,6 @@ define(['IMSGlobal/jquery_2_1_1',
                 cellactiv =classarray[0] ;
                 if (onlyOne === 0) {
                     onlyOne = 1;
-                    //cellvalidator(cellactiv);
                     var contenucell = $container.find(this).text();
                     if (contenucell === ' ') {
                         $container.find(this).append("<input type='text' class='modactiv' />");
@@ -128,22 +127,24 @@ define(['IMSGlobal/jquery_2_1_1',
 
         var paper = Raphael(idlentils, 1000, 600);
 
-        var axis = function(r, grid, offset) {
+        // Design the background grid
+        var axis = function lent_axis(r, grid, offset) {
 
             var g = grid || true;
             var o = offset || 0;
 
             var w = r.width;
             var h = r.height;
+            var len, i;
 
-            var len = grid ? w : r.width;
-            for (var i = 1; i <= w / 10; i = i + 1) {
+            len = grid ? w : r.width;
+            for ( i = 1; i <= w / 10; i = i + 1) {
                 r.path("M" + i * 10 + ",0L" + i * 10 + "," + len).attr("stroke", "grey").attr("stroke-opacity", 0.5);
 
             }
 
-            var len = grid ? w : r.width;
-            for (var i = 1; i <= h / 10; i = i + 1) {
+            len = grid ? w : r.width;
+            for ( i = 1; i <= h / 10; i = i + 1) {
                 r.path("M0," + i * 10 + "L" + len + "," + i * 10).attr("stroke", "grey").attr("stroke-opacity", 0.5);
 
             }
@@ -151,21 +152,23 @@ define(['IMSGlobal/jquery_2_1_1',
 
         axis(paper);
 
+        // Design the axes system x and y 
+        // For x axe
         var axex = paper.path("M150 80L150 560");
         for (var i = 150; i < 800; i = i + 50) {
             var gradx = paper.path("M" + i + " 560, L" + i + " 565");
+            // create invisible but clickable rectangle to add text on graduation
             var gradxrect = paper.rect(i - 5, 560, 10, 20).attr({ fill: 'white', 'fill-opacity': 0.1, 'cursor': 'pointer', 'stroke-width': 0 });
 
+            // Adding text on graduation
             gradxrect.click(function(event) {
-
                 var etix = this.attr('x');
-
                 var gradtext = paper.text(etix, 575, 'Modifier').attr({ 'font-size': 12 });
-
                 reditor(gradtext, 'Modifier');
                 this.hide();
             });
         }
+        // For y axe
         var axey = paper.path("M150 560L800 560");
         for (var i = 80; i < 570; i = i + 20) {
             var grady = paper.path("M145 " + i + "L150 " + i);
@@ -178,6 +181,7 @@ define(['IMSGlobal/jquery_2_1_1',
             });
 
         }
+        // Global Title edition
         var edtitre = paper.text(470, 40, 'Cliquer ici pour ajouter un titre').attr({ "font-size": "30" });
         reditor(edtitre, 'Cliquer ici pour ajouter un titre');
 
@@ -199,13 +203,14 @@ define(['IMSGlobal/jquery_2_1_1',
 
         }
 
+        // Edition axes name
         var navicount = 0;
         var edaxey = paper.text(120, 60, 'cliquer ici pour \n nommer cet axe').attr("font-size", "14");
         reditor(edaxey, 'cliquer ici pour \n nommer cet axe');
         var edaxex = paper.text(810, 530, 'cliquer ici pour \n nommer cet axe').attr("font-size", "14");
         reditor(edaxex, 'cliquer ici pour \n nommer cet axe');
 
-
+        // Tool bar aera
         var toolbar = paper.rect(850, 100, 150, 300).attr('fill', 'lightgrey');
         var consignecross = paper.text(920, 130, 'cliquer et déposer \n une croix sur le graphique');
         var crosstool = paper.path("m 920,155 5.91756,0 0,7.03552 7.39695,0 0,5.69948 -7.39695,-0.0711 0,7.12784 -5.91756,-0.0356 0,-7.0923 -7.39695,0 0,-5.62841 7.39695,0 0,-7.03552").attr({ fill: '#dc4b4b', 'fill-opacity': 1, 'fill-rule': 'evenodd', stroke: '#000000', 'stroke-width': 1, cursor: 'pointer' });
@@ -218,46 +223,15 @@ define(['IMSGlobal/jquery_2_1_1',
         btdessincourbe.mouseover(function(e) { this.attr({ 'fill-opacity': 0.3 }); });
         btdessincourbe.mouseout(function(e) { this.attr({ 'fill-opacity': 1 }); });
         var dessinercourbe = paper.text(920, 220, 'Tracer la courbe').attr({ cursor: 'pointer' });
-
         var bteffacerlacourbe = paper.rect(870, 240, 100, 20).attr({ fill: '#c9f2c9', cursor: 'pointer', 'stroke-width': 0.5 });
         var effacercourbe = paper.text(920, 250, 'Effacer la courbe').attr({ cursor: 'pointer' });
         var aidegraduation = paper.text(500, 590, 'Cliquer sur les graduations des axes pour inscrire une valeur').attr({ 'font-size': 11 });
-
         var idcurve;
 
         function graphtojson() {
             var graphjson = paper.toJSON();
-            $('.repgraphor').html(JSON.stringify(graphjson));
+            $container.find('.repgraphor').html(JSON.stringify(graphjson));
         }
-
-
-        Raphael.st.draggable2 = function() {
-            var me = this,
-                lx = 0,
-                ly = 0,
-                ox = 0,
-                oy = 0,
-                moveFnc = function(dx, dy) {
-                    lx = dx + ox;
-                    ly = dy + oy;
-                    me.transform('t' + lx + ',' + ly);
-
-
-                },
-                startFnc = function() { this.attr({ fill: 'grey', 'fill-opacity': 0.2, 'stroke-opacity': 0.2 }); },
-                endFnc = function() {
-                    ox = lx;
-                    oy = ly;
-
-                    this.attr({ 'fill-opacity': 0.2, 'stroke-opacity': 0.2 });
-                    graphtojson(); // update graph json format for response
-                }
-
-            this.drag(moveFnc, startFnc, endFnc);
-        };
-
-
-
 
         Raphael.st.draggable = function() {
             var me = this,
@@ -265,7 +239,7 @@ define(['IMSGlobal/jquery_2_1_1',
                 ly = 0,
                 ox = 0,
                 oy = 0,
-                moveFnc = function(dx, dy) {
+                moveFnc = function lent_moveFnc(dx, dy) {
                     lx = dx + ox;
                     ly = dy + oy;
                     me.transform('t' + lx + ',' + ly);
@@ -276,8 +250,8 @@ define(['IMSGlobal/jquery_2_1_1',
                     } else { me.attr({ 'stroke-opacity': 0 }); }
 
                 },
-                startFnc = function() {},
-                endFnc = function() {
+                startFnc = function lent_startFnc() {},
+                endFnc = function lent_endFnc() {
 
                     if (lx < -100) {
                         ox = lx;
