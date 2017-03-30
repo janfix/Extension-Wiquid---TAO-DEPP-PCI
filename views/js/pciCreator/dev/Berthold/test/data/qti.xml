@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:html5="html5" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i1489078643202419" title="Item 1" label="Berthold - Poulet" xml:lang="en-US" adaptive="false" timeDependent="false" toolName="TAO" toolVersion="3.2.0-sprint44">
+  <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string"/>
+  <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+  <stylesheet href="style/custom/tao-user-styles.css" type="text/css" media="all" title=""/>
+  <itemBody>
+    <div class="grid-row">
+      <div class="col-12">
+        <customInteraction responseIdentifier="RESPONSE">
+          <pci:portableCustomInteraction customInteractionTypeIdentifier="Berthold" hook="" version="">
+            <pci:responseSchema href="http://imsglobal.org/schema/json/v1.0/response.json"/>
+            <pci:resources location="http://imsglobal.org/pci/1.0.15/sharedLibraries.xml">
+              <pci:libraries>
+                            </pci:libraries>
+              <pci:stylesheets>
+                            </pci:stylesheets>
+              <pci:mediaFiles>
+                            </pci:mediaFiles>
+            </pci:resources>
+            <pci:properties xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction"/>
+            <pci:markup>
+              <html5:div class="berthold">
+                <html5:div class="prompt"/>
+                <html5:div class="titre">Une expérience historique (Berthold, 1848)</html5:div>
+                <html5:div class="imagetitre"/>
+                <html5:div class="cartes">
+                  <html5:div class="slot place1"/>
+                  <html5:div class="slot place2"/>
+                  <html5:div class="slot place3"/>
+                </html5:div>
+                <html5:div class="clickanim1 hiddendiv"/>
+                <html5:div class="clickanim2 hiddendiv"/>
+                <html5:div class="clickanim3 hiddendiv"/>
+              </html5:div>
+            </pci:markup>
+          </pci:portableCustomInteraction>
+        </customInteraction>
+      </div>
+    </div>
+  </itemBody>
+  <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+</assessmentItem>
