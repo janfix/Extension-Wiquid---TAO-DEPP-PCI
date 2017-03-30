@@ -29,24 +29,26 @@ use oat\pciWiquid\scripts\install\RegisterPciBronco;
 use oat\pciWiquid\scripts\install\RegisterPciRelatem;
 use oat\pciWiquid\scripts\install\RegisterPciEffetdeserre;
 use oat\pciWiquid\scripts\install\RegisterPcilampedouble;
+use oat\pciWiquid\scripts\install\RegisterPciCircuit;
+use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 
 return array(
     'name' => 'pciWiquid',
-	'label' => 'QTI PCI SVT - Wiquid',
-	'description' => '',
+    'label' => 'QTI PCI SVT - Wiquid',
+    'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.11.0',
-	'author' => 'Jean-Philippe Riviere',
-	'requires' => array(
-	    'qtiItemPci' => '>=1.0.0',
-	    'taoQtiItem' => '>=5.2.0'
+    'version' => '1.13.0',
+    'author' => 'Jean-Philippe Riviere',
+    'requires' => array(
+        'qtiItemPci' => '>=1.0.0',
+        'taoQtiItem' => '>=5.2.0'
     ),
-	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciWiquidManager',
+    'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciWiquidManager',
     'acl' => array(
         array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#pciWiquidManager', array('ext'=>'pciWiquid')),
     ),
     'install' => array(
-        'php'	=> array(
+        'php'   => array(
             RegisterPciDelor::class,
             RegisterPciForcegravite::class,
             RegisterPciCuisine::class,
@@ -57,7 +59,9 @@ return array(
             RegisterPciBronco::class,
             RegisterPciRelatem::class,
             RegisterPciEffetdeserre::class,
-            RegisterPcilampedouble::class
+            RegisterPcilampedouble::class,
+            RegisterPciCircuit::class,
+            RegisterPciBerthold::class
         )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
@@ -71,14 +75,14 @@ return array(
     'routes' => array(
         '/pciWiquid' => 'oat\\pciWiquid\\controller'
     ),
-	'constants' => array(
-	    # views directory
-	    "DIR_VIEWS" => dirname(__FILE__).DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR,
+    'constants' => array(
+        # views directory
+        "DIR_VIEWS" => dirname(__FILE__).DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR,
 
-		#BASE URL (usually the domain root)
-		'BASE_URL' => ROOT_URL.'pciWiquid/',
+        #BASE URL (usually the domain root)
+        'BASE_URL' => ROOT_URL.'pciWiquid/',
 
-	    #BASE WWW required by JS
-	    'BASE_WWW' => ROOT_URL.'pciWiquid/views/'
-	)
+        #BASE WWW required by JS
+        'BASE_WWW' => ROOT_URL.'pciWiquid/views/'
+    )
 );
