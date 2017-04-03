@@ -110,67 +110,37 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 .qti-customInteraction .berthold .anima1 {
     margin-top: 31px;
     width: 280px;
-   /*  transition: opacity 3s;
-   -webkit-transition: opacity 3s;
-   -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima3 {
     display: none;
-    /* transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima4 {
    margin-top: 28px;
     width: 295px!important;
-    /* transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima5 {
     margin-top: 28px;
     display: none;
     width: 295px;
-   /*  margin-top: -180px; */
-   /*  transition: opacity 3s;
-   -webkit-transition: opacity 3s;
-   -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima6 {
-    /* opacity: 0; */
     display: none;
-    /* transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima8 {
-   /*  margin-top: -182px; */
     margin-left: -12px;
-    /* transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima9 {
-   /*  margin-top: -179px; */
     margin-left: -8px;
     display: none;
-   /*  opacity: 0;
-   transition: opacity 3s;
-   -webkit-transition: opacity 3s;
-   -moz-transition: opacity 3s; */
 }
 
 .qti-customInteraction .berthold .anima11 {
    margin-top: -22px;
     display: none;
-   /*  opacity: 0;
-   transition: opacity 3s;
-   -webkit-transition: opacity 3s;
-   -moz-transition: opacity 3s; */
 }

@@ -97,8 +97,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                  $anima4.fadeOut('1000', function() {
                     $anima5.fadeIn('1000');  
                  });       
-                /*$anima4.css("opacity", 0);
-                $anima5.css("opacity", 1);*/
                 $precedent2.prop("disabled", false);
                 counter2();
             }
@@ -108,16 +106,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                 $anima5.fadeOut('1000', function() {
                     $anima6.fadeIn('1000');  
                  });  
-                //$anima5.css("opacity", 0);
-                //$anima6.css("opacity", 1);
                 counter2();
             }
         });
 
         $precedent2.click(function(event) {
             if (cptClick2 === 1) {
-                //$anima4.css("opacity", 1);
-                //$anima5.css("opacity", 0);
                 $anima5.fadeOut('1000', function() {
                     $anima4.fadeIn('1000');  
                  });  
@@ -125,8 +119,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                 $suivant2.prop("disabled", false);
                 counter2();
             } else if (cptClick2 === 2) {
-                //$anima5.css("opacity", 1);
-                //$anima6.css("opacity", 0);
                 $anima6.fadeOut('1000', function() {
                     $anima5.fadeIn('1000');  
                  });  
@@ -140,8 +132,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         $suivant3.click(function(event) {
             cptClick3 = cptClick3 + 1;
             if (cptClick3 === 1) {
-                //$anima8.css("opacity", 0);
-                //$anima9.css("opacity", 1);
                 $anima8.fadeOut('1000', function() {
                     $anima9.fadeIn('1000');  
                  });  
@@ -154,16 +144,12 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                 $anima9.fadeOut('1000', function() {
                     $anima11.fadeIn('1000');  
                  });  
-                //$anima9.css("opacity", 0);
-                //$anima11.css("opacity", 1);
                 counter3();
             }
         });
 
         $precedent3.click(function(event) {
             if (cptClick3 === 1) {
-                //$anima8.css("opacity", 1);
-                //$anima9.css("opacity", 0);
                 $anima9.fadeOut('1000', function() {
                     $anima8.fadeIn('1000');  
                  });  
@@ -171,8 +157,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                 $suivant3.prop("disabled", false);
                 counter3();
             } else if (cptClick3 === 2) {
-                //$anima9.css("opacity", 1);
-                //$anima11.css("opacity", 0);
                 $anima11.fadeOut('1000', function() {
                     $anima9.fadeIn('1000');  
                  });  
