@@ -105,7 +105,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // Dripping
         var degoulleft = paper.rect(349, 170, 10, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
-        var degoulcenter = paper.rect(363, 170, 20, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
+        var degoulcenter = paper.rect(363, 170, 20, 5, 15).attr({ fill: '#e0e053', stroke: 'none', 'fill-opacity': 0 });
         var degoulright = paper.rect(395, 170, 10, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
 
         var waterpatch = paper.rect(219, 330, 48, 80).attr({ fill: '#56afff', stroke: 'none', }).toBack(); // 190
@@ -156,8 +156,8 @@ define(['IMSGlobal/jquery_2_1_1',
                                 this.animate({
                                     transform: 'r0',
                                     cy: 460
-                                }, 2000, function() {
-                                    createbulles(10);
+                                }, 1000, function() {
+                                    createbulles(30);
                                     boucheur();
                                 });
                             });
@@ -170,22 +170,22 @@ define(['IMSGlobal/jquery_2_1_1',
             return Math.random() * (max - min) + min;
         }
 
-       var setleftbull = paper.set();
-       var setrightbull = paper.set();
-
-
-
+        var setleftbull = paper.set();
+        var setrightbull = paper.set();
         var bullecollector = paper.set(); // for deletion
+        var bulletimer;
+        var buttontimer;
+        var bullor;
 
         function createbulles(quanti) {
 
-            for (var start = 1; start < 30; start++) {
-                setTimeout(function() {
+            for (var start = 1; start < 10; start++) {
+               bulletimer=  setTimeout(function() {
                     for (var i = 0; i < quanti; i++) {
                         var cx = getRandomArbitrary(290, 330);
                         var cy = getRandomArbitrary(450, 460);
-                        var bullor = paper.ellipse(cx, cy, 5, 5).attr({ id: 'path4166-2-04', parent: 'layer1', opacity: '0', fill: 'white', "fill-opacity": '0.5', stroke: '#white', "stroke-width": '0.31', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' });
-                        bullor.animate({ opacity: 1 }, 1500);
+                        bullor = paper.ellipse(cx, cy, 5, 5).attr({ id: 'path4166-2-04', parent: 'layer1', opacity: '0', fill: 'white', "fill-opacity": '0.5', stroke: '#white', "stroke-width": '0.31', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' });
+                        bullor.animate({ opacity: 1 }, 1000);
                         bullecollector.push(bullor);
                         if (i < (quanti / 2)) { setleftbull.push(bullor); } else { setrightbull.push(bullor); }
                     }
@@ -195,24 +195,25 @@ define(['IMSGlobal/jquery_2_1_1',
                 }, 1000 * start);
             }
 
-            setTimeout(function() {
+            buttontimer = setTimeout(function() {
                 btzeroset.forEach(
                     function(e) {
                         e.show();
                     });
-            }, 30000);
+            }, 20500);
         }
 
+       
         function bullemonte(setname) {
             if (setname == setleftbull) {
                 setname.forEach(
                     function(el) {
                         var posirx = getRandomArbitrary(215, 280);
                         var posiry = getRandomArbitrary(390, 450);
-                        el.animate({ cx: posirx, cy: posiry }, 5000, function() {
+                        el.animate({ cx: posirx, cy: posiry }, 1000, function() {
                             posirx = getRandomArbitrary(220, 265);
                             posiry = getRandomArbitrary(200, 230);
-                            el.animate({ cx: posirx, cy: posiry }, 4000);
+                            el.animate({ cx: posirx, cy: posiry }, 1000);
                         });
                     }
                 );
@@ -223,7 +224,7 @@ define(['IMSGlobal/jquery_2_1_1',
                     function(el) {
                         var posiry = getRandomArbitrary(390, 420);
                         var posirx = getRandomArbitrary(350, 420);
-                        el.animate({ cx: posirx, cy: posiry }, 5000);
+                        el.animate({ cx: posirx, cy: posiry }, 1500);
                     }
                 );
                 setname.clear();
@@ -242,7 +243,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
 
 
-            splizz.animate({ 'stroke-opacity': 0, 'fill-opacity': 0 }, 10000, function() {
+            splizz.animate({ 'stroke-opacity': 0, 'fill-opacity': 0 }, 5000, function() {
 
                 if (activpuree == 'fluide') {
                     // Fluid mixed
@@ -329,11 +330,10 @@ define(['IMSGlobal/jquery_2_1_1',
 
 
         function remplisseur(typep) {
-            if (typep == 'dense') {
-                var animwater;
+            var animwater;
+            if (typep == 'dense') {     
                 pureefluide = paper.path("m 440.10168,-190.39885 c 0,0 16.25808,-3.3522 24.49619,-3.283 7.32142,0.0615 21.71831,3.283 21.71831,3.283 l 0,22.31247 0,29.42345 -46.46704,0.25254 0.0327,-29.31843 z").attr({ id: 'rect5036', parent: 'layer1', opacity: '1', fill: '#e0d950', "fill-opacity": '1', stroke: '#d2d8dd', "stroke-width": '0', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'rect5036');
                 pureefluide.toBack();
-
                 animwater = Raphael.animation({ path: "m 304.85443,-134.28971 0,134.93009358 0,20.74325642 0.97053,18.188565 3.72936,13.641413 9.72085,15.644341 12.27975,11.57007 12.05743,7.7703 16.60944,7.36659 17.65763,3.85715 15.56283,1.945931 c 4.89286,-0.88213 10.96516,0.14585 16.86514,-0.93773 8.85809,-1.626811 13.94862,-1.683631 27.237,-7.158941 0,0 13.69711,-6.07533 19.71992,-10.43907 6.88822,-4.99078 18.37069,-17.712077 18.37069,-17.712077 0,0 6.69236,-13.326256 9.20555,-20.326849 3.14729,-8.766923 1.79478,-21.466934 1.79478,-21.466934 l -0.13637,-59.557602 -46.36946,0.133012 -0.2374,24.80493 -0.0646,21.41539 0.13321,12.57623 -0.94665,15.605928 -4.055,9.666637 -10.61726,11.975486 -14.48194,7.044743 -13.12242,1.829316 -16.34773,-3.047329 -11.23967,-4.54549 -9.32022,-9.2913 -6.13617,-10.213192 -1.22115,-16.047772 0,-41.231063 -0.51095,-118.478463 z" }, 3000);
                 water.animate(animwater.delay(1150));
                 water.toBack();
@@ -388,13 +388,26 @@ define(['IMSGlobal/jquery_2_1_1',
         }
 
         btzeroset.click(function(event) {
+            console.log("Modify JP timer reset stoppeur");
+            clearTimeout(bulletimer);
+            clearTimeout(buttontimer);
+            bullor.stop();
+            degoulineur.stop();
+            degoulleft.stop();
+            degoulcenter.stop();
+            degoulright.stop();
+            water.stop();
+            pureefluide.stop();
+            waterpatch.stop();
+            extruder.stop();
+           
+
             rzero();
             clickreinit += 1;
             $container.find('.clickreinit').html(clickreinit);
         });
 
         function rzero() {
-
             extruder.remove();
             extruder = paper.rect(354, 180, 46, 200, 5).attr({ stroke: 'none', fill: '#e0d950', 'fill-opacity': 0 });
             btzeroset.forEach(
