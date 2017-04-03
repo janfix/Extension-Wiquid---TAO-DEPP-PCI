@@ -1,12 +1,11 @@
 <div class="effetdeserre">
-  <div class="prompt">{{{prompt}}}</div>
-	<div class="atmos"></div> 
-  <div class="svgyellowarr">	</div>
+  <div class="prompt">{{{prompt}}}&nbsp;</div>
+	<div class="atmos">&nbsp;</div> 
+  <div class="svgyellowarr">&nbsp;</div>
 
 <!-- arrows variation  -->
 
-	<div class="aniflex rbdiv" >	
-	</div>
+	<div class="aniflex rbdiv" >&nbsp;</div>
 
 		<div class="etiq etiquette1">Energie 100% <br /> Rayons solaires </div>
 		<div class="etiq etiquette2">70%</div> 
@@ -22,10 +21,9 @@
 <div class="effetdeserrediv"><span class='texteffdeserre '>Effet de serre</span> </div>
  
 <div class="commande">
- <span class="consigne">Avec la souris, déplacer le curseur afin d'augmenter la quantité de gaz à effet de serre. <br /></span>
-   
-  </div>
+ <span class="consigne">Avec la souris, déplacer le curseur afin d'augmenter la quantité de gaz à effet de serre. <br /></span>  
+</div>
 
-  <div  class="efdsasw"></div>
+  <div  class="efdsasw">&nbsp;</div>
   
 </div>

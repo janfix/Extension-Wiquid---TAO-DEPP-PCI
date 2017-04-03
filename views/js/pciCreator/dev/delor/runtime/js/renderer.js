@@ -27,7 +27,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         $container.find(".svghome").append(svgstring);
 
         //Insert Orus
-        $container.find(".zonesocle").append($('<img>', { src: assetManager.resolve('delor/runtime/img/orus.png') }).attr('class', 'draggable catgod'));
+        $container.find(".zonesocle").prepend($('<img>', { src: assetManager.resolve('delor/runtime/img/orus.png') }).attr('class', 'draggable catgod'));
 
         // Create the water valve 
         $container.find(".robi").append("<div class='modifeau'>Modifier le volume d'eau</div><br /><input type='range' class='vanne' step='5' min='0' ma='140'><div class='moins'>- Moins</div><div  class='plus' >Plus +</div>");

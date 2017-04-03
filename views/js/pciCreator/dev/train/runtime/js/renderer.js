@@ -38,7 +38,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
         prependmedia($premierplan, premierplanmedialist);
         appendmedia($convoi, convoimedialist);
-        appendmedia($traj, trajmedialist);
+        prependmedia($traj, trajmedialist);
         prependmedia($situercocci, situercoccimlist);
         prependmedia($ccbleu, ccbleumlist);
         prependmedia($vache, vachemlist);
@@ -190,6 +190,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
 
         $situercocci.click(function(event) {
             $cocci.toggle();
+            $cocci.css("margin-top","160px");
         });
 
 

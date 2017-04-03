@@ -54,6 +54,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 .qti-customInteraction .delor .catgod {
     width: 80px;
     cursor: pointer;
+    margin-top: 19px; /* Ok in delivery  - should be 0px in others modes*/
 }
 
 .qti-customInteraction .delor .tspan5974 {
