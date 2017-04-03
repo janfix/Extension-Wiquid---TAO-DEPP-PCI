@@ -388,7 +388,6 @@ define(['IMSGlobal/jquery_2_1_1',
         }
 
         btzeroset.click(function(event) {
-            console.log("Modify JP timer reset stoppeur");
             clearTimeout(bulletimer);
             clearTimeout(buttontimer);
             bullor.stop();
