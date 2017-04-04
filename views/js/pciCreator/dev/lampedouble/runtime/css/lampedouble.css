@@ -1,0 +1,30 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .lampedouble{
+    width:100%;
+    padding:10px 20px 16px;
+    margin-bottom:20px;
+
+}
+
+.qti-customInteraction .lampedouble .hiddendiv{
+	display:none;
+}
+
+.qti-customInteraction .lampedouble .fermer{
+	display:none;
+}
+.qti-customInteraction .lampedouble .inter{
+	text-align: center;
+	width : 90px;
+	padding: 10px;
+	border : 1px grey solid;
+	margin-top: -180px;
+	margin-left: 150px;
+}
+
+
