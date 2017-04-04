@@ -14,34 +14,36 @@ define(['IMSGlobal/jquery_2_1_1',
 
     function renderChoices(id, $container, config, assetManager) {
 
-        var expetube = _.uniqueId('expetube_');// lodash generate unique id
+        var expetube, paper, bg, water,courbureL,courbureR,tubGD,tubDG,tubDD,tubGG,ouvertG,path48352,pureefluide,degoulineur;
+        var borderright,extruder, setjarre, clickpfluide, clickpcompact,clickcachet,clickreinit, setbouchon;
+        var bouchoncache, commandpanel, consigne, choix, btfluidset,btfluide, choixfluide ;
+        
+        expetube = _.uniqueId('expetube_');// lodash generate unique id
         $container.find(".expetube").attr('id', expetube); // Attribution of the unique Id to the Id attribute
+        paper = Raphael(expetube, 800, 600); 
+        bg = paper.rect(0, 0, 800, 600);
 
-        var paper = Raphael(expetube, 800, 600);
-        var bg = paper.rect(0, 0, 800, 600);
-
-        var water = paper.path("m 304.85443,-36.80999 0,37.45037358 0,20.74325642 0.97053,18.188565 3.72936,13.641413 9.72085,15.644341 12.27975,11.57007 12.05743,7.7703 16.60944,7.36659 17.65763,3.85715 15.56283,1.945931 c 4.89286,-0.88213 10.96516,0.14585 16.86514,-0.93773 8.85809,-1.626811 13.94862,-1.683631 27.237,-7.158941 0,0 13.69711,-6.07533 19.71992,-10.43907 6.88822,-4.99078 18.37069,-17.712077 18.37069,-17.712077 0,0 6.69236,-13.326256 9.20555,-20.326849 3.14729,-8.766923 1.79478,-21.466934 1.79478,-21.466934 l -0.13637,-59.557602 -46.36946,0.133012 -0.2374,24.80493 -0.0646,21.41539 0.13321,12.57623 -0.94665,15.605928 -4.055,9.666637 -10.61726,11.975486 -14.48194,7.044743 -13.12242,1.829316 -16.34773,-3.047329 -11.23967,-4.54549 -9.32022,-9.2913 -6.13617,-10.213192 -1.22115,-16.047772 0,-41.231063 -0.51095,-20.998746 z").attr({ id: 'path4854', parent: 'layer1', fill: '#56afff', "fill-opacity": '1', "fill-rule": 'evenodd', stroke: 'none', 'stroke-width': '1', 'stroke-opacity': '1', "stroke-width": '1', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4854');
-        var courbureL = paper.path("M 439.61216,29.97044 A 43.559486,38.034184 0 0 1 417.88635,63.174381 43.559486,38.034184 0 0 1 374.09024,63.107698 43.559486,38.034184 0 0 1 352.49718,29.837801").attr({ id: 'path4780', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4780').toFront();
-        var courbureR = paper.path("M 487.09675,29.92162 A 91.045479,70.813156 0 0 1 441.68674,91.741915 91.045479,70.813156 0 0 1 350.14644,91.617648 91.045479,70.813156 0 0 1 305.01416,29.674441").attr({ id: 'path4782', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4782').toFront();
-        var tubGD = paper.path("m 352.49447,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4784');
-        var tubDG = paper.path("m 439.53961,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784-5', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path47845');
-        var tubDD = paper.path("m 486.87001,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784-6', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path47846');
-        var tubGG = paper.path("m 304.77903,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784-6-2', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path478462');
-        var ouvertG = paper.ellipse(328.61954, -189.19867, 23.925554, 4.6123991).attr({ id: 'path4835', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4835');
-        var path48352 = paper.ellipse(463.30063, -188.73909, 23.925554, 4.6123991).attr({ id: 'path4835-2', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path48352');
-        var pureefluide = paper.path('m 447.19366,-177.76687 c 0,0 -6.22752,5.58828 -6.22752,6.93717 0,1.34889 2.72455,7.51525 2.72455,7.51525 0,0 0.38921,3.46858 0.77844,4.43207 l 1.16766,2.89048 0.8019,4.21802 c 0,0 4.64717,0.79214 7.37171,0.98486 2.72454,0.19269 14.40115,0.77078 14.40115,0.77078 l 9.68314,-0.10921 1.99346,-5.67175 2.33533,-5.01017 c 0,0 3.11376,-3.66127 3.11376,-4.81747 0,-1.15618 -1.16768,-3.08318 -1.94611,-4.62477 -0.77842,-1.54159 -2.33532,-4.04667 -3.11376,-4.81746 -0.77844,-0.7708 -0.77844,-2.6978 -7.39517,-3.08318 -6.61675,-0.38541 -4.67065,-2.31239 -14.01194,-1.73429 -9.34128,0.57809 -11.6766,2.11967 -11.6766,2.11967 z');
-        var degoulineur = paper.rect(353, 180, 45, 5, 15).attr({ stroke: 'none', fill: '#e0d950', 'fill-opacity': 0 });
-        var borderright = paper.path('m 400,175 a 23.665695,4.3979797 0 0 1 -23.15952,4.39697 23.665695,4.3979797 0 0 1 -24.15022,-4.20888').attr({ 'stroke-width': 1 }).toFront();
-        var extruder = paper.rect(354, 180, 46, 200, 5).attr({ stroke: 'none', fill: '#e0d950', 'fill-opacity': 0 });
-        var setjarre;
+        water = paper.path("m 304.85443,-36.80999 0,37.45037358 0,20.74325642 0.97053,18.188565 3.72936,13.641413 9.72085,15.644341 12.27975,11.57007 12.05743,7.7703 16.60944,7.36659 17.65763,3.85715 15.56283,1.945931 c 4.89286,-0.88213 10.96516,0.14585 16.86514,-0.93773 8.85809,-1.626811 13.94862,-1.683631 27.237,-7.158941 0,0 13.69711,-6.07533 19.71992,-10.43907 6.88822,-4.99078 18.37069,-17.712077 18.37069,-17.712077 0,0 6.69236,-13.326256 9.20555,-20.326849 3.14729,-8.766923 1.79478,-21.466934 1.79478,-21.466934 l -0.13637,-59.557602 -46.36946,0.133012 -0.2374,24.80493 -0.0646,21.41539 0.13321,12.57623 -0.94665,15.605928 -4.055,9.666637 -10.61726,11.975486 -14.48194,7.044743 -13.12242,1.829316 -16.34773,-3.047329 -11.23967,-4.54549 -9.32022,-9.2913 -6.13617,-10.213192 -1.22115,-16.047772 0,-41.231063 -0.51095,-20.998746 z").attr({ id: 'path4854', parent: 'layer1', fill: '#56afff', "fill-opacity": '1', "fill-rule": 'evenodd', stroke: 'none', 'stroke-width': '1', 'stroke-opacity': '1', "stroke-width": '1', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4854');
+        courbureL = paper.path("M 439.61216,29.97044 A 43.559486,38.034184 0 0 1 417.88635,63.174381 43.559486,38.034184 0 0 1 374.09024,63.107698 43.559486,38.034184 0 0 1 352.49718,29.837801").attr({ id: 'path4780', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4780').toFront();
+        courbureR = paper.path("M 487.09675,29.92162 A 91.045479,70.813156 0 0 1 441.68674,91.741915 91.045479,70.813156 0 0 1 350.14644,91.617648 91.045479,70.813156 0 0 1 305.01416,29.674441").attr({ id: 'path4782', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4782').toFront();
+        tubGD = paper.path("m 352.49447,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4784');
+        tubDG = paper.path("m 439.53961,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784-5', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path47845');
+        tubDD = paper.path("m 486.87001,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784-6', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path47846');
+        tubGG = paper.path("m 304.77903,32.558011 c 0,-5.058094 0,-222.555661 0,-222.555661 l 0,5.05809").attr({ id: 'path4784-6-2', parent: 'layer1', fill: 'none', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path478462');
+        ouvertG = paper.ellipse(328.61954, -189.19867, 23.925554, 4.6123991).attr({ id: 'path4835', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4835');
+        path48352 = paper.ellipse(463.30063, -188.73909, 23.925554, 4.6123991).attr({ id: 'path4835-2', parent: 'layer1', opacity: '1', fill: 'none', "fill-opacity": '1', stroke: '#000000', "stroke-width": '1.01', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path48352');
+        pureefluide = paper.path('m 447.19366,-177.76687 c 0,0 -6.22752,5.58828 -6.22752,6.93717 0,1.34889 2.72455,7.51525 2.72455,7.51525 0,0 0.38921,3.46858 0.77844,4.43207 l 1.16766,2.89048 0.8019,4.21802 c 0,0 4.64717,0.79214 7.37171,0.98486 2.72454,0.19269 14.40115,0.77078 14.40115,0.77078 l 9.68314,-0.10921 1.99346,-5.67175 2.33533,-5.01017 c 0,0 3.11376,-3.66127 3.11376,-4.81747 0,-1.15618 -1.16768,-3.08318 -1.94611,-4.62477 -0.77842,-1.54159 -2.33532,-4.04667 -3.11376,-4.81746 -0.77844,-0.7708 -0.77844,-2.6978 -7.39517,-3.08318 -6.61675,-0.38541 -4.67065,-2.31239 -14.01194,-1.73429 -9.34128,0.57809 -11.6766,2.11967 -11.6766,2.11967 z');
+        degoulineur= paper.rect(353, 180, 45, 5, 15).attr({ stroke: 'none', fill: '#e0d950', 'fill-opacity': 0 });
+        borderright = paper.path('m 400,175 a 23.665695,4.3979797 0 0 1 -23.15952,4.39697 23.665695,4.3979797 0 0 1 -24.15022,-4.20888').attr({ 'stroke-width': 1 }).toFront();
+        extruder = paper.rect(354, 180, 46, 200, 5).attr({ stroke: 'none', fill: '#e0d950', 'fill-opacity': 0 });
         // response counters
-        var clickpfluide = 0;
-        var clickpcompact = 0;
-        var clickcachet = 0;
-        var clickreinit = 0;
+        clickpfluide = 0;
+        clickpcompact = 0;
+        clickcachet = 0;
+        clickreinit = 0;
 
         // Stop animation
-        var setbouchon = paper.set();
+        setbouchon = paper.set();
         setbouchon.push(
             paper.ellipse(319.02319, -219.44574, 30.800091, 6.1481109).attr({ id: 'path4856', parent: 'layer1', opacity: '1', fill: '#82919f', "fill-opacity": '1', stroke: 'none', 'stroke-width': '1', 'stroke-opacity': '1', "stroke-width": '1', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209 m1,0,-0.04472932,0.99899914,0,0").data('id', 'path4856'),
             paper.path("m 298.74788,-220.19915 9.23372,45.41187 41.33232,0 9.08757,-45.61304 z").attr({ id: 'path4858', parent: 'layer1', fill: '#82919f', "fill-opacity": '1', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '0', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4858'),
@@ -54,14 +56,13 @@ define(['IMSGlobal/jquery_2_1_1',
                 e.hide();
             }
         );
-
-        var bouchoncache = paper.path("m 304.47494,-192.15568 0.71022,3.53547 46.82955,-0.0282 0.62553,-2.76208 -21.46876,-6.7677 -18.57604,2.40644 z").attr({ id: 'path4863', parent: 'layer1', fill: '#82919f', "fill-opacity": '1', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '0', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4863').hide();
-        var commandpanel = paper.rect(560, 130, 240, 350).attr({ 'fill': 'pink', 'fill-opacity': 0.5 });
-        var consigne = paper.text(680, 170, 'Vous allez pouvoir ajouter \n de la purée de pomme de terre \n dans le tube en forme de U.').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16 });
-        var choix = paper.text(680, 240, 'Choisissez la densité \n de la purée à verser : ').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16 });
-        var btfluidset = paper.set();
-        var btfluide = paper.rect(610, 300, 140, 40, 5).attr({ fill: "lightgrey" });
-        var choixfluide = paper.text(680, 320, 'Purée fluide ').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' });
+        bouchoncache = paper.path("m 304.47494,-192.15568 0.71022,3.53547 46.82955,-0.0282 0.62553,-2.76208 -21.46876,-6.7677 -18.57604,2.40644 z").attr({ id: 'path4863', parent: 'layer1', fill: '#82919f', "fill-opacity": '1', "fill-rule": 'evenodd', stroke: '#000000', "stroke-width": '0', "stroke-linecap": 'butt', "stroke-linejoin": 'miter', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' }).transform("t-86.295739,364.87209").data('id', 'path4863').hide();
+        commandpanel = paper.rect(560, 130, 240, 350).attr({ 'fill': 'pink', 'fill-opacity': 0.5 });
+        consigne = paper.text(680, 170, 'Vous allez pouvoir ajouter \n de la purée de pomme de terre \n dans le tube en forme de U.').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16 });
+        choix = paper.text(680, 240, 'Choisissez la densité \n de la purée à verser : ').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16 });
+        btfluidset = paper.set();
+        btfluide = paper.rect(610, 300, 140, 40, 5).attr({ fill: "lightgrey" });
+        choixfluide = paper.text(680, 320, 'Purée fluide ').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' });
         btfluidset.push(btfluide);
         btfluidset.push(choixfluide);
 
@@ -72,9 +73,11 @@ define(['IMSGlobal/jquery_2_1_1',
             this.attr({ 'fill-opacity': 1, 'stroke-opacity': 1 });
         });
 
-        var btdenseset = paper.set();
-        var btdense = paper.rect(610, 380, 140, 40, 5).attr({ fill: "lightgrey" });
-        var choixdense = paper.text(680, 400, 'Purée compacte').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' });
+        var btdenseset, btdense, choixdense;
+
+        btdenseset = paper.set();
+        btdense = paper.rect(610, 380, 140, 40, 5).attr({ fill: "lightgrey" });
+        choixdense = paper.text(680, 400, 'Purée compacte').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' });
         btdenseset.push(btdense);
         btdenseset.push(choixdense);
         btdenseset.mouseover(function(event) {
