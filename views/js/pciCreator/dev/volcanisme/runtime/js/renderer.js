@@ -17,6 +17,9 @@ define(['IMSGlobal/jquery_2_1_1',
         var expetube, paper, bg, water,courbureL,courbureR,tubGD,tubDG,tubDD,tubGG,ouvertG,path48352,pureefluide,degoulineur;
         var borderright,extruder, setjarre, clickpfluide, clickpcompact,clickcachet,clickreinit, setbouchon;
         var bouchoncache, commandpanel, consigne, choix, btfluidset,btfluide, choixfluide ;
+        var btdenseset, btdense, choixdense, btpuree1, consigne2,btcachet, cachet, btcachetset,btzeroset,btrmzero   ;
+        var rmzero, activpuree, splizz, degoulleft,degoulcenter,degoulright,waterpatch ;
+        var setleftbull, setrightbull, bullecollector, bulletimer, buttontimer,bullor, verso; 
         
         expetube = _.uniqueId('expetube_');// lodash generate unique id
         $container.find(".expetube").attr('id', expetube); // Attribution of the unique Id to the Id attribute
@@ -73,7 +76,7 @@ define(['IMSGlobal/jquery_2_1_1',
             this.attr({ 'fill-opacity': 1, 'stroke-opacity': 1 });
         });
 
-        var btdenseset, btdense, choixdense;
+
 
         btdenseset = paper.set();
         btdense = paper.rect(610, 380, 140, 40, 5).attr({ fill: "lightgrey" });
@@ -87,31 +90,28 @@ define(['IMSGlobal/jquery_2_1_1',
             this.attr({ 'fill-opacity': 1, 'stroke-opacity': 1 });
         });
 
-        var btpuree1 = paper.rect(590, 232, 175, 40, 5).attr({ fill: "lightgrey" }).hide();
-        var consigne2 = paper.text(680, 170, 'Vous allez maintenant ajouter \n un cachet effervescent \n à l\'eau présente dans le tube.').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16 }).hide();
+        btpuree1 = paper.rect(590, 232, 175, 40, 5).attr({ fill: "lightgrey" }).hide();
+        consigne2 = paper.text(680, 170, 'Vous allez maintenant ajouter \n un cachet effervescent \n à l\'eau présente dans le tube.').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16 }).hide();
 
-        var btcachet = paper.rect(580, 245, 200, 50, 5).attr({ fill: "lightgrey" }).hide();
-        var cachet = paper.text(680, 270, 'Introduire le cachet \n effervescent et boucher !').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' }).hide();
-        var btcachetset = paper.set();
+        btcachet = paper.rect(580, 245, 200, 50, 5).attr({ fill: "lightgrey" }).hide();
+        cachet = paper.text(680, 270, 'Introduire le cachet \n effervescent et boucher !').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' }).hide();
+        btcachetset = paper.set();
         btcachetset.push(btcachet);
         btcachetset.push(cachet);
 
-        var btzeroset = paper.set();
-        var btrmzero = paper.rect(580, 245, 200, 50, 5).hide();
-        var rmzero = paper.text(680, 270, 'Rétablir les conditions \n initiales').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' }).hide();
+        btzeroset = paper.set();
+        btrmzero = paper.rect(580, 245, 200, 50, 5).hide();
+        rmzero = paper.text(680, 270, 'Rétablir les conditions \n initiales').attr({ 'text-anchor': 'middle', 'stroke': '#545454', 'font-size': 16, cursor: 'pointer' }).hide();
 
         btzeroset.push(btrmzero);
         btzeroset.push(rmzero);
 
-        var activpuree;
-        var splizz; // effervescent tablet
-
         // Dripping
-        var degoulleft = paper.rect(349, 170, 10, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
-        var degoulcenter = paper.rect(363, 170, 20, 5, 15).attr({ fill: '#e0e053', stroke: 'none', 'fill-opacity': 0 });
-        var degoulright = paper.rect(395, 170, 10, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
+        degoulleft = paper.rect(349, 170, 10, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
+        degoulcenter = paper.rect(363, 170, 20, 5, 15).attr({ fill: '#e0e053', stroke: 'none', 'fill-opacity': 0 });
+        degoulright = paper.rect(395, 170, 10, 5, 15).attr({ fill: '#e2dc5f', stroke: 'none', 'fill-opacity': 0 });
 
-        var waterpatch = paper.rect(219, 330, 48, 80).attr({ fill: '#56afff', stroke: 'none', }).toBack(); // 190
+        waterpatch = paper.rect(219, 330, 48, 80).attr({ fill: '#56afff', stroke: 'none', }).toBack(); // 190
 
 
         btfluidset.click(function(event) {
@@ -173,20 +173,22 @@ define(['IMSGlobal/jquery_2_1_1',
             return Math.random() * (max - min) + min;
         }
 
-        var setleftbull = paper.set();
-        var setrightbull = paper.set();
-        var bullecollector = paper.set(); // for deletion
-        var bulletimer;
-        var buttontimer;
-        var bullor;
+
+       
+        setleftbull = paper.set();
+        setrightbull = paper.set();
+        bullecollector = paper.set(); // for deletion
+
 
         function createbulles(quanti) {
+            var start;
 
-            for (var start = 1; start < 10; start++) {
+            for (start = 1; start < 10; start++) {
                bulletimer=  setTimeout(function() {
-                    for (var i = 0; i < quanti; i++) {
-                        var cx = getRandomArbitrary(290, 330);
-                        var cy = getRandomArbitrary(450, 460);
+                var i, cx, cy;
+                    for (i = 0; i < quanti; i++) {
+                        cx = getRandomArbitrary(290, 330);
+                        cy = getRandomArbitrary(450, 460);
                         bullor = paper.ellipse(cx, cy, 5, 5).attr({ id: 'path4166-2-04', parent: 'layer1', opacity: '0', fill: 'white', "fill-opacity": '0.5', stroke: '#white', "stroke-width": '0.31', "stroke-linecap": 'round', "stroke-linejoin": 'round', "stroke-miterlimit": '4', "stroke-dasharray": 'none', "stroke-opacity": '1' });
                         bullor.animate({ opacity: 1 }, 1000);
                         bullecollector.push(bullor);
@@ -294,15 +296,16 @@ define(['IMSGlobal/jquery_2_1_1',
             bouchoncache.toFront();
         }
 
-        var verso = paper.path('m 360,175 16.78572,-70 c 0,0 15,30 17,42.07812 2.79781,13.13813 5.17915,42.5639 5.17915,42.5639 l -3.57142,3.93684 z').attr({
+        verso = paper.path('m 360,175 16.78572,-70 c 0,0 15,30 17,42.07812 2.79781,13.13813 5.17915,42.5639 5.17915,42.5639 l -3.57142,3.93684 z').attr({
             stroke: 'none',
             fill: '#e0d950'
         }).hide();
 
         function videjarre(typep) {
+            var jarre;
             if (typep == 'dense') {
                 setjarre = paper.set();
-                var jarre = paper.path('m 563.54969,67.888815 c 11.23114,35.811455 16.6548,66.178525 12.11408,67.826745 -4.54072,1.64822 -17.32637,-26.04659 -28.55752,-61.858074 C 535.8751,38.045998 530.45144,7.678919 534.99218,6.0307354 539.53291,4.3825519 552.31855,32.077356 563.54969,67.888815 Z M 536.04637,5.5004831 793.93732,-93.459444 l 6.82924,-7.530956 45.00055,135.16282 -9.27323,-1.595759 -241.86762,80.188709 -18.79005,22.43289 c 0,0 4.75855,-19.41807 -12.24381,-67.341071 C 546.91124,20.839533 540.89682,12.490543 536.04637,5.5004831 z').attr({ opacity: 1, fill: 'orange', 'fill-opacity': 1, stroke: 'grey', 'stroke-width': 3, 'stroke-opacity': 1, transform: 't-300, -100 -90' });
+                jarre = paper.path('m 563.54969,67.888815 c 11.23114,35.811455 16.6548,66.178525 12.11408,67.826745 -4.54072,1.64822 -17.32637,-26.04659 -28.55752,-61.858074 C 535.8751,38.045998 530.45144,7.678919 534.99218,6.0307354 539.53291,4.3825519 552.31855,32.077356 563.54969,67.888815 Z M 536.04637,5.5004831 793.93732,-93.459444 l 6.82924,-7.530956 45.00055,135.16282 -9.27323,-1.595759 -241.86762,80.188709 -18.79005,22.43289 c 0,0 4.75855,-19.41807 -12.24381,-67.341071 C 546.91124,20.839533 540.89682,12.490543 536.04637,5.5004831 z').attr({ opacity: 1, fill: 'orange', 'fill-opacity': 1, stroke: 'grey', 'stroke-width': 3, 'stroke-opacity': 1, transform: 't-300, -100 -90' });
                 setjarre.push(jarre);
                 setjarre.animate({
                     transform: 't-200, 10'
@@ -315,8 +318,9 @@ define(['IMSGlobal/jquery_2_1_1',
                     });
                 });
             } else {
+                var jarre;
                 setjarre = paper.set();
-                var jarre = paper.path('m 563.54969,67.888815 c 11.23114,35.811455 16.6548,66.178525 12.11408,67.826745 -4.54072,1.64822 -17.32637,-26.04659 -28.55752,-61.858074 C 535.8751,38.045998 530.45144,7.678919 534.99218,6.0307354 539.53291,4.3825519 552.31855,32.077356 563.54969,67.888815 Z M 536.04637,5.5004831 793.93732,-93.459444 l 6.82924,-7.530956 45.00055,135.16282 -9.27323,-1.595759 -241.86762,80.188709 -18.79005,22.43289 c 0,0 4.75855,-19.41807 -12.24381,-67.341071 C 546.91124,20.839533 540.89682,12.490543 536.04637,5.5004831 z').attr({ opacity: 1, fill: '#ffd056', 'fill-opacity': 1, stroke: 'grey', 'stroke-width': 3, 'stroke-opacity': 1, transform: 't-300, -100 -90' });
+                jarre = paper.path('m 563.54969,67.888815 c 11.23114,35.811455 16.6548,66.178525 12.11408,67.826745 -4.54072,1.64822 -17.32637,-26.04659 -28.55752,-61.858074 C 535.8751,38.045998 530.45144,7.678919 534.99218,6.0307354 539.53291,4.3825519 552.31855,32.077356 563.54969,67.888815 Z M 536.04637,5.5004831 793.93732,-93.459444 l 6.82924,-7.530956 45.00055,135.16282 -9.27323,-1.595759 -241.86762,80.188709 -18.79005,22.43289 c 0,0 4.75855,-19.41807 -12.24381,-67.341071 C 546.91124,20.839533 540.89682,12.490543 536.04637,5.5004831 z').attr({ opacity: 1, fill: '#ffd056', 'fill-opacity': 1, stroke: 'grey', 'stroke-width': 3, 'stroke-opacity': 1, transform: 't-300, -100 -90' });
                 setjarre.push(jarre);
                 setjarre.animate({
                     transform: 't-200, 10'
