@@ -20,7 +20,6 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
         initialize : function initialize(id, dom, config, assetManager){
 
             event.addEventMgr(this);
-            var _this = this;
             this.id = id;
             this.dom = dom;
             this.config = config || {};
