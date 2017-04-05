@@ -35,6 +35,7 @@ use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 use oat\pciWiquid\scripts\install\RegisterPciCircuit;
 use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 use oat\pciWiquid\scripts\install\RegisterPciLentilles;
+use oat\pciWiquid\scripts\install\RegisterPciVolcanisme;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -133,6 +134,11 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPciCircuit(), ['1.1.1']);
             call_user_func(new RegisterPciBerthold (), ['1.1.1']);
             $this->setVersion('1.14.1');
+        }
+
+        if ($this->isVersion('1.14.1')) {
+            call_user_func(new RegisterPciVolcanisme(), ['1.1.0']);
+            $this->setVersion('1.15.0');
         }
     }
 }
