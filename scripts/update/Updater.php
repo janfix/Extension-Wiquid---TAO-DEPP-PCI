@@ -35,6 +35,7 @@ use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 use oat\pciWiquid\scripts\install\RegisterPciCircuit;
 use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 
+use oat\pciWiquid\scripts\install\RegisterPciLentilles;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -111,5 +112,10 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         $this->skip('1.13.0', '1.13.1');
+
+        if ($this->isVersion('1.13.1')) {
+            call_user_func(new RegisterPciLentilles(), ['1.1.0']);
+            $this->setVersion('1.14.0');
+        }
     }
 }
