@@ -38,7 +38,7 @@ return array(
     'label' => 'QTI PCI SVT - Wiquid',
     'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.14.0',
+    'version' => '1.14.1',
     'author' => 'Jean-Philippe Riviere',
     'requires' => array(
         'qtiItemPci' => '>=1.0.0',

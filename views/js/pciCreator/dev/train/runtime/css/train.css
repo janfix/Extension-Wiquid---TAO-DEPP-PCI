@@ -115,14 +115,18 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 .qti-customInteraction .trainvache .ptvvache {
     display: none;
     opacity: 0;
-    margin-top: -54px;
+    margin-top: -71px;
+}
+
+.qti-customInteraction .trainvache .vachelook{
+    width : 130px;
 }
 
 .qti-customInteraction .trainvache .ptvcc {
     display: none;
     opacity: 0;
     width: 110px;
-    margin-top: 138px;
+    margin-top: 120px;
     margin-left: 138px;
 }
 
@@ -130,22 +134,23 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     width: 30px;
     display: none;
     position: absolute;
+
 }
 
 .qti-customInteraction .trainvache .cocciblue {
     width: 30px;
     display: none;
     position: absolute;
-    margin-top: 182px;
-    margin-left: 177px;
+   /*  margin-top: 164px; */
+    margin-left: 175px;
 }
 
 .qti-customInteraction .trainvache .coccired {
     width: 30px;
     display: none;
     position: absolute;
-    margin-top: 182px;
-    margin-left: 223px;
+   /*  margin-top: 164px; */
+    margin-left: 220px;
 }
 
 .qti-customInteraction .trainvache .premplan {
@@ -171,7 +176,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .trainvache .bellescoccis {
-    width: 150px;
+    width: 132px;
     cursor: pointer!important;
 }
 
@@ -204,7 +209,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     height: 447px;
     margin-top: 0px;
     float: left;
-    width: 190px;
+    width: 174px;
 }
 
 .qti-customInteraction .trainvache .cmdlat div {
@@ -225,7 +230,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .trainvache .zeroid {
-    width: 140px;
+    width: 130px;
 }
 
 .qti-customInteraction .trainvache .cctrajimg {

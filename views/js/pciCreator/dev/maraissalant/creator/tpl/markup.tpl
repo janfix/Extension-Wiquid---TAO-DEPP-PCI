@@ -1,5 +1,5 @@
 <div class="maraissalant">
-    <div class="prompt">{{{prompt}}}</div>
+    <div class="prompt">{{{prompt}}}&nbsp;</div>
     <div class="msalantsvg">
 
       <div class="mstexto1 mstexto">
@@ -18,12 +18,12 @@
 
 <div class="clockbox">
   <div class="clock">
-     <span class="short-hand heure"></span>
-     <span class="long-hand minute"></span>
-     <span class="nut"></span>
+     <span class="short-hand heure">&nbsp;</span>
+     <span class="long-hand minute">&nbsp;</span>
+     <span class="nut">&nbsp;</span>
   </div>
 </div>
 
-<div class="bouclier"></div>
-<div class="msanswer"></div>
+<div class="bouclier">&nbsp;</div>
+<div class="msanswer">&nbsp;</div>
 </div>

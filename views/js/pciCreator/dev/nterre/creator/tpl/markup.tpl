@@ -1,5 +1,5 @@
 <div class="nterre">
-    <div class="prompt">{{{prompt}}}</div>
+    <div class="prompt">{{{prompt}}} &nbsp;</div>
     <div class="container">
 	<div class="nterrebg">	
 		<div class="etoile">Etoile</div>
@@ -15,9 +15,9 @@
 					<td class="param">Rayon de la planète</td>
 				</tr>	
 				<tr>
-					<td  class="param cmddist"></td>
-					<td  class="param cmdmas"></td>
-					<td  class="param cmdray"></td>
+					<td  class="param cmddist">&nbsp;</td>
+					<td  class="param cmdmas">&nbsp;</td>
+					<td  class="param cmdray">&nbsp;</td>
 				</tr>
 				<tr>
 					<td class="param distance">km</td>
@@ -32,5 +32,5 @@
 
 </div>
 
-<div class="nterransw"></div>
+<div class="nterransw">&nbsp;</div>
 </div>
