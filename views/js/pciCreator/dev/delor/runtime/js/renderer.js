@@ -360,8 +360,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         
                     });
 
-                    console.log(this);
-
                     var dndHandler = this;
 
                     dropper.addEventListener('drop', function(e) {
