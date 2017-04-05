@@ -15,39 +15,46 @@ define(['IMSGlobal/jquery_2_1_1',
     "use strict"; 
 
     function renderChoices(id, $container, config, assetManager) {
-        var $lentils = $container.find(".lentils");
+        var $lentils, stocker;
+        
+        $lentils = $container.find(".lentils");
 
         $lentils.append($('<img>', { src: assetManager.resolve('lentilles/runtime/assets/lentils.png') }).css({ top: 6, marginLeft: 12 }));
 
-        var stocker = 0;
+        stocker = 0;
 
         creator();
 
         function creator() {
+            var i, j;
             var nbligne = 12;
             var nbcolonne = 12;
             var jsontablor = {};
             var entcol = ["VIDE", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+            var $cellbase;
+            // Edit activ cells
+            var cellactiv = "";
+            var onlyOne = 0;
 
             $container.find('.tablefdc').append("<tr class='fdc'><td class='coin'></td></tr>");
 
-            for (var i = 1; i < nbcolonne; i++) {
+            for (i = 1; i < nbcolonne; i++) {
                 // create lines and columns
                 $container.find('.fdc').append("<td class='entete_lettre'>" + entcol[i] + "</td>");
             }
 
-            for (var i = 1; i < nbligne; i++) {
+            for (i = 1; i < nbligne; i++) {
                 // Create columns titles
                 $container.find('.tablefdc').append("<tr class='entligne" + i + " entete_nb'><td>" + i + "</td></tr>");
 
-                for (var j = 1; j < nbcolonne; j++) {
+                for (j = 1; j < nbcolonne; j++) {
                     // Create cells
                     $container.find('.entligne' + i).append("<td class='" + entcol[j] + i + " cellbase'> </td>");
                 }
             }
 
             // Navigation on the worksheet
-            var $cellbase =  $container.find('.cellbase');
+            $cellbase =  $container.find('.cellbase');
             $cellbase.mouseover(function() {
                 $container.find(this).css('background-color', 'gainsboro');
             });
@@ -56,10 +63,6 @@ define(['IMSGlobal/jquery_2_1_1',
                 $container.find(this).css('background-color', 'white');
             });
 
-
-            // Edit activ cells
-            var cellactiv = "";
-            var onlyOne = 0;
 
             function mouseleft(cellar) {
                 $container.find(cellar).mouseleave(function(event) {
@@ -76,10 +79,11 @@ define(['IMSGlobal/jquery_2_1_1',
 
             $container.find('.cellbase').click(function() {
                 var classarray =  $container.find('.cellbase').attr("class").split(' ');
+                var contenucell, jsontostring;
                 cellactiv =classarray[0] ;
                 if (onlyOne === 0) {
                     onlyOne = 1;
-                    var contenucell = $container.find(this).text();
+                    contenucell = $container.find(this).text();
                     if (contenucell === ' ') {
                         $container.find(this).append("<input type='text' class='modactiv' />");
                         focusonme();
@@ -90,7 +94,7 @@ define(['IMSGlobal/jquery_2_1_1',
                             }
                         });
                         if (contenucell !== ' ') { jsontablor[cellactiv] = contenucell; }
-                        var jsontostring = JSON.stringify(jsontablor);
+                        jsontostring = JSON.stringify(jsontablor);
                         $container.find(".reptablor").html(jsontostring);
                     } else {
                         $container.find(this).html("<input type='text' class='modactiv' value=" + contenucell + ">");
@@ -102,7 +106,7 @@ define(['IMSGlobal/jquery_2_1_1',
                             }
                         });
                         if (contenucell !== ' ') { jsontablor[cellactiv] = contenucell; }
-                        var jsontostring = JSON.stringify(jsontablor);
+                        jsontostring = JSON.stringify(jsontablor);
                         $container.find(".reptablor").html(jsontostring);
                     }
                     return false;
@@ -123,12 +127,18 @@ define(['IMSGlobal/jquery_2_1_1',
         // Graphic area  ***********************************************************************************
 
         var idlentils = _.uniqueId('idlentils_');// lodash generate unique id
-        $container.find(".graphor").attr('id', idlentils); // Attribution of the unique Id to the Id attribute
+        var paper, axis, axex , gradx, gradxrect, axey, grady, gradyrect, edtitre;
+        var navicount = 0;
+        var edaxey, edaxex, toolbar, consignecross,crosstool,guidevertical,guidehorizontal,btdessincourbe,dessinercourbe,bteffacerlacourbe;
+        var effacercourbe, aidegraduation, idcurve;
+        var crosscollector, destroy, destroytext;
 
-        var paper = Raphael(idlentils, 1000, 600);
+
+        $container.find(".graphor").attr('id', idlentils); // Attribution of the unique Id to the Id attribute
+        paper = Raphael(idlentils, 1000, 600);
 
         // Design the background grid
-        var axis = function lent_axis(r, grid, offset) {
+        axis = function lent_axis(r, grid, offset) {
 
             var g = grid || true;
             var o = offset || 0;
@@ -154,11 +164,11 @@ define(['IMSGlobal/jquery_2_1_1',
 
         // Design the axes system x and y 
         // For x axe
-        var axex = paper.path("M150 80L150 560");
+        axex = paper.path("M150 80L150 560");
         for (var i = 150; i < 800; i = i + 50) {
-            var gradx = paper.path("M" + i + " 560, L" + i + " 565");
+            gradx = paper.path("M" + i + " 560, L" + i + " 565");
             // create invisible but clickable rectangle to add text on graduation
-            var gradxrect = paper.rect(i - 5, 560, 10, 20).attr({ fill: 'white', 'fill-opacity': 0.1, 'cursor': 'pointer', 'stroke-width': 0 });
+            gradxrect = paper.rect(i - 5, 560, 10, 20).attr({ fill: 'white', 'fill-opacity': 0.1, 'cursor': 'pointer', 'stroke-width': 0 });
 
             // Adding text on graduation
             gradxrect.click(function(event) {
@@ -169,10 +179,10 @@ define(['IMSGlobal/jquery_2_1_1',
             });
         }
         // For y axe
-        var axey = paper.path("M150 560L800 560");
-        for (var i = 80; i < 570; i = i + 20) {
-            var grady = paper.path("M145 " + i + "L150 " + i);
-            var gradyrect = paper.rect(130, i - 5, 20, 10).attr({ fill: 'white', 'fill-opacity': 0.1, 'cursor': 'pointer', 'stroke-width': 0 });
+        axey = paper.path("M150 560L800 560");
+        for (i = 80; i < 570; i = i + 20) {
+            grady = paper.path("M145 " + i + "L150 " + i);
+            gradyrect = paper.rect(130, i - 5, 20, 10).attr({ fill: 'white', 'fill-opacity': 0.1, 'cursor': 'pointer', 'stroke-width': 0 });
             gradyrect.click(function(event) {
                 var etiy = this.attr('y');
                 var gradtext = paper.text(115, etiy, 'Modifier').attr({ 'font-size': 16 });
@@ -182,7 +192,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         }
         // Global Title edition
-        var edtitre = paper.text(470, 40, 'Cliquer ici pour ajouter un titre').attr({ "font-size": "30" });
+        edtitre = paper.text(470, 40, 'Cliquer ici pour ajouter un titre').attr({ "font-size": "30" });
         reditor(edtitre, 'Cliquer ici pour ajouter un titre');
 
         function reditor(mtext, defaultText) {
@@ -203,30 +213,31 @@ define(['IMSGlobal/jquery_2_1_1',
 
         }
 
+
+
         // Edition axes name
-        var navicount = 0;
-        var edaxey = paper.text(120, 60, 'cliquer ici pour \n nommer cet axe').attr("font-size", "14");
+        edaxey = paper.text(120, 60, 'cliquer ici pour \n nommer cet axe').attr("font-size", "14");
         reditor(edaxey, 'cliquer ici pour \n nommer cet axe');
-        var edaxex = paper.text(810, 530, 'cliquer ici pour \n nommer cet axe').attr("font-size", "14");
+        edaxex = paper.text(810, 530, 'cliquer ici pour \n nommer cet axe').attr("font-size", "14");
         reditor(edaxex, 'cliquer ici pour \n nommer cet axe');
 
         // Tool bar aera
-        var toolbar = paper.rect(850, 100, 150, 300).attr('fill', 'lightgrey');
-        var consignecross = paper.text(920, 130, 'cliquer et déposer \n une croix sur le graphique');
-        var crosstool = paper.path("m 920,155 5.91756,0 0,7.03552 7.39695,0 0,5.69948 -7.39695,-0.0711 0,7.12784 -5.91756,-0.0356 0,-7.0923 -7.39695,0 0,-5.62841 7.39695,0 0,-7.03552").attr({ fill: '#dc4b4b', 'fill-opacity': 1, 'fill-rule': 'evenodd', stroke: '#000000', 'stroke-width': 1, cursor: 'pointer' });
+        toolbar = paper.rect(850, 100, 150, 300).attr('fill', 'lightgrey');
+        consignecross = paper.text(920, 130, 'cliquer et déposer \n une croix sur le graphique');
+        crosstool = paper.path("m 920,155 5.91756,0 0,7.03552 7.39695,0 0,5.69948 -7.39695,-0.0711 0,7.12784 -5.91756,-0.0356 0,-7.0923 -7.39695,0 0,-5.62841 7.39695,0 0,-7.03552").attr({ fill: '#dc4b4b', 'fill-opacity': 1, 'fill-rule': 'evenodd', stroke: '#000000', 'stroke-width': 1, cursor: 'pointer' });
         crosstool.scale(1.5);
         crosstool.mouseover(function(e) { this.attr({ 'fill-opacity': 0.3, fill: "red" }); });
         crosstool.mouseout(function(e) { this.attr({ 'fill-opacity': 1, fill: '#dc4b4b' }); });
-        var guidevertical = paper.path("m923 170 l0 800").attr({ stroke: "blue", 'stroke-width': 1, 'stroke-opacity': 0 });
-        var guidehorizontal = paper.path("m0 165 l920 0").attr({ stroke: "blue", 'stroke-width': 1, 'stroke-opacity': 0 });
-        var btdessincourbe = paper.rect(870, 210, 100, 20).attr({ fill: '#c9f2c9', cursor: 'pointer', 'stroke-width': 0.5 });
+        guidevertical = paper.path("m923 170 l0 800").attr({ stroke: "blue", 'stroke-width': 1, 'stroke-opacity': 0 });
+        guidehorizontal = paper.path("m0 165 l920 0").attr({ stroke: "blue", 'stroke-width': 1, 'stroke-opacity': 0 });
+        btdessincourbe = paper.rect(870, 210, 100, 20).attr({ fill: '#c9f2c9', cursor: 'pointer', 'stroke-width': 0.5 });
         btdessincourbe.mouseover(function(e) { this.attr({ 'fill-opacity': 0.3 }); });
         btdessincourbe.mouseout(function(e) { this.attr({ 'fill-opacity': 1 }); });
-        var dessinercourbe = paper.text(920, 220, 'Tracer la courbe').attr({ cursor: 'pointer' });
-        var bteffacerlacourbe = paper.rect(870, 240, 100, 20).attr({ fill: '#c9f2c9', cursor: 'pointer', 'stroke-width': 0.5 });
-        var effacercourbe = paper.text(920, 250, 'Effacer la courbe').attr({ cursor: 'pointer' });
-        var aidegraduation = paper.text(500, 590, 'Cliquer sur les graduations des axes pour inscrire une valeur').attr({ 'font-size': 11 });
-        var idcurve;
+        dessinercourbe = paper.text(920, 220, 'Tracer la courbe').attr({ cursor: 'pointer' });
+        bteffacerlacourbe = paper.rect(870, 240, 100, 20).attr({ fill: '#c9f2c9', cursor: 'pointer', 'stroke-width': 0.5 });
+        effacercourbe = paper.text(920, 250, 'Effacer la courbe').attr({ cursor: 'pointer' });
+        aidegraduation = paper.text(500, 590, 'Cliquer sur les graduations des axes pour inscrire une valeur').attr({ 'font-size': 11 });
+        
 
         function graphtojson() {
             var graphjson = paper.toJSON();
@@ -274,7 +285,7 @@ define(['IMSGlobal/jquery_2_1_1',
         };
 
 
-        var crosscollector = paper.set();
+        crosscollector = paper.set();
 
         crosstool.mousemove(function(event) {
             var mySet = paper.set();
@@ -296,9 +307,13 @@ define(['IMSGlobal/jquery_2_1_1',
         dessinercourbe.click(function(event) {
             // Class points from right to left
             var coox = [];
+            var debutstring;
+            var suitestring;
+            var pathstring;
+            var i, j, crox ,crosso, offsetx, offsety;            
             // get crosses x values 
-            for (var i = 0; i < crosscollector.length; i++) {
-                var crox = crosscollector[i].getBBox();
+            for (i = 0; i < crosscollector.length; i++) {
+                crox = crosscollector[i].getBBox();
                 coox.push(crox.x);
             }
             // order the array
@@ -307,17 +322,13 @@ define(['IMSGlobal/jquery_2_1_1',
             }
             // Reorder the array
             coox = coox.sort(sortNumber);
-
-            var debutstring;
-            var suitestring;
-            var pathstring;
             // Scan crosses using araay order
-            for (var i = 0; i < coox.length; i++) {
-                for (var j = 0; j < crosscollector.length; j++) {
-                    var crosso = crosscollector[j].getBBox();
+            for (i = 0; i < coox.length; i++) {
+                for (j = 0; j < crosscollector.length; j++) {
+                    crosso = crosscollector[j].getBBox();
                     if (coox[i] == crosso.x && crosso.x < -100) {
-                        var offsetx = 922;
-                        var offsety = 5;
+                         offsetx = 922;
+                         offsety = 5;
                         if (i == 0) { debutstring = "M" + (crosso.x + offsetx) + " " + (crosso.y + offsety) + " "; } else {
                             suitestring = suitestring + "L" + (crosso.x + offsetx) + " " + (crosso.y + offsety) + " ";
                         }
@@ -334,7 +345,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
             idcurve = traceur.id;
 
-            for (var i = 0; i < crosscollector.length; i++) {
+            for (i = 0; i < crosscollector.length; i++) {
                 crosscollector[i].toFront();
             }
 
@@ -356,8 +367,8 @@ define(['IMSGlobal/jquery_2_1_1',
 
         }
 
-        var destroy = paper.circle(1000, 600, 100).attr({ 'fill': 'red', 'fill-opacity': '0.3' });
-        var destroytext = paper.text(955, 550, 'Déposer \n les croix ici \n pour les Supprimer');
+        destroy = paper.circle(1000, 600, 100).attr({ 'fill': 'red', 'fill-opacity': '0.3' });
+        destroytext = paper.text(955, 550, 'Déposer \n les croix ici \n pour les Supprimer');
         // end of graphic area *******************************************************************
 
         function navict() {

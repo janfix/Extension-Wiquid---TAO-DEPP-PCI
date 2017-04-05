@@ -22,8 +22,6 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
 
-            var _this = this;
-//            var assetManager = qtiCustomInteractionContext.getAssetResolver(this.getTypeIdentifier());//that would introduce dependency between the asset manager and global pci runtime context
             this.id = id;
             this.dom = dom;
             this.config = config || {};
@@ -54,23 +52,21 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'lentilles/runt
          */
         getResponse : function getResponse(){
 
-
+            var i, j, celladdress, cellcontent ;
             var $container = $(this.dom), collum = ["A","B","C","D","E","F","G","H","I","J","K"],value, tablor='',
                 graphor =  ' graphic : ' + $container.find('.repgraphor').text()+ " navigation : " + $container.find('.navicount').text();
     
-                for (var i = 0; i < collum.length; i++) {
+                for (i = 0; i < collum.length; i++) {
                
-                    for (var j = 1; j < 12; j++) {
-                            var celladdress = collum[i]+j;
-                            var cellcontent = $("."+celladdress).text();
+                    for ( j = 1; j < 12; j++) {
+                            celladdress = collum[i]+j;
+                            cellcontent = $container.find("."+celladdress).text();
                             if(cellcontent !== ' '){ tablor = tablor + celladdress + ':' + cellcontent + ',';}
                            
                         }    
                 }
 
                 value = "Tableur = " + tablor + graphor;
-                
-                // Todo : multiple instance of the PCI - Grab results with a foreach
 
             return {base : {string : value}};
         },
