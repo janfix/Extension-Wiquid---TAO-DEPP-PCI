@@ -196,9 +196,11 @@ define(['IMSGlobal/jquery_2_1_1',
                     }
                     bullemonte(setleftbull);
                     bullemonte(setrightbull);
-
+               
                 }, 1000 * start);
+              
             }
+
 
             buttontimer = setTimeout(function() {
                 btzeroset.forEach(
@@ -206,9 +208,12 @@ define(['IMSGlobal/jquery_2_1_1',
                         e.show();
                     });
             }, 20500);
+
+           return buttontimer;
         }
 
        
+
         function bullemonte(setname) {
             if (setname == setleftbull) {
                 setname.forEach(
@@ -468,19 +473,23 @@ define(['IMSGlobal/jquery_2_1_1',
                 function(e) {
                     e.show();
                 });
+
         }
+     return buttontimer;
     }
 
 
     return {
+
         render: function(id, container, config, assetManager) {
 
             var $container = $(container);
 
-            renderChoices(id, $container, config, assetManager);
+            var bttimer =  renderChoices(id, $container, config, assetManager);
 
             //render rich text content in prompt
             html.render($container.find('.prompt'));
+            return bttimer;
         },
         renderChoices: function(id, container, config, assetManager) {
             renderChoices(id, $(container), config, assetManager);

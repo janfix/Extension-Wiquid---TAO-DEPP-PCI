@@ -26,6 +26,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
 
             renderer.render(this.id, this.dom, this.config, assetManager);
 
+
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
 
@@ -78,6 +79,11 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
 
             var $container = $(this.dom);
             $container.off().empty();
+
+            this.timeout = renderer.renderChoices();
+            console.log(this.timeout);
+            clearTimeOut(this.timeout); 
+            
         },
         /**
          * Restore the state of the interaction from the serializedState.
