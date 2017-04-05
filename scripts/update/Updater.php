@@ -34,7 +34,8 @@ use oat\pciWiquid\scripts\install\RegisterPciEffetdeserre;
 use oat\pciWiquid\scripts\install\RegisterPciLampedouble;
 use oat\pciWiquid\scripts\install\RegisterPciCircuit;
 use oat\pciWiquid\scripts\install\RegisterPciBerthold;
-
+use oat\pciWiquid\scripts\install\RegisterPciLentilles;
+use oat\pciWiquid\scripts\install\RegisterPciVolcanisme;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -43,6 +44,7 @@ class Updater extends \common_ext_ExtensionUpdater
      */
     public function update($initialVersion)
     {
+
         $this->setVersion('1.0.0');
 
         if ($this->isVersion('1.0.0')) {
@@ -111,5 +113,32 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         $this->skip('1.13.0', '1.13.1');
+
+        if ($this->isVersion('1.13.1')) {
+            call_user_func(new RegisterPciLentilles(), ['1.1.0']);
+            $this->setVersion('1.14.0');
+        }
+
+        if ($this->isVersion('1.14.0')) {
+            call_user_func(new RegisterPciDelor(), ['1.1.1']);
+            call_user_func(new RegisterPciForcegravite(), ['1.1.1']);
+            call_user_func(new RegisterPciCuisine(), ['1.1.1']);
+            call_user_func(new RegisterPciTrain(), ['1.1.1']);
+            call_user_func(new RegisterPciNterre(), ['1.1.1']);
+            call_user_func(new RegisterPciMaraissalant(), ['1.1.1']);
+            call_user_func(new RegisterPciAbeille(), ['1.1.1']);
+            call_user_func(new RegisterPciBronco(), ['1.1.1']);
+            call_user_func(new RegisterPciRelatem(), ['1.1.1']);
+            call_user_func(new RegisterPciEffetdeserre(), ['1.1.1']);
+            call_user_func(new RegisterPciLampedouble(), ['1.1.1']);
+            call_user_func(new RegisterPciCircuit(), ['1.1.1']);
+            call_user_func(new RegisterPciBerthold (), ['1.1.1']);
+            $this->setVersion('1.14.1');
+        }
+
+        if ($this->isVersion('1.14.1')) {
+            call_user_func(new RegisterPciVolcanisme(), ['1.1.0']);
+            $this->setVersion('1.15.0');
+        }
     }
 }

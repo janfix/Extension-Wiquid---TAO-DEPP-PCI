@@ -4,6 +4,8 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+.qti-customInteraction {border:none;}
+
 .qti-customInteraction .berthold {
     text-align: center;
 }
@@ -12,6 +14,10 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     text-align: center;
     font-size: 20px;
     font-style: bold;
+}
+
+.qti-customInteraction .berthold .imagetitre {
+    border: none;    
 }
 
 .qti-customInteraction .berthold .hiddendiv {
@@ -93,66 +99,48 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     width: 325px;
 }
 
+.qti-customInteraction .berthold .calleur {
+    height: 225px;
+}
+
+.qti-customInteraction .berthold .calleurlast{
+     height: 200px;
+}
+
 .qti-customInteraction .berthold .anima1 {
-    margin-top: -151px;
+    margin-top: 31px;
     width: 280px;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
 }
 
 .qti-customInteraction .berthold .anima3 {
-    opacity: 0;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
+    display: none;
 }
 
 .qti-customInteraction .berthold .anima4 {
-    margin-top: -165px;
+   margin-top: 28px;
     width: 295px!important;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
 }
 
 .qti-customInteraction .berthold .anima5 {
-    opacity: 0;
+    margin-top: 28px;
+    display: none;
     width: 295px;
-    margin-top: -180px;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
 }
 
 .qti-customInteraction .berthold .anima6 {
-    opacity: 0;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
+    display: none;
 }
 
 .qti-customInteraction .berthold .anima8 {
-    margin-top: -182px;
     margin-left: -12px;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
 }
 
 .qti-customInteraction .berthold .anima9 {
-    margin-top: -179px;
     margin-left: -8px;
-    opacity: 0;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
+    display: none;
 }
 
 .qti-customInteraction .berthold .anima11 {
-    margin-top: -4px;
-    opacity: 0;
-    transition: opacity 3s;
-    -webkit-transition: opacity 3s;
-    -moz-transition: opacity 3s;
+   margin-top: -22px;
+    display: none;
 }

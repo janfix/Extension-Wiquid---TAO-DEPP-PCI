@@ -1,7 +1,7 @@
 <div class="lampedouble">
-    <div class="prompt">{{{prompt}}}</div>
-    <div class="lampe"></div>
-    <div class="clickswitch hiddendiv"></div>
-    <div class="clickRlamp hiddendiv"></div>
-    <div class="clickLlamp hiddendiv"></div>
+    <div class="prompt">{{{prompt}}}&nbsp;</div>
+    <div class="lampe">&nbsp;</div>
+    <div class="clickswitch hiddendiv">&nbsp;</div>
+    <div class="clickRlamp hiddendiv">&nbsp;</div>
+    <div class="clickLlamp hiddendiv">&nbsp;</div>
 </div>

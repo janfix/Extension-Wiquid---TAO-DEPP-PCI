@@ -1,20 +1,14 @@
 <div class="trainvache">
-<div class="prompt">{{{prompt}}}</div>
+	<div class="prompt">{{{prompt}}}&nbsp;</div>
 
     <div class="container">
-	<div class="premplan premierplan">
-		
-
-		<div class="convoi">
-
-		</div>
-		<div class="traj">
-
+		<div class="premplan premierplan">
+			<div class="convoi">&nbsp;</div>
+			<div class="traj">&nbsp;</div>
 		</div>
 	</div>
-</div>
 
-<div class="cmdlat">
+	<div class="cmdlat">
 		<div class="btlat situercocci">
 			<br />
 			Situer les coccinelles !
@@ -43,11 +37,9 @@
 			<br />
 			Montrer la trajectoire
 		</div>
-		<div class="cache">
-			
-		</div>
+		<div class="cache">&nbsp;</div>
 
-</div>
+	</div>
   
- <div  class="trainansw"></div>  
+ 	<div  class="trainansw">&nbsp;</div>  
 </div>

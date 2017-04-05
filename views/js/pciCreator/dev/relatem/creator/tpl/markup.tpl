@@ -1,30 +1,27 @@
 <div class="relatem">
-    <div class="prompt">{{{prompt}}}</div>
+    <div class="prompt">{{{prompt}}}&nbsp;</div>
 
 	<div class="container"> 
 	
-		<div class="vueglobale"></div>
+		<div class="vueglobale">&nbsp;</div>
 
 		<div class="vuegars">
 			 <div class="motanim"> 
-			 	<div class="contanim">
+			 	<div class="contanim">&nbsp;
 					<!-- Wheels -->
 			 	</div>
 			 	 <!-- cactus -->
 			</div>
 		</div>
 	
-		<div class="vuefille"> 
-			
-				
-		</div>
+		<div class="vuefille"> &nbsp;</div>
 
 		 <div class="commande">
 		 	<table>
                 <tr class="imgline">
-                    <td  class="activVF"></td>
-                    <td  class="activG"></td>
-                    <td  class="activGlobal"></td>
+                    <td  class="activVF">&nbsp;</td>
+                    <td  class="activG">&nbsp;</td>
+                    <td  class="activGlobal">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="legende">Point de vue de Zoe</td>
@@ -37,5 +34,5 @@
 	</div>
 
 	
-<div class="ansrdm"></div>
+<div class="ansrdm">&nbsp;</div>
 </div>

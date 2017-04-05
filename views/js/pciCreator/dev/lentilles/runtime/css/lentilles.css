@@ -1,0 +1,118 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale  
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+
+.qti-customInteraction .lentilles {
+    margin:10px; max-width: 1000px;
+   
+}
+
+.qti-customInteraction .lentilles .hiddenrep {
+    display: none;
+}
+
+.qti-customInteraction .lentilles .zonefdc {
+    padding: 5px;
+    text-align: center;
+}
+
+.qti-customInteraction .lentilles .lentils {
+    text-align: center;
+    border: 1px grey solid;
+}
+
+.qti-customInteraction .lentilles .lentils img {
+    width: 900px;
+}
+
+.qti-customInteraction .lentilles .consigne {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.qti-customInteraction .lentilles table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.qti-customInteraction .lentilles .coin {
+    width: 50px;
+    border: 1px solid black;
+}
+
+.qti-customInteraction .lentilles .entete_lettre {
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: lightgrey;
+}
+
+.qti-customInteraction .lentilles .entete_nb {
+    /* width: 50px; */
+    text-align: center;
+    border: 1px solid black;
+    background-color: lightgrey;
+}
+
+.qti-customInteraction .lentilles .cellbase {
+    width: 100px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    background-color: white;
+}
+
+.qti-customInteraction .lentilles svg {
+    margin-top: 10px;
+    border: 1px grey solid;
+}
+
+.qti-customInteraction .lentilles .graphor {
+    opacity: 0;
+    text-align: center;
+}
+
+.qti-customInteraction .lentilles .etape {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.qti-customInteraction .lentilles .consignetableau {
+    font-size: 12px;
+}
+
+.qti-customInteraction .lentilles .tablor {
+    text-align: center;
+}
+
+.qti-customInteraction .lentilles .btgraphor {
+    cursor: pointer;
+    line-height: 1;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.qti-customInteraction .lentilles .retourEtape1 {
+    line-height: 1;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.qti-customInteraction .lentilles .etape1 {
+    color: blue;
+    cursor: pointer;
+}
+
+.qti-customInteraction .lentilles .etape2 {
+    color: blue;
+    cursor: pointer
+}

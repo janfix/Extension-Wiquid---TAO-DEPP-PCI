@@ -1,7 +1,7 @@
 <div class="abeille">
 
-	<div class="prompt">{{{prompt}}}</div>
-	<div class="pesticlick hiddendiv"></div>
-	<div class="frelonclick hiddendiv"></div>
+	<div class="prompt">{{{prompt}}} &nbsp;</div>
+	<div class="pesticlick hiddendiv">&nbsp;</div>
+	<div class="frelonclick hiddendiv">&nbsp;</div>
 
 </div>

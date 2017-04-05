@@ -24,7 +24,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         var svgstring;
         svgstring = fillsvg(); 
 
-        $container.find(".svghome").append(svgstring);
+        $container.find(".svghome").html(svgstring);
 
         //Insert Orus
         $container.find(".zonesocle").append($('<img>', { src: assetManager.resolve('delor/runtime/img/orus.png') }).attr('class', 'draggable catgod'));
@@ -359,8 +359,6 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         $container.find(this).removeClass('drop_hover');
                         
                     });
-
-                    console.log(this);
 
                     var dndHandler = this;
 
