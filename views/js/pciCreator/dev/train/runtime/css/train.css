@@ -1,0 +1,250 @@
+/*
+Copyright DEPP © 2017 - Ministère de l'éducation nationale 
+*/
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+
+.qti-customInteraction .trainvache .trainansw {
+    display: none;
+}
+
+.qti-customInteraction .trainvache .container {
+    border: 1px grey solid;
+    width: 790px;
+    overflow: hidden;
+    float: left;
+}
+
+.qti-customInteraction .trainvache .coccifix {
+    position: absolute;
+    margin-top: 187px;
+    left: 185px;
+}
+
+.qti-customInteraction .trainvache .bg {
+    height: 445px;
+}
+
+/* Rotation des roues */
+
+@-webkit-keyframes train-rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes train-rotating {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+.qti-customInteraction .trainvache .roue {
+    position: absolute;
+    margin-top: 130px;
+    left: 129px;
+}
+
+.qti-customInteraction .trainvache .rouego {
+    -webkit-animation: train-rotating 3s linear infinite;
+    -moz-animation: train-rotating 3s linear infinite;
+    transform-origin: 50%;
+}
+
+.qti-customInteraction .trainvache .train {
+    position: absolute;
+    margin-top: 5px;
+}
+
+.qti-customInteraction .trainvache .convoi {
+    margin-top: -447px;
+}
+
+
+/* Translation du train */
+
+@keyframes train-gotrain {
+    from {
+        transform: translate(0px);
+    }
+    to {
+        transform: translate(1000px);
+    }
+}
+
+.qti-customInteraction .trainvache .convoigo {
+    animation: train-gotrain 15s linear;
+    -webkit-animation-fill-mode: forwards;
+}
+
+
+/* Translation de la vache */
+
+@keyframes train-govache {
+    from {
+        transform: translate(0px);
+    }
+    to {
+        transform: translate(-800px);
+    }
+}
+
+.qti-customInteraction .trainvache .vachego {
+    animation: train-govache 15s linear;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.qti-customInteraction .trainvache .rmzero {
+    display: none;
+}
+
+.qti-customInteraction .trainvache .vtraj {
+    display: none;
+}
+
+.qti-customInteraction .trainvache .cctraj {
+    display: none;
+}
+
+.qti-customInteraction .trainvache .ptvvache {
+    display: none;
+    opacity: 0;
+    margin-top: -71px;
+}
+
+.qti-customInteraction .trainvache .vachelook{
+    width : 130px;
+}
+
+.qti-customInteraction .trainvache .ptvcc {
+    display: none;
+    opacity: 0;
+    width: 110px;
+    margin-top: 120px;
+    margin-left: 138px;
+}
+
+.qti-customInteraction .trainvache .cocci {
+    width: 30px;
+    display: none;
+    position: absolute;
+
+}
+
+.qti-customInteraction .trainvache .cocciblue {
+    width: 30px;
+    display: none;
+    position: absolute;
+   /*  margin-top: 164px; */
+    margin-left: 175px;
+}
+
+.qti-customInteraction .trainvache .coccired {
+    width: 30px;
+    display: none;
+    position: absolute;
+   /*  margin-top: 164px; */
+    margin-left: 220px;
+}
+
+.qti-customInteraction .trainvache .premplan {
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+    height: 445px;
+    background-image: url("img/bgvide.png")!important;
+}
+
+.qti-customInteraction .trainvache .commande {
+    float: left;
+}
+
+.qti-customInteraction .trainvache .coccitab {
+    margin: 0px;
+}
+
+.qti-customInteraction .trainvache td {
+    border-collapse: collapse;
+    text-align: center;
+    border: 1px grey solid;
+    padding: 10px;
+}
+
+.qti-customInteraction .trainvache .bellescoccis {
+    width: 132px;
+    cursor: pointer!important;
+}
+
+.qti-customInteraction .trainvache .macrococci {
+    width: 75px;
+}
+
+
+.qti-customInteraction .trainvache .btlat {
+    border-radius: 10px;
+    cursor: pointer!important;
+    padding: 10px;
+    text-align: center;
+    background-color: #ffcc00;
+    margin: 2px;
+    border: 1px grey solid;
+}
+
+.qti-customInteraction .trainvache .btlat img {
+    cursor: pointer!important;
+}
+
+.qti-customInteraction .trainvache .btlat:hover {
+    background-color: #ffe254;
+}
+
+.qti-customInteraction .trainvache .cmdlat {
+    border: 1px grey solid;
+    background-color: gainsboro;
+    height: 447px;
+    margin-top: 0px;
+    float: left;
+    width: 174px;
+}
+
+.qti-customInteraction .trainvache .cmdlat div {
+    padding: 10px;
+    margin: 10px;
+}
+
+.qti-customInteraction .trainvache .armzero {
+    display: none;
+}
+
+.qti-customInteraction .trainvache .cache {
+    display: none;
+    top: 8px;
+    position: absolute;
+    width: 200px;
+    height: 170px;
+}
+
+.qti-customInteraction .trainvache .zeroid {
+    width: 130px;
+}
+
+.qti-customInteraction .trainvache .cctrajimg {
+    width: 120px;
+}
+
+.qti-customInteraction .trainvache .armzeroimg {
+    width: 140px;
+}
+
+.qti-customInteraction .trainvache .vtrajimg {
+    width: 140px;
+}
+
+.qti-customInteraction .trainvache .traj {
+    height: 446px;
+}
