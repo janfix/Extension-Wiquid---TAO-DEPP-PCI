@@ -24,8 +24,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
             this.dom = dom;
             this.config = config || {};
 
-            renderer.render(this.id, this.dom, this.config, assetManager);
-
+            this.timeout = renderer.render(this.id, this.dom, this.config, assetManager);
+            
 
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
@@ -80,9 +80,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'volcanisme/run
             var $container = $(this.dom);
             $container.off().empty();
 
-            this.timeout = renderer.renderChoices();
-            console.log(this.timeout);
-            clearTimeOut(this.timeout); 
+            clearTimeout(this.timeout[0]);
+            clearTimeout(this.timeout[1]); 
             
         },
         /**

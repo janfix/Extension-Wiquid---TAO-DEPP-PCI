@@ -19,7 +19,8 @@ define(['IMSGlobal/jquery_2_1_1',
         var bouchoncache, commandpanel, consigne, choix, btfluidset,btfluide, choixfluide ;
         var btdenseset, btdense, choixdense, btpuree1, consigne2,btcachet, cachet, btcachetset,btzeroset,btrmzero   ;
         var rmzero, activpuree, splizz, degoulleft,degoulcenter,degoulright,waterpatch ;
-        var setleftbull, setrightbull, bullecollector, bulletimer, buttontimer,bullor, verso; 
+        var setleftbull, setrightbull, bullecollector, bulletimer, buttontimer,bullor, verso;
+        var arraytimer = []; 
         
         expetube = _.uniqueId('expetube_');// lodash generate unique id
         $container.find(".expetube").attr('id', expetube); // Attribution of the unique Id to the Id attribute
@@ -182,6 +183,7 @@ define(['IMSGlobal/jquery_2_1_1',
 
         function createbulles(quanti) {
             var start;
+            
 
             for (start = 1; start < 10; start++) {
                bulletimer=  setTimeout(function() {
@@ -209,7 +211,9 @@ define(['IMSGlobal/jquery_2_1_1',
                     });
             }, 20500);
 
-           return buttontimer;
+            arraytimer = [buttontimer, bulletimer];
+
+           return arraytimer;
         }
 
        
@@ -475,7 +479,7 @@ define(['IMSGlobal/jquery_2_1_1',
                 });
 
         }
-     return buttontimer;
+     return arraytimer;
     }
 
 
