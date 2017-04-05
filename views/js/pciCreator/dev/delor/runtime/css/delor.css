@@ -54,8 +54,9 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 .qti-customInteraction .delor .catgod {
     width: 80px;
     cursor: pointer;
-    margin-top: 19px; /* Ok in delivery  - should be 0px in others modes*/
+    margin-top: 0px; /* Not normal */
 }
+
 
 .qti-customInteraction .delor .tspan5974 {
     font-family: 'courrier';
@@ -111,7 +112,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 .qti-customInteraction .delor .lecvol {
     font-family: 'arial';
     color: white;
-    font-size: 1em;
+    font-size: 12px;
     position: absolute;
     width: 300px;
     height: 20px;
