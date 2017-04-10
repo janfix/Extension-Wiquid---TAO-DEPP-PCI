@@ -13,8 +13,8 @@
     </div>
 
 
-<div class="bton btdemarrer">Démarrer <br /> l'expérience</div>
-<div class="bton btzero">Remettre <br /> à zéro</div>
+<div class="bton btdemarrer">Démarrer l'expérience</div>
+<div class="bton btzero">Remettre à zéro</div>
 
 <div class="clockbox">
   <div class="clock">

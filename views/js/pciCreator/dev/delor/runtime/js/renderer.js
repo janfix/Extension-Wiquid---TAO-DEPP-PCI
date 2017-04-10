@@ -63,7 +63,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                 answvanne = "vanne-ok";
             }
             obBecher.fillup();
-            // the statue est in the empty beaker
+            // the statue is in the empty beaker
             if (statueloc === 2 && niveau === 0) {
                 niveau = $vanne.val();
                 $container.find(".rect5659-1-1").hide();
@@ -209,19 +209,34 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                 // Modification of water level when statue get in
                 // not constant !
                 var eauDebit = parseInt($vanne.val());
+                
                 if (eauDebit === 0) { // Beaker is dry
                     this.niveau = 0; // reset water level to 0
                     ajusterNiveau(this.niveau);
                 } else { // Water is present in Beaker
                     if (this.seuil1 === true) {
                         this.niveau = this.niveau * 1.2;
+                        this.niveau = Math.round(this.niveau);
+                        if((this.niveau)>99){
+                        //deborde
+                        $container.find(".deborde").show();
+                        }
+                        else{
                         ajusterNiveau(this.niveau * 4);
-                        $container.find(".lecvol").html("Volume lu : " + this.niveau + " mL");
+                        $container.find(".lecvol").html("Volume lu : " + this.niveau + " mL");}
                     }
                     if (this.seuil2 === true) {
                         this.niveau = this.niveau + 10;
-                        if (this.niveau < 86) { $container.find(".lecvol").html("Volume lu : " + this.niveau + " mL"); } else { $container.find(".lecvol").html("Lecture du volume impossible"); }
-                        ajusterNiveau(this.niveau * 4);
+                        if (this.niveau < 86) { $container.find(".lecvol").html("Volume lu : " + this.niveau + " mL");
+                            ajusterNiveau(this.niveau * 4);
+                         } 
+                        else { 
+                            if(this.niveau>99){this.niveau=99;}
+                            $container.find(".lecvol").html("Lecture du volume impossible");
+                            ajusterNiveau(97 * 4);
+                            $container.find(".deborde").show();
+                        }
+                        
 
                     }
                     if (this.seuil3 === true) {
@@ -263,9 +278,15 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                     } else if (this.seuil2 === true) {
                         eauDebit = $vanne.val();
                         this.niveau = eauDebit - 10;
-                        $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
+                        if(this.niveau>85){
+                             $container.find(".lecvol").html("Lecture du volume impossible");
+                             $container.find(".deborde").hide();
+                             this.remplissage = false;
+                        }
+                        else{$container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
                         $container.find(".deborde").hide();
-                        this.remplissage = false;
+                        this.remplissage = false;}
+                        
 
                     } else if (this.seuil3 === true) {
                         eauDebit = $vanne.val();
@@ -280,7 +301,17 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         eauDebit = $vanne.val();
                         this.niveau = eauDebit - 10;
                         $container.find(".deborde").hide();
-                        $container.find(".lecvol").html("Lecture du volume impossible");
+                        if(this.niveau === 0){$container.find(".lecvol").html("Volume lu : 0 mL");}
+                        else if(this.niveau < 0){
+                            this.niveau = 0;
+                            $container.find(".lecvol").html("Volume lu : 0 mL");
+                            }
+                        else if(this.niveau < 89){
+                            this.niveau=85;
+                            $container.find(".lecvol").html("Lecture du volume impossible");
+                        }
+                        else{$container.find(".lecvol").html("Lecture du volume impossible");}
+                        
                         this.seuil3 = true;
                         this.remplissage = false;
                     }
@@ -292,23 +323,43 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
                         $container.find(".deborde").hide();
                     } else if (this.seuil2 === true) {
-                        this.niveau = this.niveau - 10;
+                        this.niveau = this.niveau - 10;       
                         ajusterNiveau(this.niveau * 4);
-                        $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
-                        $container.find(".deborde").hide();
+                        if(this.niveau>85){ 
+                            $container.find(".lecvol").html("Lecture du volume impossible");
+                            $container.find(".deborde").hide();
+                            }
+                        else{$container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
+                        $container.find(".deborde").hide();}
+                        
 
                     } else if (this.seuil3 === true) {
                         this.niveau = this.niveau - 10;
                         if(this.niveau >85){
                             $container.find(".lecvol").html("Lecture du volume impossible");
                             $container.find(".deborde").hide();}
-                        else{ 
+                        else{
+                            if(this.niveau < 0){
+                                this.niveau = 0;
+                                $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL"); 
+                                }
+                            else{     
                             $container.find(".lecvol").html("Volume lu : " + parseInt(this.niveau) + " mL");
-                            $container.find(".deborde").hide(); }
+                            $container.find(".deborde").hide();} }
                     } else {
                         this.niveau = this.niveau - 10;
                         $container.find(".deborde").hide();
-                        $container.find(".lecvol").html("Lecture du volume impossible");
+
+                        if(this.niveau === 0){$container.find(".lecvol").html("Volume lu : 0 mL");}
+                        else if(this.niveau < 0){
+                            this.niveau = 0;
+                            $container.find(".lecvol").html("Volume lu : 0 mL");
+                            }
+                        else if(this.niveau > 89){
+                            this.niveau=85;
+                            $container.find(".lecvol").html("Lecture du volume impossible");
+                        }
+                        else{$container.find(".lecvol").html("Lecture du volume impossible");}
                     }
 
                 }
@@ -319,6 +370,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
         };
 
         function ajusterNiveau(niveauVisuel) {
+            if(niveauVisuel < 0){niveauVisuel = 0;}
             $container.find(".rect5659-1").attr("height", niveauVisuel);
 
         }
@@ -416,9 +468,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                             } else if (statueloc == 1 && poidssta2 == "190 g") {
                                 $container.find(".tspan5974").html("0 g");
                             }
-                            statueloc = 2;
                             obBecher.statue = true;
-                            obBecher.mettreStatue();
+                            if(statueloc<2){obBecher.mettreStatue();}
+                            statueloc = 2;
                         }
 
                         while (target.className.indexOf('dropper') == -1) {
