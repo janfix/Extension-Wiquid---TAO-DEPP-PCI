@@ -136,7 +136,7 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPciMaraissalant(), ['1.1.2']);
             call_user_func(new RegisterPciEffetdeserre(), ['1.1.2']);
             call_user_func(new RegisterPciCuisine(), ['1.1.1']);
-            call_user_func(new RegisterPciTrain(), ['1.1.1']);
+            call_user_func(new RegisterPciTrain(), ['1.1.2']);
             call_user_func(new RegisterPciNterre(), ['1.1.1']);
             call_user_func(new RegisterPciAbeille(), ['1.1.1']);
             call_user_func(new RegisterPciBronco(), ['1.1.1']);
