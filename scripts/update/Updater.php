@@ -136,27 +136,9 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('1.14.1');
         }
 
-<<<<<<< HEAD
-        if ($this->isVersion('1.13.2')) {
-            call_user_func(new RegisterPciDelor(), ['1.1.2']);
-            call_user_func(new RegisterPciForcegravite(), ['1.1.2']);
-            call_user_func(new RegisterPciMaraissalant(), ['1.1.2']);
-            call_user_func(new RegisterPciEffetdeserre(), ['1.1.2']);
-            call_user_func(new RegisterPciCuisine(), ['1.1.1']);
-            call_user_func(new RegisterPciTrain(), ['1.1.2']);
-            call_user_func(new RegisterPciNterre(), ['1.1.1']);
-            call_user_func(new RegisterPciAbeille(), ['1.1.1']);
-            call_user_func(new RegisterPciBronco(), ['1.1.1']);
-            call_user_func(new RegisterPciRelatem(), ['1.1.1']);
-            call_user_func(new RegisterPciLampedouble(), ['1.1.1']);
-            call_user_func(new RegisterPciCircuit(), ['1.1.1']);
-            call_user_func(new RegisterPciBerthold (), ['1.1.1']);
-            $this->setVersion('1.13.3');
-=======
         if ($this->isVersion('1.14.1')) {
             call_user_func(new RegisterPciVolcanisme(), ['1.1.0']);
             $this->setVersion('1.15.0');
->>>>>>> parent of ef1dd1d... fix br in template and delor decimal et valeur 0
         }
     }
 }
