@@ -63,7 +63,6 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
     margin-left: -450px;
     position: relative;
     display: block;
-    height:40px;
 }
 
 .qti-customInteraction .forcegravite .etq_terre {}
@@ -145,7 +144,7 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .forcegravite .dynamo {
-    margin-top: -225px;
+    margin-top: -205px;
     margin-left: 724px;
     position: relative;
     width: 150px;

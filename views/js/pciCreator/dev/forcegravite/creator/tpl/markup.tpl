@@ -8,7 +8,7 @@
 			    <span  class="etq etq_terre">Bienvenue sur la Terre</span>
 			    <span  class="etq etq_lune">Bienvenue sur la Lune</span>
 			    <span  class="etq etq_mars">Bienvenue sur Mars</span>
-			    <span  class="explic">Cliquer et déplacer la météorite pour utiliser les appareils de mesure.</span> 
+			    <span  class="explic">Cliquer et déplacer la météorite <br />pour utiliser les appareils de mesure.</span> 
 			</div>
 
 

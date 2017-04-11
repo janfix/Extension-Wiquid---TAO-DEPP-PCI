@@ -7,7 +7,7 @@
 
 	<div class="aniflex rbdiv" >&nbsp;</div>
 
-		<div class="etiq etiquette1">Energie 100% Rayons solaires </div>
+		<div class="etiq etiquette1">Energie 100% <br /> Rayons solaires </div>
 		<div class="etiq etiquette2">70%</div> 
 		<div class="etiq etiquette3">30% renvoyée vers l'espace</div> 
 		<div class="etiq etiquette4">20% absorbée par l'atmosphère</div> 
