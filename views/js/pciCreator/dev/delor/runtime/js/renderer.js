@@ -218,12 +218,13 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html) {
                         this.niveau = this.niveau * 1.2;
                         this.niveau = Math.round(this.niveau);
                         if((this.niveau)>99){
-                        //deborde
+                        //overflow
                         $container.find(".deborde").show();
                         }
                         else{
                         ajusterNiveau(this.niveau * 4);
-                        $container.find(".lecvol").html("Volume lu : " + this.niveau + " mL");}
+                        $container.find(".lecvol").html("Volume lu : " + this.niveau + " mL");
+                        }
                     }
                     if (this.seuil2 === true) {
                         this.niveau = this.niveau + 10;
