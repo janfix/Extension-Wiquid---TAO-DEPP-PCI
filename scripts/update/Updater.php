@@ -140,5 +140,14 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPciVolcanisme(), ['1.1.0']);
             $this->setVersion('1.15.0');
         }
+
+        if($this->isVersion('1.15.0')){
+            call_user_func(new RegisterPciDelor(), ['1.1.2']);
+            call_user_func(new RegisterPciForcegravite(), ['1.1.2']);
+            call_user_func(new RegisterPciMaraissalant(), ['1.1.2']);
+            call_user_func(new RegisterPciEffetdeserre(), ['1.1.2']);
+            call_user_func(new RegisterPciTrain(), ['1.1.2']);
+            $this->setVersion('1.15.1');
+        }
     }
 }
