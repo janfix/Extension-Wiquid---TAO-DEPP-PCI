@@ -182,6 +182,9 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 
 .qti-customInteraction .trainvache .macrococci {
     width: 75px;
+    display:block;
+    margin-left: 29px;
+
 }
 
 
@@ -246,5 +249,5 @@ Copyright DEPP © 2017 - Ministère de l'éducation nationale
 }
 
 .qti-customInteraction .trainvache .traj {
-    height: 446px;
+    height: 423px;
 }
