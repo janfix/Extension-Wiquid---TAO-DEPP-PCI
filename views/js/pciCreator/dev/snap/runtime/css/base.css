@@ -1,0 +1,32 @@
+.tao-preview-scope{
+  position : fixed;
+}
+
+
+.qti-customInteraction .SnapForTao{
+  position : fixed;
+  width : 100%;
+  height :100%; 
+}
+
+.qti-customInteraction .SnapForTao .snapy{
+	 /*  margin-left:-185px; */
+}
+
+.qti-customInteraction .SnapForTao .qti-item {
+	margin:-10px;}
+
+.qti-customInteraction .SnapForTao .compteur{
+	display :none;
+}
+
+.test-runner-scope #qti-content {
+    position: fixed;
+    max-width: 1024px;
+    width: 100%;
+    margin: auto;
+}
+
+.test-runner-scope .qti-item {
+    padding: 10px;
+}

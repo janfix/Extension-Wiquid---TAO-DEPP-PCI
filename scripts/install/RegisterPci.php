@@ -50,6 +50,7 @@ class RegisterPci extends common_ext_action_InstallAction
             $sourceLentilles = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'lentilles']);
             $sourceVolcanisme = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'volcanisme']);
             $sourceLampedouble = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'lampedouble']);
+            $snap = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'snap']);
             $service->registerFromDirectorySource($sourceCuisine);
             $service->registerFromDirectorySource($sourceEffetDeSerre);
             $service->registerFromDirectorySource($sourceBronco);
@@ -65,6 +66,7 @@ class RegisterPci extends common_ext_action_InstallAction
             $service->registerFromDirectorySource($sourceLentilles);
             $service->registerFromDirectorySource($sourceVolcanisme);
             $service->registerFromDirectorySource($sourceLampedouble);
+            $service->registerFromDirectorySource($snap);
 
 
 
