@@ -14,18 +14,21 @@
         "cardinality": "single"
     },
     "runtime" : {
-        "hook" : "./runtime/SnapForTao.amd.js",
+        "hook" : "./runtime/SnapForTao.min.js",
         "libraries" : [
-            "IMSGlobal/jquery_2_1_1",
-            "./runtime/js/renderer.js",
-            "./runtime/js/mod.js"
         ],
         "stylesheets" : [
             "./runtime/css/base.css",
             "./runtime/css/SnapForTao.css"
-        ], "mediaFiles" : ["./runtime/assets/icon.svg","./runtime/css/img/icon.svg"]
+        ], "mediaFiles" : ["./runtime/assets/icon.svg","./runtime/css/img/icon.svg"],
+        "src" : [
+            "./runtime/SnapForTao.amd.js",
+            "./runtime/js/renderer.js",
+            "./runtime/js/lib/mod.js"
+        ]
     },
-            "creator" : {
+
+    "creator" : {
                 "icon": "./creator/img/icon.svg",
                 "hook": "./pciCreator.js",
                 "libraries" : [

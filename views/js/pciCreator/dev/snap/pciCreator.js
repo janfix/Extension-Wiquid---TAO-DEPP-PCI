@@ -1,5 +1,8 @@
 /*
-Build by Wiquid's PCI Generator for TAO platform Free to use 
+
+Build by Wiquid's PCI Generator for TAO platform Free to use - http://www.wiquid.fr/depp/ent/
+Copyright DEPP © 2018 - Ministère de l'éducation nationale  
+
  */
 
 define([
@@ -37,7 +40,7 @@ define([
          */
         getDefaultProperties : function(pci){
             return {
-                 blockPanelSizer : "visible", snapScriptSaver : "shield", Attemptlimiter : 0
+                 panelSizer : "visible", scriptImporter : "shield", testLimiter : 0, snapScript : "shield"
             };
         },
         /**

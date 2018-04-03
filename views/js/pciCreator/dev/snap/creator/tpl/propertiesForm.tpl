@@ -1,18 +1,18 @@
 
 <div class="panel">
-    <label for="blockPanelSizer">{{__ "Outils Blocks"}}</label>
+    <label for="panelSizer">{{__ "Panneau Outils Blocks"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <span class="tooltip-content">{{__ "Faites disparaître les blocks et les catégories de blocks pour simplifier l'interface."}}</span>
-    <select name="blockPanelSizer" class="bPanel" data-has-search="false">
+    <select name="panelSizer" class="panelSizer" data-has-search="false">
         <option class="opt" value="visible"> Visible </option>
         <option class="opt" value="nonVisible">Non-visible</option>
     </select>
 </div>
 <div class="panel">  
-    <label for="Attemptlimiter">{{__ "Limiter le nombre d'essais"}}</label>
+    <label for="testLimiter">{{__ "Limiter le nombre d'essais"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <span class="tooltip-content">{{__ "Activer le limiteur d'essai pour contraindre l'élève à résoudre la conception de son programme en deça d'un nombre maximum de test"}}</span>
-    <select name="Attemptlimiter" class="Attemptlimiter" data-has-search="false">
+    <select name="testLimiter" class="testLimiter" data-has-search="false">
         <option value="0" selected>Aucune limite</option>
         <option value="1">0 essai max</option>
         <option value="2">1 essai max</option>
@@ -25,14 +25,9 @@
 <hr>
 <div class="panel">
   Importer un Projet :   
- <p style="font-size : 0.85em ; text-align: justify">Attention ne pas construire de projet dans l'éditeur de TAO. Il sera impossible de sauvegarder votre travail. Construisez votre projet depuis <a href="http://snap.berkeley.edu/snapsource/snap.html" target="_blank"> une version de Snap en ligne</a> et exporter le, puis utilisez l'outil d'importation ci-dessous en 2 temps . </p>
-  1.<input type="button" name="snapScriptSaver" value="Importer un projet Snap" class="snapScriptSaver" style="padding:5px;" > <br>
-  <textarea name="snapScript" class="snapScript"  cols="30" rows="10" style="display:none;"></textarea>
-  <br>
-  2.<input type="button" name="snapScriptButton" class="snapScriptButton" value="Sauvegarder projet" style="padding:5px;" disabled>
-</div>
-
-
+ <p style="font-size : 0.85em ; text-align: justify">Attention ne pas construire de projet dans l'éditeur de TAO. Il sera impossible de sauvegarder votre travail. Construisez votre projet depuis <a href="http://snap.berkeley.edu/snapsource/snap.html" target="_blank"> une version de Snap en ligne</a> et exporter le, puis utilisez l'outil d'importation ci-dessous.  </p>
+ <input type="button" name="scriptImporter" value="Importer un projet Snap" class="scriptImporter" style="padding:5px;" > <br>
+ 
 <div>
   <hr>
 </div>

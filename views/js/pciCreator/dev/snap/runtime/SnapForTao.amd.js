@@ -1,9 +1,11 @@
-
 /*
-Build by Wiquid's PCI Generator for TAO platform Free to use 
- */
 
-define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'SnapForTao/runtime/js/renderer', 'OAT/util/event'], function(qtiCustomInteractionContext, $, renderer, event){
+Build by Wiquid's PCI Generator for TAO platform Free to use - http://www.wiquid.fr/depp/ent/
+Copyright DEPP © 2018 - Ministère de l'éducation nationale 
+
+*/
+
+define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'SnapForTao/runtime/js/renderer', 'SnapForTao/runtime/js/lib/mod','taoQtiItem/portableLib/OAT/util/event', 'taoQtiItem/portableLib/lodash' ], function(qtiCustomInteractionContext, $, renderer, mod,event, _){
     'use strict';
 
     var SnapForTao = {
@@ -21,31 +23,50 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'SnapForTao/run
 
             //add method on(), off() and trigger() to the current object
             event.addEventMgr(this);
+            var customSnapContext = {};
+            event.addEventMgr(customSnapContext);
 
             var _this = this;
             this.id = id;
             this.dom = dom;
             this.config = config || {};
+            this.config.customSnapContext = customSnapContext;
+            customSnapContext.on('rawDefinitionChange',function(value){
+                //console.log(value);
+                _this.trigger('scriptSaverChange', [value]);
+            });
 
             renderer.render(this.id, this.dom, this.config, assetManager);
 
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
 
-            //listening to dynamic configuration change
-             this.on('blockPanelSizerChange', function(level){
-                _this.config.blockPanelSizer = level;
+            //listening to dynamic configuration change for 1.panelSizer 2.testLimiter 3.scriptImporter 4.snapScript
+            this.on('panelSizerChange', function(level){
+                _this.config.panelSizer = level;
+                renderer.renderChoices(_this.id, _this.dom, _this.config);
+                if(level == 'nonVisible'){
+                    //console.log(_this.config); 
+                    mod.snap.world.leftReducer(); 
+                      
+                }
+                else{mod.snap.world.leftExpand();}
+                
+            });
+
+            this.on('testLimiterChange', function(limiter){
+                _this.config.testlimiter = limiter;
                 renderer.renderChoices(_this.id, _this.dom, _this.config);
             });
 
-            this.on('AttemptlimiterChange', function(limiter){
-                _this.config.Attemptlimiter = limiter;
+            this.on('scriptImporterChange', function(){
+                // La fonction importator renvoie la string xml.
+                mod.snap.world.importator();
                 renderer.renderChoices(_this.id, _this.dom, _this.config);
+
             });
 
-            this.on('snapScriptSaverChange', function(){
-                renderer.renderChoices(_this.id, _this.dom, _this.config);
-            });
+
         },
         /**
          * Programmatically set the response following the json schema described in
@@ -71,8 +92,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'SnapForTao/run
            var dataURL = canvas.toDataURL();
           
 
-            var Scontainer = $(this.dom),
-                value = dataURL + $(".compteur").html();// TO DO Response System
+            var $container = $(this.dom),
+                value = dataURL + $container.find(".compteur").html();// Check this
 
             return {base : {string : value}};
         },
