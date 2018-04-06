@@ -1,8 +1,45 @@
 
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
-@import url('base.css');
 
-.qti-customInteraction .SnapForTao .prompt {position:relative;}
+.SnapForTao .prompt {position:relative;}
 
+.SnapForTao{
+    position : relative;
+    width : 100%;
+    height :100%; 
+  }
+  
+.SnapForTao .snapy{
+    overflow: scroll;
+  }
 
+.SnapForTao .displayOverlay{
+    position: absolute;
+    width: 968px;
+    height: 800px;    
+    margin-top: -800px;
+    opacity: 0;
+} 
+
+/* Display Snap in full mode with overFlow option - different than authoring */
+.qti-item.runtime .SnapForTao {
+    padding : 10px; 
+  }
+.qti-item.runtime .SnapForTao .snapy {
+    overflow: visible;
+  }
+  
+.SnapForTao .compteur{
+      display :none;
+  }
+  
+.SnapForTao .scriptImporter{
+    padding-left:   5px;
+    padding-right:  5px;
+}
+
+#sidebar-right-interaction-properties .panel .parag{
+    font-size : 0.85em ; 
+    text-align: justify;
+}

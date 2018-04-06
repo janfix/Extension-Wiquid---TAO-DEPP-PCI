@@ -14,37 +14,39 @@
     published by the Free Software Foundation, either version 3 of
     the License, or (at your option) any later version.
 
-    modify by Jean-Philippe Rivière - Wiquid for TAO - 2018
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+     
+    modified by Jean-Philippe Rivière - Wiquid for TAO - 2018
+
+    */
 
 define([], function(){
     'use strict';
 
     //************ Wiquid ************************
 
-    var panel_Left, stageSaver, worldwatcher, importString="";
+    var panel_Left, stageSaver, worldwatcher;
     var attemptLimit =0; // for try counter
-    var mod = {}; // mod global object
+    var snapsrc = {}; // snapsrc global object
     var world; 
-    var getSnapProjectScript ="scriptPlaceHolder";
+    var getSnapProjectScript ="";
 
 
 
-    mod.snap = function(id, $container, config){
+    snapsrc.snap = function(id, $container, config){
     //*****************************************
     	// Global stuff
 		var Localizer;
 		var SnapTranslator = new Localizer();
         
-        if(config.snapScript=="shield"){importString="";}
-        else{ importString = config.snapScript; 
+        if(config.snapScript=="shield"){getSnapProjectScript="";}
+        else{ getSnapProjectScript = config.snapScript; 
         }
 
 
@@ -1566,7 +1568,7 @@ function newCanvas(extentPoint, nonRetina) {
     canvas.width = ext.x;
     canvas.height = ext.y;
     if (nonRetina && canvas.isRetinaEnabled) {
-        canvas.isRetinaEnabled = false;
+        canvas.isRetinaEnabled = true;
     }
     return canvas;
 }
@@ -3556,16 +3558,6 @@ Morph.prototype.drawCachedTexture = function () {
     this.changed();
 };
 
-/*
-Morph.prototype.drawCachedTexture = function () {
-    var context = this.image.getContext('2d'),
-        pattern = context.createPattern(this.cachedTexture, 'repeat');
-    context.fillStyle = pattern;
-    context.fillRect(0, 0, this.image.width, this.image.height);
-    this.changed();
-};
-*/
-
 Morph.prototype.drawOn = function (aCanvas, aRect) {
     var rectangle, area, delta, src, context, w, h, sl, st,
         pic = this.cachedFullImage || this.image,
@@ -3807,7 +3799,7 @@ Morph.prototype.fullChanged = function () {
             w.broken.push(
                 (this.cachedFullBounds || this.fullBounds()).spread()
             );
-           // Wiquid : pupil activity tracker here if needed  
+           // Wiquid : user activity tracker here if needed  
 
         }
     }
@@ -4356,11 +4348,6 @@ Morph.prototype.hierarchyMenu = function () {
                 each.toString().slice(0, 50),
                 each.developersMenu()
             );
-        /*
-            menu.addItem(each.toString().slice(0, 50), function () {
-                each.developersMenu().popUpAtHand(world);
-            });
-        */
         }
     });
     return menu;
@@ -4598,21 +4585,6 @@ Morph.prototype.backTab = function (editField) {
     look like. Insert these at the World level for fallback, and at lower
     levels in the Morphic tree (e.g. dialog boxes) for a more fine-grained
     control over the tabbing cycle.
-
-Morph.prototype.nextTab = function (editField) {
-    var next = this.nextEntryField(editField);
-    editField.clearSelection();
-    next.selectAll();
-    next.edit();
-};
-
-Morph.prototype.previousTab = function (editField) {
-    var prev = this.previousEntryField(editField);
-    editField.clearSelection();
-    prev.selectAll();
-    prev.edit();
-};
-
 */
 
 // Morph events:
@@ -11336,10 +11308,10 @@ HandMorph.prototype.processDrop = function (event) {
         }
         frd.onloadend = function (e) {
             target.droppedText(e.target.result, aFile.name);
-            //console.log(e.target.result);
+            
         };
         frd.readAsText(aFile);
-        //console.log(frd.result);
+        
     }
 
     function readBinary(aFile) {
@@ -11600,16 +11572,22 @@ WorldMorph.prototype.doOneCycle = function () {
     this.updateBroken();
 };
 
+// Wiquid : Resize Canvas respecting proportionality
+// Change clientHeight and Width but keep same proportion for this.worldCanvas.style.width / height
+
 WorldMorph.prototype.fillPage = function () {
-    var clientHeight = window.innerHeight,
-        clientWidth = window.innerWidth,
+    var clientHeight = window.innerHeight, //Wiquid : Here example /2
+        clientWidth = window.innerWidth,   //Wiquid : Here
         myself = this;
 
-    this.worldCanvas.style.position = "absolute";
+    clientHeight = clientHeight * 0.8;
+    clientWidth  = clientWidth *0.6;
+
+    this.worldCanvas.style.position = "relative";
     this.worldCanvas.style.left = "0px";
     this.worldCanvas.style.right = "0px";
-    this.worldCanvas.style.width = "100%";
-    this.worldCanvas.style.height = "100%";
+   // this.worldCanvas.style.width = "100%";  //Wiquid : Here example : 50%
+   // this.worldCanvas.style.height = "100%"; //Wiquid : Here
 
     if (document.documentElement.scrollTop) {
         // scrolled down b/c of viewport scaling
@@ -11926,17 +11904,6 @@ WorldMorph.prototype.initEventListeners = function () {
         },
         false
     );
-
-    window.onbeforeunload = function (evt) {
-        var e = evt || window.event,
-            msg = "Are you sure you want to leave?";
-        // For IE and Firefox
-        if (e) {
-            e.returnValue = msg;
-        }
-        // For Safari / chrome
-        return msg;
-    };
 };
 
 WorldMorph.prototype.mouseDownLeft = nop;
@@ -15891,7 +15858,7 @@ PianoMenuMorph.prototype.selectKey = function (midiNum) {
 // PianoMenuMorph keyboard navigation & entry:
 
 PianoMenuMorph.prototype.processKeyDown = function (event) {
-    // console.log(event.keyCode);
+    
     switch (event.keyCode) {
     case 13: // 'enter'
     case 32: // 'space'
@@ -17610,20 +17577,6 @@ SyntaxElementMorph.prototype.labelPart = function (spec) {
         // allow costumes as label symbols
         // has issues when loading costumes (asynchronously)
         // commented out for now
-
-        var rcvr = this.definition.receiver || this.scriptTarget(),
-            id = spec.slice(1),
-            cst;
-        if (!rcvr) {return this.labelPart('%stop'); }
-        cst = detect(
-            rcvr.costumes.asArray(),
-            function (each) {return each.name === id; }
-        );
-        part = new SymbolMorph(cst);
-        part.size = this.fontSize * 1.5;
-        part.color = new Color(255, 255, 255);
-        part.isProtectedLabel = true; // doesn't participate in zebraing
-        part.drawNew();
 */
 
         // allow GUI symbols as label icons
@@ -20708,11 +20661,7 @@ CommandBlockMorph.prototype.drawNew = function () {
         this.drawBottomRightEdge(context);
     } else {
         nop();
-        /*
-        this.drawFlatBottomDentEdge(
-            context, 0, this.height() - this.corner
-        );
-        */
+       
     }
 
     // draw method icon if applicable
@@ -21363,19 +21312,6 @@ ReporterBlockMorph.prototype.getSlotSpec = function () {
     // cached for performance
     if (!this.cachedSlotSpec) {
         this.cachedSlotSpec = this.determineSlotSpec();
-    /*
-    } else {
-        // debug slot spec caching
-        var real = this.determineSlotSpec();
-        if (real !== this.cachedSlotSpec) {
-            throw new Error(
-                'cached slot spec ' +
-                this.cachedSlotSpec +
-                ' does not match: ' +
-                real
-            );
-        }
-    */
     }
     return this.cachedSlotSpec;
 };
@@ -28769,7 +28705,6 @@ ScriptFocusMorph.prototype.processKeyPress = function (event) {
 ScriptFocusMorph.prototype.processKeyEvent = function (event, action) {
     var keyName, ctrl, shift;
 
-    //console.log(event.keyCode);
     this.world().hand.destroyTemporaries(); // remove result bubbles, if any
     switch (event.keyCode) {
     case 8:
@@ -28818,7 +28753,7 @@ ScriptFocusMorph.prototype.reactToKeyEvent = function (key) {
         types,
         vNames;
 
-    // console.log(evt);
+    
     switch (evt) {
     case 'esc':
         return this.stopEditing();
@@ -29091,8 +29026,8 @@ function compteur(){
     if( compteurGo >= config.testLimiter && config.testLimiter !=0 ){
 
         $container.find("#world").hide();
-        $container.find(".snapy").append("<div style='width : 100%; height:900px; background-Color:#ce8686; opacity: 1;padding:25%; margin-top: -20px ;font-size: 20px; position:fixed;'></div");
-        $container.find(".snapy").append("<div style='width : 100%; height:900px; padding:25%; font-size:40px; position:fixed; opacity: 1' >NOMBRE D\'ESSAIS MAXIMUM ATTEINT SOUMETTEZ VOTRE REPONSE POUR CONTINUER</div>");
+        $container.find(".snapy").append("<div class='bg_try_stop' style='width :"+ window.innerWidth +"px ; height:900px; background-Color:#444444; opacity: 1;padding:25%; margin-top: -867px ;font-size: 20px; position:absolute; margin-left:-48%'></div");
+        $container.find(".snapy").append("<div class='txt_try_stop' style='width : "+ window.innerWidth +"px; height:900px; padding:25%; font-size:20px; position:absolute; margin-top: -800px; opacity: 1; margin-left:-48%' >NOMBRE D\'ESSAIS MAXIMUM ATTEINT. SOUMETTEZ VOTRE REPONSE POUR CONTINUER</div>");
         
     }
 }
@@ -29108,7 +29043,7 @@ ThreadManager.prototype.startProcess = function (
     isClicked,
     rightAway
 ) {
-    compteur(); //Counting user try **** Wiquid mod ****
+    compteur(); //Counting user try **** Wiquid snapsrc ****
     var top = block.topBlock(),
         active = this.findProcess(top, receiver),
         glow,
@@ -29815,16 +29750,6 @@ by a short comment in the code. But to really revert would take a good measure
 of trial and error as well as debugging. In the developers file archive there
 is a version of threads.js dated 120119(2) which basically resembles the
 last version before introducing tail call optimization on 120123.
-
-Process.prototype.evaluateSequence = function (arr) {
-    var pc = this.context.pc;
-    if (pc >= arr.length) {
-        this.popContext();
-    } else {
-        this.context.pc += 1;
-        this.pushContext(arr[pc]);
-    }
-};
 */
 
 Process.prototype.evaluateNextInput = function (element) {
@@ -29967,11 +29892,7 @@ Process.prototype.evaluate = function (
 ) {
     if (!context) {return null; }
     if (context instanceof Function) {
-        /*
-        if (!this.enableJS) {
-            throw new Error('JavaScript is not enabled');
-        }
-        */
+        
         return context.apply(
             this.blockReceiver(),
             args.asArray().concat([this])
@@ -40087,12 +40008,7 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push(block('doIfElse'));
         blocks.push('-');
         blocks.push(block('doReport'));
-    /*
-    // old STOP variants, migrated to a newer version, now redundant
-        blocks.push(block('doStopBlock'));
-        blocks.push(block('doStop'));
-        blocks.push(block('doStopAll'));
-    */
+    
         blocks.push(block('doStopThis'));
         blocks.push(block('doStopOthers'));
         blocks.push('-');
@@ -41392,12 +41308,6 @@ CostumeEditorMorph.prototype.drawNew = function () {
     }
     this.drawCachedTexture();
 
-/*
-    pattern = ctx.createPattern(this.background, 'repeat');
-    ctx.fillStyle = pattern;
-    ctx.fillRect(0, 0, this.size.x, this.size.y);
-*/
-
     ctx = this.image.getContext('2d');
 
     // draw the costume
@@ -42290,24 +42200,6 @@ WatcherMorph.prototype.rootForGrab = function () {
     return this;
 };
 
-/*
-// Scratch-like watcher-toggling, commented out b/c we have a drop-down menu
-
-WatcherMorph.prototype.mouseClickLeft = function () {
-    if (this.style === 'normal') {
-        if (this.target instanceof VariableFrame) {
-            this.style = 'slider';
-        } else {
-            this.style = 'large';
-        }
-    } else if (this.style === 'slider') {
-        this.style = 'large';
-    } else {
-        this.style = 'normal';
-    }
-    this.fixLayout();
-};
-*/
 
 // WatcherMorph user menu:
 
@@ -43018,16 +42910,6 @@ IDE_Morph.prototype.openIn = function (world) {
         }
 	}
 
-    // dynamic notifications from non-source text files
-    // has some issues, commented out for now
-    /*
-    this.cloudMsg = getURL('http://snap.berkeley.edu/cloudmsg.txt');
-    motd = getURL('http://snap.berkeley.edu/motd.txt');
-    if (motd) {
-        this.inform('Snap!', motd);
-    }
-    */
-
     function interpretUrlAnchors() {
         var dict, idx;
 
@@ -43176,13 +43058,12 @@ IDE_Morph.prototype.openIn = function (world) {
 
     if (this.userLanguage) {
         this.loadNewProject = true;
-        //console.log("Trace setLanguage");
         this.setLanguage(this.userLanguage, interpretUrlAnchors);
     } else {
         interpretUrlAnchors.call(this);
     }
 
-    //console.log("end openin");
+    
 };
 
 // IDE_Morph construction
@@ -43769,24 +43650,6 @@ IDE_Morph.prototype.createPalette = function (forSearching) {
             this.currentSprite.sliderColor
         );
 
-        // search toolbar (floating cancel button):
-        /* commented out for now
-        this.palette.toolBar = new PushButtonMorph(
-            this,
-            function () {
-                myself.refreshPalette();
-                myself.palette.adjustScrollBars();
-            },
-            new SymbolMorph("magnifierOutline", 16)
-        );
-        this.palette.toolBar.alpha = 0.2;
-        this.palette.toolBar.padding = 1;
-        // this.palette.toolBar.hint = 'Cancel';
-        this.palette.toolBar.labelShadowColor = new Color(140, 140, 140);
-        this.palette.toolBar.drawNew();
-        this.palette.toolBar.fixLayout();
-        this.palette.add(this.palette.toolBar);
-	    */
     } else {
         this.palette = this.currentSprite.palette(this.currentCategory);
     }
@@ -44570,7 +44433,7 @@ IDE_Morph.prototype.droppedAudio = function (anAudio, name) {
 IDE_Morph.prototype.droppedText = function (aString, name) {
     var lbl = name ? name.split('.')[0] : '';
     if (aString.indexOf('<project') === 0) {
-        //console.log(aString);
+        
         location.hash = '';
         return this.openProjectString(aString);
     }
@@ -45283,20 +45146,7 @@ IDE_Morph.prototype.settingsMenu = function () {
         );
     }
     menu.addLine();
-    /*
-    addPreference(
-        'JavaScript',
-        function () {
-            Process.prototype.enableJS = !Process.prototype.enableJS;
-            myself.currentSprite.blocksCache.operators = null;
-            myself.currentSprite.paletteCache.operators = null;
-            myself.refreshPalette();
-        },
-        Process.prototype.enableJS,
-        'uncheck to disable support for\nnative JavaScript functions',
-        'check to support\nnative JavaScript functions'
-    );
-    */
+    
     if (isRetinaSupported()) {
         addPreference(
             'Retina display support',
@@ -46305,7 +46155,7 @@ IDE_Morph.prototype.newProject = function () {
 };
 
 IDE_Morph.prototype.save = function () {
-   // console.log(this.projectName);
+  
     if (this.source === 'examples') {
         this.source = 'local'; // cannot save to examples
     }
@@ -46321,8 +46171,7 @@ IDE_Morph.prototype.save = function () {
 };
 
 IDE_Morph.prototype.saveProject = function (name) {
-   /* console.log("Depuis saveProject");
-    console.log(name);*/
+  
     var myself = this;
     this.nextSteps([
         function () {
@@ -46529,11 +46378,7 @@ IDE_Morph.prototype.exportProjectSummary = function (useDropShadows) {
         if (names.length) {
             add(localize('Variables'), 'h3');
             names.forEach(function (name) {
-                /*
-                addImage(
-                    SpriteMorph.prototype.variableBlock(name).scriptPic()
-                );
-                */
+               
                 var watcher, listMorph, li, img;
 
                 if (isFirst) {
@@ -46641,12 +46486,6 @@ IDE_Morph.prototype.exportProjectSummary = function (useDropShadows) {
     body = addNode('body', html);
     add(pname, 'h1');
 
-
-    /*
-    if (SnapCloud.username) {
-        add(localize('by ') + SnapCloud.username);
-    }
-    */
     if (location.hash.indexOf('#present:') === 0) {
         add(location.toString(), 'a', body).attributes.href =
             location.toString();
@@ -46785,8 +46624,6 @@ IDE_Morph.prototype.exportProjectSummary = function (useDropShadows) {
 IDE_Morph.prototype.openProjectString = function (str) {
     var msg,
         myself = this;
-        //console.log("IMPORT PROCESS TRACKER 2");
-        //console.log(str);
     this.nextSteps([
         function () {
             msg = myself.showMessage('Opening project...');
@@ -46829,66 +46666,12 @@ IDE_Morph.prototype.rawOpenProjectString = function (str) {
     }
     this.stopFastTracking();
 
-     getSnapProjectScript = str; // exposé getSnapProjectScript
+     getSnapProjectScript = str; 
      config.customSnapContext.trigger('rawDefinitionChange',[str]);
-     importString = str;
+    
 
 };
 
-/*IDE_Morph.prototype.openCloudDataString = function (str) {
-    var msg,
-        myself = this,
-        size = Math.round(str.length / 1024);
-    this.nextSteps([
-        function () {
-            msg = myself.showMessage('Opening project\n' + size + ' KB...');
-        },
-        function () {nop(); }, // yield (bug in Chrome)
-        function () {
-            myself.rawOpenCloudDataString(str);
-        },
-        function () {
-            msg.destroy();
-        }
-    ]);
-};*/
-
-/*IDE_Morph.prototype.rawOpenCloudDataString = function (str) {
-    var model;
-    StageMorph.prototype.hiddenPrimitives = {};
-    StageMorph.prototype.codeMappings = {};
-    StageMorph.prototype.codeHeaders = {};
-    StageMorph.prototype.enableCodeMapping = false;
-    StageMorph.prototype.enableInheritance = true;
-    StageMorph.prototype.enableSublistIDs = false;
-    Process.prototype.enableLiveCoding = false;
-    if (Process.prototype.isCatchingErrors) {
-        try {
-            model = this.serializer.parse(str);
-            this.serializer.loadMediaModel(model.childNamed('media'));
-            this.serializer.openProject(
-                this.serializer.loadProjectModel(
-                    model.childNamed('project'),
-                    this
-                ),
-                this
-            );
-        } catch (err) {
-            this.showMessage('Load failed: ' + err);
-        }
-    } else {
-        model = this.serializer.parse(str);
-        this.serializer.loadMediaModel(model.childNamed('media'));
-        this.serializer.openProject(
-            this.serializer.loadProjectModel(
-                model.childNamed('project'),
-                this
-            ),
-            this
-        );
-    }
-    this.stopFastTracking();
-};*/
 
 IDE_Morph.prototype.openBlocksString = function (str, name, silently) {
     var msg,
@@ -46914,7 +46697,7 @@ IDE_Morph.prototype.rawOpenBlocksString = function (str, name, silently) {
     if (Process.prototype.isCatchingErrors) {
         try {
             blocks = this.serializer.loadBlocks(str, myself.stage);
-            //console.log(blocks);
+            
         } catch (err) {
             this.showMessage('Load failed: ' + err);
         }
@@ -47507,9 +47290,10 @@ IDE_Morph.prototype.languageMenu = function () {
 
 IDE_Morph.prototype.setLanguage = function (lang, callback) {
     
-    if(getSnapProjectScript != "scriptPlaceHolder"){importString = getSnapProjectScript;}
-    this.openDefaultProject(importString); //Wiquid SOLUTION.
-  
+    if(getSnapProjectScript != ""){
+       this.openDefaultProject(getSnapProjectScript); //Wiquid SOLUTION.
+    }
+       
 };
 
 IDE_Morph.prototype.openDefaultProject = function (impString){
@@ -47572,10 +47356,7 @@ IDE_Morph.prototype.userSetBlocksScale = function () {
     blck.color = SpriteMorph.prototype.blockColor.operators;
     blck.setSpec(localize('blocks'));
     scrpt.bottomBlock().nextBlock(blck);
-    /*
-    blck = SpriteMorph.prototype.blockForSelector('doForever');
-    blck.inputs()[0].nestedBlock(scrpt);
-    */
+   
 
     sample = new FrameMorph();
     sample.acceptsDrops = false;
@@ -47592,15 +47373,7 @@ IDE_Morph.prototype.userSetBlocksScale = function () {
     sample.add(shield);
 
     action = function (num) {
-    /*
-        var c;
-        blck.setScale(num);
-        blck.drawNew();
-        blck.setSpec(blck.blockSpec);
-        c = blck.inputs()[0];
-        c.setScale(num);
-        c.nestedBlock(scrpt);
-    */
+    
         scrpt.blockSequence().forEach(function (block) {
             block.setScale(num);
             block.drawNew();
@@ -48044,24 +47817,6 @@ IDE_Morph.prototype.cloudResponse = function () {
 
 IDE_Morph.prototype.cloudError = function () {
     var myself = this;
-
-    // try finding an eplanation what's going on
-    // has some issues, commented out for now
-    /*
-    function getURL(url) {
-        try {
-            var request = new XMLHttpRequest();
-            request.open('GET', url, false);
-            request.send();
-            if (request.status === 200) {
-                return request.responseText;
-            }
-            return null;
-        } catch (err) {
-            return null;
-        }
-    }
-    */
 
     return function (responseText, url) {
         // first, try to find out an explanation for the error
@@ -48834,12 +48589,7 @@ ProjectDialogMorph.prototype.rawOpenCloudProject = function (proj) {
                 'getRawProject',
                 function (response) {
                     SnapCloud.disconnect();
-                    /*
-                    if (myself.world().currentKey === 16) {
-                        myself.ide.download(response);
-                        return;
-                    }
-                    */
+                    
                     myself.ide.source = 'cloud';
                     myself.ide.droppedText(response);
                     if (proj.Public === 'true') {
@@ -49741,16 +49491,7 @@ SpriteIconMorph.prototype.userMenu = function () {
     menu.addItem("delete", 'removeSprite');
     menu.addLine();
     if (StageMorph.prototype.enableInheritance) {
-        /* version that hides refactoring capability unless shift-clicked
-        if (this.world().currentKey === 16) { // shift-clicked
-            menu.addItem(
-                "parent...",
-                'chooseExemplar',
-                null,
-                new Color(100, 0, 0)
-            );
-        }
-        */
+        
         menu.addItem("parent...", 'chooseExemplar');
         if (this.object.exemplar) {
             menu.addItem(
@@ -50758,13 +50499,6 @@ SoundIconMorph.prototype.audioHasEnded = function () {
 
 SoundIconMorph.prototype.createLabel
     = SpriteIconMorph.prototype.createLabel;
-
-// SoundIconMorph stepping
-
-/*
-SoundIconMorph.prototype.step
-    = SpriteIconMorph.prototype.step;
-*/
 
 // SoundIconMorph layout
 
@@ -58650,22 +58384,6 @@ modules.symbols = '2017-September-26';
 
 var SymbolMorph;
 
-/*
-WorldMorph.prototype.customMorphs = function () {
-    // add examples to the world's demo menu
-
-    return [
-        new SymbolMorph(
-            'keyboardFilled',
-            50,
-            new Color(250, 250, 250),
-            new Point(-1, -1),
-            new Color(20, 20, 20)
-        )
-    ];
-};
-*/
-
 // SymbolMorph //////////////////////////////////////////////////////////
 
 /*
@@ -62277,13 +61995,6 @@ SnapSerializer.prototype.openProject = function (project, ide) {
 // SnapSerializer XML-representation of objects:
 
 // Generics
-//Wiquid Preview bug ******************************************************************************
-/*Array.prototype.toXML = function (serializer) {
-    return this.reduce(function (xml, item) {
-        return xml + serializer.store(item);
-    }, '');
-};*/
-//**************************************************************************************************
 // Sprites
 
 StageMorph.prototype.toXML = function (serializer) {
@@ -63919,13 +63630,13 @@ var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof na
 
 //********************Wiquid******************************************************
 
- mod.snap.tao = function(message){alert(message);};
+snapsrc.snap.tao = function(message){alert(message);};
 
-    disableRetinaSupport();// here modify OPTION RETINA 
+    //disableRetinaSupport();// here modify OPTION RETINA 
     //world = new WorldMorph(document.getElementById('world')); // original syntax rejected because of id use.
     var elementCanvas = document.getElementsByClassName('world');   
     world = new WorldMorph(elementCanvas[0]);
-    mod.snap.world = world;
+    snapsrc.snap.world = world;
     world.worldCanvas.focus();
     new IDE_Morph().openIn(world);
     world.panelLeft = panel_Left;
@@ -63937,6 +63648,8 @@ var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof na
 
     world.leftExpand = function leftExpand() { panel_Left.setPaletteWidth(200); return 200; };
     
+    if(elementCanvas[1]){ $container.find(elementCanvas[1].remove());}
+   
     
     world.importator = function importator() {
         var myself = world.children[0];
@@ -63964,10 +63677,7 @@ var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof na
         document.body.appendChild(inp);
         myself.filePicker = inp;
         inp.click();
-        /*return new Promise(function(resolve, reject){
-                            var value = getSnapProjectScript; //XML String to load by tao interface
-                            resolve(value);
-                            });*/
+    
     }
     
     loop();
@@ -63980,9 +63690,9 @@ var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof na
 
 
  return panel_Left;
-    }; //End of mod.snap
+    }; //End of snapsrc.snap
 
 
-return mod;
-//*************************End mod - Wiquid solution ***************************    
+return snapsrc;
+//*************************End snapsrc - Wiquid solution ***************************    
 });

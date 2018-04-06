@@ -18,13 +18,12 @@
         "libraries" : [
         ],
         "stylesheets" : [
-            "./runtime/css/base.css",
             "./runtime/css/SnapForTao.css"
         ], "mediaFiles" : ["./runtime/assets/icon.svg","./runtime/css/img/icon.svg"],
         "src" : [
             "./runtime/SnapForTao.amd.js",
             "./runtime/js/renderer.js",
-            "./runtime/js/lib/mod.js"
+            "./runtime/js/lib/snapsrc.js"
         ]
     },
 

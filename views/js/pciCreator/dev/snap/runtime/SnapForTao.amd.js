@@ -3,9 +3,10 @@
 Build by Wiquid's PCI Generator for TAO platform Free to use - http://www.wiquid.fr/depp/ent/
 Copyright DEPP © 2018 - Ministère de l'éducation nationale 
 
+memo : grunt portableelement -e=pciWiquid -i=SnapForTao
 */
 
-define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'SnapForTao/runtime/js/renderer', 'SnapForTao/runtime/js/lib/mod','taoQtiItem/portableLib/OAT/util/event', 'taoQtiItem/portableLib/lodash' ], function(qtiCustomInteractionContext, $, renderer, mod,event, _){
+define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'SnapForTao/runtime/js/renderer', 'SnapForTao/runtime/js/lib/snapsrc','taoQtiItem/portableLib/OAT/util/event', 'taoQtiItem/portableLib/lodash' ], function(qtiCustomInteractionContext, $, renderer, snapsrc,event, _){
     'use strict';
 
     var SnapForTao = {
@@ -32,7 +33,6 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
             this.config = config || {};
             this.config.customSnapContext = customSnapContext;
             customSnapContext.on('rawDefinitionChange',function(value){
-                //console.log(value);
                 _this.trigger('scriptSaverChange', [value]);
             });
 
@@ -44,25 +44,23 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
             //listening to dynamic configuration change for 1.panelSizer 2.testLimiter 3.scriptImporter 4.snapScript
             this.on('panelSizerChange', function(level){
                 _this.config.panelSizer = level;
-                renderer.renderChoices(_this.id, _this.dom, _this.config);
+                renderer.renderSnap(_this.id, _this.dom, _this.config);
                 if(level == 'nonVisible'){
-                    //console.log(_this.config); 
-                    mod.snap.world.leftReducer(); 
-                      
+                    snapsrc.snap.world.leftReducer();                       
                 }
-                else{mod.snap.world.leftExpand();}
+                else{snapsrc.snap.world.leftExpand();}
                 
             });
 
             this.on('testLimiterChange', function(limiter){
                 _this.config.testlimiter = limiter;
-                renderer.renderChoices(_this.id, _this.dom, _this.config);
+                renderer.renderSnap(_this.id, _this.dom, _this.config);
             });
 
             this.on('scriptImporterChange', function(){
-                // La fonction importator renvoie la string xml.
-                mod.snap.world.importator();
-                renderer.renderChoices(_this.id, _this.dom, _this.config);
+                // Importator function open file explorer to find xml project.
+                snapsrc.snap.world.importator();
+                renderer.renderSnap(_this.id, _this.dom, _this.config);
 
             });
 
@@ -75,10 +73,10 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * @param {Object} interaction
          * @param {Object} response
          */
-        setResponse : function setResponse(response){
-
-            var Scontainer = $(this.dom),value;
-        },
+        //setResponse : function setResponse(response){
+            // Todo - right now, Snap for Tao can't store user's production
+            //var Scontainer = $(this.dom),value;
+        //},
         /**
          * Get the response in the json format described in
          * http://www.imsglobal.org/assessment/pciv1p0cf/imsPCIv1p0cf.html#_Toc353965343
@@ -103,11 +101,8 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * 
          * @param {Object} interaction
          */
-        resetResponse : function resetResponse(){
-
-            var Scontainer = $(this.dom);
-
-        },
+        //resetResponse : function resetResponse(){
+        //},
         /**
          * Reverse operation performed by render()
          * After this function is executed, only the inital naked markup remains 

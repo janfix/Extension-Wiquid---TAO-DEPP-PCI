@@ -38,7 +38,7 @@ use oat\pciWiquid\scripts\install\RegisterPciSnap;
 
 return array(
     'name' => 'pciWiquid',
-    'label' => 'QTI PCI SVT - Wiquid',
+    'label' => 'PCI for DEPP - Wiquid',
     'description' => '',
     'license' => 'GPL-2.0',
     'version' => '1.16.0',
