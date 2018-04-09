@@ -53,13 +53,12 @@ define([
             psize = interaction.prop('panelSizer'),
             plimit = interaction.prop('testLimiter');
 
-            
         //render the form using the form template
        $form.html(formTpl({
             serial : response.serial,
             identifier : interaction.attr('responseIdentifier')
         }));
-
+       
         $container.find(".snapyOverlay").addClass("displayOverlay");
 
         //init form javascript
@@ -80,7 +79,7 @@ define([
 
         //init data change callbacks
         formElement.setChangeCallbacks($form,interaction, {
-
+            
             panelSizer : function panelSizer(interaction, value){
             interaction.prop('panelSizer', value);
             interaction.triggerPci('panelSizerChange', [value]);
@@ -94,7 +93,7 @@ define([
             identifier : function(i, value){
             response.id(value);
             interaction.attr('responseIdentifier', value);
-      
+                  
             }
         });
 

@@ -31,11 +31,11 @@ define([], function(){
 
     //************ Wiquid ************************
 
-    var panel_Left, stageSaver, worldwatcher;
+    var panel_Left, stageSaver, worldwatcher, importString="";
     var attemptLimit =0; // for try counter
     var snapsrc = {}; // snapsrc global object
     var world; 
-    var getSnapProjectScript ="";
+    var getSnapProjectScript ="scriptPlaceHolder";
 
 
 
@@ -45,8 +45,8 @@ define([], function(){
 		var Localizer;
 		var SnapTranslator = new Localizer();
         
-        if(config.snapScript=="shield"){getSnapProjectScript="";}
-        else{ getSnapProjectScript = config.snapScript; 
+        if(config.snapScript=="shield"){importString="";}
+        else{ importString = config.snapScript; 
         }
 
 
@@ -46668,7 +46668,7 @@ IDE_Morph.prototype.rawOpenProjectString = function (str) {
 
      getSnapProjectScript = str; 
      config.customSnapContext.trigger('rawDefinitionChange',[str]);
-    
+     importString = str;// Needed for persistance in authoring
 
 };
 
@@ -47290,9 +47290,10 @@ IDE_Morph.prototype.languageMenu = function () {
 
 IDE_Morph.prototype.setLanguage = function (lang, callback) {
     
-    if(getSnapProjectScript != ""){
-       this.openDefaultProject(getSnapProjectScript); //Wiquid SOLUTION.
-    }
+    if(getSnapProjectScript != "scriptPlaceHolder"){importString = getSnapProjectScript;}
+       this.openDefaultProject(importString); //Wiquid SOLUTION.
+       //Both importString and getsnapprojectScript are needed to keep the project chosen in authoring even if options are changing.  
+    
        
 };
 
@@ -63632,7 +63633,7 @@ var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof na
 
 snapsrc.snap.tao = function(message){alert(message);};
 
-    //disableRetinaSupport();// here modify OPTION RETINA 
+    disableRetinaSupport();// here modify OPTION RETINA 
     //world = new WorldMorph(document.getElementById('world')); // original syntax rejected because of id use.
     var elementCanvas = document.getElementsByClassName('world');   
     world = new WorldMorph(elementCanvas[0]);
@@ -63647,6 +63648,9 @@ snapsrc.snap.tao = function(message){alert(message);};
     };
 
     world.leftExpand = function leftExpand() { panel_Left.setPaletteWidth(200); return 200; };
+
+    $container.find(elementCanvas[0]).css({ position : 'absolute', width:"1045px", height:"625px"}).attr("width",1045).attr("height",625);
+    
     
     if(elementCanvas[1]){ $container.find(elementCanvas[1].remove());}
    

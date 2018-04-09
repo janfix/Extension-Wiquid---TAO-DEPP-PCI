@@ -73,10 +73,9 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * @param {Object} interaction
          * @param {Object} response
          */
-        //setResponse : function setResponse(response){
-            // Todo - right now, Snap for Tao can't store user's production
-            //var Scontainer = $(this.dom),value;
-        //},
+        setResponse : function setResponse(response){
+           
+        },
         /**
          * Get the response in the json format described in
          * http://www.imsglobal.org/assessment/pciv1p0cf/imsPCIv1p0cf.html#_Toc353965343
@@ -101,8 +100,9 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * 
          * @param {Object} interaction
          */
-        //resetResponse : function resetResponse(){
-        //},
+        resetResponse : function resetResponse(){
+        
+        },
         /**
          * Reverse operation performed by render()
          * After this function is executed, only the inital naked markup remains 

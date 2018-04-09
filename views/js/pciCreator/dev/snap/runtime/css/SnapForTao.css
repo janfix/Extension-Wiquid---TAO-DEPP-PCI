@@ -23,9 +23,6 @@
 } 
 
 /* Display Snap in full mode with overFlow option - different than authoring */
-.qti-item.runtime .SnapForTao {
-    padding : 10px; 
-  }
 .qti-item.runtime .SnapForTao .snapy {
     overflow: visible;
   }

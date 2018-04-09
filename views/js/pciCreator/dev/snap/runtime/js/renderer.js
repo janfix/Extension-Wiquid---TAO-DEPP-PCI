@@ -18,6 +18,8 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/OAT/util/
     // Left Panel Sizer 
     if(config.panelSizer == 'nonVisible'){ snapsrc.snap.world.leftReducer(); }
     else{snapsrc.snap.world.leftExpand();}
+
+    $container.find(".world").css('position','relative');
     
 }
 
