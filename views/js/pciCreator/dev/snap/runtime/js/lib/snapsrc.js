@@ -63649,7 +63649,7 @@ snapsrc.snap.tao = function(message){alert(message);};
 
     world.leftExpand = function leftExpand() { panel_Left.setPaletteWidth(200); return 200; };
 
-    $container.find(elementCanvas[0]).css({ position : 'absolute', width:"1045px", height:"625px"}).attr("width",1045).attr("height",625);
+    $container.find(".world").css({ position : 'absolute', width:"1150px", height:"695px"}).attr("width",1150).attr("height",695);
     
     
     if(elementCanvas[1]){ $container.find(elementCanvas[1].remove());}
