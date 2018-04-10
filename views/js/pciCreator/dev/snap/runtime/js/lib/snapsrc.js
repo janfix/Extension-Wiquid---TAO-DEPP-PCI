@@ -63651,8 +63651,7 @@ snapsrc.snap.tao = function(message){alert(message);};
 
     $container.find(".world").css({ position : 'absolute', width:"1150px", height:"695px"}).attr("width",1150).attr("height",695);
     
-    
-    if(elementCanvas[1]){ $container.find(elementCanvas[1].remove());}
+    if($container.find(".world")[1]){ $container.find($container.find(".world")[1].remove());}
    
     
     world.importator = function importator() {
