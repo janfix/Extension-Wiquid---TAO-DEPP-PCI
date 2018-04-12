@@ -29030,10 +29030,9 @@ function compteur(){
     
     if( compteurGo >= config.testLimiter && config.testLimiter !=0 ){
 
-      //  $container.find("#world").hide();
-        $container.find(".snapy").append("<div class='bg_try_stop' style='width :"+ window.innerWidth +"px ; height:"+ window.innerHeight +"px; background-Color:#DDD; opacity: 1;padding:25%; left:0px; top:0px; ;font-size: 20px; position:absolute; margin-left:-48%'></div");
-        $container.find(".snapy").append("<div class='txt_try_stop' style='width : "+ window.innerWidth +"px; height:"+ window.innerHeight +"px; padding:25%; font-size:20px; position:absolute; left:0px; top:0px; opacity: 1; margin-left:-48% ; color:#444444;text-align:center;' >NOMBRE D\'ESSAIS MAXIMUM ATTEINT. SOUMETTEZ VOTRE REPONSE POUR CONTINUER.</div>");
-        
+        $container.find(".snapy").append("<div class='bg_try_stop'></div");
+        $container.find(".snapy").append("<div class='txt_try_stop'>NOMBRE D\'ESSAIS MAXIMUM ATTEINT. SOUMETTEZ VOTRE REPONSE POUR CONTINUER.</div>");
+        $container.find(".world").hide();
     }
 }
 
@@ -63662,11 +63661,8 @@ snapsrc.snap.tao = function(message){alert(message);};
 
     world.leftExpand = function leftExpand() { panel_Left.setPaletteWidth(200); return 200; };
 
-    // adjust depend hosting ++++++++++++++++++++++
-    // For WampServer
-    //$container.find(".world").css({ position : 'absolute', width:"1150px", height:"695px"}).attr("width",1150).attr("height",695);
-    //For LampServer
-    $container.find(".world").css({ position : 'absolute', width:"1145px", height:"620px"}).attr("width",1145).attr("height",620);
+    // adjust depend hosting ++++++++++++++++++++++ fix blur font.
+        $container.find(".world").css({ position : 'absolute', width:"1145px", height:"620px"}).attr("width",1145).attr("height",620);
     // adjust depend hosting ++++++++++++++++++++++
 
     
