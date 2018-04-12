@@ -73,7 +73,7 @@ define([
            interaction.triggerPci('scriptImporterChange', [value]);
         });
 
-         interaction.onPci('scriptSaverChange', function(value){    
+         interaction.onPci('scriptSaverChange', function(value){  
             interaction.prop('snapScript', value);            
          });
 

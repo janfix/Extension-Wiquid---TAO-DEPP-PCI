@@ -31,20 +31,22 @@ define([], function(){
 
     //************ Wiquid ************************
 
-    var panel_Left, stageSaver, worldwatcher, importString="";
+    var panel_Left, stageSaver, worldwatcher;
     var attemptLimit =0; // for try counter
     var snapsrc = {}; // snapsrc global object
-    var world; 
-    var getSnapProjectScript ="scriptPlaceHolder";
+    
+   
 
-
+   
 
     snapsrc.snap = function(id, $container, config){
     //*****************************************
     	// Global stuff
 		var Localizer;
-		var SnapTranslator = new Localizer();
-        
+        var SnapTranslator = new Localizer();
+        var importString = "";
+        var getSnapProjectScript ="scriptPlaceHolder";
+                
         if(config.snapScript=="shield"){importString="";}
         else{ importString = config.snapScript; 
         }
@@ -29001,6 +29003,9 @@ var compteurGo = 0; // Wiquid Counting user try
 
 ThreadManager.prototype.toggleProcess = function (block, receiver) {
     var active = this.findProcess(block, receiver);
+    
+    compteur();//Wiquid : Block green flag and other trigger blocks
+
     if (active) {
 
         active.stop();
@@ -29025,9 +29030,9 @@ function compteur(){
     
     if( compteurGo >= config.testLimiter && config.testLimiter !=0 ){
 
-        $container.find("#world").hide();
-        $container.find(".snapy").append("<div class='bg_try_stop' style='width :"+ window.innerWidth +"px ; height:900px; background-Color:#444444; opacity: 1;padding:25%; margin-top: -867px ;font-size: 20px; position:absolute; margin-left:-48%'></div");
-        $container.find(".snapy").append("<div class='txt_try_stop' style='width : "+ window.innerWidth +"px; height:900px; padding:25%; font-size:20px; position:absolute; margin-top: -800px; opacity: 1; margin-left:-48%' >NOMBRE D\'ESSAIS MAXIMUM ATTEINT. SOUMETTEZ VOTRE REPONSE POUR CONTINUER</div>");
+      //  $container.find("#world").hide();
+        $container.find(".snapy").append("<div class='bg_try_stop' style='width :"+ window.innerWidth +"px ; height:"+ window.innerHeight +"px; background-Color:#DDD; opacity: 1;padding:25%; left:0px; top:0px; ;font-size: 20px; position:absolute; margin-left:-48%'></div");
+        $container.find(".snapy").append("<div class='txt_try_stop' style='width : "+ window.innerWidth +"px; height:"+ window.innerHeight +"px; padding:25%; font-size:20px; position:absolute; left:0px; top:0px; opacity: 1; margin-left:-48% ; color:#444444;text-align:center;' >NOMBRE D\'ESSAIS MAXIMUM ATTEINT. SOUMETTEZ VOTRE REPONSE POUR CONTINUER.</div>");
         
     }
 }
@@ -29043,7 +29048,6 @@ ThreadManager.prototype.startProcess = function (
     isClicked,
     rightAway
 ) {
-    compteur(); //Counting user try **** Wiquid snapsrc ****
     var top = block.topBlock(),
         active = this.findProcess(top, receiver),
         glow,
@@ -30667,6 +30671,7 @@ Process.prototype.doStop = function () {
 
 Process.prototype.doStopAll = function () {
     var stage, ide;
+   
     if (this.homeContext.receiver) {
         stage = this.homeContext.receiver.parentThatIsA(StageMorph);
         if (stage) {
@@ -37748,6 +37753,7 @@ SpriteMorph.prototype.receiveUserInteraction = function (interaction) {
         procs = [],
         myself = this,
         hats;
+
     if (!stage) {return; } // currently dragged
     hats = this.allHatBlocksForInteraction(interaction);
     hats.forEach(function (block) {
@@ -39736,6 +39742,7 @@ StageMorph.prototype.fireKeyEvent = function (key) {
     this.children.concat(this).forEach(function (morph) {
         if (isSnapObject(morph)) {
             morph.allHatBlocksForKey(evt).forEach(function (block) {
+                compteur();
                 procs.push(myself.threads.startProcess(
                     block,
                     morph,
@@ -39759,6 +39766,7 @@ StageMorph.prototype.inspectKeyEvent
     = CursorMorph.prototype.inspectKeyEvent;
 
 StageMorph.prototype.fireGreenFlagEvent = function () {
+    compteur();//Wiquid green flag trigger counter 1.
     var procs = [],
         ide = this.parentThatIsA(IDE_Morph),
         myself = this;
@@ -46669,7 +46677,7 @@ IDE_Morph.prototype.rawOpenProjectString = function (str) {
      getSnapProjectScript = str; 
      config.customSnapContext.trigger('rawDefinitionChange',[str]);
      importString = str;// Needed for persistance in authoring
-
+     config.snapScript = str; // needed because in local scope it keeps init value
 };
 
 
@@ -47291,7 +47299,8 @@ IDE_Morph.prototype.languageMenu = function () {
 IDE_Morph.prototype.setLanguage = function (lang, callback) {
     
     if(getSnapProjectScript != "scriptPlaceHolder"){importString = getSnapProjectScript;}
-       this.openDefaultProject(importString); //Wiquid SOLUTION.
+      this.openDefaultProject(importString); //Wiquid SOLUTION.
+     
        //Both importString and getsnapprojectScript are needed to keep the project chosen in authoring even if options are changing.  
     
        
@@ -47300,7 +47309,8 @@ IDE_Morph.prototype.setLanguage = function (lang, callback) {
 IDE_Morph.prototype.openDefaultProject = function (impString){
 
     var str = impString; //Wiquid Solution 
-           if(impString != ""){this.openProjectString(str);}
+           if(impString != ""){this.openProjectString(str);
+        }
                
 } 
 
@@ -63635,21 +63645,30 @@ snapsrc.snap.tao = function(message){alert(message);};
 
     disableRetinaSupport();// here modify OPTION RETINA 
     //world = new WorldMorph(document.getElementById('world')); // original syntax rejected because of id use.
-    var elementCanvas = document.getElementsByClassName('world');   
+    var world; 
+    var elementCanvas = $container.find('.world');
+   
     world = new WorldMorph(elementCanvas[0]);
     snapsrc.snap.world = world;
     world.worldCanvas.focus();
     new IDE_Morph().openIn(world);
     world.panelLeft = panel_Left;
-
+    
     world.xmlString = getSnapProjectScript;
+
     world.leftReducer = function leftReducer() {    
         panel_Left.setPaletteWidth(1); return 1; 
     };
 
     world.leftExpand = function leftExpand() { panel_Left.setPaletteWidth(200); return 200; };
 
-    $container.find(".world").css({ position : 'absolute', width:"1150px", height:"695px"}).attr("width",1150).attr("height",695);
+    // adjust depend hosting ++++++++++++++++++++++
+    // For WampServer
+    //$container.find(".world").css({ position : 'absolute', width:"1150px", height:"695px"}).attr("width",1150).attr("height",695);
+    //For LampServer
+    $container.find(".world").css({ position : 'absolute', width:"1145px", height:"620px"}).attr("width",1145).attr("height",620);
+    // adjust depend hosting ++++++++++++++++++++++
+
     
     if($container.find(".world")[1]){ $container.find($container.find(".world")[1].remove());}
    
@@ -63682,7 +63701,7 @@ snapsrc.snap.tao = function(message){alert(message);};
         inp.click();
     
     }
-    
+ 
     loop();
 
     function loop() {

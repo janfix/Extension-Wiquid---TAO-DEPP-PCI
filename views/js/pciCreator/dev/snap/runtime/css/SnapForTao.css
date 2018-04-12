@@ -11,14 +11,22 @@
   }
   
 .SnapForTao .snapy{
-    overflow: scroll;
+    overflow: scroll; 
   }
+
+.item-editor-item .SnapForTao .snapy .world{
+   width :100% !important;
+   height : 100% !important;
+}
+
+
 
 .SnapForTao .displayOverlay{
     position: absolute;
     width: 968px;
     height: 800px;    
-    margin-top: -800px;
+    left:0px;
+    top:0px;
     opacity: 0;
 } 
 
@@ -26,6 +34,7 @@
 .qti-item.runtime .SnapForTao .snapy {
     overflow: visible;
   }
+
   
 .SnapForTao .compteur{
       display :none;
@@ -39,4 +48,8 @@
 #sidebar-right-interaction-properties .panel .parag{
     font-size : 0.85em ; 
     text-align: justify;
+}
+
+.txt_try_stop{
+    color : white;
 }

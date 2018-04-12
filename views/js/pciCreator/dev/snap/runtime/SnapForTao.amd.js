@@ -32,8 +32,10 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
             this.dom = dom;
             this.config = config || {};
             this.config.customSnapContext = customSnapContext;
+
             customSnapContext.on('rawDefinitionChange',function(value){
                 _this.trigger('scriptSaverChange', [value]);
+
             });
 
             renderer.render(this.id, this.dom, this.config, assetManager);
@@ -84,13 +86,15 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * @returns {Object}
          */
         getResponse : function getResponse(){
-           var elementCanvas = document.getElementsByClassName('world');
-           var canvas = elementCanvas[0];
-           var dataURL = canvas.toDataURL();
+           var $container = $(this.dom);
+          // var elementCanvas = document.getElementsByClassName('world');
+          var canvasArrLenght = $container.find(".world").length; 
+          canvasArrLenght = canvasArrLenght - 1;
+          var canvas = $container.find(".world")[canvasArrLenght] ;
           
-
-            var $container = $(this.dom),
-                value = dataURL + $container.find(".compteur").html();// Check this
+           var dataURL = canvas.toDataURL();
+        
+            var value = dataURL + $container.find(".compteur").html();// Check this
 
             return {base : {string : value}};
         },
@@ -110,10 +114,10 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * 
          * @param {Object} interaction
          */
-        destroy : function destroy(){
-
-            var Scontainer = $(this.dom);
-            Scontainer.off().empty();
+        destroy : function destroy(config){
+            var $container = $(this.dom);
+            $container.off().empty();
+           
         },
         /**
          * Restore the state of the interaction from the serializedState.
