@@ -3461,6 +3461,7 @@ Morph.prototype.silentSetExtent = function (aPoint) {
 };
 
 Morph.prototype.setWidth = function (width) {
+    
     this.setExtent(new Point(width || 0, this.height()));
 };
 

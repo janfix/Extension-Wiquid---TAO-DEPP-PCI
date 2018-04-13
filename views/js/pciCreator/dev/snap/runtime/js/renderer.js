@@ -23,7 +23,9 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/OAT/util/
     if(config.panelSizer == 'nonVisible'){ snapsrc.snap.world.leftReducer(); }
     else{snapsrc.snap.world.leftExpand();}
 
-    $container.find(".world").css('position','relative');    
+    $container.find(".world").css('position','relative');  
+    
+    window.onresize = function(){ location.reload(); }
 }
 
 

@@ -126,7 +126,7 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * @param {Object} serializedState - json format
          */
         setSerializedState : function setSerializedState(state){
-               console.log(state);
+              
         },
         /**
          * Get the current state of the interaction as a string.
