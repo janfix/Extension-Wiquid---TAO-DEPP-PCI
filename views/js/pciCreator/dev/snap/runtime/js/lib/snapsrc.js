@@ -63661,9 +63661,10 @@ snapsrc.snap.tao = function(message){alert(message);};
 
     world.leftExpand = function leftExpand() { panel_Left.setPaletteWidth(200); return 200; };
 
-    // adjust depend hosting ++++++++++++++++++++++ fix blur font.
-        $container.find(".world").css({ position : 'absolute', width:"1145px", height:"620px"}).attr("width",1145).attr("height",620);
-    // adjust depend hosting ++++++++++++++++++++++
+    //Fix blurry text 
+    $container.find(".world").css({ position : 'absolute'});
+    world.width = world.clientWidth;
+    world.height = world.clientHeight;
 
     
     if($container.find(".world")[1]){ $container.find($container.find(".world")[1].remove());}
