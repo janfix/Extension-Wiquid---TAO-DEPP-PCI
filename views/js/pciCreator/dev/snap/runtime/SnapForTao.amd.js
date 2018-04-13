@@ -86,13 +86,13 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * @returns {Object}
          */
         getResponse : function getResponse(){
-           var $container = $(this.dom);
-          // var elementCanvas = document.getElementsByClassName('world');
-          var canvasArrLenght = $container.find(".world").length; 
-          canvasArrLenght = canvasArrLenght - 1;
-          var canvas = $container.find(".world")[canvasArrLenght] ;
+            var $container = $(this.dom);
           
-           var dataURL = canvas.toDataURL();
+            var canvasArrLenght = $container.find(".world").length; 
+            canvasArrLenght = canvasArrLenght - 1;
+            var canvas = $container.find(".world")[canvasArrLenght] ;
+          
+            var dataURL = canvas.toDataURL();
         
             var value = dataURL + $container.find(".compteur").html();// Check this
 
@@ -126,7 +126,7 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          * @param {Object} serializedState - json format
          */
         setSerializedState : function setSerializedState(state){
-
+               console.log(state);
         },
         /**
          * Get the current state of the interaction as a string.

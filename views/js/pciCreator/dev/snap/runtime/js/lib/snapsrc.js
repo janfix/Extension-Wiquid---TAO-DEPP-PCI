@@ -29031,7 +29031,7 @@ function compteur(){
     if( compteurGo >= config.testLimiter && config.testLimiter !=0 ){
 
         $container.find(".snapy").append("<div class='bg_try_stop'></div");
-        $container.find(".snapy").append("<div class='txt_try_stop'>NOMBRE D\'ESSAIS MAXIMUM ATTEINT. SOUMETTEZ VOTRE REPONSE POUR CONTINUER.</div>");
+        $container.find(".snapy").append("<div class='txt_try_stop'>Nombre d\'essais maximum atteint. Soumettez votre réponse pour continuer.</div>");
         $container.find(".world").hide();
     }
 }
@@ -39741,7 +39741,6 @@ StageMorph.prototype.fireKeyEvent = function (key) {
     this.children.concat(this).forEach(function (morph) {
         if (isSnapObject(morph)) {
             morph.allHatBlocksForKey(evt).forEach(function (block) {
-                compteur();
                 procs.push(myself.threads.startProcess(
                     block,
                     morph,
