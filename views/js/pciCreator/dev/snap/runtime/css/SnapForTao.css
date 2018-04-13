@@ -16,6 +16,7 @@
 
   .SnapForTao .snapy .world{
     outline: none; 
+    border : 1px grey solid;
   }
 
 .SnapForTao .snapy .bg_try_stop {
