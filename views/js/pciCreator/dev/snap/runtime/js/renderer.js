@@ -14,22 +14,19 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/OAT/util/
 
     $container.find(".snapy").append('<canvas class="world" tabindex="1" ><p>Your browser doesn\'t support canvas.</p></canvas>');   
 
-   
-
     snapInstance = snapsrc.snap(id, $container, config);
-   
-         
+    
+    $(window).on('resize.snap', function(){ location.reload(); })
+
     // Left Panel Sizer 
     if(config.panelSizer == 'nonVisible'){ snapsrc.snap.world.leftReducer(); }
     else{snapsrc.snap.world.leftExpand();}
 
     $container.find(".world").css('position','relative');  
-    
-    window.onresize = function(){ location.reload(); }
-}
 
+ } 
 
-    return {
+        return {
         render : function(id, container, config, assetManager){
 
             var $container = $(container);

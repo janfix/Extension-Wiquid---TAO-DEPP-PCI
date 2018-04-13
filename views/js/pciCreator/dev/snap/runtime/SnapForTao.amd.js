@@ -3,7 +3,6 @@
 Build by Wiquid's PCI Generator for TAO platform Free to use - http://www.wiquid.fr/depp/ent/
 Copyright DEPP © 2018 - Ministère de l'éducation nationale 
 
-memo : grunt portableelement -e=pciWiquid -i=SnapForTao
 */
 
 define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'SnapForTao/runtime/js/renderer', 'SnapForTao/runtime/js/lib/snapsrc','taoQtiItem/portableLib/OAT/util/event', 'taoQtiItem/portableLib/lodash' ], function(qtiCustomInteractionContext, $, renderer, snapsrc,event, _){
@@ -32,6 +31,7 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
             this.dom = dom;
             this.config = config || {};
             this.config.customSnapContext = customSnapContext;
+            
 
             customSnapContext.on('rawDefinitionChange',function(value){
                 _this.trigger('scriptSaverChange', [value]);
@@ -39,7 +39,6 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
             });
 
             renderer.render(this.id, this.dom, this.config, assetManager);
-
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
 
@@ -63,7 +62,7 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
                 // Importator function open file explorer to find xml project.
                 snapsrc.snap.world.importator();
                 renderer.renderSnap(_this.id, _this.dom, _this.config);
-
+                
             });
 
 
@@ -117,6 +116,8 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
         destroy : function destroy(config){
             var $container = $(this.dom);
             $container.off().empty();
+
+            $(window).off('resize.snap');
            
         },
         /**
