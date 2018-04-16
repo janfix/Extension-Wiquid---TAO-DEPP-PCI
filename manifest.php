@@ -33,13 +33,15 @@ use oat\pciWiquid\scripts\install\RegisterPciCircuit;
 use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 use oat\pciWiquid\scripts\install\RegisterPciLentilles;
 use oat\pciWiquid\scripts\install\RegisterPciVolcanisme;
+use oat\pciWiquid\scripts\install\RegisterPciSnap;
+
 
 return array(
     'name' => 'pciWiquid',
-    'label' => 'QTI PCI SVT - Wiquid',
+    'label' => 'PCI for DEPP - Wiquid',
     'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.15.1',
+    'version' => '1.16.0',
     'author' => 'Jean-Philippe Riviere',
     'requires' => array(
         'qtiItemPci' => '>=1.0.0',
@@ -65,7 +67,8 @@ return array(
             RegisterPciCircuit::class,
             RegisterPciBerthold::class,
             RegisterPciLentilles::class,
-            RegisterPciVolcanisme::class
+            RegisterPciVolcanisme::class,
+            RegisterPciSnap::class
         )
     ),
     'update' => 'oat\\pciWiquid\\scripts\\update\\Updater',
