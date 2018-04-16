@@ -116,8 +116,6 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
         destroy : function destroy(config){
             var $container = $(this.dom);
             $container.off().empty();
-
-            $(window).off('resize.snap');
            
         },
         /**

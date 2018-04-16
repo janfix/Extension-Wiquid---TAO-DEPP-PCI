@@ -16,7 +16,6 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/OAT/util/
 
     snapInstance = snapsrc.snap(id, $container, config);
     
-    $(window).on('resize.snap', function(){ location.reload(); })
 
     // Left Panel Sizer 
     if(config.panelSizer == 'nonVisible'){ snapsrc.snap.world.leftReducer(); }
