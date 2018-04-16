@@ -36,6 +36,7 @@ use oat\pciWiquid\scripts\install\RegisterPciCircuit;
 use oat\pciWiquid\scripts\install\RegisterPciBerthold;
 use oat\pciWiquid\scripts\install\RegisterPciLentilles;
 use oat\pciWiquid\scripts\install\RegisterPciVolcanisme;
+use oat\pciWiquid\scripts\install\RegisterPciSnap;
 
 class Updater extends \common_ext_ExtensionUpdater
 {
@@ -149,5 +150,12 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPciTrain(), ['1.1.2']);
             $this->setVersion('1.15.1');
         }
+
+        if($this->isVersion('1.15.1')){
+            call_user_func(new RegisterPciSnap(), ['1.0.0']);
+            $this->setVersion('1.16.0');
+        }
+
+
     }
 }
