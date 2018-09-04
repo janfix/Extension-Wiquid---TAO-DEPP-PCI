@@ -41,7 +41,7 @@ return array(
     'label' => 'PCI for DEPP - Wiquid',
     'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.16.0',
+    'version' => '1.16.1',
     'author' => 'Jean-Philippe Riviere',
     'requires' => array(
         'qtiItemPci' => '>=1.0.0',
