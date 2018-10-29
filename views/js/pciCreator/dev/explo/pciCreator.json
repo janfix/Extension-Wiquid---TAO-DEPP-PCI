@@ -1,0 +1,91 @@
+{
+    "typeIdentifier": "explo",
+    "label": "Explorateur de Fichiers",
+    "short": "Explo",
+    "description": "Simultation d'explorateur Système de Fichiers",
+    "version": "0.2.3",
+    "author": "Jean-Philippe Rivière",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "technologies","Explorateur de Fichiers"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime" : {
+        "hook" : "./runtime/explo.amd.js",
+        "libraries" : [
+            "IMSGlobal/jquery_2_1_1",
+            "./runtime/js/renderer.js",
+            "./runtime/js/lib/bootstrap.js",
+            "./runtime/js/lib/tether.min.js",
+            "./runtime/js/lib/jstree.js",
+            "./runtime/js/lib/datatables.js",
+            "./runtime/js/lib/progressbar.js",
+            "./runtime/js/lib/tinymce.js",
+            "./runtime/js/lib/themes/modern/theme.js"
+
+        ],
+        "stylesheets" : [
+            "./runtime/css/base.css",
+            "./runtime/css/font-awesome.min.css",
+            "./runtime/css/bootstrap.css",
+            "./runtime/css/Explorer.css",
+            "./runtime/css/jsTreeStyle.css",
+            "./runtime/css/datatables.css",
+            "./runtime/js/lib/skins/lightgray/content.min.css",
+            "./runtime/js/lib/skins/lightgray/skin.min.css"
+
+
+        ], 
+        "fonts" : [
+        	".runtime/js/lib/skins/lightgray/fonts/tinymce.ttf",
+        	".runtime/js/lib/skins/lightgray/fonts/tinymce.woff"
+        ],
+
+        "mediaFiles" : [
+            "./runtime/assets/greenGrid.png",
+            "./runtime/css/img/video.png",
+            "./runtime/css/img/view.png",
+            "./runtime/css/img/usb.png",
+            "./runtime/css/img/Tomato_folder.png",
+            "./runtime/css/img/text-html.png",
+            "./runtime/css/img/search.png",
+            "./runtime/css/img/reduit.png",
+            "./runtime/css/img/logicVol.png",
+            "./runtime/css/img/js.png",
+            "./runtime/css/img/image.png",
+            "./runtime/css/img/hdrive.png",
+            "./runtime/css/img/folder-whiteImg.png",
+            "./runtime/css/img/folder-downloads.png",
+            "./runtime/css/img/folder2.png",
+            "./runtime/css/img/folder_whiteSheet.png",
+            "./runtime/css/img/folder.png",
+            "./runtime/css/img/FileTomato.png",
+            "./runtime/css/img/FileSymbol.png",
+            "./runtime/css/img/download.png",
+            "./runtime/css/img/document.png",
+            "./runtime/css/img/computer-2.png",
+            "./runtime/css/img/computer2.png",
+            "./runtime/css/img/computer.png",
+            "./runtime/css/img/coche.png",
+            "./runtime/css/img/camera.png",
+            "./runtime/css/img/close.png",
+            "./runtime/css/img/32px.png",
+            "./runtime/css/img/throbber.gif",
+            "./runtime/css/img/40px.png"
+        ]
+    },
+            "creator" : {
+                "icon": "./creator/img/icon.svg",
+                "hook": "./pciCreator.js",
+                "libraries" : [
+                    "./creator/tpl/markup.tpl",
+                    "./creator/tpl/propertiesForm.tpl",
+                    "./creator/widget/Widget.js",
+                    "./creator/widget/states/Question.js",
+                    "./creator/widget/states/states.js"
+                ]
+            }
+        }

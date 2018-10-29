@@ -1,0 +1,620 @@
+
+
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+@import url('base.css');
+@import url('font-awesome.min.css');
+@import url('bootstrap.css');
+@import url('jsTreeStyle.css');
+@import url('datatables.css');
+
+/* .qti-customInteraction .explo .prompt {position:relative;} */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: grey;
+}
+
+.lightgrey {
+    border: 1px lightgrey solid;
+}
+
+.green {
+    border: 1px green solid;
+}
+
+.blue {
+    border: 1px blue solid;
+}
+
+.pink {
+    border: 1px pink solid;
+}
+
+.pathZone {
+    height : 30px;
+    padding: 5px;
+    border-collapse: collapse;
+    margin-top: -21px !important;
+}
+
+.tree{
+     margin-left: -20px;
+}
+
+.treeZone {
+    float : left;
+    width : 25%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    font-size: 0.9em;
+    border-top: 0;
+    border-right: 0;
+    min-height: 700px;
+}
+
+.fileZone {
+    float:right;
+    width : 75%;
+    overflow-y: scroll;
+    border-top: 0;
+    max-height: 700px;
+    min-height: 700px;
+}
+
+.signature {
+    padding: 5px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.sizer {
+    cursor: col-resize;
+    margin-left: -17px;
+    float: left;
+    width: 3px;
+}
+
+.sizer:hover {
+    width: 5px;
+    border-left: 1px pink solid;
+    border-right: 1px pink solid;
+}
+
+.accesRapide {
+    border: 1px lightblue dotted;
+    margin: 10px;
+    padding: 5px;
+    min-width: 165px;
+    margin-top: 10px!important;
+}
+
+.QuickTitle {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-style: italic;
+    color: blueviolet;
+}
+
+.QuickTitle:hover {
+    color: darkmagenta;
+}
+
+#example_filter {
+    margin-top: 10px;
+}
+
+.inLineIcon {
+    display:inline;
+    width: 22px;
+    height: 22px;
+    margin: 5px;
+}
+
+.rapidLi {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+.rapidLi:hover {
+ border : 1px #8A2BE2 solid;
+}
+
+table.dataTable tbody>tr.selected,
+table.dataTable tbody>tr>.selected {
+    background-color: #8dacbb;
+}
+
+.path {
+    margin-top: 5px !important;
+}
+
+.searchBox {
+    float: right;
+}
+
+.topAdjust {
+    margin-top: -21px;
+}
+
+.preIcon {
+    margin-right: 5px;
+}
+
+.pathLine {
+    line-height: 20px;
+    display: inline;
+}
+
+.magnify {
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.magnify:hover {
+    opacity: 0.6;
+}
+
+#example span {
+    display: none;
+}
+
+.iconeMenu {
+    margin-right: 10px;
+    display: inline;
+}
+
+.hide {
+    display: none;
+}
+
+.windowTools {
+    padding: 3px;
+    margin-top: 3px;
+    border: 1px lightgrey solid;
+    margin-right: 10px;
+    float: right;
+}
+
+.windowTitle {
+    color: darkblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    Font-Variant: Small-Caps;
+    margin-left: 10px;
+    float: left;
+    font-size: 1.6em;
+    opacity: 0.2;
+}
+
+.fakeWindow {
+    width: 100%;
+    height: 40px;
+    background-color: floralwhite;
+    border-top: 1px #E7E7E7 solid;
+    border-left: 1px #E7E7E7 solid;
+    border-right: 1px #E7E7E7 solid;
+
+}
+
+.modali {
+    position: absolute;
+    display: none;
+    opacity: 1;
+    left: 0px;
+    top: 69px;
+    background-color: #F8F8F8;
+    border: 1px lightgrey solid;
+    width: 400px;
+    height: 400px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+.modalApp {
+    position: absolute;
+    display: none;
+    opacity: 1;
+    left: 0px;
+    top: 69px;
+    background-color: #F8F8F8;
+    border: 1px lightgrey solid;
+    width: 400px;
+    height: 400px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+
+.fakeModalWindow {
+    background-color: blueviolet;
+}
+
+.annulModal {
+    cursor: pointer;
+}
+
+.contentModal {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footerModal {
+    text-align: right;
+}
+
+.comWin {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    display: none;
+    padding: 20px;
+    opacity: 0.9;
+    left: 20%;
+    top: 10%;
+    background-color: black;
+    position: absolute;
+    border: 1px lightgrey solid;
+    width: 400px;
+    height: 400px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+.comLine {
+    border: 0px black solid;
+    background-color: black;
+}
+
+.comLine:focus {
+    outline: none;
+}
+
+.dirContent {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.context-menu.dropdown-menu {
+    display: block;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: visibility 0s 0.1s, opacity 0.1s linear;
+    visibility: hidden;
+    background-color: white;
+    border : 1px #333333 solid;
+}
+
+.context-menu.dropdown-menu.open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.1s linear;
+}
+
+.context-menu.dropdown-menu a {
+    cursor: pointer;
+    color : #333333;
+}
+
+.context-menu.dropdown-menu a:hover {
+    text-decoration: none;
+    color:crimson ;
+}
+
+
+
+.divider{
+   margin:7px 0;
+   overflow:hidden;
+   border-top: 1px #e5e5e5 solid;
+   margin-left : -30px!important
+}
+
+ul.context-menu.dropdown-menu  {
+     list-style: none;
+     background-clip: padding-box;
+     border: 1px solid #ccc;
+     border: 1px solid rgba(0, 0, 0, .15);
+     border-radius: 4px;
+      padding-right : 10px;
+}
+
+
+
+ul.dropdown-submenu{
+    list-style: none;
+}
+
+.context-menu.dropdown-menu li:first-child {
+    margin-top: 10px;
+}
+
+.context-menu.dropdown-menu li:last-child {
+    margin-top: 10px;
+}
+
+
+
+.context-menu.dropdown-menu li{
+    padding:2px;
+    margin-left: -20px;
+}
+
+.dropdown-submenu .dropdown-toggle:after {
+    content: "\f0da";
+    display: inline-block;
+    float: right;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    padding-top: 3px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+}
+
+#cnxt-cursor {
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    width: 0px;
+}
+
+.inputExtension {
+    width: 80px;
+}
+
+.jstree-default-contextmenu {
+    background-color: white;
+}
+
+.vakata-context li>a .vakata-contextmenu-sep {
+    display: none;
+}
+
+.gapFiller {
+    min-height: 1px;
+    width: 100%;
+    background-color: blueviolet;
+    opacity: 0.3;
+}
+
+.progress {
+    margin-top: 20px;
+}
+
+.movable {
+    background: #f9d4f9;
+    color: #444;
+    border: #000 1px solid;
+}
+
+.closeWindow {
+    cursor: pointer;
+}
+
+.processing {
+    margin-bottom: 30px;
+}
+
+tr.highlight {
+    color: rgb(37, 37, 37) !important;
+}
+
+.explo .alert-dismissable .close,
+.explo .alert-dismissible .close{
+    top:-8px;
+}
+
+
+
+.explo .icoReduce{
+    float:right;
+    width:22px;
+    height:22px;
+    background-image: url('img/reduit.png');
+}
+.explo .icoView {
+    margin-left: 5px;
+    margin-right: 5px;
+    float:right;
+    width:22px;
+    height:22px;
+    background-image: url('img/view.png');
+}
+.explo .icoClose {
+    float:right;
+    width:22px;
+    height:22px;
+    background-image: url('img/close.png');
+}
+
+.explo .fakeWindow {
+    width: 100%;
+    height: 38px;
+    background-color: floralwhite;
+}
+.explo .windowTools {
+    padding: 3px;
+    margin-top: 3px;
+    border: 1px lightgrey solid;
+    margin-right: 10px;
+    float: right;
+}
+
+.explo .windowTitle {
+    color: darkblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    Font-Variant: Small-Caps;
+    margin-left: 10px;
+    float: left;
+    font-size: 1.6em;
+    opacity: 0.2;
+}
+
+.explo .preIconPath{
+   float:left;
+   width:22px;
+   height:22px;
+   background-image: url('img/folder2.png');
+}
+
+.explo .magnify{
+   margin-right: auto;
+   float: right;
+   width:22px;
+   height:22px;
+   background-image: url('img/search.png');
+}
+
+.explo .searchInput{
+    float:right;
+    width : 190px;
+}
+
+.explo .row{
+    height : 40px;
+}
+
+.explo .icoCamera{
+    background: url('img/camera.png') no-repeat left top;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+
+.explo .icoVideo {
+    background: url('img/video.png')no-repeat left top;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+.explo .icoDocument {
+    background: url('img/document.png')no-repeat left top;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+.explo .icoDownload {
+    background: url('img/download.png')no-repeat left top;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+.explo .icoHdrive {
+
+    background: url('img/hdrive.png')no-repeat left top;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+.listItemRapid{
+    padding-left: 0px!important;
+    list-style-type: none;
+     line-height: 2em;
+}
+
+.jstree-default>.jstree-no-dots .jstree-node,
+.jstree-default>.jstree-no-dots .jstree-leaf>.jstree-ocl{
+    margin-left: -10px;
+
+}
+.modali button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.explo .progress {
+    margin-top : 20px;
+}
+
+.explo .contentModal h3 {
+    margin-top: 60px!important;
+}
+
+.jsonLoader{margin : 10px;}
+
+.imageApp{
+    width : 700px;
+    height : 500px;
+}
+
+.topButtonCloser{
+    margin-top:10px !important;
+    margin-bottom:20px!important;
+}
+.imageAppContainer{
+    text-align: center;
+}
+
+.mce-btn button{
+    background-color: #f2f2f2;
+   
+}
+
+.mce-btn .mce-txt {
+    color : grey!important;
+}
+
+
+.waitIcon {
+    position: absolute;
+    top:20%;
+    left: 36%;
+}
+
+.windowToolbar img{
+    float:right;
+    margin:5px;
+    border:1px lightgrey solid;
+}
+
+.butcloser {
+    margin : 10px!important;
+}
+
+.mce-branding {
+    display:none!important;
+}
+
+.data{
+    display: none;
+}
+
+.secretId{
+    display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
