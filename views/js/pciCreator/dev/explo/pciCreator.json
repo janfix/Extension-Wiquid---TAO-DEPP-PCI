@@ -3,7 +3,7 @@
     "label": "Explorateur de Fichiers",
     "short": "Explo",
     "description": "Simultation d'explorateur Système de Fichiers",
-    "version": "0.2.3",
+    "version": "0.2.6",
     "author": "Jean-Philippe Rivière",
     "email": "jean.philippe.riviere@gmail.com",
     "tags": [
@@ -18,38 +18,36 @@
         "libraries" : [
             "IMSGlobal/jquery_2_1_1",
             "./runtime/js/renderer.js",
+            "./runtime/js/defaultConfig.js",
             "./runtime/js/lib/bootstrap.js",
             "./runtime/js/lib/tether.min.js",
             "./runtime/js/lib/jstree.js",
+            "./runtime/js/lib/nicEdit.js",
             "./runtime/js/lib/datatables.js",
-            "./runtime/js/lib/progressbar.js",
-            "./runtime/js/lib/tinymce.js",
-            "./runtime/js/lib/themes/modern/theme.js"
-
+            "./runtime/js/lib/progressbar.js"
         ],
         "stylesheets" : [
             "./runtime/css/base.css",
             "./runtime/css/font-awesome.min.css",
             "./runtime/css/bootstrap.css",
-            "./runtime/css/Explorer.css",
+            "./runtime/css/explo.css",
             "./runtime/css/jsTreeStyle.css",
-            "./runtime/css/datatables.css",
-            "./runtime/js/lib/skins/lightgray/content.min.css",
-            "./runtime/js/lib/skins/lightgray/skin.min.css"
-
-
+            "./runtime/css/datatables.css"
         ], 
-        "fonts" : [
-        	".runtime/js/lib/skins/lightgray/fonts/tinymce.ttf",
-        	".runtime/js/lib/skins/lightgray/fonts/tinymce.woff"
-        ],
-
         "mediaFiles" : [
+            "./runtime/fonts/fontawesome-webfont.woff",
+            "./runtime/fonts/fontawesome-webfont.woff2",
+            "./runtime/fonts/glyphicons-halflings-regular.eot",
+            "./runtime/fonts/glyphicons-halflings-regular.svg",
+            "./runtime/fonts/glyphicons-halflings-regular.ttf",
+            "./runtime/fonts/glyphicons-halflings-regular.woff",
+            "./runtime/fonts/glyphicons-halflings-regular.woff2",
             "./runtime/assets/greenGrid.png",
+            "./runtime/assets/Loading_icon.gif",
+            "./runtime/assets/processing.png",
             "./runtime/css/img/video.png",
             "./runtime/css/img/view.png",
             "./runtime/css/img/usb.png",
-            "./runtime/css/img/Tomato_folder.png",
             "./runtime/css/img/text-html.png",
             "./runtime/css/img/search.png",
             "./runtime/css/img/reduit.png",
@@ -62,7 +60,6 @@
             "./runtime/css/img/folder2.png",
             "./runtime/css/img/folder_whiteSheet.png",
             "./runtime/css/img/folder.png",
-            "./runtime/css/img/FileTomato.png",
             "./runtime/css/img/FileSymbol.png",
             "./runtime/css/img/download.png",
             "./runtime/css/img/document.png",
@@ -74,6 +71,15 @@
             "./runtime/css/img/close.png",
             "./runtime/css/img/32px.png",
             "./runtime/css/img/throbber.gif",
+            "./runtime/css/img/cdrom.png",
+            "./runtime/css/img/sdcard.png",
+            "./runtime/css/img/network.png",
+            "./runtime/css/img/bin.png",
+            "./runtime/css/img/sort_asc.png",
+            "./runtime/css/img/sort_asc_disabled.png",
+            "./runtime/css/img/sort_both.png",
+            "./runtime/css/img/sort_desc.png",
+            "./runtime/css/img/sort_desc_disabled.png",
             "./runtime/css/img/40px.png"
         ]
     },

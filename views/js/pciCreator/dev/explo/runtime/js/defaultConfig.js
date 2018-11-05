@@ -37,55 +37,55 @@ var defaultJson =
                     "dateCreat": "2000-01-01",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },
     {
                     "fileId": 4,
                     "node": "vol1",
-                    "name": "patate",
+                    "name": "agenda",
                     "extension": ".js",
                     "size": "50000000",
                     "dateMod": "2007-10-22",
                     "dateCreat": "2007-10-20",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },
     {
                     "fileId": 5,
                     "node": "vol1",
-                    "name": "Banane",
+                    "name": "libras",
                     "extension": ".js",
                     "size": "50000000",
                     "dateMod": "2002-11-22",
                     "dateCreat": "2000-10-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },
     {
                     "fileId": 6,
                     "node": "vol2",
-                    "name": "toto",
+                    "name": "grunt",
                     "extension": ".kop",
                     "size": "50000000",
                     "dateMod": "2002-01-27",
                     "dateCreat": "2002-01-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },
     {
                     "fileId": 7,
                     "node": "cdRom",
-                    "name": "deathboot",
-                    "extension": ".vir",
+                    "name": "boot",
+                    "extension": ".sig",
                     "size": "5000000",
                     "dateMod": "2012-12-3",
                     "dateCreat": "2001-01-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },
     {
                     "fileId": 8,
@@ -97,7 +97,7 @@ var defaultJson =
                     "dateCreat": "2001-01-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system",
+                    "author" : "Pierre Martin",
                     "image_url": "http://www.wiquid.fr/img/img1.png"
     },
     {
@@ -110,7 +110,7 @@ var defaultJson =
                     "dateCreat": "2001-01-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system",
+                    "author" : "Pierre Martin",
                     "image_url": "http://www.wiquid.fr/img/img2.png"
     },
     {
@@ -123,20 +123,20 @@ var defaultJson =
                     "dateCreat": "2001-01-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system",
+                    "author" : "Pierre Martin",
                     "image_url": "http://www.wiquid.fr/img/img3.png"
     },
     {
                     "fileId": 11,
-                    "node": "clipboard",
-                    "name": "residu copier col",
+                    "node": "images",
+                    "name": "metadonnees",
                     "extension": ".bulk",
                     "size": "50000000",
                     "dateMod": "2012-12-3",
                     "dateCreat": "2001-01-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },
     {
                     "fileId": 12,
@@ -148,7 +148,7 @@ var defaultJson =
                     "dateCreat": "2018-08-22",
                     "app" : "",
                     "dateLastAcces" : "",
-                    "author" : "Docteur system"
+                    "author" : "Pierre Martin"
     },    
     {
                     "fileId": 13,
@@ -189,9 +189,9 @@ var defaultJson =
     {
                     "fileId": 16,
                     "node": "videos",
-                    "name": "big",
+                    "name": "longfilm",
                     "extension": ".bog",
-                    "size": "0",
+                    "size": "45210",
                     "dateMod": "2000-01-20",
                     "dateCreat": "2000-01-18",
                     "app" : "codeEditor.exe",
@@ -246,7 +246,7 @@ var defaultJson =
     {
         "id": "clipboard",
         "state": {
-            "hidden": false
+            "hidden": true
         },
         "parent": "#",
         "text": "ClipBoard",
@@ -262,7 +262,7 @@ var defaultJson =
     {
         "id": "searchResult",
         "state": {
-            "hidden": false
+            "hidden": true
         },
         "parent": "#",
         "text": "searchResult",
@@ -278,7 +278,7 @@ var defaultJson =
     {
         "id": "erased",
         "state": {
-            "hidden": false
+            "hidden": true
         },
         "parent": "#",
         "text": "erased",

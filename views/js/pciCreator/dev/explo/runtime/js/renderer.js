@@ -54,11 +54,6 @@ function evCollector(evName, var1, var2){
     eventCollector.push(evString);
     $(".dataActions").html(eventCollector.join(","));
 }
-
-
-            
-
-
             $('.jstree').jstree({
                 'core': {
                     'data': treeFolder,
