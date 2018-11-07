@@ -32,27 +32,18 @@ define(['qtiCustomInteractionContext',
             this.id = id;
             this.dom = dom;
             this.config = config || {};
-           // console.log(this.config);
+           
 
             renderer.render(this.id, this.dom, this.config, assetManager);
 
             //tell the rendering engine that I am ready
             qtiCustomInteractionContext.notifyReady(this);
 
-            //listening to dynamic configuration change
-            /* this.on('jsonLoaderChange', function (jsonUrl) {
-                // Importator function 
-                console.log(jsonUrl);
-                    _this.config.path = jsonUrl;
-                    console.log(_this.config);
-                renderer.render(_this.id, _this.dom, _this.config, assetManager );
-            }); */
+    
 
              this.on('jsonImporterChange', function (jsonData) {
                 // Importator function 
-                console.log(jsonData);
-                    _this.config.data = jsonData;
-                    //console.log(_this.config);
+                    _this.config.data = jsonData; 
                 renderer.render(_this.id, _this.dom, _this.config, assetManager );
             });
         },

@@ -12,7 +12,7 @@ define(['explo/runtime/js/defaultConfig',
         'use strict';
 
 
-        function renderChoices(id, $container, config, assetManager) {
+        function renderExplo(id, $container, config, assetManager) {
 
             /*
             mapFile : Json for files
@@ -32,7 +32,10 @@ define(['explo/runtime/js/defaultConfig',
                 bin = [],
                 eventCollector = [],
                 WbranchSize, incrementor = 1,
-                destiTarget; // Stock target for drag and drop only on jstree        
+                destiTarget,// Stock target for drag and drop only on jstree  
+                searchResultArr = [],
+                onlyOne,
+                shortCutList;
             var menuTop = '<div class="container-fluid"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> </div> <div class="navbar-collapse collapse"> <ul class="nav navbar-nav"> <li class="active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichier <span class="caret"></span> </a> <ul class="dropdown-menu"> <li> <a href="#" class="formater">Formater lecteur</a> </li>  <!-- <li> <a href="#">Gestion Espace</a> </li> --> </ul> </li> <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Affichage <span class="caret"></span> </a> <ul class="dropdown-menu"> <!-- <li> <a href="#">Grandes icônes</a> </li> <li> <a href="#">Petites icônes</a> </li> --> <li> <a href="#">Détails</a> </li> <!-- <li> <a href="#">Afficher les fichiers cachés</a> </li> --> </ul> </li> <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigation <span class="caret"></span> </a> <ul class="dropdown-menu"> <li> <a href="#">Réseau</a> </li> <!-- <li> <a href="#">Ajouter un accès rapide</a> </li> <li> <a href="#">Prévisualiser</a> </li> --> </ul> </li> </ul> </div> <!--/.nav-collapse --> </div> <!--/.container-fluid -->';
             
             var pathLine = '<div class="preIconPath"></div> <div class="pathLine">Loading...</div><div title="cliquez pour lancer la recherche" class="magnify"></div><input class="searchInput" type="text" placeholder="Rechercher fichier ou dossier"> ';
@@ -57,6 +60,7 @@ define(['explo/runtime/js/defaultConfig',
                 eventCollector.push(evString);
                 $container.find(".dataActions").html(eventCollector.join(","));
             }
+
             $tree = $container.find('.jstree');
             $tree.jstree({
                 'core': {
@@ -467,7 +471,7 @@ define(['explo/runtime/js/defaultConfig',
 
 
             // listening shortCuts click
-            var shortCutList = ['images', 'videos', 'documents', 'downloads', 'vol1', 'vol2', 'vol3', 'vol4', 'vol5', 'vol6'];
+            shortCutList = ['images', 'videos', 'documents', 'downloads', 'vol1', 'vol2', 'vol3', 'vol4', 'vol5', 'vol6'];
             for (let i = 0; i < shortCutList.length; i++) {
                 const element = shortCutList[i];
                 $container.find("." + element).on('click', function () {
@@ -2639,9 +2643,9 @@ define(['explo/runtime/js/defaultConfig',
             }
 
 
-            var searchResultArr = []; // A remettre à zéro au lancement de la recherche
+            searchResultArr = []; // A remettre à zéro au lancement de la recherche
             //************** Chapter Search ******************
-            var onlyOne = 0;
+            onlyOne = 0;
             $container.find(".magnify").on('click', function () {
                 let el = $container.find(".searchInput").val(); // element à rechercher
                 let startSearchId = $tree.jstree(true).get_selected()[0];
@@ -2980,7 +2984,7 @@ define(['explo/runtime/js/defaultConfig',
             }
 
 
-        } // Main function renderChoices end here 
+        } // Main function renderExplo end here 
 
 
 
@@ -2990,11 +2994,11 @@ define(['explo/runtime/js/defaultConfig',
 
                 var Scontainer = $(container);
 
-                renderChoices(id, Scontainer, config, assetManager);
+                renderExplo(id, Scontainer, config, assetManager);
 
             },
-            renderChoices: function (id, container, config, assetManager) {
-                renderChoices(id, $(container), config, assetManager);
+            renderExplo: function (id, container, config, assetManager) {
+                renderExplo(id, $(container), config, assetManager);
             }
         };
     });

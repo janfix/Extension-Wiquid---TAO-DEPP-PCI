@@ -65,12 +65,6 @@ define([
         //init form javascript
         formElement.initWidget(Sform);
 
-        /* Sform.find(".jsonLoader").on("click", function () {
-            var value = Sform.find(".jsonUrl").val();
-            interaction.prop('path', value);//
-            interaction.triggerPci('jsonLoaderChange', [value]);
-        }); */
-
         Sform.find(".jsonImport").on("change", function (event) {
         var uploadedFile = event.target.files[0];
         if (uploadedFile) {
@@ -83,7 +77,7 @@ define([
             };
             readFile.readAsText(uploadedFile);
         } else {
-            console.log("Failed to load file");
+            alert("Failed to load file");
         }
 
         });
