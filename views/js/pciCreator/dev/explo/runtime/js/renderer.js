@@ -32,12 +32,12 @@ define(['explo/runtime/js/defaultConfig',
                 bin = [],
                 eventCollector = [],
                 WbranchSize, incrementor = 1,
-                destiTarget,// Stock target for drag and drop only on jstree  
+                destiTarget, // Stock target for drag and drop only on jstree  
                 searchResultArr = [],
                 onlyOne,
                 shortCutList;
             var menuTop = '<div class="container-fluid"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> </div> <div class="navbar-collapse collapse"> <ul class="nav navbar-nav"> <li class="active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fichier <span class="caret"></span> </a> <ul class="dropdown-menu"> <li> <a href="#" class="formater">Formater lecteur</a> </li>  <!-- <li> <a href="#">Gestion Espace</a> </li> --> </ul> </li> <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Affichage <span class="caret"></span> </a> <ul class="dropdown-menu"> <!-- <li> <a href="#">Grandes icônes</a> </li> <li> <a href="#">Petites icônes</a> </li> --> <li> <a href="#">Détails</a> </li> <!-- <li> <a href="#">Afficher les fichiers cachés</a> </li> --> </ul> </li> <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigation <span class="caret"></span> </a> <ul class="dropdown-menu"> <li> <a href="#">Réseau</a> </li> <!-- <li> <a href="#">Ajouter un accès rapide</a> </li> <li> <a href="#">Prévisualiser</a> </li> --> </ul> </li> </ul> </div> <!--/.nav-collapse --> </div> <!--/.container-fluid -->';
-            
+
             var pathLine = '<div class="preIconPath"></div> <div class="pathLine">Loading...</div><div title="cliquez pour lancer la recherche" class="magnify"></div><input class="searchInput" type="text" placeholder="Rechercher fichier ou dossier"> ';
 
             $container.find(".prompt").hide();
@@ -49,9 +49,20 @@ define(['explo/runtime/js/defaultConfig',
             if (config.data == "") {
                 mapFile = defaultjson.mapFile;
                 treeFolder = defaultjson.treeFolder;
+                runTree();
+                tableDisplayer();
             } else {
                 mapFile = config.data.mapFile;
                 treeFolder = config.data.treeFolder;
+                runTree();     
+                $tree.jstree().destroy();
+                $container.find('.tree').html('<div class="jstree "></div>')
+                runTree();
+                tableDisplayer();
+                $fileList.destroy();
+                $container.find('.dirContent').remove();
+                $container.find('.fileList').html('<table class="table dirContent"></table>')
+                tableDisplayer();
             }
 
             // Collect event for answer 
@@ -61,98 +72,102 @@ define(['explo/runtime/js/defaultConfig',
                 $container.find(".dataActions").html(eventCollector.join(","));
             }
 
-            $tree = $container.find('.jstree');
-            $tree.jstree({
-                'core': {
-                    'data': treeFolder,
-                    "check_callback": function (operation, node, node_parent, node_position, more) {
-                        if (operation == 'move_node') {
-                            if (node_parent.type == 'cdRom') {
-                                $tree.jstree(true).deselect_all();
-                                return false
-                            } else if (node_parent.type == 'root') {
-                                $tree.jstree(true).deselect_all();
-                                return false
-                            } else if (node_parent.type == 'netWork') {
+            function runTree() {
+                $tree = $container.find('.jstree');
+                $tree.jstree({
+                    'core': {
+                        'data': function () {
+                            return treeFolder
+                        },
+                        "check_callback": function (operation, node, node_parent, node_position, more) {
+                            if (operation == 'move_node') {
+                                if (node_parent.type == 'cdRom') {
+                                    $tree.jstree(true).deselect_all();
+                                    return false
+                                } else if (node_parent.type == 'root') {
+                                    $tree.jstree(true).deselect_all();
+                                    return false
+                                } else if (node_parent.type == 'netWork') {
 
-                                $tree.jstree(true).deselect_all();
-                                return false
-                            } else if (node_parent.id == '#') {
-                                $tree.jstree(true).deselect_all();
-                                return false
+                                    $tree.jstree(true).deselect_all();
+                                    return false
+                                } else if (node_parent.id == '#') {
+                                    $tree.jstree(true).deselect_all();
+                                    return false
+                                } else {
+                                    return true;
+                                }
+                            }
+                        }
+                    },
+                    'plugins': ["contextmenu", "types", "dnd", "state", "unique", "wholerow"],
+                    'contextmenu': {
+                        'items': customMenu
+                    },
+                    'dnd': {
+                        "is_draggable": function (node) {
+                            if (node[0].type == "default") {
+                                let evName = "Drag du répertoire depuis l'arborescence ";
+                                evCollector(evName, "cf.drop pour nom du rep.", "-");
+                                return true; // Controle draggable here --- flip switch here.
                             } else {
-                                return true;
+                                return false;
+                            }
+                        }
+                        //check_while_dragging: true 
+                    },
+                    'types': {
+                        "bin": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/bin.png')
+                        },
+                        "volume": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/hdrive.png')
+                        },
+                        "cdRom": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/cdrom.png')
+                        },
+                        "netWork": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/network.png')
+                        },
+                        "sdCard": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/sdcard.png')
+                        },
+                        "usb": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/usb.png')
+                        },
+                        "distant": {
+                            "icon": assetManager.resolve('explo/runtime/css/img/distant.png')
+                        },
+                        'root': {
+                            "icon": assetManager.resolve('explo/runtime/css/img/computer2.png')
+                        }
+                    }
+                }).bind("move_node.jstree", function (e, data) {
+                    destiTarget = data.parent;
+                    let evName = "Déplacement de répertoire ";
+                    evCollector(evName, getDirName(data.node.id), getDirName(data.parent));
+                });
+
+                $tree.jstree(true).settings.core.data = treeFolder;
+
+                $tree.jstree(true).refresh();
+
+                //Listen to drop in jstree specific mvt.
+                $container.find(".explo").on("dnd_stop.vakata", function (e, data) {
+                    for (let i = 0; i < treeFolder.length; i++) {
+                        for (let y = 0; y < data.data.nodes.length; y++) {
+                            if (treeFolder[i].id == data.data.nodes[y]) {
+                                treeFolder[i].parent = destiTarget;
+                                let activDir = $tree.jstree(true).get_selected();
+                                $tree.jstree(true).select_node(activDir);
+                                $tree.jstree(true).open_node(activDir);
+                                displayDirContent(activDir);
+                                dataFolder();
                             }
                         }
                     }
-                },
-                'plugins': ["contextmenu", "types", "dnd", "state", "unique", "wholerow"],
-                'contextmenu': {
-                    'items': customMenu
-                },
-                'dnd': {
-                    "is_draggable": function (node) {
-                        if (node[0].type == "default") {
-                            let evName = "Drag du répertoire depuis l'arborescence ";
-                            evCollector(evName, "cf.drop pour nom du rep.", "-");
-                            return true; // Controle draggable here --- flip switch here.
-                        } else {
-                            return false;
-                        }
-                    }
-                    //check_while_dragging: true 
-                },
-                'types': {
-                    "bin": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/bin.png')
-                    },
-                    "volume": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/hdrive.png')
-                    },
-                    "cdRom": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/cdrom.png')
-                    },
-                    "netWork": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/network.png')
-                    },
-                    "sdCard": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/sdcard.png')
-                    },
-                    "usb": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/usb.png')
-                    },
-                    "distant": {
-                        "icon": assetManager.resolve('explo/runtime/css/img/distant.png')
-                    },
-                    'root': {
-                        "icon": assetManager.resolve('explo/runtime/css/img/computer2.png')
-                    }
-                }
-            }).bind("move_node.jstree", function (e, data) {
-                destiTarget = data.parent;
-                let evName = "Déplacement de répertoire ";
-                evCollector(evName, getDirName(data.node.id), getDirName(data.parent));
-            });
-            
-            $tree.jstree(true).settings.core.data = treeFolder;
-            
-            $tree.jstree(true).refresh();
-
-            //Listen to drop in jstree specific mvt.
-            $container.find(".explo").on("dnd_stop.vakata", function (e, data) {
-                for (let i = 0; i < treeFolder.length; i++) {
-                    for (let y = 0; y < data.data.nodes.length; y++) {
-                        if (treeFolder[i].id == data.data.nodes[y]) {
-                            treeFolder[i].parent = destiTarget;
-                            let activDir = $tree.jstree(true).get_selected();
-                            $tree.jstree(true).select_node(activDir);
-                            $tree.jstree(true).open_node(activDir);
-                            displayDirContent(activDir);
-                            dataFolder();
-                        }
-                    }
-                }
-            });
+                });
+            }
 
             function customMenu(node) {
                 if ($tree.jstree("get_selected", true)[0].type == "volume") {
@@ -260,7 +275,7 @@ define(['explo/runtime/js/defaultConfig',
                     }
                     return items;
                 } else if ($tree.jstree("get_selected", true)[0].type == "netWork") {
-                    
+
                 } else {
                     var items = {
                         createDir: {
@@ -333,97 +348,99 @@ define(['explo/runtime/js/defaultConfig',
 
 
             //******************************************** Building File/Dir list -  dataTable Chapter *****************************************************            
-
-            $fileList = $container.find('.dirContent').DataTable({
-                "language": {
-                    "emptyTable": "Aucun fichier dans ce répertoire."
-                },
-                "destroy": true,
-                "select": true,
-                "paging": false,
-                "ordering": true,
-                "info": false,
-                "searching": false,
-                "columnDefs": [{
-                    "defaultContent": "-",
-                    "targets": "_all"
-                }],
-                "columns": [{
-                        title: "fileId",
-                        "visible": false
+            function tableDisplayer() {
+                $fileList = $container.find('.dirContent').DataTable({
+                    "language": {
+                        "emptyTable": "Aucun fichier dans ce répertoire."
                     },
-                    {
-                        title: "Nom",
-                        width: "180px"
-                    },
-                    {
-                        title: "Date de Modification",
-                        width: "100px"
-                    },
-                    {
-                        title: "Type",
-                        width: "160px"
-                    },
-                    {
-                        title: "Taille",
-                        width: "80px",
-                        className: 'dt-body-right'
-                    },
-                    {
-                        title: "Date de Création",
-                        width: "100px",
-                        className: 'dt-body-right'
-                    },
-                    {
-                        title: "Chemin",
-                        width: "350px",
-                        visible: true
+                    "destroy": true,
+                    "select": true,
+                    "paging": false,
+                    "ordering": true,
+                    "info": false,
+                    "searching": false,
+                    "columnDefs": [{
+                        "defaultContent": "-",
+                        "targets": "_all"
+                    }],
+                    "columns": [{
+                            title: "fileId",
+                            "visible": false
+                        },
+                        {
+                            title: "Nom",
+                            width: "180px"
+                        },
+                        {
+                            title: "Date de Modification",
+                            width: "100px"
+                        },
+                        {
+                            title: "Type",
+                            width: "160px"
+                        },
+                        {
+                            title: "Taille",
+                            width: "80px",
+                            className: 'dt-body-right'
+                        },
+                        {
+                            title: "Date de Création",
+                            width: "100px",
+                            className: 'dt-body-right'
+                        },
+                        {
+                            title: "Chemin",
+                            width: "350px",
+                            visible: true
 
-                    },
-                ]
-            });
+                        },
+                    ]
+                });
+                
 
-            //*******************Listening to DataTables elements*******************/
-            $container.find(".dirContent tbody").on('mouseenter', 'tr', function () {
-                $container.find(this).addClass('highlight');
-            });
-            $container.find(".dirContent tbody").on('mouseleave', 'tr', function () {
-                $container.find(this).removeClass('highlight');
-            });
+                //*******************Listening to DataTables elements*******************/
+                $container.find(".dirContent tbody").on('mouseenter', 'tr', function () {
+                    $container.find(this).addClass('highlight');
+                });
+                $container.find(".dirContent tbody").on('mouseleave', 'tr', function () {
+                    $container.find(this).removeClass('highlight');
+                });
 
-            // Listening list directories for browsing
-            $container.find('.dirContent tbody').on('dblclick', 'tr', function (e) {
+                // Listening list directories for browsing
+                $container.find('.dirContent tbody').on('dblclick', 'tr', function (e) {
 
-                if ($fileList.row(this).data()[3] == "Répertoire" ||
-                    $fileList.row(this).data()[3] == "Volume" ||
-                    $fileList.row(this).data()[3] == "Mémoire Flash" ||
-                    $fileList.row(this).data()[3] == "Mémoire Flash usb" ||
-                    $fileList.row(this).data()[3] == "Lecteur Optique CD"
-                ) {
-                    let saveSelectDir = $fileList.row(this).data()[0];
-                    $tree.jstree('deselect_all');
-                    $tree.jstree('select_node', saveSelectDir);
+                    if ($fileList.row(this).data()[3] == "Répertoire" ||
+                        $fileList.row(this).data()[3] == "Volume" ||
+                        $fileList.row(this).data()[3] == "Mémoire Flash" ||
+                        $fileList.row(this).data()[3] == "Mémoire Flash usb" ||
+                        $fileList.row(this).data()[3] == "Lecteur Optique CD"
+                    ) {
+                        let saveSelectDir = $fileList.row(this).data()[0];
+                        $tree.jstree('deselect_all');
+                        $tree.jstree('select_node', saveSelectDir);
 
-                    let evName = "Double Clic - ouverture de répertoire ou de volume";
-                    evCollector(evName, getDirName(saveSelectDir), "-");
+                        let evName = "Double Clic - ouverture de répertoire ou de volume";
+                        evCollector(evName, getDirName(saveSelectDir), "-");
 
-                    displayDirContent(saveSelectDir);
-                } else {
-                    if (e.target.lastChild.data.search(".") == 0) {
-                        let targetName = e.target.lastChild.data;
-                        let targetPlace = $tree.jstree(true).get_selected();
-                        fileCall(targetName, targetPlace);
-                        let evName = "Double Clic - ouverture de fichier";
-                        evCollector(evName, targetName, getDirName(targetPlace));
+                        displayDirContent(saveSelectDir);
                     } else {
-                        //Hypothetic case if file name loose the .
-                        let targetName = e.target.lastChild.data;
-                        let targetPlace = $tree.jstree(true).get_selected();
-                        fileCall(targetName, targetPlace);
+                        if (e.target.lastChild.data.search(".") == 0) {
+                            let targetName = e.target.lastChild.data;
+                            let targetPlace = $tree.jstree(true).get_selected();
+                            fileCall(targetName, targetPlace);
+                            let evName = "Double Clic - ouverture de fichier";
+                            evCollector(evName, targetName, getDirName(targetPlace));
+                        } else {
+                            //Hypothetic case if file name loose the .
+                            let targetName = e.target.lastChild.data;
+                            let targetPlace = $tree.jstree(true).get_selected();
+                            fileCall(targetName, targetPlace);
+                        }
                     }
-                }
-            });
+                });
 
+            }
             //***********************JSTree : UI ***********************************/
             // Open folder with one Click instead of doubleClick
             $tree.bind("select_node.jstree", function (e, data) {
@@ -431,8 +448,8 @@ define(['explo/runtime/js/defaultConfig',
             });
             //*********************Tree Listening changes**************************/
             $tree.on("changed.jstree", function (e, data) {
-                
-                
+
+
                 $container.find(".jstree-node").on('dragover', function (event) {
                     event.preventDefault();
                     event.stopPropagation();
@@ -497,8 +514,7 @@ define(['explo/runtime/js/defaultConfig',
                 var exto, iconExt, labelExt, fileId, dataMod, dataCreat, orginalPath; // for files only
 
                 for (let i = 0; i < treeFolder.length; i++) {
-                    if (treeFolder[i].parent == activDir) {
-                    };
+                    if (treeFolder[i].parent == activDir) {};
                 }
 
                 function pathDisplay(dirActiv) {
@@ -533,51 +549,53 @@ define(['explo/runtime/js/defaultConfig',
 
                 // Select type to display the right tables structure  
                 if ($tree.jstree("get_selected", true)[0]) {
+
                     if ($tree.jstree("get_selected", true)[0].type == 'root') {
                         volumeDisplayer();
                         $fileList.column(1).header().innerText = "Lecteurs";
                         $fileList.column(3).header().innerText = "Description";
                         $fileList.column(4).header().innerText = "Capacités";
                         $fileList.column(5).header().innerText = "Espace libre";
-                        $fileList.column(6).visible(false);
-                        $fileList.column(2).visible(true);
-                        $fileList.column(5).visible(true);
+                        $fileList.column(6).visible(false, false);
+                        $fileList.column(2).visible(true, false);
+                        $fileList.column(5).visible(true, false);
 
                     } else if ($tree.jstree("get_selected", true)[0].type == 'bin') {
+                        folderDisplayer();
                         $fileList.column(1).header().innerText = "Nom";
                         $fileList.column(2).header().innerText = "Date de suppression";
-                        $fileList.column(6).visible(false);
-                        $fileList.column(2).visible(true);
-                        $fileList.column(5).visible(true);
-                        folderDisplayer();
+                        $fileList.column(6).visible(false, false);
+                        $fileList.column(2).visible(true, false);
+                        $fileList.column(5).visible(true, false);
+                        
 
                     } else if ($tree.jstree("get_selected", true)[0].type == 'netWork') {
                         folderDisplayer();
-                        $fileList.column(6).visible(false);
-                        $fileList.column(2).visible(true);
-                        $fileList.column(5).visible(true);
-                        
+                        $fileList.column(6).visible(false, false);
+                        $fileList.column(2).visible(true, false);
+                        $fileList.column(5).visible(true, false);
+
                     } else if ($tree.jstree("get_selected", true)[0].id == 'searchResult') {
-                        
+                        folderDisplayer();
                         $fileList.column(1).header().innerText = "Nom";
                         $fileList.column(2).header().innerText = "Date de Modification";
                         $fileList.column(3).header().innerText = "Type";
                         $fileList.column(4).header().innerText = "Taille";
-                        $fileList.column(2).visible(false);
-                        $fileList.column(5).visible(false);
-                        $fileList.column(6).visible(true);
-                        folderDisplayer();
+                        $fileList.column(2).visible(false, false);
+                        $fileList.column(5).visible(false, false);
+                        $fileList.column(6).visible(true, false);
+                        
 
                     } else {
+                        folderDisplayer();
                         $fileList.column(1).header().innerText = "Nom";
                         $fileList.column(2).header().innerText = "Date de Modification";
                         $fileList.column(3).header().innerText = "Type";
                         $fileList.column(4).header().innerText = "Taille";
                         $fileList.column(5).header().innerText = "Date de Création";
-                        $fileList.column(2).visible(true);
-                        $fileList.column(5).visible(true);
-                        $fileList.column(6).visible(false);
-                        folderDisplayer();
+                        $fileList.column(2).visible(true, false);
+                        $fileList.column(5).visible(true, false);
+                        $fileList.column(6).visible(false, false);        
                     }
                 }
 
@@ -588,20 +606,20 @@ define(['explo/runtime/js/defaultConfig',
                         rowFolder;
                     for (let i = 0; i < dirData.length; i++) {
                         if ($tree.jstree(true).get_node(dirData[i].id).parent == "searchResult") {
-                            originalPath = $tree.jstree(true).get_path(getOriginalPath(dirData[i].id));                    
+                            originalPath = $tree.jstree(true).get_path(getOriginalPath(dirData[i].id));
                             originalPath.shift();
                             originalPath = originalPath.join('/');
                         }
                         rowFolder = $fileList.row.add([
                             dirData[i].id,
-                            "<span class='secretId'>" + dirData[i].id + "</span><img class = 'preIcon' src = " + getIconExt("") + " >" + $tree.jstree(true).get_node(dirData[i].id).text, 
+                            "<span class='secretId'>" + dirData[i].id + "</span><img class = 'preIcon' src = " + getIconExt("") + " >" + $tree.jstree(true).get_node(dirData[i].id).text,
                             "<span class = 'hide' >" + dataMod + "</span>" + euroDate($tree.jstree(true).get_node(dirData[i].id).data.dateMod),
                             $tree.jstree(true).get_node(dirData[i].id).data.type,
                             $tree.jstree(true).get_node(dirData[i].id).taille,
                             "<span class = 'hide' >" + dataMod + "</span>" + euroDate($tree.jstree(true).get_node(dirData[i].id).data.dateCreat),
                             originalPath
                         ]).draw().node();
-                        
+
                         $container.find(rowFolder).attr({
                             "draggable": true
                         });
@@ -639,7 +657,7 @@ define(['explo/runtime/js/defaultConfig',
                 }
 
                 // Display file List
-                for (let index = 0; index < mapFile.length; index++) {                    
+                for (let index = 0; index < mapFile.length; index++) {
                     exto = mapFile[index].extension;
                     iconExt = getIconExt(exto);
                     labelExt = getLabelExt(mapFile[index].extension);
@@ -672,19 +690,6 @@ define(['explo/runtime/js/defaultConfig',
                 }
 
                 // ******************Drag & drop List element to Quick access and table row **************  
-
-                // Quick access Drag & Drop
-               /*  $container.find(".rapidLi").on('dragover', function () {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    $container.find(this).addClass('dragging');
-                });
-
-                $container.find(".rapidLi").on('drop', function () {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    drop(event);
-                }); */
 
                 // Table Row Drag & Drop
                 //Depending on browsers - Chrome vs others 
@@ -904,7 +909,7 @@ define(['explo/runtime/js/defaultConfig',
             function dragFF(ev) {
                 var FileArray = [];
                 DDFile = [];
-                ev.originalEvent.dataTransfer.setData("text/plain", ev.target.id);                
+                ev.originalEvent.dataTransfer.setData("text/plain", ev.target.id);
                 //identification element grabbed by just mouseDown and not click
                 var ddTarget, nameCheck, idCheck, typeCheck; // todo protect variables to prevent accidental drag
                 idCheck = ev.target.getAttribute('data');
@@ -934,7 +939,7 @@ define(['explo/runtime/js/defaultConfig',
 
                 ddTarget = $fileList.rows({
                     selected: true
-                })[0];// Array of Ids
+                })[0]; // Array of Ids
 
                 for (let i = 0; i < ddTarget.length; i++) {
                     var dataId = $fileList.row(ddTarget[i]).data()[0];
@@ -947,7 +952,7 @@ define(['explo/runtime/js/defaultConfig',
                                 evCollector(evName, treeFolder[i].text, getDirName(treeFolder[i].origin));
                             };
                         }
-                        DDFolder.indexOf(dataId) === -1 ? DDFolder.push(dataId) : console.log("This item already exists");
+                        if(DDFolder.indexOf(dataId) === -1){DDFolder.push(dataId)}
                     } else {
                         FileArray.push(dataId); // Build file array selection
                     }
@@ -961,7 +966,7 @@ define(['explo/runtime/js/defaultConfig',
                             mapFile[i].origin = mapFile[i].node;
                             let evName = "Drag fichier(s) sélectionné(s) depuis la liste";
                             evCollector(evName, mapFile[i].name + mapFile[i].extension, getDirName(mapFile[i].origin));
-                            DDFile.indexOf(FileArray[y]) === -1 ? DDFile.push(FileArray[y]) : console.log("This item already exists");
+                            if(DDFile.indexOf(FileArray[y]) === -1){DDFile.push(FileArray[y])}
                         };
                     }
                 }
@@ -974,7 +979,7 @@ define(['explo/runtime/js/defaultConfig',
                 ev.dataTransfer.setData("text/plain", ev.target.id);
                 //ev.target.getAttribute('data'); Get Data value that stock the file / folder ID
                 //identification element grabbed by just mouseDown and not click
-                var ddTarget, nameCheck, idCheck, typeCheck; 
+                var ddTarget, nameCheck, idCheck, typeCheck;
                 idCheck = ev.target.getAttribute('data');
                 nameCheck = ev.target.cells[0].innerText;
                 typeCheck = ev.target.cells[2].innerText;
@@ -995,7 +1000,7 @@ define(['explo/runtime/js/defaultConfig',
                             mapFile[i].origin = mapFile[i].node;
                             DDFile.push(mapFile[i].fileId);
                             let evName = "Drag fichier non sélectionné depuis la liste";
-                            evCollector(evName, mapFile[i].name + mapFile[i].extension, getDirName(mapFile[i].origin));     
+                            evCollector(evName, mapFile[i].name + mapFile[i].extension, getDirName(mapFile[i].origin));
                         };
                     }
                 }
@@ -1015,7 +1020,8 @@ define(['explo/runtime/js/defaultConfig',
                                 evCollector(evName, treeFolder[i].text, getDirName(treeFolder[i].origin));
                             };
                         }
-                        DDFolder.indexOf(dataId) === -1 ? DDFolder.push(dataId) : console.log("This item already exists");
+                        
+                        if(DDFolder.indexOf(dataId) === -1){DDFolder.push(dataId)}
                     } else {
                         FileArray.push(dataId); // Build file array selection
                     }
@@ -1028,7 +1034,8 @@ define(['explo/runtime/js/defaultConfig',
                             mapFile[i].origin = mapFile[i].node;
                             let evName = "Drag fichier(s) sélectionné(s) depuis la liste";
                             evCollector(evName, mapFile[i].name + mapFile[i].extension, getDirName(mapFile[i].origin));
-                            DDFile.indexOf(FileArray[y]) === -1 ? DDFile.push(FileArray[y]) : console.log("This item already exists");
+                            
+                            if(DDFile.indexOf(FileArray[y]) === -1){DDFile.push(FileArray[y])}
                         };
                     }
                 }
@@ -1137,9 +1144,9 @@ define(['explo/runtime/js/defaultConfig',
                                                     return;
                                                 }
                                                 //Update Json treeFolder
-                                                
+
                                                 if (treeFolder[i].id == treeFolder[x].id) {
-                        
+
                                                 } // Destination = origin
                                                 else {
                                                     if (procy) {
@@ -1187,7 +1194,7 @@ define(['explo/runtime/js/defaultConfig',
                                                     return;
                                                 }
                                                 //Update Json treeFolder 
-                                                if (treeFolder[i].id == treeFolder[x].id) { } // Destination = origin
+                                                if (treeFolder[i].id == treeFolder[x].id) {} // Destination = origin
                                                 else {
                                                     if (procy) {
                                                         treeFolder[i].parent = treeFolder[x].id;
@@ -1216,8 +1223,8 @@ define(['explo/runtime/js/defaultConfig',
                 DDFolder = [];
                 WbranchSize = 0;
 
-            }// End Zone D&D commun function
-            
+            } // End Zone D&D commun function
+
 
             //*************Context Menu Command******************************/
             function commandCut(selectedNodeId) {
@@ -1225,9 +1232,9 @@ define(['explo/runtime/js/defaultConfig',
                     var originalNodes = $tree.jstree(true).get_selected(selectedNodeId);
                     for (let x = 0; x < originalNodes.length; x++) {
                         WbranchSize = branchSize(originalNodes[x].id);
-                        
+
                         $tree.jstree().move_node(originalNodes[x].id, 'clipboard');
-                        
+
                         var oriNodeId = originalNodes[x].id;
                         for (let i = 0; i < treeFolder.length; i++) {
                             const idfold = treeFolder[i];
@@ -1249,9 +1256,9 @@ define(['explo/runtime/js/defaultConfig',
                         var element = $fileList.row(indexElement).data();
                         for (let i = 0; i < mapFile.length; i++) {
                             if (element[0] == mapFile[i].fileId) {
-                                
+
                                 clipBoard.push(mapFile[i]);
-                                
+
                                 dataFiles();
                             };
                         }
@@ -1297,7 +1304,7 @@ define(['explo/runtime/js/defaultConfig',
                 for (let y = 0; y < clipBoard.length; y++) {
                     if (clipBoard[y].fileId) {
                         if (clipBoard[y].copy) {
-                            
+
                             clipBoard[y].node = destiPaste[0];
                             verifDbl(clipBoard[y], destiPaste[0], "copy"); //Verify doubles and write in mapFile
                             // mapFile.push(clipBoard[y]);
@@ -1317,10 +1324,10 @@ define(['explo/runtime/js/defaultConfig',
                             }
 
                         } else {
-                            
+
                             for (let i = 0; i < mapFile.length; i++) {
                                 if (mapFile[i].fileId == clipBoard[y].fileId) {
-                                    
+
                                     verifDbl(mapFile[i], destiPaste[0], "cut"); //Verify doubles and write in mapFile
 
                                     let evName = "Mcontextuel - Coller fichier depuis couper";
@@ -1331,9 +1338,9 @@ define(['explo/runtime/js/defaultConfig',
                             }
                             displayDirContent(destiPaste);
 
-                            
+
                         }
-                    } 
+                    }
                 }
 
                 clipBoard = []; //Empty clipBoard after paste
@@ -1347,7 +1354,7 @@ define(['explo/runtime/js/defaultConfig',
                 for (let ifold = 0; ifold < allchildArray.length; ifold++) { // Scan all directories in childArray
                     for (let i = 0; i < treeFolder.length; i++) {
                         if (treeFolder[i].id == allchildArray[ifold]) {
-                                          
+
                             let testWritable = verifDbl(treeFolder[i], destiPaste[0], 'copy'); // Incertitude sur le message copy
 
                             for (let j = 0; j < childArray.length; j++) { // Scan all directories in childArray
@@ -1382,7 +1389,7 @@ define(['explo/runtime/js/defaultConfig',
                                         }
                                     }
                                 }
-                            } 
+                            }
                             dataFolder();
                             let evName = "Mcontextuel - Coller répertoire";
                             evCollector(evName, treeFolder[i].text, getDirName(destiPaste[0]));
@@ -1425,7 +1432,7 @@ define(['explo/runtime/js/defaultConfig',
                             }
                             //FolderWritable = false;
                         }
-                     }
+                    }
                     return FolderWritable;
                 } else {
                     if (operation == "copy") {
@@ -1474,7 +1481,7 @@ define(['explo/runtime/js/defaultConfig',
                             }
                             if (testWritable) {
                                 //Simple paste case
-                                
+
                                 let testFP = testFreeSpace(placeId, element); // Test if there is enough space on the volume
                                 if (testFP) {
                                     element.node = placeId;
@@ -1490,17 +1497,17 @@ define(['explo/runtime/js/defaultConfig',
                     } else if (operation == "cut") {
                         for (let i = 0; i < mapFile.length; i++) {
                             if (mapFile[i].name == element.name && mapFile[i].node == placeId && mapFile[i].extension == element.extension) {
-                                
+
                                 var autoriz = confirm("Attention un fichier avec le même nom et la même extension existe déjà à cet emplacement, voulez-vous l'écraser ?");
                                 if (autoriz == true) {
-                                   
+
 
                                     let testFP = testFreeSpace(placeId, element, "move"); // Test if there is enough space on the volume
                                     if (testFP) {
                                         //allowed
                                         mapFile[i].node = "erased"; // Erased the previous element  
                                         for (let y = 0; y < mapFile.length; y++) { // search the element to paste
-                                            if (mapFile[y].name == element.name && mapFile[y].node == 'clipBoard' && mapFile[y].extension == element.extension) { 
+                                            if (mapFile[y].name == element.name && mapFile[y].node == 'clipBoard' && mapFile[y].extension == element.extension) {
                                                 mapFile[y].node = placeId;
                                                 return mapFile[y];
                                             }
@@ -1681,7 +1688,7 @@ define(['explo/runtime/js/defaultConfig',
                         // add branch weight
                         var newNode = $tree.jstree().copy_node(copyNodes[x], 'clipboard');
                         var newNodeData = $tree.jstree().get_node(newNode);
-                        
+
                         for (let i = 0; i < treeFolder.length; i++) {
                             if (treeFolder[i].id == copyNodes[x]) {
                                 addCopyToJson(newNodeData, newNode, "clipboard", treeFolder[i]);
@@ -2093,14 +2100,14 @@ define(['explo/runtime/js/defaultConfig',
                     $container.find(".annulModal").click(function () {
                         $container.find(".modali").hide();
                     });
-                    
+
                     $container.find(".contentModal").html("<h3>Renommer le répertoire</h3><input class='renamerInput' type='text' value=" + selectedNodeName + " ><button class='btDirRenamer'>OK</button><button class='annulModal'>Annuler</button>");
                     $container.find(".btDirRenamer").click(function () {
                         for (let i = 0; i < treeFolder.length; i++) {
                             if (treeFolder[i].id == selectedNodeId) {
                                 // Verify
                                 let newName = $container.find(".renamerInput").val();
-                                
+
                                 for (let y = 0; y < treeFolder.length; y++) {
                                     if (treeFolder[y].text == newName && treeFolder[y].parent == treeFolder[i].parent) {
                                         alert("Un répertoire porte déjà ce nom à cet endroit ! Impossible de le renommer ainsi. Choisissez un autre nom.");
@@ -2133,7 +2140,7 @@ define(['explo/runtime/js/defaultConfig',
             function commandProperties(selectedNode) {
 
                 if (selectedNode) { // The node tree has been clicked
-                    
+
                     $container.find(".fakeModalWindow").html('<div class="modalTitle"><div class="windowTools"></div></div>');
                     $container.find(".modalTitle").css({
                         height: "37px",
@@ -2251,7 +2258,7 @@ define(['explo/runtime/js/defaultConfig',
             }
 
             function commandEmptyTrash() {
-                
+
                 confirm("Vous allez vider la corbeille... Les données seront définitivement effacées.");
                 var activDir = $tree.jstree(true).get_selected();
                 //All elements are moved to the invisible folder Erased
@@ -2537,7 +2544,7 @@ define(['explo/runtime/js/defaultConfig',
                         if (!appImgUrl) {
                             appImgUrl = assetManager.resolve('explo/runtime/assets/Processing.png');
                         }
-                        
+
                         if (mapFile[i].extension == ".txt") {
                             if (mapFile[i].content) {
                                 var content = mapFile[i].content
@@ -2545,7 +2552,7 @@ define(['explo/runtime/js/defaultConfig',
                             if (!content) {
                                 content = " "
                             }
-                        
+
                             $container.find(".modalApp").show().css({
                                 width: "700px",
                                 height: "400px",
@@ -2577,14 +2584,14 @@ define(['explo/runtime/js/defaultConfig',
                                 evCollector(evName, mapFile[i].name, mapFile[i].content);
                             });
                             $container.find(".saveTxt").click(function txtSaver(params) {
-                                
+
                                 mapFile[i].dateMod = getNowDate();
                                 mapFile[i].content = $container.find(".nicEdit-main")[0].innerText;
                                 mapFile[i].size = mapFile[i].content.length / 10;
                                 dataFiles();
                                 let evName = "Sauvegarde du fichier texte";
                                 evCollector(evName, mapFile[i].name, mapFile[i].content);
-                                
+
                                 $container.find(".modalApp").hide();
                                 $container.find(".saveTxt").remove();
                                 $tree.jstree(true).open_node(mapFile[i].node);
@@ -2670,7 +2677,7 @@ define(['explo/runtime/js/defaultConfig',
                 // Display searchResult in table but not in the tree section
 
                 $tree.jstree(true).open_all(startSearchId);
- 
+
                 var children = $tree.jstree('get_children_dom', startSearchId);
 
                 if (onlyOne == 0) {
@@ -2682,14 +2689,14 @@ define(['explo/runtime/js/defaultConfig',
                     //Search files in the base directory
                     for (let i = 0; i < mapFile.length; i++) {
                         let startNode = $tree.jstree(true).get_node(startSearchId);
-                        
+
                         if (startSearchId == mapFile[i].node) {
                             let childrenNameLC = mapFile[i].name.toLowerCase();
                             let childrenExtLC = mapFile[i].extension.toLowerCase();
                             let elLC = el.toLowerCase();
                             var searchTestName = childrenNameLC.search(elLC);
                             var searchTestExt = childrenExtLC.search(elLC);
-                           
+
                             if (searchTestName >= 0 || searchTestExt >= 0) {
                                 let newId = mapFile.length + 1;
                                 let newEl = {
@@ -2885,7 +2892,7 @@ define(['explo/runtime/js/defaultConfig',
                 var ChildArray = [];
                 var tNode = $tree.jstree(true).get_node(vol, true)
                 ChildArray = getAllChildren(tNode);
-                ChildArray.indexOf(vol.id) === -1 ? ChildArray.push(vol.id) : console.log("This vol is ok");
+                if(ChildArray.indexOf(vol.id) === -1){ChildArray.push(vol.id)}
 
                 //For root Volume 
                 for (let i = 0; i < ChildArray.length; i++) {
@@ -2913,12 +2920,10 @@ define(['explo/runtime/js/defaultConfig',
                 if (destiNodeId == originalVol && operation == "move") {
                     tfSpace = true;
                     return tfSpace;
-                } 
-                else if(desti == "bin"){
+                } else if (desti == "bin") {
                     tfSpace = true;
                     return tfSpace;
-                }
-                else {
+                } else {
                     freespace = freeSpace($tree.jstree(true).get_node(destiNodeId));
                     rest = freespace - parseInt(size);
                     if (rest > 0) {
