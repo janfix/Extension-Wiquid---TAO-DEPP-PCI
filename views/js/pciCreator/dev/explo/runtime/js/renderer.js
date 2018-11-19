@@ -5,10 +5,10 @@ Build by Wiquid's PCI Generator for TAO platform Free to use
 define(['explo/runtime/js/defaultConfig',
         'explo/runtime/js/lib/datatables', // Contains and extends JQuery
         'explo/runtime/js/lib/progressbar',
-        'explo/runtime/js/lib/nicEdit',
         'taoQtiItem/portableLib/OAT/util/html'
     ],
-    function (defaultjson, $, ProgressBar, nicEdit, html) {
+    function (defaultjson, $, ProgressBar, 
+        html) {
         'use strict';
 
 
@@ -43,6 +43,8 @@ define(['explo/runtime/js/defaultConfig',
             $container.find(".prompt").hide();
             $container.find(".navbar").html(menuTop);
             $container.find(".path").html(pathLine);
+
+            console.log("Fix moi ce truc");
 
             //Default Json Loader
 
@@ -817,8 +819,7 @@ define(['explo/runtime/js/defaultConfig',
             }
 
             function formater(volumeName, volumeId) {
-                $container.find(".modali").css("height", "450px").show();
-
+                $container.find(".modali").css("height", "450px").show();                
                 $container.find('.modalTitle').remove();
                 if (!volumeName) {
                     $container.find(".contentModal").html('<h3>Formater un volume logique</h3><p>Nom du volume : <select class="volId"></select>' +
@@ -2555,7 +2556,7 @@ define(['explo/runtime/js/defaultConfig',
 
                             $container.find(".modalApp").show().css({
                                 width: "700px",
-                                height: "400px",
+                                height: "530px",
                                 padding: "10px",
                                 "text-align": "center"
                             });
@@ -2565,9 +2566,11 @@ define(['explo/runtime/js/defaultConfig',
                             $container.find('.windowToolbar img').addClass('closeWindow');
                             $container.find(".contentModalApp").addClass("imageAppContainer");
                             const editorID = ID();
-                            $container.find(".contentModalApp").html("<textarea cols='300' id=" + editorID + ">" + content + "</textarea><img class='waitIcon' src= " + assetManager.resolve('explo/runtime/assets/Loading_icon.gif') + ">");
-
-                            var nicE = new nicEditor().panelInstance(editorID);
+                            $container.find(".contentModalApp").html("<textarea class='richContent' cols='300' id=" + editorID + ">" + content + "</textarea><img class='waitIcon' src= " + assetManager.resolve('explo/runtime/assets/Loading_icon.gif') + ">");
+                                
+                            $('.richContent').richText();
+                            //var nicE = new nicEditor().panelInstance(editorID);
+                           
 
                             $container.find('.nicEdit-panelContain').parent().width('100%');
                             $container.find('.nicEdit-panelContain').parent().next().width('98%');
@@ -2586,7 +2589,8 @@ define(['explo/runtime/js/defaultConfig',
                             $container.find(".saveTxt").click(function txtSaver(params) {
 
                                 mapFile[i].dateMod = getNowDate();
-                                mapFile[i].content = $container.find(".nicEdit-main")[0].innerText;
+
+                                mapFile[i].content = $container.find(".richText-editor")[0].innerText;
                                 mapFile[i].size = mapFile[i].content.length / 10;
                                 dataFiles();
                                 let evName = "Sauvegarde du fichier texte";

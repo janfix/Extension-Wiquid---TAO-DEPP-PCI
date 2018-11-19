@@ -19,15 +19,12 @@
             
 
         </div>
-        <!-- <div class="searchBox">
-        </div> -->
-
     </div>
 
 
 <div class="row">
-    <!-- Le système de colone s'appuie sur 12 -->
-    <div class=" treeZone mh-100 lightgrey">
+
+    <div class="treeZone mh-100 lightgrey">
         <div class="accesRapide"> <span class="QuickTitle"> Accès Rapide</span>
             <ul class="listItemRapid">
                

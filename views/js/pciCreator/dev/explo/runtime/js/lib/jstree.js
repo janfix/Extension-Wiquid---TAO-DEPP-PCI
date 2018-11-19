@@ -1,5 +1,4 @@
 define([
-	jQuery
 ], function(require, factory) {
 		"use strict";
 		/*!
