@@ -22,9 +22,7 @@
             "./runtime/js/lib/bootstrap.js",
             "./runtime/js/lib/tether.min.js",
             "./runtime/js/lib/jstree.js",
-            "./runtime/js/lib/nicEdit.js",
-            "./runtime/js/lib/datatables.js",
-            "./runtime/js/lib/progressbar.js"
+            "./runtime/js/lib/datatables.js"
         ],
         "stylesheets" : [
             "./runtime/css/base.css",
