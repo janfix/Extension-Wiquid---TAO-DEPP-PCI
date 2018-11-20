@@ -4,10 +4,9 @@ Build by Wiquid's PCI Generator for TAO platform Free to use
 
 define(['explo/runtime/js/defaultConfig',
         'explo/runtime/js/lib/datatables', // Contains and extends JQuery
-        'explo/runtime/js/lib/progressbar',
         'taoQtiItem/portableLib/OAT/util/html'
     ],
-    function (defaultjson, $, ProgressBar, 
+    function (defaultjson, $,
         html) {
         'use strict';
 
@@ -44,8 +43,6 @@ define(['explo/runtime/js/defaultConfig',
             $container.find(".navbar").html(menuTop);
             $container.find(".path").html(pathLine);
 
-            console.log("Fix moi ce truc");
-
             //Default Json Loader
 
             if (config.data == "") {
@@ -56,7 +53,7 @@ define(['explo/runtime/js/defaultConfig',
             } else {
                 mapFile = config.data.mapFile;
                 treeFolder = config.data.treeFolder;
-                runTree();     
+                runTree();
                 $tree.jstree().destroy();
                 $container.find('.tree').html('<div class="jstree "></div>')
                 runTree();
@@ -399,7 +396,7 @@ define(['explo/runtime/js/defaultConfig',
                         },
                     ]
                 });
-                
+
 
                 //*******************Listening to DataTables elements*******************/
                 $container.find(".dirContent tbody").on('mouseenter', 'tr', function () {
@@ -569,7 +566,7 @@ define(['explo/runtime/js/defaultConfig',
                         $fileList.column(6).visible(false, false);
                         $fileList.column(2).visible(true, false);
                         $fileList.column(5).visible(true, false);
-                        
+
 
                     } else if ($tree.jstree("get_selected", true)[0].type == 'netWork') {
                         folderDisplayer();
@@ -586,7 +583,7 @@ define(['explo/runtime/js/defaultConfig',
                         $fileList.column(2).visible(false, false);
                         $fileList.column(5).visible(false, false);
                         $fileList.column(6).visible(true, false);
-                        
+
 
                     } else {
                         folderDisplayer();
@@ -597,7 +594,7 @@ define(['explo/runtime/js/defaultConfig',
                         $fileList.column(5).header().innerText = "Date de Création";
                         $fileList.column(2).visible(true, false);
                         $fileList.column(5).visible(true, false);
-                        $fileList.column(6).visible(false, false);        
+                        $fileList.column(6).visible(false, false);
                     }
                 }
 
@@ -819,11 +816,11 @@ define(['explo/runtime/js/defaultConfig',
             }
 
             function formater(volumeName, volumeId) {
-                $container.find(".modali").css("height", "450px").show();                
+                $container.find(".modali").css("height", "450px").show();
                 $container.find('.modalTitle').remove();
                 if (!volumeName) {
                     $container.find(".contentModal").html('<h3>Formater un volume logique</h3><p>Nom du volume : <select class="volId"></select>' +
-                        '</p><p>Label : <input type="text"></p><p>Capacité : <input type="text"></p><p>Taille d\'unité d\'allocation : <input type="text"></p><p> Type de formatage : <select> <option value="FAT 32">FAT 32</option> <option value="exFAT" selected>exFAT</option> <option value="NFTS">NFTS</option><option value="HFS+">HFS+</option> </select> </p><button class="startFormat">Lancer le formatage</button><button class="annule">Annuler</button><div class="progress"><div class="progress-bar">0%</div></div><button disabled="disabled" class="doneClose">Fermer</button>');
+                        '</p><p>Label : <input type="text"></p><p>Capacité : <input type="text"></p><p>Taille d\'unité d\'allocation : <input type="text"></p><p> Type de formatage : <select> <option value="FAT 32">FAT 32</option> <option value="exFAT" selected>exFAT</option> <option value="NFTS">NFTS</option><option value="HFS+">HFS+</option> </select> </p><button class="startFormat">Lancer le formatage</button><button class="annule">Annuler</button><div class="meter"><span></span></div><button disabled="disabled" class="doneClose">Fermer</button>');
 
                     for (let i = 0; i < treeFolder.length; i++) {
 
@@ -832,7 +829,7 @@ define(['explo/runtime/js/defaultConfig',
                         }
                     }
                 } else {
-                    $container.find(".contentModal").html('<h3>Formater un volume logique</h3><p>Nom du volume : <input disabled = "disabled" type="text" value="' + volumeName + '"></p><p>Label : <input type="text"></p><p>Capacité : <input type="text"></p><p>Taille d\'unité d\'allocation : <input type="text"></p><p> Type de formatage : <select> <option value="FAT 32">FAT 32</option> <option value="exFAT" selected>exFAT</option> <option value="NFTS">NFTS</option><option value="HFS+">HFS+</option> </select> </p><button class="startFormat">Lancer le formatage</button><button class="annule">Annuler</button><div class="progress"><div class="progress-bar">0%</div></div><button disabled="disabled" class="doneClose">Fermer</button>');
+                    $container.find(".contentModal").html('<h3>Formater un volume logique</h3><p>Nom du volume : <input disabled = "disabled" type="text" value="' + volumeName + '"></p><p>Label : <input type="text"></p><p>Capacité : <input type="text"></p><p>Taille d\'unité d\'allocation : <input type="text"></p><p> Type de formatage : <select> <option value="FAT 32">FAT 32</option> <option value="exFAT" selected>exFAT</option> <option value="NFTS">NFTS</option><option value="HFS+">HFS+</option> </select> </p><button class="startFormat">Lancer le formatage</button><button class="annule">Annuler</button><div class="meter"><span></span></div><button disabled="disabled" class="doneClose">Fermer</button>');
                 }
                 $container.find(".annule").on('click', function () {
                     let evName = "Mcontextuel ABANDON du Formatage du volume";
@@ -860,9 +857,20 @@ define(['explo/runtime/js/defaultConfig',
                                 dataFolder();
                             }
                         }
+                        $container.find(".meter").show();
+
+                        $container.find(".meter > span").show().each(function () {
+                            $container.find(this)
+                                .data("0%", $container.find(this).width())
+                                .width(0)
+                                .animate({
+                                    width: "100%"
+                                }, 3000, function () {
+                                    alert("formatage terminé.")
+                                });
+                        });
 
                         //Progress Bar
-                        pbar(".progress");
                         $container.find(".startFormat").attr('disabled', 'disabled');
                         $container.find(".doneClose").attr('disabled', false);
                         $container.find(".doneClose").on('click', function () {
@@ -877,24 +885,6 @@ define(['explo/runtime/js/defaultConfig',
                     }
                 });
 
-            }
-
-            function pbar(pbarCont) {
-                var bar = new ProgressBar.Line(pbarCont, {
-                    strokeWidth: 4,
-                    easing: 'easeInOut',
-                    duration: 1400,
-                    color: '#FFEA82',
-                    trailColor: '#eee',
-                    trailWidth: 1,
-                    svgStyle: {
-                        width: '100%',
-                        height: '100%'
-                    },
-
-                });
-
-                bar.animate(1.0); // Number from 0.0 to 1.0
             }
 
             $container.find(".formater").on('click', function () {
@@ -953,7 +943,9 @@ define(['explo/runtime/js/defaultConfig',
                                 evCollector(evName, treeFolder[i].text, getDirName(treeFolder[i].origin));
                             };
                         }
-                        if(DDFolder.indexOf(dataId) === -1){DDFolder.push(dataId)}
+                        if (DDFolder.indexOf(dataId) === -1) {
+                            DDFolder.push(dataId)
+                        }
                     } else {
                         FileArray.push(dataId); // Build file array selection
                     }
@@ -967,7 +959,9 @@ define(['explo/runtime/js/defaultConfig',
                             mapFile[i].origin = mapFile[i].node;
                             let evName = "Drag fichier(s) sélectionné(s) depuis la liste";
                             evCollector(evName, mapFile[i].name + mapFile[i].extension, getDirName(mapFile[i].origin));
-                            if(DDFile.indexOf(FileArray[y]) === -1){DDFile.push(FileArray[y])}
+                            if (DDFile.indexOf(FileArray[y]) === -1) {
+                                DDFile.push(FileArray[y])
+                            }
                         };
                     }
                 }
@@ -1021,8 +1015,10 @@ define(['explo/runtime/js/defaultConfig',
                                 evCollector(evName, treeFolder[i].text, getDirName(treeFolder[i].origin));
                             };
                         }
-                        
-                        if(DDFolder.indexOf(dataId) === -1){DDFolder.push(dataId)}
+
+                        if (DDFolder.indexOf(dataId) === -1) {
+                            DDFolder.push(dataId)
+                        }
                     } else {
                         FileArray.push(dataId); // Build file array selection
                     }
@@ -1035,8 +1031,10 @@ define(['explo/runtime/js/defaultConfig',
                             mapFile[i].origin = mapFile[i].node;
                             let evName = "Drag fichier(s) sélectionné(s) depuis la liste";
                             evCollector(evName, mapFile[i].name + mapFile[i].extension, getDirName(mapFile[i].origin));
-                            
-                            if(DDFile.indexOf(FileArray[y]) === -1){DDFile.push(FileArray[y])}
+
+                            if (DDFile.indexOf(FileArray[y]) === -1) {
+                                DDFile.push(FileArray[y])
+                            }
                         };
                     }
                 }
@@ -2567,10 +2565,10 @@ define(['explo/runtime/js/defaultConfig',
                             $container.find(".contentModalApp").addClass("imageAppContainer");
                             const editorID = ID();
                             $container.find(".contentModalApp").html("<textarea class='richContent' cols='300' id=" + editorID + ">" + content + "</textarea><img class='waitIcon' src= " + assetManager.resolve('explo/runtime/assets/Loading_icon.gif') + ">");
-                                
+
                             $('.richContent').richText();
                             //var nicE = new nicEditor().panelInstance(editorID);
-                           
+
 
                             $container.find('.nicEdit-panelContain').parent().width('100%');
                             $container.find('.nicEdit-panelContain').parent().next().width('98%');
@@ -2896,7 +2894,9 @@ define(['explo/runtime/js/defaultConfig',
                 var ChildArray = [];
                 var tNode = $tree.jstree(true).get_node(vol, true)
                 ChildArray = getAllChildren(tNode);
-                if(ChildArray.indexOf(vol.id) === -1){ChildArray.push(vol.id)}
+                if (ChildArray.indexOf(vol.id) === -1) {
+                    ChildArray.push(vol.id)
+                }
 
                 //For root Volume 
                 for (let i = 0; i < ChildArray.length; i++) {
