@@ -468,10 +468,10 @@ var defaultJson =
     {
         "id": "cdRom",
         "parent": "root",
-        "text": "Disque Optique",
+        "text": "Lecteur CD/DVD",
         "type": "cdRom",
         "data": {
-            "type": "Lecteur Optique CD",
+            "type": "Lecteur Optique CD/DVD",
             "dateMod": "2012-12-3",
             "dateCreat": "2001-08-22",
             "capacity": "6000000",
@@ -494,7 +494,7 @@ var defaultJson =
     {
         "id": "usb",
         "parent": "root",
-        "text": "Lecteur USB",
+        "text": "clé USB",
         "type": "usb",
         "data": {
             "type": "Mémoire Flash usb",

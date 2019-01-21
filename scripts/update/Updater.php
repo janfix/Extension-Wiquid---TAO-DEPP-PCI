@@ -158,7 +158,12 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         if($this->isVersion('1.16.0')){
-            call_user_func(new RegisterPciExplo(), ['0.2.6']);
+            call_user_func(new RegisterPciSnap(), ['1.0.1']);
+            $this->setVersion('1.16.1');
+        }
+
+        if($this->isVersion('1.16.1')){
+            call_user_func(new RegisterPciExplo(), ['0.2.8']);
             $this->setVersion('1.17.0');
         }
 

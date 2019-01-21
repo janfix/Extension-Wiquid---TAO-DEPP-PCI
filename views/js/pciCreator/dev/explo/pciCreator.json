@@ -3,7 +3,7 @@
     "label": "Explorateur de Fichiers",
     "short": "Explo",
     "description": "Simultation d'explorateur Système de Fichiers",
-    "version": "0.2.6",
+    "version": "0.2.8",
     "author": "Jean-Philippe Rivière",
     "email": "jean.philippe.riviere@gmail.com",
     "tags": [
