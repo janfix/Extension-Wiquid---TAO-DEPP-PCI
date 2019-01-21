@@ -11,43 +11,18 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/OAT/util/
  function renderSnap(id, $container, config){
    
     var snapInstance;
-
+    $container.find(".snapy").html("");
+    $container.find(".snapyOverlay").html("");
+    $container.find(".blockTracker").html(""); //Clean nbSpace
+    $container.find(".compteur").html("");
     $container.find(".snapy").append('<canvas class="world" tabindex="1" ><p>Your browser doesn\'t support canvas.</p></canvas>');   
-
     snapInstance = snapsrc.snap(id, $container, config);
     
-
+    
     // Left Panel Sizer 
     if(config.panelSizer == 'nonVisible'){ snapsrc.snap.world.leftReducer(); }
     else{snapsrc.snap.world.leftExpand();}
-
     $container.find(".world").css('position','relative'); 
-    console.log("CONTROLO JP");
-    
-     function onResize(element, callback) {
-            var elementHeight = element.height,
-                elementWidth = element.width;
-            setInterval(function () {
-                if (element.height !== elementHeight || element.width !== elementWidth) {
-                    elementHeight = element.height;
-                    elementWidth = element.width;
-                    callback();
-                }
-            }, 300);
-        }
-
-        var element = $("canvas");
-        onResize(element, function () {
-           // location.reload();  // Solution valable pour la partie test.
-            alert("MOIIIIIIIIIIIIIIIIIIIII"); 
-           //snapInstance = null;
-           // element.remove();
-           
-           /*  $container.find(".snapy").append('<canvas class="world" tabindex="1" ><p>Your browser doesn\'t support canvas.</p></canvas>');
-            snapInstance = snapsrc.snap(id, $container, config); */
-
-            });
-
  } 
 
         return {

@@ -6,9 +6,13 @@
 
 .SnapForTao{
     position : relative;
-    width : 100%;
-    height :100%; 
+    margin-left: -20%;
   }
+
+.item-editor-item .SnapForTao {
+  position: relative;
+  margin-left: 0px !important;
+}
   
 .SnapForTao .snapy{
     overflow: scroll; 
@@ -31,6 +35,10 @@
     position:absolute; 
    
   }
+
+.SnapForTao .blockTracker{
+  display : none;
+}
 
 .SnapForTao .snapy .txt_try_stop {
     width :100%; 

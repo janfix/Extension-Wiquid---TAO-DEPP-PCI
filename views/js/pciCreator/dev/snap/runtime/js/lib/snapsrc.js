@@ -34,7 +34,7 @@ define([], function(){
     var panel_Left, stageSaver, worldwatcher;
     var attemptLimit =0; // for try counter
     var snapsrc = {}; // snapsrc global object
-    
+    snapsrc.actionOrder = 0; // Order block manip. for Tao answering system
    
 
    
@@ -45,12 +45,12 @@ define([], function(){
 		var Localizer;
         var SnapTranslator = new Localizer();
         var importString = "";
-        var getSnapProjectScript ="scriptPlaceHolder";
-                
+        var getSnapProjectScript ="scriptPlaceHolder";        
         if(config.snapScript=="shield"){importString="";}
         else{ importString = config.snapScript; 
         }
-
+        var allMorphs = []; //xdone
+        var grabOrigine; //xdone
 
 		function localize(string) {
 		    return SnapTranslator.translate(string);
@@ -3466,7 +3466,7 @@ Morph.prototype.setWidth = function (width) {
         this.setExtent(new Point(width || 0, this.height()));
     }
     catch (err) {
-        console.log(err);
+        // watch error jp
     }
     
 };
@@ -3488,7 +3488,7 @@ Morph.prototype.setHeight = function (height) {
         this.setExtent(new Point(this.width(), height || 0));
     }
     catch (err) {
-        console.log(err);
+       // watch error jp
     }
 };
 
@@ -11597,8 +11597,8 @@ WorldMorph.prototype.fillPage = function () {
         clientWidth = window.innerWidth,   //Wiquid : Here
         myself = this;
 
-    clientHeight = clientHeight * 0.8;
-    clientWidth  = clientWidth *0.6;
+    clientHeight = clientHeight * 0.9; //xdone
+    clientWidth  = clientWidth *0.7; //xdone
 
     this.worldCanvas.style.position = "relative";
     this.worldCanvas.style.left = "0px";
@@ -18338,7 +18338,6 @@ BlockMorph.prototype.setSpec = function (spec, silently, definition) {
         }
         part = myself.labelPart(word);
         if (isNil(part)) {
-            // console.log('could not create label part', word);
             return;
         }
         myself.add(part);
@@ -20066,6 +20065,12 @@ BlockMorph.prototype.drawMethodIcon = function (context) {
 // BlockMorph dragging and dropping
 
 BlockMorph.prototype.rootForGrab = function () {
+    let testOrigin = String(this.parent).search("FrameMorph");
+    if (testOrigin > 0) {
+        grabOrigine = "palette"
+    } else {
+        grabOrigine = "stage"
+    }
     return this;
 };
 
@@ -20136,6 +20141,7 @@ BlockMorph.prototype.allComments = function () {
 
 BlockMorph.prototype.destroy = function (justThis) {
     // private - use IDE_Morph.removeBlock() to first stop all my processes
+    morphRemover(this); // Remove Block jp 
     if (justThis) {
         if (!isNil(this.comment)) {
             this.comment.destroy();
@@ -20177,6 +20183,7 @@ BlockMorph.prototype.snap = function () {
         receiver,
         stage,
         ide;
+    morphOnSet(this);
     top.allComments().forEach(function (comment) {
         comment.align(top);
     });
@@ -29036,7 +29043,7 @@ ThreadManager.prototype.toggleProcess = function (block, receiver) {
 
 function compteur(){
     compteurGo++;
-    $container.find(".compteur").html(";Nombre de tentatives : " + compteurGo);
+    $container.find(".compteur").html("\"tentatives\" : \"" + compteurGo + "\"");
      var nbTry = config.testLimiter - compteurGo ;
     
     if(nbTry > 1){world.children[0].projectName = ' ATTENTION : Il vous reste '+ (nbTry) +' tentatives !';}
@@ -29050,6 +29057,54 @@ function compteur(){
         $container.find(".world").hide();
     }
 }
+
+ function morphOnSet(morph) {
+     if (morph) {
+         allMorphs.push(morph)
+     }
+     let evalParentMorph;
+
+     function correctParentMorph() {
+         if (!morph.parent.blockSpec) {
+             evalParentMorph = "desktop"
+         } else {
+             evalParentMorph = morph.parent.blockSpec
+         }
+         return evalParentMorph;
+     }
+     let ope;
+     if (grabOrigine == "palette") {
+         ope = "ADD"
+     } else {
+         ope = "MOVE"
+     }
+     snapsrc.actionOrder++;
+     $container.find(".blockTracker").append("\"" + snapsrc.actionOrder + "\" : \"" + ope + " - " + morph.blockSpec + " @ " + correctParentMorph() + "\",");
+     return allMorphs
+ }
+
+ function morphRemover(morph) {
+     if (morph) {
+         allMorphs.push(morph)
+     }
+     let evalParentMorph;
+
+     function correctParentMorph() {
+         if (!morph.parent.blockSpec) {
+             evalParentMorph = "desktop"
+         } else {
+             evalParentMorph = morph.parent.blockSpec
+         }
+         return evalParentMorph;
+     }
+      snapsrc.actionOrder++;
+      $container.find(".blockTracker").append("\"" + snapsrc.actionOrder + "\" : \" DEL - " + morph.blockSpec + " @ " + correctParentMorph() + "\",");
+     return allMorphs
+ }
+
+ var blockRunner = true; // Allow to write once for receiveCondition -> Block When
+ snapsrc.blockReporter = [];
+
 
 //******************************* Wiquid ********************************************
 
@@ -29392,7 +29447,156 @@ Process.prototype.enableSingleStepping = false; // experimental
 Process.prototype.flashTime = 0; // experimental
 // Process.prototype.enableJS = false;
 
+// Variables to track process
+var blockRunner = true; // Allow to write once for receiveCondition -> Block When
+snapsrc.blockReporter = [];
+
 function Process(topBlock, receiver, onComplete, yieldFirst) {
+    try {
+        if (typeof topBlock != "undefined") {
+            var blockInProcess = [];
+            scanChildren(topBlock);
+        }
+    } catch (error) {
+        runerCatcher();
+    }
+
+    function runerCatcher() {
+        if (blockRunner) {
+           //Error watcher jp
+            blockInProcess.push("Quand /b");
+            blockRunner = false;
+        }
+    }
+
+    function scanChildren(blockToScan) {
+        if (blockToScan.children) {
+            var lastChild = blockToScan.children.length - 1;
+        }
+        var serialezedBlock = blockToScan.children[lastChild].toString();
+        var blockChain = {};
+        blockChain.Actor = receiver.name;
+        var blockString = "";
+
+        function scanBlock(BToScan) {
+    
+            function slotClosure() {
+                let slotClosure = false;
+                if (BToScan.parent.selector == "doWarp" ||
+                    BToScan.parent.selector == "doForever" ||
+                    BToScan.parent.selector == "doRepeat" ||
+                    BToScan.parent.selector == "doUntil" ||
+                    BToScan.parent.selector == "doIf" ||
+                    BToScan.parent.selector == "doIfElse"
+                ) {
+                    slotClosure = true
+                }
+                return slotClosure
+            }
+
+            //Slot closure
+            var closure = slotClosure();
+            let serBToScan = BToScan.toString();
+            if (closure && serBToScan.search("CSlotMorph") < 0) {
+                blockString = blockString + "];";
+            }
+            for (let z = 0; z < BToScan.children.length; z++) {
+                let serChildren = BToScan.children[z].toString();
+                if (serChildren.search("StringMorph") > 0) {
+                    if (typeof BToScan.children[z].text != "undefined") {
+                        blockString = blockString + " " + BToScan.children[z].text;
+                    }
+                } else if (serChildren.search("SymbolMorph") > 0) {
+                    blockString = blockString + " " + BToScan.children[z].name;
+                } else if (serChildren.search("ColorSlotMorph") > 0) {
+                    blockString = blockString + " " + BToScan.children[z].color.toString();
+                } else if (serChildren.search("RingMorph") > 0) {
+                    //blockString = blockString + ";"  
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("RingReporterSlotMorph") > 0) {
+                    //blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("RingCommandSlotMorph") > 0) {
+                    //blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                    blockString = blockString + "]";
+                } else if (serChildren.search("TemplateSlotMorph") > 0) {
+                    blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("MultiArgMorph") > 0) {
+                    blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                    blockString = blockString + "-"
+                } else if (serChildren.search("InputSlotMorph") > 0) {
+                    blockString = blockString + "[";
+                    scanBlock(BToScan.children[z]);
+                    blockString = blockString + "]";
+                } else if (serChildren.search("CSlotMorph") > 0) {
+                    blockString = blockString + ":["
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("CommandBlockMorph") > 0) {
+                    if (BToScan.parent.selector == "doWarp" ||
+                        BToScan.parent.selector == "doForever" ||
+                        BToScan.parent.selector == "doRepeat" ||
+                        BToScan.parent.selector == "doUntil" ||
+                        BToScan.parent.selector == "doIf" ||
+                        BToScan.parent.selector == "doIfElse") {
+                        scanBlock(BToScan.children[z]);
+                    } else {
+                        blockString = blockString + ";"
+                        scanBlock(BToScan.children[z]);
+                    }
+
+                } else if (serChildren.search("ReporterBlockMorph") > 0) {
+                    blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                }
+
+            }
+            if (BToScan.selector == "doForever") {
+                blockString = blockString + "];";
+            }
+        }
+
+        //------------Caller--------------------
+        if (serialezedBlock.search("CommandBlockMorph") > 0) {
+            scanBlock(blockToScan);
+        } else {
+            blockChain.push("{block Isolé:");
+            scanBlock(blockToScan);
+            blockChain.push("}");
+            // Verify no process with hatBlockMorph
+            for (let i = 0; i < receiver.scripts.children.length; i++) {
+                let serNeighbour = receiver.scripts.children[i].toString();
+                if (serNeighbour.search("HatBlockMorph") > 0) {
+                    scanBlock(receiver.scripts.children[i]);
+                }
+
+            }
+        }
+        //String Correction 
+        blockString = blockString.replace("appelle;", "appelle:");
+        blockString = blockString.replace("to;", "to[");
+        blockString = blockString.replace("lance;", "lance[");
+        blockString = blockString.replace("exécute;", "exécute[");
+        blockString = blockString.replace("sinon", "]sinon");
+        blockString = blockString.replace(";]", "]");
+        blockString = blockString.replace("jusqu'à];", "jusqu'à");
+        blockString = blockString.replace("si;", "si");
+        blockString = blockString.replace("si];", "si");
+        blockString = blockString.replace("répéter[];", "répéter[");
+        blockString = blockString.replace("répéter];", "répéter");
+        blockString = blockString.replace("] répéter[];", "];répéter[");
+        blockString = blockString.replace("; répéter[]; ", "; répéter[");
+
+        var countOpen = blockString.split("[").length;
+        var countClose = blockString.split("]").length;
+        if (countClose < countOpen) {
+            blockString = blockString + "]"; //Close slot if no block behind.
+        }
+        blockChain.Script = blockString;
+        snapsrc.blockReporter.push(blockChain);
+    }
     this.topBlock = topBlock || null;
     this.receiver = receiver;
     this.instrument = receiver ? receiver.instrument : null;
@@ -29404,7 +29608,7 @@ function Process(topBlock, receiver, onComplete, yieldFirst) {
     this.errorFlag = false;
     this.context = null;
     this.homeContext = new Context(null, null, null, receiver);
-    this.lastYield =  Date.now();
+    this.lastYield = Date.now();
     this.isFirstStep = true;
     this.isAtomic = false;
     this.prompter = null;
@@ -31645,7 +31849,6 @@ Process.prototype.log = function (data) {
     if (this.homeContext.receiver) {
         world = this.homeContext.receiver.world();
         if (world.isDevMode) {
-           // console.log('Snap! ' + data.asArray());
         }
     }
 };
@@ -39358,7 +39561,6 @@ StageMorph.prototype.drawOn = function (aCanvas, aRect) {
                 hs
             );
         } catch (err) { // sometimes triggered only by Firefox
-            // console.log(err);
             context.restore();
             context.drawImage(
                 this.penTrails(),
@@ -63710,7 +63912,6 @@ snapsrc.snap.tao = function(message){alert(message);};
         document.body.appendChild(inp);
         myself.filePicker = inp;
         inp.click();
-    
     }
  
     loop();
