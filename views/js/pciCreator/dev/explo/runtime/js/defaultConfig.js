@@ -22,10 +22,10 @@ var defaultJson =
                     "size": "50000000",
                     "dateMod": "1998-02-04",
                     "dateCreat": "1997-02-03",
-                    "content":"Il ne faut pas croire tout ce que l'on lit, surtout sur les ordinateurs",
+                    "content":"Ceci est un exemple de contenu",
                     "app": "Editor.exe",
                     "dateLastAcces": "2018-09-04",
-                    "author": "John Smith"
+                    "author": "Marc Smith"
     },
     {
                     "fileId": 3,
