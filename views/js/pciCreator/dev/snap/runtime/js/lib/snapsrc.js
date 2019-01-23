@@ -29478,6 +29478,7 @@ function Process(topBlock, receiver, onComplete, yieldFirst) {
         blockChain.Actor = receiver.name;
         var blockString = "";
 
+        /*scanBlock check the nature of each block in process and organize the information to translate it in a readable string  */
         function scanBlock(BToScan) {
     
             function slotClosure() {
