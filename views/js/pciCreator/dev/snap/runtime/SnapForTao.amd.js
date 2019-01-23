@@ -86,35 +86,35 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          */
         getResponse : function getResponse(){
             var $container = $(this.dom);
-
+            var receiver, i, top, cleanblockTracker, cleanProcessus, countingString, canvas,dataURL,value ;
             var canvasArrLenght = $container.find(".world").length;
+
             canvasArrLenght = canvasArrLenght - 1;
             // Building Json format answer
-            let receiver = snapsrc.snap.world.children[0].stage.children;
+            receiver = snapsrc.snap.world.children[0].stage.children;
             snapsrc.blockReporter = [];
-            for (let i = 0; i < receiver.length; i++) {
+            for (i = 0; i < receiver.length; i++) {
                 if (typeof receiver[i].scripts != "undefined") {
-                    let top = receiver[i].scripts.children[0];
+                    top = receiver[i].scripts.children[0];
                     if (typeof top != "undefined") {
                         snapsrc.snap.world.children[0].stage.threads.startProcess(top, receiver[i]);
                     }
                 }
             }
-            var cleanblockTracker = $container.find(".blockTracker").html();
-            var cleanProcessus = JSON.stringify(snapsrc.blockReporter);
+            cleanblockTracker = $container.find(".blockTracker").html();
+            cleanProcessus = JSON.stringify(snapsrc.blockReporter);
             cleanProcessus = cleanProcessus.substring(0, cleanProcessus.length - 1);
             cleanProcessus = cleanProcessus.substring(1);
             cleanblockTracker = cleanblockTracker.substring(0, cleanblockTracker.length - 1);
-            var countingString = $container.find(".compteur").html();
-            console.log(countingString);
+            countingString = $container.find(".compteur").html();
             if (countingString !== "") {
                 countingString = ","+ countingString + ",";
             } else {
                 countingString = ","
             }
-            var canvas = $container.find(".world")[canvasArrLenght],
-                dataURL = canvas.toDataURL(),
-                value = "{\"actions\": {" + cleanblockTracker + "}," + "\"processus\":[" + cleanProcessus + "]" + countingString + "\"snapImage\" : \"" + dataURL + "\"}";
+            canvas = $container.find(".world")[canvasArrLenght];
+            dataURL = canvas.toDataURL();
+            value = "{\"actions\": {" + cleanblockTracker + "}," + "\"processus\":[" + cleanProcessus + "]" + countingString + "\"snapImage\" : \"" + dataURL + "\"}";
             return { base: { string: value } };
         },
         /**
@@ -135,23 +135,22 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
          */
         destroy : function destroy(config){
             var $container = $(this.dom);
+            var receiver, i, top;
+            
             $container.off().empty();
-
-         let receiver = snapsrc.snap.world.children[0].stage.children;
-         for (let i = 0; i < receiver.length; i++) {
-             if (typeof receiver[i].scripts != "undefined") {
-                 let top = receiver[i].scripts.children[0];
-                 if (typeof top != "undefined") {
-                     //JP : stop the process after few seconds how long ?
-                     setTimeout(() => {
-                     snapsrc.snap.world.children[0].stage.threads.stopProcess(top, receiver[i]);
-                     }, 3000);
-                     // 
-                 }
-             }
-         }
-
-           
+            receiver = snapsrc.snap.world.children[0].stage.children;
+            for (i = 0; i < receiver.length; i++) {
+                if (typeof receiver[i].scripts != "undefined") {
+                    top = receiver[i].scripts.children[0];
+                    if (typeof top != "undefined") {
+                        //JP : stop the process after few seconds how long ?
+                        setTimeout(() => {
+                        snapsrc.snap.world.children[0].stage.threads.stopProcess(top, receiver[i]);
+                        }, 3000);
+                        // 
+                    }
+                }
+            }
         },
         /**
          * Restore the state of the interaction from the serializedState.

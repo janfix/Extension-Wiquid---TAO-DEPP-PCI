@@ -3461,7 +3461,6 @@ Morph.prototype.silentSetExtent = function (aPoint) {
 };
 
 Morph.prototype.setWidth = function (width) {
-    // TRACKJP
     try {
         this.setExtent(new Point(width || 0, this.height()));
     }
@@ -11597,8 +11596,8 @@ WorldMorph.prototype.fillPage = function () {
         clientWidth = window.innerWidth,   //Wiquid : Here
         myself = this;
 
-    clientHeight = clientHeight * 0.9; //xdone
-    clientWidth  = clientWidth *0.7; //xdone
+    clientHeight = clientHeight * 0.9; //Define height of Snap
+    clientWidth  = clientWidth *0.7; //Define width of Snap
 
     this.worldCanvas.style.position = "relative";
     this.worldCanvas.style.left = "0px";
@@ -20065,7 +20064,7 @@ BlockMorph.prototype.drawMethodIcon = function (context) {
 // BlockMorph dragging and dropping
 
 BlockMorph.prototype.rootForGrab = function () {
-    let testOrigin = String(this.parent).search("FrameMorph");
+    var testOrigin = String(this.parent).search("FrameMorph");
     if (testOrigin > 0) {
         grabOrigine = "palette"
     } else {
@@ -29451,6 +29450,7 @@ Process.prototype.flashTime = 0; // experimental
 var blockRunner = true; // Allow to write once for receiveCondition -> Block When
 snapsrc.blockReporter = [];
 
+/** The function Process starts the chaining of blocks depending on the receiver(usually the sprite) - Spying the process (to put them in text string) is here possible  **/
 function Process(topBlock, receiver, onComplete, yieldFirst) {
     try {
         if (typeof topBlock != "undefined") {
