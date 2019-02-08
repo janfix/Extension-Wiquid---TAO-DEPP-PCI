@@ -1,0 +1,744 @@
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+@import url('base.css');
+@import url('font-awesome.min.css');
+@import url('bootstrap.css');
+@import url('jsTreeStyle.css');
+@import url('datatables.css');
+
+/* .qti-customInteraction .explo .prompt {position:relative;} */
+.explo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: grey;
+}
+
+.explo .lightgrey {
+    border: 1px lightgrey solid;
+}
+
+.explo .green {
+    border: 1px green solid;
+}
+
+.explo .blue {
+    border: 1px blue solid;
+}
+
+.explo .pink {
+    border: 1px pink solid;
+}
+
+.explo .pathZone {
+    height: 30px;
+    padding: 5px;
+    border-collapse: collapse;
+    margin-top: -21px !important;
+}
+
+.explo .tree {
+    margin-left: -20px;
+}
+
+.explo .treeZone {
+    float: left;
+    width: 25%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    font-size: 0.9em;
+    border-top: 0;
+    border-right: 0;
+    min-height: 700px;
+}
+
+.explo .fileZone {
+    float: right;
+    width: 75%;
+    overflow-y: scroll;
+    border-top: 0;
+    max-height: 700px;
+    min-height: 700px;
+}
+
+.explo .signature {
+    padding: 5px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.explo .sizer {
+    cursor: col-resize;
+    margin-left: -17px;
+    float: left;
+    width: 3px;
+}
+
+.explo .sizer:hover {
+    width: 5px;
+    border-left: 1px pink solid;
+    border-right: 1px pink solid;
+}
+
+.explo .accesRapide {
+    border: 1px lightblue dotted;
+    margin: 10px;
+    padding: 5px;
+    min-width: 165px;
+    margin-top: 10px !important;
+}
+
+.explo .QuickTitle {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-style: italic;
+    color: blueviolet;
+}
+
+.explo .QuickTitle:hover {
+    color: darkmagenta;
+}
+
+.explo #example_filter {
+    margin-top: 10px;
+}
+
+.explo .inLineIcon {
+    display: inline;
+    width: 22px;
+    height: 22px;
+    margin: 5px;
+}
+
+.explo .rapidLi {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+.explo .rapidLi:hover {
+    border: 1px #8A2BE2 solid;
+}
+
+
+table.dataTable tbody>tr.selected,
+table.dataTable tbody>tr>.selected {
+    background-color: #8dacbb!important;
+}
+
+.explo .path {
+    margin-top: 5px !important;
+}
+
+.explo .searchBox {
+    float: right;
+}
+
+.explo .topAdjust {
+    margin-top: -21px;
+}
+
+.explo .preIcon {
+    float:left;
+    margin-right: 5px;
+    background-repeat: no-repeat;
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.explo .elementNameExt{
+    float:left;
+}
+
+.explo .pathLine {
+    line-height: 20px;
+    display: inline;
+}
+
+.explo .magnify {
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.explo .magnify:hover {
+    opacity: 0.6;
+}
+
+.explo #example span {
+    display: none;
+}
+
+.explo .iconeMenu {
+    margin-right: 10px;
+    display: inline;
+}
+
+.explo .hide {
+    display: none;
+}
+
+.explo .windowTools {
+    padding: 3px;
+    margin-top: 3px;
+    border: 1px lightgrey solid;
+    margin-right: 10px;
+    float: right;
+}
+
+.explo .windowTitle {
+    color: darkblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    Font-Variant: Small-Caps;
+    margin-left: 10px;
+    float: left;
+    font-size: 1.6em;
+    opacity: 0.2;
+}
+
+.explo .fakeWindow {
+    width: 100%;
+    height: 40px;
+    background-color: floralwhite;
+    border-top: 1px #E7E7E7 solid;
+    border-left: 1px #E7E7E7 solid;
+    border-right: 1px #E7E7E7 solid;
+
+}
+
+.explo .modali {
+    position: absolute;
+    display: none;
+    opacity: 1;
+    left: 0px;
+    top: 69px;
+    background-color: #F8F8F8;
+    border: 1px lightgrey solid;
+    width: 400px;
+    height: 400px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+.explo .modalApp {
+    position: absolute;
+    display: none;
+    opacity: 1;
+    left: 0px;
+    top: 69px;
+    background-color: #F8F8F8;
+    border: 1px lightgrey solid;
+    width: 400px;
+    height: 400px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+
+.explo .fakeModalWindow {
+    background-color: blueviolet;
+}
+
+.explo .annulModal {
+    cursor: pointer;
+}
+
+.explo .contentModal {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.explo .footerModal {
+    text-align: right;
+}
+
+.explo .comWin {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    display: none;
+    padding: 20px;
+    opacity: 0.9;
+    left: 20%;
+    top: 10%;
+    background-color: black;
+    position: absolute;
+    border: 1px lightgrey solid;
+    width: 400px;
+    height: 400px;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+.explo .comLine {
+    border: 0px black solid;
+    background-color: black;
+}
+
+.explo .comLine:focus {
+    outline: none;
+}
+
+.explo .dirContent {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.explo .jstree-default-contextmenu {
+    background-color: white;
+}
+
+.explo .vakata-context li>a .vakata-contextmenu-sep {
+    display: none;
+}
+
+.explo .gapFiller {
+    min-height: 1px;
+    width: 100%;
+    background-color: blueviolet;
+    opacity: 0.3;
+}
+
+.explo .progress {
+    margin-top: 20px;
+}
+
+.explo .movable {
+    background: #f9d4f9;
+    color: #444;
+    border: #000 1px solid;
+}
+
+.explo .closeWindow {
+    cursor: pointer;
+}
+
+.explo .processing {
+    margin-bottom: 30px;
+}
+
+.explo tr.highlight {
+    color: rgb(37, 37, 37) !important;
+}
+
+.explo .alert-dismissable .close,
+.explo .alert-dismissible .close {
+    top: -8px;
+}
+
+
+
+.explo .icoReduce {
+    float: right;
+    width: 22px;
+    height: 22px;
+    background: url("img/32px.png") -2px -139px no-repeat;
+ 
+}
+
+.explo .icoView {
+    margin-left: 5px;
+    margin-right: 5px;
+    float: right;
+    width: 22px;
+    height: 22px;
+   background: url("img/32px.png") -24px -163px no-repeat;
+}
+
+.explo .icoClose {
+    float: right;
+    width: 22px;
+    height: 22px;
+    background: url("img/32px.png") -92px -163px no-repeat;
+}
+
+.explo .fakeWindow {
+    width: 100%;
+    height: 38px;
+    background-color: floralwhite;
+}
+
+.explo .windowTools {
+    padding: 3px;
+    margin-top: 3px;
+    border: 1px lightgrey solid;
+    margin-right: 10px;
+    float: right;
+}
+
+.explo .windowTitle {
+    color: darkblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    Font-Variant: Small-Caps;
+    margin-left: 10px;
+    float: left;
+    font-size: 1.6em;
+    opacity: 0.2;
+}
+
+.explo .preIconPath {
+    float: left;
+    width: 22px;
+    height: 22px;
+    background: url("img/32px.png") -2px -229px no-repeat;
+}
+
+.explo .preIconPath:hover {
+    background: url("img/32px.png") -68px -229px no-repeat;
+}
+
+.explo .magnify {
+    margin-right: auto;
+    float: right;
+    width: 22px;
+    height: 22px;
+    background: url("img/32px.png") -2px -161px no-repeat;
+}
+
+.explo .searchInput {
+    margin-top:-5px;
+    float: right;
+    width: 190px;
+}
+
+.explo .row {
+    height: 40px;
+}
+
+.explo .icoRacc{
+     margin-right:10px;
+     float:left;
+     background-repeat: no-repeat;
+     width: 22px !important;
+     height: 22px !important;
+}
+.explo .icoPic {
+    background: url("img/32px.png") -3px -184px no-repeat;
+}
+
+.explo .icoVideo {
+     background: url("img/32px.png") -69px -142px no-repeat;
+}
+
+.explo .icoDocument {
+    background: url("img/32px.png") -46px -229px no-repeat;
+}
+
+.explo .icoDownload {
+    background: url("img/32px.png") -90px -229px no-repeat; 
+}
+
+.explo .icoHdrive {
+    background: url("img/32px.png") -69px -206px no-repeat;
+}
+
+.explo .listItemRapid {
+    padding-left: 0px !important;
+    list-style-type: none;
+    line-height: 2em;
+}
+
+.explo .ico_folder {
+    background: url("img/32px.png") -68px -229px no-repeat;
+}
+.explo .ico_folder:hover {
+    background: url("img/32px.png") -2px -229px no-repeat;
+}
+
+.explo .ico_js{
+    background: url("img/32px.png") -48px -162px no-repeat;
+}
+.explo .ico_html {
+    background: url("img/32px.png") -47px -206px no-repeat;
+}
+.explo .ico_txt {
+    background: url("img/32px.png") -46px -229px no-repeat;
+}
+.explo .ico_else {
+    background: url("img/32px.png") 0px -95px no-repeat;
+}
+.explo .ico_vid {
+    background: url("img/32px.png") -23px -139px no-repeat;
+}
+.explo .ico_xls {
+    background: url("img/32px.png") -90px -139px no-repeat;
+}
+.explo .ico_doc {
+    background: url("img/32px.png") -92px -206px no-repeat;
+}
+.explo .ico_ppt {
+    background: url("img/32px.png") -2px -118px no-repeat;
+}
+.explo .ico_pdf {
+    background: url("img/32px.png") -46px -118px no-repeat;
+}
+.explo .ico_cad {
+    background: url("img/32px.png") -90px -185px no-repeat;
+}
+.explo .ico_logicVol{
+    background: url("img/32px.png") -68px -118px no-repeat;
+}
+.explo .ico_CDrom {
+     background: url("img/32px.png") -24px -183px no-repeat;
+}
+.explo .ico_usb {
+   background: url("img/32px.png") -25px -117px no-repeat;
+}
+.explo .ico_sdCard {
+     background: url("img/32px.png") -46px -140px no-repeat;
+}
+.explo .ico_pic {
+    background: url("img/32px.png") -46px -140px no-repeat;
+}
+
+
+
+.explo .jstree-default>.jstree-no-dots .jstree-node,
+.jstree-default>.jstree-no-dots .jstree-leaf>.jstree-ocl {
+    margin-left: -10px;
+
+}
+
+.explo .modali button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.explo .progress {
+    margin-top: 20px;
+}
+
+.explo .contentModal h3 {
+    margin-top: 60px !important;
+}
+
+.explo .jsonLoader {
+    margin: 10px;
+}
+
+.explo .imageApp {
+    margin: auto;
+    max-height: 350px;
+    display:block;
+
+}
+
+.explo .topButtonCloser {
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+}
+
+.explo .imageAppContainer {
+    text-align: center;
+}
+
+.explo .mce-btn button {
+    background-color: #f2f2f2;
+
+}
+
+.explo .mce-btn .mce-txt {
+    color: grey !important;
+}
+
+
+.explo .waitIcon {
+    position: absolute;
+    top: 20%;
+    left: 36%;
+}
+
+.explo .windowToolbar img {
+    float: right;
+    margin: 5px;
+    border: 1px lightgrey solid;
+}
+
+.explo .butcloser {
+    margin: 10px !important;
+}
+
+.explo .mce-branding {
+    display: none !important;
+}
+
+.explo .data {
+    display: none;
+}
+
+.explo .secretId {
+    display: none;
+}
+
+.explo .meter {
+    height: 20px;
+    /* Can be anything */
+    position: relative;
+    margin: 10px 10px 20px 10px !important;
+    /* Just for demo spacing */
+    background: #555;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    padding: 0px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.explo .meter>span {
+    display: none;
+    height: 100%;
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(43, 194, 83);
+    background-image: -webkit-gradient(linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(43, 194, 83)),
+        color-stop(1, rgb(84, 240, 84)));
+    background-image: -moz-linear-gradient(center bottom,
+        rgb(43, 194, 83) 37%,
+        rgb(84, 240, 84) 69%);
+    -webkit-box-shadow:
+        inset 0 2px 9px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow:
+        inset 0 2px 9px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        inset 0 2px 9px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.explo .meter>span:after,
+.animate>span>span {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image:
+        -webkit-gradient(linear, 0 0, 100% 100%,
+        color-stop(.25, rgba(255, 255, 255, .2)),
+        color-stop(.25, transparent), color-stop(.5, transparent),
+        color-stop(.5, rgba(255, 255, 255, .2)),
+        color-stop(.75, rgba(255, 255, 255, .2)),
+        color-stop(.75, transparent), to(transparent));
+    background-image:
+        -moz-linear-gradient(-45deg,
+        rgba(255, 255, 255, .2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .2) 50%,
+        rgba(255, 255, 255, .2) 75%,
+        transparent 75%,
+        transparent);
+    z-index: 1;
+    -webkit-background-size: 50px 50px;
+    -moz-background-size: 50px 50px;
+    -webkit-animation: move 2s linear infinite;
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+}
+
+.explo .animate>span:after {
+    display: none;
+}
+
+
+.explo .orange>span {
+    background-color: #f1a165;
+    background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f1a165), color-stop(1, #f36d0a));
+    background-image: -webkit-linear-gradient(#f1a165, #f36d0a);
+}
+
+.explo .red>span {
+    background-color: #f0a3a3;
+    background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f0a3a3), color-stop(1, #f42323));
+    background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
+}
+
+.explo .nostripes>span>span,
+.explo .nostripes>span:after {
+    -webkit-animation: none;
+    background-image: none;
+}
+
+
+.explo .ctxMenu{
+    display:none;
+    z-index:100;
+}
+
+.explo menu {
+    position:absolute;
+    display:block;
+    left:0px;
+    top:0px;
+    height:350px;
+    width:160px;
+    padding:0;
+    margin:0;
+    border:1px solid;
+    background-color:white;
+    font-weight:normal;
+    white-space:nowrap;
+    padding : 10px;
+}
+.explo menu tr:hover{
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.explo menu:hover > menu{
+    display:block;
+}
+.explo menu > menu{
+    display:none;
+    position:relative;
+    top:-20px;
+    left:100%;
+    width:55px;
+}
+.explo menu[title]:before{
+    content:attr(title);
+}
+
+.explo .icoCtxM{padding-right : 5px;}
+
+.explo .jstree-default .jstree-icon {
+    background-image: url("img/32px.png");
+}
+
+.explo .elementNameExt{
+    cursor:pointer;
+}
+
+.explo tr{
+    cursor:pointer;
+}

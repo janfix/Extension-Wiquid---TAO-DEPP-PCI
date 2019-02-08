@@ -3461,8 +3461,14 @@ Morph.prototype.silentSetExtent = function (aPoint) {
 };
 
 Morph.prototype.setWidth = function (width) {
+    // TRACKJP
+    try {
+        this.setExtent(new Point(width || 0, this.height()));
+    }
+    catch (err) {
+        console.log(err);
+    }
     
-    this.setExtent(new Point(width || 0, this.height()));
 };
 
 Morph.prototype.silentSetWidth = function (width) {
@@ -3475,7 +3481,15 @@ Morph.prototype.silentSetWidth = function (width) {
 };
 
 Morph.prototype.setHeight = function (height) {
-    this.setExtent(new Point(this.width(), height || 0));
+  
+
+    // TRACKJP
+    try {
+        this.setExtent(new Point(this.width(), height || 0));
+    }
+    catch (err) {
+        console.log(err);
+    }
 };
 
 Morph.prototype.silentSetHeight = function (height) {
@@ -63706,6 +63720,8 @@ snapsrc.snap.tao = function(message){alert(message);};
         world.doOneCycle();  
 
     }
+
+       
 
 
  return panel_Left;

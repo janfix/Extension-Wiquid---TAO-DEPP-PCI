@@ -1,0 +1,65 @@
+{
+    "typeIdentifier": "explo",
+    "label": "Explorateur de Fichiers",
+    "short": "Explo",
+    "description": "Simultation d'explorateur Système de Fichiers",
+    "version": "0.2.8",
+    "author": "Jean-Philippe Rivière",
+    "email": "jean.philippe.riviere@gmail.com",
+    "tags": [
+        "technologies","Explorateur de Fichiers"
+    ],
+    "response": {
+        "baseType": "string",
+        "cardinality": "single"
+    },
+    "runtime" : {
+        "hook" : "./runtime/explo.min.js",
+        "libraries" : [
+        ],
+        "src" :[ 
+            "./runtime/explo.amd.js",
+            "./runtime/js/renderer.js",
+            "./runtime/js/defaultConfig.js",
+            "./runtime/js/lib/bootstrap.js",
+            "./runtime/js/lib/datatables.js"],
+        "stylesheets" : [
+            "./runtime/css/base.css",
+            "./runtime/css/font-awesome.min.css",
+            "./runtime/css/bootstrap.css",
+            "./runtime/css/explo.css",
+            "./runtime/css/jsTreeStyle.css",
+            "./runtime/css/datatables.css"
+        ], 
+        "mediaFiles" : [
+            "./runtime/fonts/fontawesome-webfont.woff",
+            "./runtime/fonts/fontawesome-webfont.woff2",
+            "./runtime/fonts/glyphicons-halflings-regular.eot",
+            "./runtime/fonts/glyphicons-halflings-regular.svg",
+            "./runtime/fonts/glyphicons-halflings-regular.ttf",
+            "./runtime/fonts/glyphicons-halflings-regular.woff",
+            "./runtime/fonts/glyphicons-halflings-regular.woff2",
+            "./runtime/assets/greenGrid.png",
+            "./runtime/assets/Loading_icon.gif",
+            "./runtime/assets/processing.png",
+            "./runtime/css/img/32px.png",
+            "./runtime/css/img/throbber.gif",
+            "./runtime/css/img/sort_asc.png",
+            "./runtime/css/img/sort_asc_disabled.png",
+            "./runtime/css/img/sort_both.png",
+            "./runtime/css/img/sort_desc.png",
+            "./runtime/css/img/sort_desc_disabled.png"
+        ]
+    },
+            "creator" : {
+                "icon": "./creator/img/icon.svg",
+                "hook": "./pciCreator.js",
+                "libraries" : [
+                    "./creator/tpl/markup.tpl",
+                    "./creator/tpl/propertiesForm.tpl",
+                    "./creator/widget/Widget.js",
+                    "./creator/widget/states/Question.js",
+                    "./creator/widget/states/states.js"
+                ]
+            }
+        }
