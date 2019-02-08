@@ -144,8 +144,8 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
                     top = receiver[i].scripts.children[0];
                     if (typeof top != "undefined") {
                         //JP : stop the process after few seconds how long ?
-                        setTimeout(() => {
-                        snapsrc.snap.world.children[0].stage.threads.stopProcess(top, receiver[i]);
+                        setTimeout(function () {
+                            snapsrc.snap.world.children[0].stage.threads.stopProcess(top, receiver[i]);
                         }, 3000);
                         // 
                     }

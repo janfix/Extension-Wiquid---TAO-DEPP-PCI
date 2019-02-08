@@ -2,16 +2,27 @@
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
+.qti-item.runtime{
+ 
+  margin-left: auto!important;
+  margin-right: auto !important;
+}
+
 .SnapForTao .prompt {position:relative;}
 
 .SnapForTao{
     position : relative;
-    margin-left: -20%;
+    margin-left: auto;
+    margin-right : auto;
   }
 
 .item-editor-item .SnapForTao {
   position: relative;
   margin-left: 0px !important;
+}
+
+.qti-itemBody {
+	/* width : 1175px; */
 }
   
 .SnapForTao .snapy{
