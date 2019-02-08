@@ -118,9 +118,10 @@
     border: 1px #8A2BE2 solid;
 }
 
+
 table.dataTable tbody>tr.selected,
 table.dataTable tbody>tr>.selected {
-    background-color: #8dacbb;
+    background-color: #8dacbb!important;
 }
 
 .explo .path {
@@ -136,7 +137,15 @@ table.dataTable tbody>tr>.selected {
 }
 
 .explo .preIcon {
+    float:left;
     margin-right: 5px;
+    background-repeat: no-repeat;
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.explo .elementNameExt{
+    float:left;
 }
 
 .explo .pathLine {
@@ -320,7 +329,8 @@ table.dataTable tbody>tr>.selected {
     float: right;
     width: 22px;
     height: 22px;
-    background-image: url('img/reduit.png');
+    background: url("img/32px.png") -2px -139px no-repeat;
+ 
 }
 
 .explo .icoView {
@@ -329,14 +339,14 @@ table.dataTable tbody>tr>.selected {
     float: right;
     width: 22px;
     height: 22px;
-    background-image: url('img/view.png');
+   background: url("img/32px.png") -24px -163px no-repeat;
 }
 
 .explo .icoClose {
     float: right;
     width: 22px;
     height: 22px;
-    background-image: url('img/close.png');
+    background: url("img/32px.png") -92px -163px no-repeat;
 }
 
 .explo .fakeWindow {
@@ -367,7 +377,11 @@ table.dataTable tbody>tr>.selected {
     float: left;
     width: 22px;
     height: 22px;
-    background-image: url('img/folder2.png');
+    background: url("img/32px.png") -2px -229px no-repeat;
+}
+
+.explo .preIconPath:hover {
+    background: url("img/32px.png") -68px -229px no-repeat;
 }
 
 .explo .magnify {
@@ -375,10 +389,11 @@ table.dataTable tbody>tr>.selected {
     float: right;
     width: 22px;
     height: 22px;
-    background-image: url('img/search.png');
+    background: url("img/32px.png") -2px -161px no-repeat;
 }
 
 .explo .searchInput {
+    margin-top:-5px;
     float: right;
     width: 190px;
 }
@@ -387,36 +402,31 @@ table.dataTable tbody>tr>.selected {
     height: 40px;
 }
 
-.explo .icoCamera {
-    background: url('img/camera.png') no-repeat left top;
-    padding-left: 40px;
-    padding-top: 0px;
+.explo .icoRacc{
+     margin-right:10px;
+     float:left;
+     background-repeat: no-repeat;
+     width: 22px !important;
+     height: 22px !important;
+}
+.explo .icoPic {
+    background: url("img/32px.png") -3px -184px no-repeat;
 }
 
-
 .explo .icoVideo {
-    background: url('img/video.png')no-repeat left top;
-    padding-left: 40px;
-    padding-top: 0px;
+     background: url("img/32px.png") -69px -142px no-repeat;
 }
 
 .explo .icoDocument {
-    background: url('img/document.png')no-repeat left top;
-    padding-left: 40px;
-    padding-top: 0px;
+    background: url("img/32px.png") -46px -229px no-repeat;
 }
 
 .explo .icoDownload {
-    background: url('img/download.png')no-repeat left top;
-    padding-left: 40px;
-    padding-top: 0px;
+    background: url("img/32px.png") -90px -229px no-repeat; 
 }
 
 .explo .icoHdrive {
-
-    background: url('img/hdrive.png')no-repeat left top;
-    padding-left: 40px;
-    padding-top: 0px;
+    background: url("img/32px.png") -69px -206px no-repeat;
 }
 
 .explo .listItemRapid {
@@ -424,6 +434,61 @@ table.dataTable tbody>tr>.selected {
     list-style-type: none;
     line-height: 2em;
 }
+
+.explo .ico_folder {
+    background: url("img/32px.png") -68px -229px no-repeat;
+}
+.explo .ico_folder:hover {
+    background: url("img/32px.png") -2px -229px no-repeat;
+}
+
+.explo .ico_js{
+    background: url("img/32px.png") -48px -162px no-repeat;
+}
+.explo .ico_html {
+    background: url("img/32px.png") -47px -206px no-repeat;
+}
+.explo .ico_txt {
+    background: url("img/32px.png") -46px -229px no-repeat;
+}
+.explo .ico_else {
+    background: url("img/32px.png") 0px -95px no-repeat;
+}
+.explo .ico_vid {
+    background: url("img/32px.png") -23px -139px no-repeat;
+}
+.explo .ico_xls {
+    background: url("img/32px.png") -90px -139px no-repeat;
+}
+.explo .ico_doc {
+    background: url("img/32px.png") -92px -206px no-repeat;
+}
+.explo .ico_ppt {
+    background: url("img/32px.png") -2px -118px no-repeat;
+}
+.explo .ico_pdf {
+    background: url("img/32px.png") -46px -118px no-repeat;
+}
+.explo .ico_cad {
+    background: url("img/32px.png") -90px -185px no-repeat;
+}
+.explo .ico_logicVol{
+    background: url("img/32px.png") -68px -118px no-repeat;
+}
+.explo .ico_CDrom {
+     background: url("img/32px.png") -24px -183px no-repeat;
+}
+.explo .ico_usb {
+   background: url("img/32px.png") -25px -117px no-repeat;
+}
+.explo .ico_sdCard {
+     background: url("img/32px.png") -46px -140px no-repeat;
+}
+.explo .ico_pic {
+    background: url("img/32px.png") -46px -140px no-repeat;
+}
+
+
 
 .explo .jstree-default>.jstree-no-dots .jstree-node,
 .jstree-default>.jstree-no-dots .jstree-leaf>.jstree-ocl {
@@ -603,15 +668,6 @@ table.dataTable tbody>tr>.selected {
     display: none;
 }
 
-@-webkit-keyframes move {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 50px 50px;
-    }
-}
 
 .explo .orange>span {
     background-color: #f1a165;
@@ -628,7 +684,61 @@ table.dataTable tbody>tr>.selected {
 }
 
 .explo .nostripes>span>span,
-.nostripes>span:after {
+.explo .nostripes>span:after {
     -webkit-animation: none;
     background-image: none;
+}
+
+
+.explo .ctxMenu{
+    display:none;
+    z-index:100;
+}
+
+.explo menu {
+    position:absolute;
+    display:block;
+    left:0px;
+    top:0px;
+    height:350px;
+    width:160px;
+    padding:0;
+    margin:0;
+    border:1px solid;
+    background-color:white;
+    font-weight:normal;
+    white-space:nowrap;
+    padding : 10px;
+}
+.explo menu tr:hover{
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.explo menu:hover > menu{
+    display:block;
+}
+.explo menu > menu{
+    display:none;
+    position:relative;
+    top:-20px;
+    left:100%;
+    width:55px;
+}
+.explo menu[title]:before{
+    content:attr(title);
+}
+
+.explo .icoCtxM{padding-right : 5px;}
+
+.explo .jstree-default .jstree-icon {
+    background-image: url("img/32px.png");
+}
+
+.explo .elementNameExt{
+    cursor:pointer;
+}
+
+.explo tr{
+    cursor:pointer;
 }

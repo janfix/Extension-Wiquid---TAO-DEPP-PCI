@@ -71,5 +71,67 @@
 
     <div class="signature">Ministère de l'éducation nationale - DEPP - Wiquid 2018</div>
 
+    <menu class="ctxMenu">
+        <table>
+            <tr class="copyOrder">
+                <td class="icoCtxM"><span class="fa fa-clone"></span></td>
+                <td>Copier</td>
+            </tr>
+            <tr class="cutOrder">
+                <td class="icoCtxM"><span class="fa fa-scissors"></span></td>
+                <td>Couper</td>
+            </tr>
+            <tr class="pasteOrder">
+                <td class="icoCtxM"><span class="fa fa-clipboard"></span></td>
+                <td> Coller</td>
+            </tr>
+            <tr>
+                <td><hr></td>
+                <td><hr></td>
+            </tr>
+            <tr class="newFileOrder">
+                <td class="icoCtxM"><span class="fa fa-file"></span></td>
+                <td>Nouveau fichier</td>
+            </tr>
+            <tr class="newFolderOrder">
+                <td class="icoCtxM"><span class="fa fa-folder"></span></td>
+                <td>Nouveau répertoire</td>
+            </tr>
+            <tr class="openOrder">
+                <td class="icoCtxM"><span class="fa fa-angle-right"></span></td>
+                <td>Ouvrir</td>
+            </tr>
+            <tr class="renameOrder">
+                <td class="icoCtxM"><span class="fa fa-edit"></span></td>
+                <td>Renommer</td>
+            </tr>
+            <tr class="deleteOrder">
+                <td class="icoCtxM"><span class="fa fa-trash"></span></td>
+                <td>Supprimer</td>
+            </tr>
+            <tr class="propsOrder">
+                <td class="icoCtxM"><span class="fa fa-tasks"></span></td>
+                <td>Propriétés</td>
+            </tr>
+            <tr>
+                <td><hr></td>
+                <td><hr></td>
+            </tr>
+            <tr class="emptyTrashOrder">
+                <td class="icoCtxM"><span class="fa fa-trash"></span></td>
+                <td>Vider la corbeille</td>
+            </tr>
+            <tr class="restaureOrder">
+                <td class="icoCtxM"><span class="fa fa-undo"></span></td>
+                <td>Restaurer</td>
+            </tr>
+            <tr class="homeOrder">
+                <td class="icoCtxM"><span class="fa fa-home"></span></td>
+                <td>home</td>
+            </tr>         
+        </table>
+    </menu>
+
+
 </div><!-- Main Div Container Fluid -->
 </div> 

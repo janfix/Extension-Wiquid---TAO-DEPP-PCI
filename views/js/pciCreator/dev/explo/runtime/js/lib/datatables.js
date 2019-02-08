@@ -1,7 +1,16 @@
+/**
+ * This file compile Jquery and all the plugins needed for this project : 
+ * jquery
+ * jquery ui
+ * Datatables.js
+ * jstree.js
+ * The libs were ambified by Jean-Philippe Rivière
+ * The licence is presented in the code at each section.
+ */
+
 define([
-'IMSGlobal/jquery_2_1_1',
-'explo/runtime/js/lib/tether.min'
-], function($,Tether) {
+'taoQtiItem/portableLib/jquery_2_1_1',
+], function($) {
 	'use strict';
 	
 	/*
@@ -42,17 +51,14 @@ define([
 	/*jslint evil: true, undef: true, browser: true */
 	/*globals $,require,jQuery,define,_selector_run,_selector_opts,_selector_first,_selector_row_indexes,_ext,_Api,_api_register,_api_registerPlural,_re_new_lines,_re_html,_re_formatted_numeric,_re_escape_regex,_empty,_intVal,_numToDecimal,_isNumber,_isHtml,_htmlNumeric,_pluck,_pluck_order,_range,_stripHtml,_unique,_fnBuildAjax,_fnAjaxUpdate,_fnAjaxParameters,_fnAjaxUpdateDraw,_fnAjaxDataSrc,_fnAddColumn,_fnColumnOptions,_fnAdjustColumnSizing,_fnVisibleToColumnIndex,_fnColumnIndexToVisible,_fnVisbleColumns,_fnGetColumns,_fnColumnTypes,_fnApplyColumnDefs,_fnHungarianMap,_fnCamelToHungarian,_fnLanguageCompat,_fnBrowserDetect,_fnAddData,_fnAddTr,_fnNodeToDataIndex,_fnNodeToColumnIndex,_fnGetCellData,_fnSetCellData,_fnSplitObjNotation,_fnGetObjectDataFn,_fnSetObjectDataFn,_fnGetDataMaster,_fnClearTable,_fnDeleteIndex,_fnInvalidate,_fnGetRowElements,_fnCreateTr,_fnBuildHead,_fnDrawHead,_fnDraw,_fnReDraw,_fnAddOptionsHtml,_fnDetectHeader,_fnGetUniqueThs,_fnFeatureHtmlFilter,_fnFilterComplete,_fnFilterCustom,_fnFilterColumn,_fnFilter,_fnFilterCreateSearch,_fnEscapeRegex,_fnFilterData,_fnFeatureHtmlInfo,_fnUpdateInfo,_fnInfoMacros,_fnInitialise,_fnInitComplete,_fnLengthChange,_fnFeatureHtmlLength,_fnFeatureHtmlPaginate,_fnPageChange,_fnFeatureHtmlProcessing,_fnProcessingDisplay,_fnFeatureHtmlTable,_fnScrollDraw,_fnApplyToChildren,_fnCalculateColumnWidths,_fnThrottle,_fnConvertToWidth,_fnGetWidestNode,_fnGetMaxLenString,_fnStringToCss,_fnSortFlatten,_fnSort,_fnSortAria,_fnSortListener,_fnSortAttachListener,_fnSortingClasses,_fnSortData,_fnSaveState,_fnLoadState,_fnSettingsFromNode,_fnLog,_fnMap,_fnBindAction,_fnCallbackReg,_fnCallbackFire,_fnLengthOverflow,_fnRenderer,_fnDataSource,_fnRowAttributes*/
 
+	//amdified by Jean-Philippe Rivière
+
 	(function (factory) {
 			"use strict";
 
 			if (typeof define === 'function' && define.amd) {
-				// AMD
-				//console.log("cas AMD");
 				factory($, window, document);
-				/* define(['jquery'], function ($) {
-					console.log($);
-					return factory($, window, document);
-				}); */
+				
 			} else if (typeof exports === 'object') {
 				// CommonJS
 				module.exports = function (root, $) {
@@ -77,7 +83,6 @@ define([
 		}
 		(function ($, window, document, undefined) {
 			"use strict";
-		//	console.log($);
 			/**
 			 * DataTables is a plug-in for the jQuery Javascript library. It is a highly
 			 * flexible tool, based upon the foundations of progressive enhancement,
@@ -14867,6 +14872,8 @@ define([
 			//Janfix : Add Here New Jquery Plugins
 			//**************************************************************************************************************** */
 
+
+
 			// ALERT CLASS DEFINITION
 			// ======================
 			var dismiss = '[data-dismiss="alert"]'
@@ -14920,7 +14927,6 @@ define([
 
 			function Plugin(option) {
 				return this.each(function () {
-					console.log("Plugin OK");
 					var $this = $(this)
 					var data = $this.data('bs.alert')
 
@@ -15116,7 +15122,10 @@ define([
  * ========================================================================
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * amdified by Jean-Philippe Rivière
  * ======================================================================== */
+
+	 //amdified by Jean-Philippe Rivière
 
 	// DROPDOWN CLASS DEFINITION
 	// =========================
@@ -15294,11 +15303,12 @@ define([
 		 */
 		/*jshint -W083 */
 
+		//amdified by Jean-Philippe Rivière
+
 		// prevent another load? maybe there is a better way?
 		if ($.jstree) {
 			return;
 		}
-
 		/**
 		 * ### jsTree core functionality
 		 */
@@ -22050,6 +22060,7 @@ define([
 			 * @plugin contextmenu
 			 */
 			items: function (o, cb) { // Could be an object directly
+				$container.find('.ctxMenu').css("display", "none");
 				return {
 					"create": {
 						"separator_before": false,
@@ -22213,27 +22224,6 @@ define([
 						}
 					});
 
-				/*!
-				if(!('oncontextmenu' in document.body) && ('ontouchstart' in document.body)) {
-					var el = null, tm = null;
-					this.element
-						.on("touchstart", ".jstree-anchor", function (e) {
-							el = e.currentTarget;
-							tm = +new Date();
-							$(document).one("touchend", function (e) {
-								e.target = document.elementFromPoint(e.originalEvent.targetTouches[0].pageX - window.pageXOffset, e.originalEvent.targetTouches[0].pageY - window.pageYOffset);
-								e.currentTarget = e.target;
-								tm = ((+(new Date())) - tm);
-								if(e.target === el && tm > 600 && tm < 1000) {
-									e.preventDefault();
-									$(el).trigger('contextmenu', e);
-								}
-								el = null;
-								tm = null;
-							});
-						});
-				}
-				*/
 				$(document).on("context_hide.vakata.jstree", $.proxy(function (e, data) {
 					this._data.contextmenu.visible = false;
 					$(data.reference).removeClass('jstree-context');
@@ -22673,7 +22663,7 @@ define([
 								e.preventDefault();
 								break;
 							default:
-								//console.log(e.which);
+								
 								break;
 						}
 					})
@@ -22927,7 +22917,7 @@ define([
 							.find('.jstree-copy').first()[is_copy ? 'show' : 'hide']();
 
 						// if are hovering the container itself add a new root node
-						//console.log(data.event);
+						
 						if ((data.event.target === ins.element[0] || data.event.target === ins.get_container_ul()[0]) && ins.get_container_ul().children().length === 0) {
 							ok = true;
 							for (t1 = 0, t2 = data.data.nodes.length; t1 < t2; t1++) {
@@ -25049,9 +25039,9 @@ define([
 	 * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
 	 *
 	 * For details please refer to: http://www.datatables.net/extensions/select
+	 * amdified by Jean-Philippe Rivière
 	 */
 
-		//console.log("Trackeur 1");
 		var DataTable = $.fn.dataTable;
 
 
@@ -26214,352 +26204,6 @@ define([
 		});
 
 	//End of Selected Plugin for Datatables
-
-	//Plugin Context Menu 2
-		function contexMenuContainer($){
-			"use strict";
-
-			/*
-			 *               jQuery ContextMenu v. 1.0.0
-			 *
-			 *                Written by Bilotta Matteo.
-			 *
-			 *     Copyright © 2017, Bylothink. All rights reserved.
-			 */
-
-			// Checking if jQuery is available...
-			if (typeof jQuery === "undefined") {
-				throw new Error("$ is required by ContextMenu to be executed.");
-			} else if (typeof Tether === "undefined") {
-				throw new Error("Tether is required by ContextMenu to be executed.");
-			}
-
-			(function ($, Tether, window) {
-				"use strict";
-				// Single instance private constants:
-
-				var DEFAULT_OPTS = {
-
-					items: []
-				};
-
-				var PREFIX = "cnxt-";
-				var CURSOR_ID = PREFIX + "cursor";
-
-				var ATTACHMENTS = {
-
-					MAIN_MENU: "bottom left",
-					SUB_MENU: "top right"
-				};
-
-				// Single instance private properties:
-				var _context = void 0;
-				var _contextMenu = void 0;
-				var _cursor = void 0;
-				var _target = void 0;
-
-				// Instance indipendent private methods:
-				var _append = function _append(obj) {
-					$("body").append(obj);
-				};
-
-				var _init = function _init() {
-					_context = $(window);
-					_cursor = $('<div id="' + CURSOR_ID + '"></div>');
-
-					_append(_cursor);
-				};
-
-				var _isUndefined = function _isUndefined(obj) {
-					return obj === undefined || typeof obj === "undefined";
-				};
-
-				var _onCloseEvent = function _onCloseEvent() {
-					if (_isUndefined(_contextMenu) === false) {
-						_contextMenu.close();
-					}
-				};
-
-				var _updateCursor = function _updateCursor(e) {
-					_cursor.css({
-						left: e.pageX,
-						top: e.pageY
-					});
-				};
-
-				// Classes:
-				var Item = function Item(properties, subMenu) {
-					// Private properties:
-					var _this = this;
-					var _subMenu = subMenu;
-
-					var _$Object = void 0;
-
-					// Private methods:
-					var _enableEvents = function _enableEvents() {
-						if (properties.type === "item") {
-							_$Object.on("click", _onClick);
-						} else if (properties.type === "submenu") {
-							_$Object.on("mouseenter", _onMouseEnter);
-							_$Object.on("mouseleave", _onMouseLeave);
-						}
-					};
-
-					var _init = function _init() {
-						_$Object = _render();
-
-						_append(_$Object);
-						_enableEvents();
-					};
-
-					var _onClick = function _onClick(e) {
-						if (_isUndefined(properties.action) === false) {
-							var _haveToClose = properties.action.call(_target, properties, e);
-
-							if (_haveToClose !== false) {
-								_contextMenu.close();
-							}
-						}
-
-						e.preventDefault();
-						e.stopPropagation();
-					};
-
-					var _onMouseEnter = function _onMouseEnter(e) {
-						_subMenu.open();
-
-						e.preventDefault();
-						e.stopPropagation();
-					};
-					var _onMouseLeave = function _onMouseLeave(e) {
-						_subMenu.close();
-
-						e.preventDefault();
-						e.stopPropagation();
-					};
-
-					var _render = function _render() {
-						var _item = $('<li></li>');
-
-						if (properties.type === "title") {
-							_item.addClass("dropdown-header");
-							_item.html(properties.text);
-						} else if (properties.type === "divider") {
-							_item.addClass("divider");
-							_item.attr("role", "separator");
-						} else if (properties.type === "item" || properties.type === "submenu") {
-							var _link = $('<a></a>');
-							var _innerHtml = properties.text;
-
-							if (_isUndefined(properties.icon) === false) {
-								_innerHtml = '<span class="fa fa-' + properties.icon + '"></span> ' + _innerHtml;
-							}
-
-							_link.html(_innerHtml);
-
-							if (properties.type === "submenu") {
-								_link.addClass("dropdown-toggle");
-								_item.addClass("dropdown-submenu");
-							}
-
-							_item.append(_link);
-						}
-
-						return _item;
-					};
-
-					// Public methods:
-					_this.get$Object = function () {
-						return _$Object;
-					};
-
-					// Initializing object...
-					_init();
-				};
-
-				var Menu = function Menu(items) {
-					// Private properties:
-					var _this = this;
-
-					var _items = [];
-					var _subMenus = [];
-
-					var _isMainMenu = void 0;
-					var _$Object = void 0;
-					var _$TargetObject = void 0;
-					var _tetherInstance = void 0;
-
-					// Private methods:
-					var _init = function _init() {
-						_$Object = _render();
-
-						_append(_$Object);
-					};
-
-					var _onMouseEnter = function _onMouseEnter(e) {
-						_this.open();
-
-						e.preventDefault();
-						e.stopPropagation();
-					};
-					var _onMouseLeave = function _onMouseLeave(e) {
-						_this.close();
-
-						e.preventDefault();
-						e.stopPropagation();
-					};
-
-					var _render = function _render() {
-						var _menu = $('<ul class="context-menu dropdown-menu"></ul>');
-
-						for (var i in items) {
-							var _item = void 0;
-
-							if (items[i].type === "submenu") {
-								var _subMenu = new Menu(items[i].items);
-
-								_item = new Item(items[i], _subMenu);
-
-								_subMenu.enableEvents(_item.get$Object());
-								_subMenus.push(_subMenu);
-							} else {
-								_item = new Item(items[i]);
-							}
-
-							_items.push(_item);
-
-							_menu.append(_item.get$Object());
-						}
-
-						return _menu;
-					};
-
-					// Public methods:
-					_this.close = function () {
-						_$Object.removeClass("open");
-
-						for (var i in _subMenus) {
-							_subMenus[i].close();
-						}
-
-						if (_isMainMenu === true) {
-							setTimeout(_this.delete, 150);
-						}
-					};
-
-					_this.delete = function () {
-						_$Object.remove();
-
-						for (var i in _subMenus) {
-							_subMenus[i].delete();
-						}
-					};
-
-					_this.enableEvents = function (target) {
-						var _attachment = void 0;
-
-						if (_isUndefined(target) === false) {
-							_attachment = ATTACHMENTS.SUB_MENU;
-							_isMainMenu = false;
-							_$TargetObject = target;
-						} else {
-							_attachment = ATTACHMENTS.MAIN_MENU;
-							_isMainMenu = true;
-							_$TargetObject = _cursor;
-						}
-
-						_tetherInstance = new Tether({
-
-							element: _$Object,
-							target: _$TargetObject,
-							attachment: 'top left',
-							targetAttachment: _attachment,
-							constraints: [{
-								attachment: "together",
-								pin: true,
-								to: "window"
-							}],
-							targetOffset: "0px 0px"
-						});
-
-						if (_isMainMenu === false) {
-							_$Object.on("mouseenter", _onMouseEnter);
-							_$Object.on("mouseleave", _onMouseLeave);
-						}
-					};
-
-					_this.get$Object = function () {
-						return _$Object;
-					};
-
-					_this.open = function () {
-						_$Object.addClass("open");
-						_tetherInstance.position();
-					};
-
-					// Initializing object...
-					_init();
-				};
-
-				var ContextMenu = function ContextMenu(domElements, options) {
-					// Private properties:
-					var _this = this;
-					var _domElements = domElements;
-
-					var _items = options.items;
-
-					// Private methods:
-					var _onRightClick = function _onRightClick(e) {
-						_target = this;
-
-						if (_isUndefined(_contextMenu) === false) {
-							_contextMenu.close();
-						}
-
-						_updateCursor(e);
-
-						var _computedItems = _items;
-
-						if (typeof _items === "function") {
-							_computedItems = _items.call(_target);
-						}
-
-						_contextMenu = new Menu(_computedItems);
-						_contextMenu.enableEvents();
-						_contextMenu.open();
-
-						e.preventDefault();
-						e.stopPropagation();
-					};
-
-					// Start listening for events...
-					$(_domElements).on("contextmenu", _onRightClick);
-				};
-
-				// Initial initialization...
-				_init();
-
-				// Start listening for global events...
-				_context.on("click", _onCloseEvent);
-				_context.on("contextmenu", _onCloseEvent);
-
-				// Exposing ContextMenu as a $ plugin...
-				
-				$.fn.contextMenu = function (options) {
-					if (_isUndefined(this) === false) {
-						var _opts = $.extend({}, DEFAULT_OPTS, options);
-
-						return new ContextMenu(this, _opts);
-					}
-				};
-				
-			})($, Tether, window);
-			//# sourceMappingURL=$.context-menu.js.map
-
-		}
-		contexMenuContainer($);
-		
-	//End Of Context Menu 2
 
 		function richText($){
 		(function ($) {
@@ -27967,7 +27611,7 @@ define([
 							end = (start + range.toString().length);
 
 							type = (start === end ? 'caret' : 'selection');
-							let anchor = sel.anchorNode; 
+							var anchor = sel.anchorNode; 
 							type === "caret" && sel.anchorNode.tagName ? sel.anchorNode : false;
 							start = (type === 'caret' && anchor !== false ? 0 : preSelectionRange.toString().length);
 							end = (type === 'caret' && anchor !== false ? 0 : (start + range.toString().length));
@@ -28052,101 +27696,6 @@ define([
 						sel.addRange(range);
 					}
 				}
-
-
-
-				/**
-				 * Save caret position and selection
-				 * @return object
-				 **/
-				/*
-        function saveSelection(editorID) {
-            var containerEl = document.getElementById(editorID);
-            var start;
-            if (window.getSelection && document.createRange) {
-                var sel = window.getSelection && window.getSelection();
-                if (sel && sel.rangeCount > 0) {
-                    var range = window.getSelection().getRangeAt(0);
-                    var preSelectionRange = range.cloneRange();
-                    preSelectionRange.selectNodeContents(containerEl);
-                    preSelectionRange.setEnd(range.startContainer, range.startOffset);
-                    start = preSelectionRange.toString().length;
-
-                    return {
-                        start: start,
-                        end: start + range.toString().length,
-                        editorID: editorID
-                    }
-                } else {
-                    return (savedSelection ? savedSelection : {
-                        start: 0,
-                        end: 0
-                    });
-                }
-            } else if (document.selection && document.body.createTextRange) {
-                var selectedTextRange = document.selection.createRange();
-                var preSelectionTextRange = document.body.createTextRange();
-                preSelectionTextRange.moveToElementText(containerEl);
-                preSelectionTextRange.setEndPoint("EndToStart", selectedTextRange);
-                start = preSelectionTextRange.text.length;
-
-                return {
-                    start: start,
-                    end: start + selectedTextRange.text.length,
-                    editorID: editorID
-                };
-            }
-        }
-        */
-
-				/**
-				 * Restore selection
-				 **/
-				/*
-        function restoreSelection(editorID) {
-            var containerEl = document.getElementById(editorID);
-            var savedSel = savedSelection;
-            if(savedSel.editorID !== editorID) {
-                return false;
-            }
-            if (window.getSelection && document.createRange) {
-                var charIndex = 0, range = document.createRange();
-                range.setStart(containerEl, 0);
-                range.collapse(true);
-                var nodeStack = [containerEl], node, foundStart = false, stop = false;
-
-                while (!stop && (node = nodeStack.pop())) {
-                    if (node.nodeType === 3) {
-                        var nextCharIndex = charIndex + node.length;
-                        if (!foundStart && savedSel.start >= charIndex && savedSel.start <= nextCharIndex) {
-                            range.setStart(node, savedSel.start - charIndex);
-                            foundStart = true;
-                        }
-                        if (foundStart && savedSel.end >= charIndex && savedSel.end <= nextCharIndex) {
-                            range.setEnd(node, savedSel.end - charIndex);
-                            stop = true;
-                        }
-                        charIndex = nextCharIndex;
-                    } else {
-                        var i = node.childNodes.length;
-                        while (i--) {
-                            nodeStack.push(node.childNodes[i]);
-                        }
-                    }
-                }
-                var sel = window.getSelection();
-                sel.removeAllRanges();
-                sel.addRange(range);
-            } else if (document.selection && document.body.createTextRange) {
-                var textRange = document.body.createTextRange();
-                textRange.moveToElementText(containerEl);
-                textRange.collapse(true);
-                textRange.moveEnd("character", savedSel.end);
-                textRange.moveStart("character", savedSel.start);
-                textRange.select();
-            }
-        }
-        */
 
 				/**
 				 * Enables tabbing/shift-tabbing between contentEditable table cells

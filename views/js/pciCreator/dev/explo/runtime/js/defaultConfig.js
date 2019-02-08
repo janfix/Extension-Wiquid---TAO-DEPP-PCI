@@ -1,3 +1,15 @@
+/*
+Copyright 2019 -  DEPP - Ministère de l'éducation nationale France.
+Developer : Jean-Philippe Rivière - Wiquid
+www.wiquid.fr
+
+Conception : Jean-Philippe Rivière - Saskia Keskpaik (DEPP) - Thierry Rocher.
+Code Review : Sam Sipasseuth from OAT.
+
+The base development structure was build by Wiquid's PCI Generator for TAO platform Free to use : www.wiquid.fr/pcigen 
+This project use open source libraries : jstree, datatable, font-awesome, jQuery, Bootstap
+ */
+
 define([], function () {
 var defaultJson = 
 {"mapFile":[
@@ -31,7 +43,7 @@ var defaultJson =
                     "fileId": 3,
                     "node": "vol1",
                     "name": "Settings",
-                    "extension": ".set",
+                    "extension": ".ppt",
                     "size": "50000000",
                     "dateMod": "2000-12-03",
                     "dateCreat": "2000-01-01",
@@ -43,7 +55,7 @@ var defaultJson =
                     "fileId": 4,
                     "node": "vol1",
                     "name": "agenda",
-                    "extension": ".js",
+                    "extension": ".pdf",
                     "size": "50000000",
                     "dateMod": "2007-10-22",
                     "dateCreat": "2007-10-20",
@@ -55,7 +67,7 @@ var defaultJson =
                     "fileId": 5,
                     "node": "vol1",
                     "name": "libras",
-                    "extension": ".js",
+                    "extension": ".cad",
                     "size": "50000000",
                     "dateMod": "2002-11-22",
                     "dateCreat": "2000-10-22",
@@ -334,7 +346,7 @@ var defaultJson =
         }
     },
     {
-        "id": "tropo",
+        "id": "u1",
         "parent": "vol1",
         "text": "Users",
         "li_attr": {},
@@ -344,11 +356,11 @@ var defaultJson =
             "copy":"",
             "type": "Répertoire",
             "dateMod": "1978-01-4",
-            "dateCreat": "2300-04-01"
+            "dateCreat": "2003-04-01"
         }
     },
      {
-        "id": "blik",
+        "id": "u2",
         "parent": "dir1",
         "text": "Users",
         "li_attr": {},
