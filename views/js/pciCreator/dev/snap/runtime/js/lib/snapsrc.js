@@ -3461,7 +3461,6 @@ Morph.prototype.silentSetExtent = function (aPoint) {
 };
 
 Morph.prototype.setWidth = function (width) {
-    // TRACKJP
     try {
         this.setExtent(new Point(width || 0, this.height()));
     }
@@ -11590,6 +11589,7 @@ WorldMorph.prototype.doOneCycle = function () {
 };
 
 // Wiquid : Resize Canvas respecting proportionality
+// Adaptativ solution
 // Change clientHeight and Width but keep same proportion for this.worldCanvas.style.width / height
 
 WorldMorph.prototype.fillPage = function () {
@@ -11597,8 +11597,9 @@ WorldMorph.prototype.fillPage = function () {
         clientWidth = window.innerWidth,   //Wiquid : Here
         myself = this;
 
-    clientHeight = clientHeight * 0.9; //xdone
-    clientWidth  = clientWidth *0.7; //xdone
+    var rect = document.getElementsByClassName("SnapForTao")[0].getBoundingClientRect();
+    clientHeight = clientHeight * 0.9; //Define height of Snap
+    clientWidth = clientWidth * 1 - rect.left - 100; //Define width of Snap but in adaptativ mode 
 
     this.worldCanvas.style.position = "relative";
     this.worldCanvas.style.left = "0px";
@@ -20065,7 +20066,7 @@ BlockMorph.prototype.drawMethodIcon = function (context) {
 // BlockMorph dragging and dropping
 
 BlockMorph.prototype.rootForGrab = function () {
-    let testOrigin = String(this.parent).search("FrameMorph");
+    var testOrigin = String(this.parent).search("FrameMorph");
     if (testOrigin > 0) {
         grabOrigine = "palette"
     } else {
@@ -29062,7 +29063,7 @@ function compteur(){
      if (morph) {
          allMorphs.push(morph)
      }
-     let evalParentMorph;
+     var evalParentMorph;
 
      function correctParentMorph() {
          if (!morph.parent.blockSpec) {
@@ -29072,7 +29073,7 @@ function compteur(){
          }
          return evalParentMorph;
      }
-     let ope;
+     var  ope;
      if (grabOrigine == "palette") {
          ope = "ADD"
      } else {
@@ -29087,7 +29088,7 @@ function compteur(){
      if (morph) {
          allMorphs.push(morph)
      }
-     let evalParentMorph;
+     var evalParentMorph;
 
      function correctParentMorph() {
          if (!morph.parent.blockSpec) {
@@ -29451,6 +29452,7 @@ Process.prototype.flashTime = 0; // experimental
 var blockRunner = true; // Allow to write once for receiveCondition -> Block When
 snapsrc.blockReporter = [];
 
+/** The function Process starts the chaining of blocks depending on the receiver(usually the sprite) - Spying the process (to put them in text string) is here possible  **/
 function Process(topBlock, receiver, onComplete, yieldFirst) {
     try {
         if (typeof topBlock != "undefined") {
@@ -29478,10 +29480,11 @@ function Process(topBlock, receiver, onComplete, yieldFirst) {
         blockChain.Actor = receiver.name;
         var blockString = "";
 
+        /*scanBlock check the nature of each block in process and organize the information to translate it in a readable string  */
         function scanBlock(BToScan) {
     
             function slotClosure() {
-                let slotClosure = false;
+                var slotClosure = false;
                 if (BToScan.parent.selector == "doWarp" ||
                     BToScan.parent.selector == "doForever" ||
                     BToScan.parent.selector == "doRepeat" ||
@@ -29496,12 +29499,12 @@ function Process(topBlock, receiver, onComplete, yieldFirst) {
 
             //Slot closure
             var closure = slotClosure();
-            let serBToScan = BToScan.toString();
+            var serBToScan = BToScan.toString();
             if (closure && serBToScan.search("CSlotMorph") < 0) {
                 blockString = blockString + "];";
             }
-            for (let z = 0; z < BToScan.children.length; z++) {
-                let serChildren = BToScan.children[z].toString();
+            for (var z = 0; z < BToScan.children.length; z++) {
+                var serChildren = BToScan.children[z].toString();
                 if (serChildren.search("StringMorph") > 0) {
                     if (typeof BToScan.children[z].text != "undefined") {
                         blockString = blockString + " " + BToScan.children[z].text;
@@ -29566,8 +29569,8 @@ function Process(topBlock, receiver, onComplete, yieldFirst) {
             scanBlock(blockToScan);
             blockChain.push("}");
             // Verify no process with hatBlockMorph
-            for (let i = 0; i < receiver.scripts.children.length; i++) {
-                let serNeighbour = receiver.scripts.children[i].toString();
+            for (var i = 0; i < receiver.scripts.children.length; i++) {
+                var serNeighbour = receiver.scripts.children[i].toString();
                 if (serNeighbour.search("HatBlockMorph") > 0) {
                     scanBlock(receiver.scripts.children[i]);
                 }

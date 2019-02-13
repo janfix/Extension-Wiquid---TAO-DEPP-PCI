@@ -11,10 +11,10 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/OAT/util/
  function renderSnap(id, $container, config){
    
     var snapInstance;
-    $container.find(".snapy").html("");
-    $container.find(".snapyOverlay").html("");
-    $container.find(".blockTracker").html(""); //Clean nbSpace
-    $container.find(".compteur").html("");
+    $container.find(".snapy").empty();
+    $container.find(".snapyOverlay").empty();
+    $container.find(".blockTracker").empty(); //Clean nbSpace
+    $container.find(".compteur").empty();
     $container.find(".snapy").append('<canvas class="world" tabindex="1" ><p>Your browser doesn\'t support canvas.</p></canvas>');   
     snapInstance = snapsrc.snap(id, $container, config);
     
