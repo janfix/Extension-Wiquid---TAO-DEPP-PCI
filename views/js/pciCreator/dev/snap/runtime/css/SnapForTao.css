@@ -3,9 +3,9 @@
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
 .qti-item.runtime{
- 
-  margin-left: auto!important;
-  margin-right: auto !important;
+  /*position: block;
+   margin-left: auto!important;
+  margin-right: auto !important; */
 }
 
 .SnapForTao .prompt {position:relative;}
