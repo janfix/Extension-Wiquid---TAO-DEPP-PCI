@@ -35,6 +35,7 @@ define([], function(){
     var attemptLimit =0; // for try counter
     var snapsrc = {}; // snapsrc global object
     snapsrc.actionOrder = 0; // Order block manip. for Tao answering system
+    snapsrc.keyLog ="";
    
 
    
@@ -22409,7 +22410,7 @@ ScriptsMorph.prototype.userMenu = function () {
                         + ' ' + obj.exemplar.name
                 );
         }
-        menu.addItem(
+/*        menu.addItem(
             'make a block...',
             function () {
                 new BlockDialogMorph(
@@ -22433,7 +22434,7 @@ ScriptsMorph.prototype.userMenu = function () {
                     myself.world()
                 );
             }
-        );
+        );*/
     }
     return menu;
 };
@@ -35030,7 +35031,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(watcherToggle('direction'));
         blocks.push(block('direction', this.inheritsAttribute('direction')));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP : cancel custom block button
+        // blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'looks') {
 
@@ -35079,7 +35081,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+       //JP cancel custom Block button
+       // blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sound') {
 
@@ -35096,7 +35099,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(watcherToggle('getTempo'));
         blocks.push(block('getTempo'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'pen') {
 
@@ -35120,7 +35124,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('reportPenTrailsAsCostume'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'control') {
 
@@ -35177,7 +35182,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('doPauseAll'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sensing') {
 
@@ -35239,7 +35245,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
 	/////////////////////////////////
 
 		blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'operators') {
 
@@ -35301,7 +35308,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'variables') {
 
@@ -35418,8 +35426,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
             blocks.push(block('reportMappedCode'));
             blocks.push('=');
         }
-
-        blocks.push(this.makeBlockButton());
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton());
 
  	}
     return blocks;
@@ -35427,6 +35435,7 @@ SpriteMorph.prototype.blockTemplates = function (category) {
 
 SpriteMorph.prototype.makeBlockButton = function (category) {
 	// answer a button that prompts the user to make a new block
+
     var button = new PushButtonMorph(
         this,
 		'makeBlock',
@@ -35441,12 +35450,13 @@ SpriteMorph.prototype.makeBlockButton = function (category) {
 
     button.selector = 'addCustomBlock';
     button.showHelp = BlockMorph.prototype.showHelp;
+    console.log(button);
     return button;
 };
 
 SpriteMorph.prototype.makeBlock = function () {
     // prompt the user to make a new block
-    var ide = this.parentThatIsA(IDE_Morph),
+   /*  var ide = this.parentThatIsA(IDE_Morph),
         stage = this.parentThatIsA(StageMorph),
         category = ide.currentCategory,
         clr = SpriteMorph.prototype.blockColor[category],
@@ -35482,7 +35492,7 @@ SpriteMorph.prototype.makeBlock = function () {
         'Make a block',
         null,
         myself.world()
-    );
+    ); */
 };
 
 SpriteMorph.prototype.palette = function (category) {
@@ -35542,7 +35552,7 @@ SpriteMorph.prototype.freshPalette = function (category) {
     makeButton.labelShadowColor = shade;
     makeButton.drawNew();
     makeButton.fixLayout();
-    palette.toolBar.add(makeButton);// Wiquid control the plus icon to add blocks
+    //palette.toolBar.add(makeButton);// Wiquid control the plus icon to add blocks
 
 	palette.toolBar.fixLayout();
     palette.add(palette.toolBar); // Wiquid control the whole toolbar
@@ -40146,7 +40156,8 @@ StageMorph.prototype.blockTemplates = function (category) {
         txt.setColor(this.paletteTextColor);
         blocks.push(txt);
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'looks') {
 
@@ -40182,7 +40193,8 @@ StageMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+       //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sound') {
 
@@ -40199,14 +40211,16 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push(watcherToggle('getTempo'));
         blocks.push(block('getTempo'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'pen') {
 
         blocks.push(block('clear'));
         blocks.push(block('reportPenTrailsAsCostume'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'control') {
 
@@ -40253,7 +40267,8 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('doPauseAll'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sensing') {
 
@@ -40309,7 +40324,8 @@ StageMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'operators') {
 
@@ -40371,7 +40387,8 @@ StageMorph.prototype.blockTemplates = function (category) {
     //////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'variables') {
 
@@ -40471,8 +40488,8 @@ StageMorph.prototype.blockTemplates = function (category) {
             blocks.push(block('reportMappedCode'));
             blocks.push('=');
         }
-
-        blocks.push(this.makeBlockButton());
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton());
     }
     return blocks;
 };
@@ -63924,6 +63941,13 @@ snapsrc.snap.tao = function(message){alert(message);};
         world.doOneCycle();  
 
     }
+
+     $container.find(".snapy").on('keydown', function (event) {
+         snapsrc.keyLog = event.keyCode + ", " + snapsrc.keyLog;
+     });
+
+
+
 
        
 

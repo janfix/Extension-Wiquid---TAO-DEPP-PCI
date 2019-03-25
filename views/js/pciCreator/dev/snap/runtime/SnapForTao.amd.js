@@ -114,7 +114,11 @@ define(['qtiCustomInteractionContext', 'taoQtiItem/portableLib/jquery_2_1_1', 'S
             }
             canvas = $container.find(".world")[canvasArrLenght];
             dataURL = canvas.toDataURL();
-            value = "{\"actions\": {" + cleanblockTracker + "}," + "\"processus\":[" + cleanProcessus + "]" + countingString + "\"snapImage\" : \"" + dataURL + "\"}";
+            
+           // value = "{\"actions\": {" + cleanblockTracker + "}," + "\"processus\":[" + cleanProcessus + "]" + countingString + "\"snapImage\" : \"" + "dataURL" + "\"keyLog\": {" +snapsrc.keyLog +"}}";
+            
+            value ='{ "actions": { '+ cleanblockTracker +'}, "processus":  '+ cleanProcessus + '  ' + countingString + '", snapImage": { "image": "' + dataURL + '" }, "keyLog": { "keys": "' + snapsrc.keyLog + '" } }'
+            
             return { base: { string: value } };
         },
         /**
