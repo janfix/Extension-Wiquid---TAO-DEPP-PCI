@@ -22410,31 +22410,7 @@ ScriptsMorph.prototype.userMenu = function () {
                         + ' ' + obj.exemplar.name
                 );
         }
-/*        menu.addItem(
-            'make a block...',
-            function () {
-                new BlockDialogMorph(
-                    null,
-                    function (definition) {
-                        if (definition.spec !== '') {
-                            if (definition.isGlobal) {
-                                stage.globalBlocks.push(definition);
-                            } else {
-                                obj.customBlocks.push(definition);
-                            }
-                            ide.flushPaletteCache();
-                            ide.refreshPalette();
-                            new BlockEditorMorph(definition, obj).popUp();
-                        }
-                    },
-                    myself
-                ).prompt(
-                    'Make a block',
-                    null,
-                    myself.world()
-                );
-            }
-        );*/
+
     }
     return menu;
 };
@@ -35450,49 +35426,11 @@ SpriteMorph.prototype.makeBlockButton = function (category) {
 
     button.selector = 'addCustomBlock';
     button.showHelp = BlockMorph.prototype.showHelp;
-    console.log(button);
     return button;
 };
 
 SpriteMorph.prototype.makeBlock = function () {
-    // prompt the user to make a new block
-   /*  var ide = this.parentThatIsA(IDE_Morph),
-        stage = this.parentThatIsA(StageMorph),
-        category = ide.currentCategory,
-        clr = SpriteMorph.prototype.blockColor[category],
-        myself = this,
-        dlg;
-    dlg = new BlockDialogMorph(
-        null,
-        function (definition) {
-            if (definition.spec !== '') {
-                if (definition.isGlobal) {
-                    stage.globalBlocks.push(definition);
-                } else {
-                    myself.customBlocks.push(definition);
-                }
-                ide.flushPaletteCache();
-                ide.refreshPalette();
-                new BlockEditorMorph(definition, myself).popUp();
-            }
-        },
-        myself
-    );
-    if (category !== 'variables') {
-        dlg.category = category;
-        dlg.categories.children.forEach(function (each) {
-            each.refresh();
-        });
-        dlg.types.children.forEach(function (each) {
-            each.setColor(clr);
-        each.refresh();
-        });
-    }
-    dlg.prompt(
-        'Make a block',
-        null,
-        myself.world()
-    ); */
+    
 };
 
 SpriteMorph.prototype.palette = function (category) {

@@ -2,11 +2,7 @@
 
 /*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
 
-.qti-item.runtime{
-  /*position: block;
-   margin-left: auto!important;
-  margin-right: auto !important; */
-}
+
 
 .SnapForTao .prompt {position:relative;}
 
@@ -21,9 +17,6 @@
   margin-left: 0px !important;
 }
 
-.qti-itemBody {
-	/* width : 1175px; */
-}
   
 .SnapForTao .snapy{
     overflow: scroll; 
