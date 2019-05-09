@@ -34,7 +34,8 @@ define([], function(){
     var panel_Left, stageSaver, worldwatcher;
     var attemptLimit =0; // for try counter
     var snapsrc = {}; // snapsrc global object
-    
+    snapsrc.actionOrder = 0; // Order block manip. for Tao answering system
+    snapsrc.keyLog ="";
    
 
    
@@ -45,12 +46,12 @@ define([], function(){
 		var Localizer;
         var SnapTranslator = new Localizer();
         var importString = "";
-        var getSnapProjectScript ="scriptPlaceHolder";
-                
+        var getSnapProjectScript ="scriptPlaceHolder";        
         if(config.snapScript=="shield"){importString="";}
         else{ importString = config.snapScript; 
         }
-
+        var allMorphs = []; //xdone
+        var grabOrigine; //xdone
 
 		function localize(string) {
 		    return SnapTranslator.translate(string);
@@ -3461,8 +3462,13 @@ Morph.prototype.silentSetExtent = function (aPoint) {
 };
 
 Morph.prototype.setWidth = function (width) {
+    try {
+        this.setExtent(new Point(width || 0, this.height()));
+    }
+    catch (err) {
+        // watch error jp
+    }
     
-    this.setExtent(new Point(width || 0, this.height()));
 };
 
 Morph.prototype.silentSetWidth = function (width) {
@@ -3475,7 +3481,15 @@ Morph.prototype.silentSetWidth = function (width) {
 };
 
 Morph.prototype.setHeight = function (height) {
-    this.setExtent(new Point(this.width(), height || 0));
+  
+
+    // TRACKJP
+    try {
+        this.setExtent(new Point(this.width(), height || 0));
+    }
+    catch (err) {
+       // watch error jp
+    }
 };
 
 Morph.prototype.silentSetHeight = function (height) {
@@ -11576,6 +11590,7 @@ WorldMorph.prototype.doOneCycle = function () {
 };
 
 // Wiquid : Resize Canvas respecting proportionality
+// Adaptativ solution
 // Change clientHeight and Width but keep same proportion for this.worldCanvas.style.width / height
 
 WorldMorph.prototype.fillPage = function () {
@@ -11583,8 +11598,9 @@ WorldMorph.prototype.fillPage = function () {
         clientWidth = window.innerWidth,   //Wiquid : Here
         myself = this;
 
-    clientHeight = clientHeight * 0.8;
-    clientWidth  = clientWidth *0.6;
+    var rect = document.getElementsByClassName("SnapForTao")[0].getBoundingClientRect();
+    clientHeight = clientHeight * 0.9; //Define height of Snap
+    clientWidth = clientWidth * 1 - rect.left - 100; //Define width of Snap but in adaptativ mode 
 
     this.worldCanvas.style.position = "relative";
     this.worldCanvas.style.left = "0px";
@@ -18324,7 +18340,6 @@ BlockMorph.prototype.setSpec = function (spec, silently, definition) {
         }
         part = myself.labelPart(word);
         if (isNil(part)) {
-            // console.log('could not create label part', word);
             return;
         }
         myself.add(part);
@@ -20052,6 +20067,12 @@ BlockMorph.prototype.drawMethodIcon = function (context) {
 // BlockMorph dragging and dropping
 
 BlockMorph.prototype.rootForGrab = function () {
+    var testOrigin = String(this.parent).search("FrameMorph");
+    if (testOrigin > 0) {
+        grabOrigine = "palette"
+    } else {
+        grabOrigine = "stage"
+    }
     return this;
 };
 
@@ -20122,6 +20143,7 @@ BlockMorph.prototype.allComments = function () {
 
 BlockMorph.prototype.destroy = function (justThis) {
     // private - use IDE_Morph.removeBlock() to first stop all my processes
+    morphRemover(this); // Remove Block jp 
     if (justThis) {
         if (!isNil(this.comment)) {
             this.comment.destroy();
@@ -20163,6 +20185,7 @@ BlockMorph.prototype.snap = function () {
         receiver,
         stage,
         ide;
+    morphOnSet(this);
     top.allComments().forEach(function (comment) {
         comment.align(top);
     });
@@ -22387,31 +22410,7 @@ ScriptsMorph.prototype.userMenu = function () {
                         + ' ' + obj.exemplar.name
                 );
         }
-        menu.addItem(
-            'make a block...',
-            function () {
-                new BlockDialogMorph(
-                    null,
-                    function (definition) {
-                        if (definition.spec !== '') {
-                            if (definition.isGlobal) {
-                                stage.globalBlocks.push(definition);
-                            } else {
-                                obj.customBlocks.push(definition);
-                            }
-                            ide.flushPaletteCache();
-                            ide.refreshPalette();
-                            new BlockEditorMorph(definition, obj).popUp();
-                        }
-                    },
-                    myself
-                ).prompt(
-                    'Make a block',
-                    null,
-                    myself.world()
-                );
-            }
-        );
+
     }
     return menu;
 };
@@ -29022,7 +29021,7 @@ ThreadManager.prototype.toggleProcess = function (block, receiver) {
 
 function compteur(){
     compteurGo++;
-    $container.find(".compteur").html(";Nombre de tentatives : " + compteurGo);
+    $container.find(".compteur").html("\"tentatives\" : \"" + compteurGo + "\"");
      var nbTry = config.testLimiter - compteurGo ;
     
     if(nbTry > 1){world.children[0].projectName = ' ATTENTION : Il vous reste '+ (nbTry) +' tentatives !';}
@@ -29036,6 +29035,54 @@ function compteur(){
         $container.find(".world").hide();
     }
 }
+
+ function morphOnSet(morph) {
+     if (morph) {
+         allMorphs.push(morph)
+     }
+     var evalParentMorph;
+
+     function correctParentMorph() {
+         if (!morph.parent.blockSpec) {
+             evalParentMorph = "desktop"
+         } else {
+             evalParentMorph = morph.parent.blockSpec
+         }
+         return evalParentMorph;
+     }
+     var  ope;
+     if (grabOrigine == "palette") {
+         ope = "ADD"
+     } else {
+         ope = "MOVE"
+     }
+     snapsrc.actionOrder++;
+     $container.find(".blockTracker").append("\"" + snapsrc.actionOrder + "\" : \"" + ope + " - " + morph.blockSpec + " @ " + correctParentMorph() + "\",");
+     return allMorphs
+ }
+
+ function morphRemover(morph) {
+     if (morph) {
+         allMorphs.push(morph)
+     }
+     var evalParentMorph;
+
+     function correctParentMorph() {
+         if (!morph.parent.blockSpec) {
+             evalParentMorph = "desktop"
+         } else {
+             evalParentMorph = morph.parent.blockSpec
+         }
+         return evalParentMorph;
+     }
+      snapsrc.actionOrder++;
+      $container.find(".blockTracker").append("\"" + snapsrc.actionOrder + "\" : \" DEL - " + morph.blockSpec + " @ " + correctParentMorph() + "\",");
+     return allMorphs
+ }
+
+ var blockRunner = true; // Allow to write once for receiveCondition -> Block When
+ snapsrc.blockReporter = [];
+
 
 //******************************* Wiquid ********************************************
 
@@ -29378,7 +29425,158 @@ Process.prototype.enableSingleStepping = false; // experimental
 Process.prototype.flashTime = 0; // experimental
 // Process.prototype.enableJS = false;
 
+// Variables to track process
+var blockRunner = true; // Allow to write once for receiveCondition -> Block When
+snapsrc.blockReporter = [];
+
+/** The function Process starts the chaining of blocks depending on the receiver(usually the sprite) - Spying the process (to put them in text string) is here possible  **/
 function Process(topBlock, receiver, onComplete, yieldFirst) {
+    try {
+        if (typeof topBlock != "undefined") {
+            var blockInProcess = [];
+            scanChildren(topBlock);
+        }
+    } catch (error) {
+        runerCatcher();
+    }
+
+    function runerCatcher() {
+        if (blockRunner) {
+           //Error watcher jp
+            blockInProcess.push("Quand /b");
+            blockRunner = false;
+        }
+    }
+
+    function scanChildren(blockToScan) {
+        if (blockToScan.children) {
+            var lastChild = blockToScan.children.length - 1;
+        }
+        var serialezedBlock = blockToScan.children[lastChild].toString();
+        var blockChain = {};
+        blockChain.Actor = receiver.name;
+        var blockString = "";
+
+        /*scanBlock check the nature of each block in process and organize the information to translate it in a readable string  */
+        function scanBlock(BToScan) {
+    
+            function slotClosure() {
+                var slotClosure = false;
+                if (BToScan.parent.selector == "doWarp" ||
+                    BToScan.parent.selector == "doForever" ||
+                    BToScan.parent.selector == "doRepeat" ||
+                    BToScan.parent.selector == "doUntil" ||
+                    BToScan.parent.selector == "doIf" ||
+                    BToScan.parent.selector == "doIfElse"
+                ) {
+                    slotClosure = true
+                }
+                return slotClosure
+            }
+
+            //Slot closure
+            var closure = slotClosure();
+            var serBToScan = BToScan.toString();
+            if (closure && serBToScan.search("CSlotMorph") < 0) {
+                blockString = blockString + "];";
+            }
+            for (var z = 0; z < BToScan.children.length; z++) {
+                var serChildren = BToScan.children[z].toString();
+                if (serChildren.search("StringMorph") > 0) {
+                    if (typeof BToScan.children[z].text != "undefined") {
+                        blockString = blockString + " " + BToScan.children[z].text;
+                    }
+                } else if (serChildren.search("SymbolMorph") > 0) {
+                    blockString = blockString + " " + BToScan.children[z].name;
+                } else if (serChildren.search("ColorSlotMorph") > 0) {
+                    blockString = blockString + " " + BToScan.children[z].color.toString();
+                } else if (serChildren.search("RingMorph") > 0) {
+                    //blockString = blockString + ";"  
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("RingReporterSlotMorph") > 0) {
+                    //blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("RingCommandSlotMorph") > 0) {
+                    //blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                    blockString = blockString + "]";
+                } else if (serChildren.search("TemplateSlotMorph") > 0) {
+                    blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("MultiArgMorph") > 0) {
+                    blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                    blockString = blockString + "-"
+                } else if (serChildren.search("InputSlotMorph") > 0) {
+                    blockString = blockString + "[";
+                    scanBlock(BToScan.children[z]);
+                    blockString = blockString + "]";
+                } else if (serChildren.search("CSlotMorph") > 0) {
+                    blockString = blockString + ":["
+                    scanBlock(BToScan.children[z]);
+                } else if (serChildren.search("CommandBlockMorph") > 0) {
+                    if (BToScan.parent.selector == "doWarp" ||
+                        BToScan.parent.selector == "doForever" ||
+                        BToScan.parent.selector == "doRepeat" ||
+                        BToScan.parent.selector == "doUntil" ||
+                        BToScan.parent.selector == "doIf" ||
+                        BToScan.parent.selector == "doIfElse") {
+                        scanBlock(BToScan.children[z]);
+                    } else {
+                        blockString = blockString + ";"
+                        scanBlock(BToScan.children[z]);
+                    }
+
+                } else if (serChildren.search("ReporterBlockMorph") > 0) {
+                    blockString = blockString + ";"
+                    scanBlock(BToScan.children[z]);
+                }
+
+            }
+            if (BToScan.selector == "doForever") {
+                blockString = blockString + "];";
+            }
+        }
+
+        //------------Caller--------------------
+        if (serialezedBlock.search("CommandBlockMorph") > 0) {
+            scanBlock(blockToScan);
+        } else {
+            blockChain.push("{block Isolé:");
+            scanBlock(blockToScan);
+            blockChain.push("}");
+            // Verify no process with hatBlockMorph
+            for (var i = 0; i < receiver.scripts.children.length; i++) {
+                var serNeighbour = receiver.scripts.children[i].toString();
+                if (serNeighbour.search("HatBlockMorph") > 0) {
+                    scanBlock(receiver.scripts.children[i]);
+                }
+
+            }
+        }
+        //String Correction 
+        blockString = blockString.replace("appelle;", "appelle:");
+        blockString = blockString.replace("to;", "to[");
+        blockString = blockString.replace("lance;", "lance[");
+        blockString = blockString.replace("exécute;", "exécute[");
+        blockString = blockString.replace("sinon", "]sinon");
+        blockString = blockString.replace(";]", "]");
+        blockString = blockString.replace("jusqu'à];", "jusqu'à");
+        blockString = blockString.replace("si;", "si");
+        blockString = blockString.replace("si];", "si");
+        blockString = blockString.replace("répéter[];", "répéter[");
+        blockString = blockString.replace("répéter];", "répéter");
+        blockString = blockString.replace("] répéter[];", "];répéter[");
+        blockString = blockString.replace("; répéter[]; ", "; répéter[");
+
+        var countOpen = blockString.split("[").length;
+        var countClose = blockString.split("]").length;
+        if (countClose < countOpen) {
+            blockString = blockString + "]"; //Close slot if no block behind.
+        }
+        blockChain.Script = blockString;
+        snapsrc.blockReporter.push(blockChain);
+    }
     this.topBlock = topBlock || null;
     this.receiver = receiver;
     this.instrument = receiver ? receiver.instrument : null;
@@ -29390,7 +29588,7 @@ function Process(topBlock, receiver, onComplete, yieldFirst) {
     this.errorFlag = false;
     this.context = null;
     this.homeContext = new Context(null, null, null, receiver);
-    this.lastYield =  Date.now();
+    this.lastYield = Date.now();
     this.isFirstStep = true;
     this.isAtomic = false;
     this.prompter = null;
@@ -31631,7 +31829,6 @@ Process.prototype.log = function (data) {
     if (this.homeContext.receiver) {
         world = this.homeContext.receiver.world();
         if (world.isDevMode) {
-           // console.log('Snap! ' + data.asArray());
         }
     }
 };
@@ -34810,7 +35007,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(watcherToggle('direction'));
         blocks.push(block('direction', this.inheritsAttribute('direction')));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP : cancel custom block button
+        // blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'looks') {
 
@@ -34859,7 +35057,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+       //JP cancel custom Block button
+       // blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sound') {
 
@@ -34876,7 +35075,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(watcherToggle('getTempo'));
         blocks.push(block('getTempo'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'pen') {
 
@@ -34900,7 +35100,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('reportPenTrailsAsCostume'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'control') {
 
@@ -34957,7 +35158,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('doPauseAll'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sensing') {
 
@@ -35019,7 +35221,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
 	/////////////////////////////////
 
 		blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'operators') {
 
@@ -35081,7 +35284,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'variables') {
 
@@ -35198,8 +35402,8 @@ SpriteMorph.prototype.blockTemplates = function (category) {
             blocks.push(block('reportMappedCode'));
             blocks.push('=');
         }
-
-        blocks.push(this.makeBlockButton());
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton());
 
  	}
     return blocks;
@@ -35207,6 +35411,7 @@ SpriteMorph.prototype.blockTemplates = function (category) {
 
 SpriteMorph.prototype.makeBlockButton = function (category) {
 	// answer a button that prompts the user to make a new block
+
     var button = new PushButtonMorph(
         this,
 		'makeBlock',
@@ -35225,44 +35430,7 @@ SpriteMorph.prototype.makeBlockButton = function (category) {
 };
 
 SpriteMorph.prototype.makeBlock = function () {
-    // prompt the user to make a new block
-    var ide = this.parentThatIsA(IDE_Morph),
-        stage = this.parentThatIsA(StageMorph),
-        category = ide.currentCategory,
-        clr = SpriteMorph.prototype.blockColor[category],
-        myself = this,
-        dlg;
-    dlg = new BlockDialogMorph(
-        null,
-        function (definition) {
-            if (definition.spec !== '') {
-                if (definition.isGlobal) {
-                    stage.globalBlocks.push(definition);
-                } else {
-                    myself.customBlocks.push(definition);
-                }
-                ide.flushPaletteCache();
-                ide.refreshPalette();
-                new BlockEditorMorph(definition, myself).popUp();
-            }
-        },
-        myself
-    );
-    if (category !== 'variables') {
-        dlg.category = category;
-        dlg.categories.children.forEach(function (each) {
-            each.refresh();
-        });
-        dlg.types.children.forEach(function (each) {
-            each.setColor(clr);
-        each.refresh();
-        });
-    }
-    dlg.prompt(
-        'Make a block',
-        null,
-        myself.world()
-    );
+    
 };
 
 SpriteMorph.prototype.palette = function (category) {
@@ -35322,7 +35490,7 @@ SpriteMorph.prototype.freshPalette = function (category) {
     makeButton.labelShadowColor = shade;
     makeButton.drawNew();
     makeButton.fixLayout();
-    palette.toolBar.add(makeButton);// Wiquid control the plus icon to add blocks
+    //palette.toolBar.add(makeButton);// Wiquid control the plus icon to add blocks
 
 	palette.toolBar.fixLayout();
     palette.add(palette.toolBar); // Wiquid control the whole toolbar
@@ -39344,7 +39512,6 @@ StageMorph.prototype.drawOn = function (aCanvas, aRect) {
                 hs
             );
         } catch (err) { // sometimes triggered only by Firefox
-            // console.log(err);
             context.restore();
             context.drawImage(
                 this.penTrails(),
@@ -39927,7 +40094,8 @@ StageMorph.prototype.blockTemplates = function (category) {
         txt.setColor(this.paletteTextColor);
         blocks.push(txt);
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'looks') {
 
@@ -39963,7 +40131,8 @@ StageMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+       //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sound') {
 
@@ -39980,14 +40149,16 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push(watcherToggle('getTempo'));
         blocks.push(block('getTempo'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'pen') {
 
         blocks.push(block('clear'));
         blocks.push(block('reportPenTrailsAsCostume'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'control') {
 
@@ -40034,7 +40205,8 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('doPauseAll'));
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'sensing') {
 
@@ -40090,7 +40262,8 @@ StageMorph.prototype.blockTemplates = function (category) {
     /////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'operators') {
 
@@ -40152,7 +40325,8 @@ StageMorph.prototype.blockTemplates = function (category) {
     //////////////////////////////////
 
         blocks.push('=');
-        blocks.push(this.makeBlockButton(cat));
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton(cat));
 
     } else if (cat === 'variables') {
 
@@ -40252,8 +40426,8 @@ StageMorph.prototype.blockTemplates = function (category) {
             blocks.push(block('reportMappedCode'));
             blocks.push('=');
         }
-
-        blocks.push(this.makeBlockButton());
+        //JP cancel custom Block button
+        //blocks.push(this.makeBlockButton());
     }
     return blocks;
 };
@@ -63696,7 +63870,6 @@ snapsrc.snap.tao = function(message){alert(message);};
         document.body.appendChild(inp);
         myself.filePicker = inp;
         inp.click();
-    
     }
  
     loop();
@@ -63706,6 +63879,15 @@ snapsrc.snap.tao = function(message){alert(message);};
         world.doOneCycle();  
 
     }
+
+     $container.find(".snapy").on('keydown', function (event) {
+         snapsrc.keyLog = event.keyCode + ", " + snapsrc.keyLog;
+     });
+
+
+
+
+       
 
 
  return panel_Left;
